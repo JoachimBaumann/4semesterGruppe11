@@ -1,17 +1,18 @@
 Manifest-Version: 1.0
+Bundle-Description: Generated using Pax-Construct
+Bundle-SymbolicName: dk.sdu.mmmi
+Built-By: Emil
 Bundle-ManifestVersion: 2
-Created-By: Apache Maven Bundle Plugin
+Bnd-LastModified: 1647708723986
+Import-Package: dk.sdu.mmmi;version="1.0.0.SNAPSHOT",org.osgi.framewor
+ k
 Tool: Bnd-0.0.255
-Bnd-LastModified: 1647706326481
 Export-Package: dk.sdu.mmmi;version="1.0.0.SNAPSHOT"
-Import-Package: dk.sdu.mmmi;version="1.0.0.SNAPSHOT",org.osgi.framework
+Bundle-Version: 1.0.0.SNAPSHOT
+Bundle-Name: dk.sdu.mmmi
 Private-Package: dk.sdu.mmmi.internal
 Ignore-Package: dk.sdu.mmmi.internal
-Bundle-Version: 1.0.0.SNAPSHOT
-Bundle-SymbolicName: dk.sdu.mmmi
-Bundle-Description: Generated using Pax-Construct
 Bundle-Activator: dk.sdu.mmmi.internal.ExampleActivator
-Bundle-Name: dk.sdu.mmmi
-Built-By: Emil
-Build-Jdk: 16.0.2
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_322
 
