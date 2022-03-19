@@ -3,7 +3,7 @@ Bundle-Description: Generated using Pax-Construct
 Bundle-SymbolicName: dk.sdu.mmmi
 Built-By: Emil
 Bundle-ManifestVersion: 2
-Bnd-LastModified: 1647708723986
+Bnd-LastModified: 1647709107085
 Import-Package: dk.sdu.mmmi;version="1.0.0.SNAPSHOT",org.osgi.framewor
  k
 Tool: Bnd-0.0.255
