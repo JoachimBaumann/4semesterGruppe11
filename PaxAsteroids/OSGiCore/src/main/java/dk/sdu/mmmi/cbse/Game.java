@@ -6,6 +6,9 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
@@ -27,6 +30,13 @@ public class Game implements ApplicationListener {
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
 
+
+    //spirits
+    private SpriteBatch batch;
+    private Texture texture;
+    private Sprite sprite;
+
+
     public Game(){
         init();
     }
@@ -44,6 +54,15 @@ public class Game implements ApplicationListener {
 
     @Override
     public void create() {
+
+
+        //spirit loading
+        batch = new SpriteBatch();
+        texture = new Texture(Gdx.files.internal("C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\4semesterGruppe11\\images/gaben.png"));
+        sprite = new Sprite(texture);
+
+
+
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 
@@ -68,6 +87,10 @@ public class Game implements ApplicationListener {
 
         update();
         draw();
+
+        batch.begin();
+        sprite.draw(batch);
+        batch.end();
     }
 
     private void update() {
@@ -84,6 +107,10 @@ public class Game implements ApplicationListener {
 
     private void draw() {
         for (Entity entity : world.getEntities()) {
+
+
+
+
             sr.setColor(1, 1, 1, 1);
 
             sr.begin(ShapeRenderer.ShapeType.Line);
