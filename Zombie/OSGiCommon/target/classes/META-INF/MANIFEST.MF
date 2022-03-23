@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1648035710411
+Bnd-LastModified: 1648036869635
 Build-Jdk: 1.8.0_322
 Built-By: Emil
 Bundle-Description: Generated using Pax-Construct
@@ -8,15 +8,14 @@ Bundle-Name: OSGiCommon
 Bundle-SymbolicName: dk.sdu.mmmi.common
 Bundle-Version: 1.0.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Export-Package: dk.sdu.mmmi.cbse.common.data;version="1.0.0.SNAPSHOT";us
- es:="dk.sdu.mmmi.cbse.common.data.entityparts,dk.sdu.mmmi.cbse.common.e
- vents",dk.sdu.mmmi.cbse.common.data.entityparts;version="1.0.0.SNAPSHOT
- ";uses:="dk.sdu.mmmi.cbse.common.data",dk.sdu.mmmi.cbse.common.events;v
- ersion="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data",dk.sdu.mmm
- i.cbse.common.services;version="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse
- .common.data"
-Import-Package: dk.sdu.mmmi.cbse.common.data;version="[1.0,2)",dk.sdu.mm
- mi.cbse.common.data.entityparts;version="[1.0,2)",dk.sdu.mmmi.cbse.comm
- on.events;version="[1.0,2)"
+Export-Package: dk.sdu.mmmi.cbse.common.data;uses:="dk.sdu.mmmi.cbse.com
+ mon.data.entityparts,dk.sdu.mmmi.cbse.common.events";version="1.0.0.SNA
+ PSHOT",dk.sdu.mmmi.cbse.common.data.entityparts;uses:="dk.sdu.mmmi.cbse
+ .common.data";version="1.0.0.SNAPSHOT",dk.sdu.mmmi.cbse.common.events;u
+ ses:="dk.sdu.mmmi.cbse.common.data";version="1.0.0.SNAPSHOT",dk.sdu.mmm
+ i.cbse.common.services;uses:="dk.sdu.mmmi.cbse.common.data";version="1.
+ 0.0.SNAPSHOT"
+Import-Package: dk.sdu.mmmi.cbse.common.data,dk.sdu.mmmi.cbse.common.dat
+ a.entityparts,dk.sdu.mmmi.cbse.common.events
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
 Tool: Bnd-3.5.0.201709291849

@@ -58,7 +58,7 @@ public class Game implements ApplicationListener {
 
         //spirit loading
         batch = new SpriteBatch();
-        texture = new Texture(Gdx.files.internal("C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\4semesterGruppe11\\images/gaben.png"));
+        texture = new Texture(Gdx.files.internal("4semesterGruppe11\\Zombie\\images\\gaben.png"));
         sprite = new Sprite(texture);
 
 
