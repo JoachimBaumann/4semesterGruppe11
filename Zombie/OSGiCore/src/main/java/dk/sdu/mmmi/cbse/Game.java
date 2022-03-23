@@ -62,7 +62,6 @@ public class Game implements ApplicationListener {
         sprite = new Sprite(texture);
 
 
-
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
 

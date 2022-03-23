@@ -32,10 +32,10 @@
       <module name="OSGiEnemy" target="1.8" />
       <module name="OSGiLaser" target="1.8" />
       <module name="OSGiPlayer" target="1.8" />
-      <module name="PaxAteroids" target="1.8" />
       <module name="provision" target="1.8" />
       <module name="shared-plugin-settings" target="1.8" />
       <module name="wrapper-bundle-settings" target="1.8" />
+      <module name="Zombie" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -89,6 +89,8 @@ public class MovingPart implements EntityPart {
 
         // accelerating            
         if (up) {
+
+
             dx += cos(radians) * acceleration * dt;
             dy += sin(radians) * acceleration * dt;
         }
