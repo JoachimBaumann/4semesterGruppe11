@@ -13,6 +13,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
@@ -23,15 +25,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Game implements ApplicationListener {
 
     private static OrthographicCamera cam;
-    private ShapeRenderer sr;
+    private ShapeRenderer shapeRenderer;
     private final GameData gameData = new GameData();
     private static World world = new World();
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList<>();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
-
-
-    //spirits
     private SpriteBatch batch;
     private Texture texture;
     private Sprite sprite;
@@ -55,12 +54,10 @@ public class Game implements ApplicationListener {
     @Override
     public void create() {
 
-
-        //spirit loading
-       // batch = new SpriteBatch();
-        //texture = new Texture(Gdx.files.internal("images\\gaben.png"));
-        //sprite = new Sprite(texture);
-
+        /*
+        this.batch = new SpriteBatch();
+        this.shapeRenderer = new ShapeRenderer();
+         */
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -69,7 +66,7 @@ public class Game implements ApplicationListener {
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
         cam.update();
 
-        sr = new ShapeRenderer();
+        shapeRenderer = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
 
@@ -102,24 +99,17 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
     }
-
+    //remove when sprite is implemented
     private void draw() {
         for (Entity entity : world.getEntities()) {
-
-            sr.setColor(1, 1, 1, 1);
-
-            sr.begin(ShapeRenderer.ShapeType.Line);
-
-            float[] shapex = entity.getShapeX();
-            float[] shapey = entity.getShapeY();
-
-            for (int i = 0, j = shapex.length - 1;
-                    i < shapex.length;
-                    j = i++) {
-
-                sr.line(shapex[i], shapey[i], shapex[j], shapey[j]);
-            }
-            sr.end();
+            PositionPart positionPart = entity.getPart(PositionPart.class);
+            SpritePart spritePart = entity.getPart(SpritePart.class);
+            float x = positionPart.getX();
+            float y = positionPart.getY();
+            float radians = positionPart.getRadians();
+            Texture img = new Texture(spritePart.getSpritePath());
+            Sprite sprite = new Sprite(img);
+            sprite.setPosition(x,y);
         }
     }
 
@@ -164,6 +154,9 @@ public class Game implements ApplicationListener {
     public void removeGamePluginService(IGamePluginService plugin) {
         this.gamePluginList.remove(plugin);
         plugin.stop(gameData, world);
+    }
+    public ShapeRenderer getShapeRenderer() {
+        return shapeRenderer;
     }
 
 }
