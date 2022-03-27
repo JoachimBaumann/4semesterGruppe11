@@ -2,6 +2,7 @@ package dk.sdu.mmmi.cbse;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
@@ -91,9 +92,6 @@ public class Game implements ApplicationListener {
         for (IEntityProcessingService entityProcessorService : entityProcessorList) {
             entityProcessorService.process(gameData, world);
         }
-
-
-
         // Post Update
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
@@ -106,10 +104,13 @@ public class Game implements ApplicationListener {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             float x = positionPart.getX();
             float y = positionPart.getY();
-            float radians = positionPart.getRadians();
             Texture img = new Texture(spritePart.getSpritePath());
             Sprite sprite = new Sprite(img);
             sprite.setPosition(x,y);
+            batch = new SpriteBatch();
+            batch.begin();
+            batch.draw(img, x, y);
+            batch.end();
         }
     }
 
