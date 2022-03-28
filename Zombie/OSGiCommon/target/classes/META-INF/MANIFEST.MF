@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1648465267330
+Bnd-LastModified: 1648470329170
 Build-Jdk: 1.8.0_322
-Built-By: kinky
+Built-By: Emil
 Bundle-Description: Generated using Pax-Construct
 Bundle-ManifestVersion: 2
 Bundle-Name: OSGiCommon

@@ -26,7 +26,8 @@
   <artifactId>Zombie</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>Zombie (OSGi project)</name>
+
+    <name>Zombie (OSGi project)</name>
 
   <!--
        | describe your project here
@@ -54,6 +55,7 @@
     <module>OSGiCommon</module>
     <module>OSGiPlayer</module>
     <module>osgimap</module>
+    <module>OSGiEnemy</module>
   </modules>
 
   <build>

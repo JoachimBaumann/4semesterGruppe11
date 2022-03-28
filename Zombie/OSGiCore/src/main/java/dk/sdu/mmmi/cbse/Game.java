@@ -50,7 +50,6 @@ public class Game implements ApplicationListener {
 
 
 
-    public Game(){
     public Game() {
         init();
     }
