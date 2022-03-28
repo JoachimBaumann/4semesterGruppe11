@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="Osmorc" url="file://$PROJECT_DIR$/dk" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiCommon" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiCore" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiLibGDX" />
@@ -13,6 +14,11 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/dk/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="corretto-1.8" project-jdk-type="JavaSDK" />
