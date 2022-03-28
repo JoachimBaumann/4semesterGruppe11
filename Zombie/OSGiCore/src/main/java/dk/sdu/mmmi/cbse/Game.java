@@ -92,7 +92,9 @@ public class Game implements ApplicationListener {
         WorldMap worldMap = world.getWorldMap();
 
 
-        // Try catch to Load map, if it doesnt already exist
+        /**
+         * Try/catch has been implemented so, if map is not loaded, it will be created and loaded in, else its updated.
+         */
         try {
             TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
 
