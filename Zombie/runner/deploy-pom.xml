@@ -81,7 +81,7 @@
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>dk.sdu.mmmi.cbse.osgienemy</artifactId>
+      <artifactId>dk.sdu.mmmi.cbse.osgimap</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>

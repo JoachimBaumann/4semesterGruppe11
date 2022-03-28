@@ -11,15 +11,19 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.math.Vector3;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.common.data.WorldMap;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
+
 
 
 import java.util.List;
@@ -47,14 +51,15 @@ public class Game implements ApplicationListener {
 
 
     public Game(){
+    public Game() {
         init();
     }
 
     public void init() {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "ZombieGame";
-        cfg.width = 800;
-        cfg.height = 600;
+        cfg.width = 1920;
+        cfg.height = 1080;
         cfg.useGL30 = false;
         cfg.resizable = false;
 
@@ -63,6 +68,13 @@ public class Game implements ApplicationListener {
 
     @Override
     public void create() {
+
+
+        //spirit loading
+        // batch = new SpriteBatch();
+        //texture = new Texture(Gdx.files.internal("images\\gaben.png"));
+        //sprite = new Sprite(texture);
+
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -85,6 +97,29 @@ public class Game implements ApplicationListener {
 
         gameData.setDelta(Gdx.graphics.getDeltaTime());
         gameData.getKeys().update();
+
+
+        WorldMap worldMap = world.getWorldMap();
+
+
+        /**
+         * Try/catch has been implemented so, if map is not loaded, it will be created and loaded in, else its updated.
+         */
+        try {
+            TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
+
+            Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
+            cam.position.set(center);
+
+            cam.update();
+
+            worldMap.getRenderer().setView(cam);
+
+            worldMap.getRenderer().render();
+        } catch (NullPointerException e) {
+            worldMap.create();
+        }
+
 
         update();
         draw();

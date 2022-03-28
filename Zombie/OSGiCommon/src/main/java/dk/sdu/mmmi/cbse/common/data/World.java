@@ -13,6 +13,8 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class World {
 
+    private WorldMap worldMap;
+
     private final Map<String, Entity> entityMap = new ConcurrentHashMap<>();
 
     public String addEntity(Entity entity) {
@@ -48,4 +50,11 @@ public class World {
         return entityMap.get(ID);
     }
 
+    public WorldMap getWorldMap() {
+        return worldMap;
+    }
+
+    public void setWorldMap(WorldMap worldMap) {
+        this.worldMap = worldMap;
+    }
 }
