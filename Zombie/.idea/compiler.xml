@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="OSGiAsteroids" />
+        <module name="OSGiMap" />
         <module name="LibGDX" />
         <module name="OSGiCore" />
         <module name="OSGiEnemy" />
@@ -31,6 +32,7 @@
       <module name="OSGiCore" target="1.8" />
       <module name="OSGiEnemy" target="1.8" />
       <module name="OSGiLaser" target="1.8" />
+      <module name="OSGiMap" target="1.8" />
       <module name="OSGiPlayer" target="1.8" />
       <module name="provision" target="1.8" />
       <module name="shared-plugin-settings" target="1.8" />
