@@ -43,7 +43,7 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new MovingPart(acceleration, deacceleration, maxAccelartion));
         playerShip.add(new PositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
-        playerShip.add(new SpritePart(400, 200, "C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\gaben.png"));
+        playerShip.add(new SpritePart(400, 200, "C:\\Users\\Phill\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\gaben.png"));
 
         return playerShip;
     }

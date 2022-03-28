@@ -20,6 +20,8 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
+
+
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import com.badlogic.gdx.physics.box2d.Box2D;
@@ -43,6 +45,7 @@ public class Game implements ApplicationListener {
     private Sprite sprite;
 
 
+
     public Game(){
         init();
     }
@@ -60,11 +63,6 @@ public class Game implements ApplicationListener {
 
     @Override
     public void create() {
-
-        /*
-        this.batch = new SpriteBatch();
-        this.shapeRenderer = new ShapeRenderer();
-         */
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -114,10 +112,11 @@ public class Game implements ApplicationListener {
             float x = positionPart.getX();
             float y = positionPart.getY();
             Texture img = new Texture(spritePart.getSpritePath());
-            Sprite sprite = new Sprite(img);
+            sprite = new Sprite(img);
+            sprite.setScale(0.1f);
             sprite.setPosition(x,y);
 
-            batch.draw(img, x, y);
+            batch.draw(img, x, y,100,100);
         }
         batch.end();
     }
