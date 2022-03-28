@@ -32,6 +32,9 @@ public class Game implements ApplicationListener {
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList<>();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
+
+
+
     private SpriteBatch batch;
     private Texture texture;
     private Sprite sprite;
@@ -97,6 +100,7 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
     }
+
     //remove when sprite is implemented
     private void draw() {
         batch = new SpriteBatch();
@@ -109,7 +113,6 @@ public class Game implements ApplicationListener {
             Texture img = new Texture(spritePart.getSpritePath());
             Sprite sprite = new Sprite(img);
             sprite.setPosition(x,y);
-
 
             batch.draw(img, x, y);
         }

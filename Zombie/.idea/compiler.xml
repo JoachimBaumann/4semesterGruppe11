@@ -21,6 +21,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="compiled-bundle-settings" target="1.8" />
+      <module name="dk.sdu.mmmi.cbse.osgimap" target="1.8" />
       <module name="LibGDX" target="1.8" />
       <module name="OSGiAsteroids" target="1.8" />
       <module name="OSGiAsteroidSplitter" target="1.8" />
