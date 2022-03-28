@@ -99,19 +99,20 @@ public class Game implements ApplicationListener {
     }
     //remove when sprite is implemented
     private void draw() {
+        batch = new SpriteBatch();
+        batch.begin();
         for (Entity entity : world.getEntities()) {
             PositionPart positionPart = entity.getPart(PositionPart.class);
             SpritePart spritePart = entity.getPart(SpritePart.class);
             float x = positionPart.getX();
             float y = positionPart.getY();
+            sprite.setPosition(x,y);
             Texture img = new Texture(spritePart.getSpritePath());
             Sprite sprite = new Sprite(img);
-            sprite.setPosition(x,y);
-            batch = new SpriteBatch();
-            batch.begin();
+
             batch.draw(img, x, y);
-            batch.end();
         }
+        batch.end();
     }
 
     @Override
