@@ -31,6 +31,7 @@ public class Game implements ApplicationListener {
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
 
 
+
     //spirits
     private SpriteBatch batch;
     private Texture texture;

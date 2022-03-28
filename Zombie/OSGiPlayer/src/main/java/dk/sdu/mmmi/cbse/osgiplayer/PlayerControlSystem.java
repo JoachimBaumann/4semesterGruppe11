@@ -22,7 +22,8 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
             movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
-            movingPart.setUp(gameData.getKeys().isDown(GameKeys.SPACE));
+            movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
+            movingPart.setSpace(gameData.getKeys().isDown(GameKeys.SPACE));
 
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
