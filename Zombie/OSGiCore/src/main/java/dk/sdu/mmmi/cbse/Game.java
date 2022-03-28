@@ -106,9 +106,10 @@ public class Game implements ApplicationListener {
             SpritePart spritePart = entity.getPart(SpritePart.class);
             float x = positionPart.getX();
             float y = positionPart.getY();
-            sprite.setPosition(x,y);
             Texture img = new Texture(spritePart.getSpritePath());
             Sprite sprite = new Sprite(img);
+            sprite.setPosition(x,y);
+
 
             batch.draw(img, x, y);
         }
