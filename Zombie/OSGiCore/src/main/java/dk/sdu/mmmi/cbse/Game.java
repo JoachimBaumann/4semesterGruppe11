@@ -91,6 +91,8 @@ public class Game implements ApplicationListener {
 
         WorldMap worldMap = world.getWorldMap();
 
+
+        // Try catch to Load map, if it doesnt already exist
         try {
             TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
 
@@ -102,8 +104,7 @@ public class Game implements ApplicationListener {
             worldMap.getRenderer().setView(cam);
 
             worldMap.getRenderer().render();
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             worldMap.create();
         }
 
