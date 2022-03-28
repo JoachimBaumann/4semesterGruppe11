@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1648467832493
+Build-Jdk: 1.8.0_322
+Built-By: Phill
+Bundle-ActivationPolicy: lazy
+Bundle-Description: Generated using Pax-Construct
+Bundle-ManifestVersion: 2
+Bundle-Name: OSGIEnemy
+Bundle-SymbolicName: OSGiEnemy
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: dk.sdu.mmmi.cbse.osgienemy;version="1.0.0.SNAPSHOT";uses
+ :="dk.sdu.mmmi.cbse.common.data,dk.sdu.mmmi.cbse.common.services"
+Import-Package: com.badlogic.gdx,com.badlogic.gdx.graphics,com.badlogic.
+ gdx.graphics.g2d,dk.sdu.mmmi.cbse.common.data;version="[1.0,2)",dk.sdu.
+ mmmi.cbse.common.data.entityparts;version="[1.0,2)",dk.sdu.mmmi.cbse.co
+ mmon.services;version="[1.0,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Service-Component: META-INF/entityprocessor.xml,META-INF/gameplugin.xml
+Tool: Bnd-3.5.0.201709291849
