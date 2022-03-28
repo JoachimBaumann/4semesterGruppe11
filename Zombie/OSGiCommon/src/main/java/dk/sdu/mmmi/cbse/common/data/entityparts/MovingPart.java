@@ -7,6 +7,8 @@ package dk.sdu.mmmi.cbse.common.data.entityparts;
 
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
+import dk.sdu.mmmi.cbse.common.data.Vector;
+
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
@@ -18,20 +20,23 @@ import static java.lang.Math.sqrt;
 public class MovingPart implements EntityPart {
 
     private float dx, dy;
-    private float deceleration, acceleration;
     private float maxSpeed, rotationSpeed;
     private boolean left, right, up, space;
-    private float defaultSpeed;
-    private boolean isAscending;
     private int count;
 
-    public MovingPart(float deceleration, float acceleration, float maxSpeed, float rotationSpeed) {
-        this.deceleration = deceleration;
-        this.acceleration = acceleration;
-        this.maxSpeed = maxSpeed;
-        this.rotationSpeed = rotationSpeed;
-        this.defaultSpeed = 50F;
-        this.isAscending = false;
+
+
+    private float acceleration;
+    private float deacceleration;
+    private static final float jumpAcceleration = 80F;
+    private static final float gravity = 150F;
+    private float maxAcceleration;
+
+
+    public MovingPart(float acceleration, float deacceleration, float maxAcceleration) {
+      this.acceleration = acceleration;
+      this.deacceleration = deacceleration;
+      this.maxAcceleration = maxAcceleration;
     }
 
     public float getDx() {
@@ -43,7 +48,7 @@ public class MovingPart implements EntityPart {
     }
     
     public void setDeceleration(float deceleration) {
-        this.deceleration = deceleration;
+        this.deacceleration = deacceleration;
     }
 
     public void setAcceleration(float acceleration) {
@@ -85,8 +90,43 @@ public class MovingPart implements EntityPart {
         float x = positionPart.getX();
         float y = positionPart.getY();
         float radians = positionPart.getRadians();
-        float dt = gameData.getDelta();
+        float delta = gameData.getDelta();
 
+        float oldX = positionPart.getX();
+        float oldY = positionPart.getY();
+
+        // Apply gravity
+        Vector velocity = new Vector(x, y);
+        velocity.setY(velocity.getY() - gravity * delta);
+
+
+        if (left) {
+            if (velocity.getX() < maxAcceleration) {
+                velocity.setX(Math.min(maxAcceleration, velocity.getX() + acceleration * delta));
+            }
+        } else if (velocity.getX() > 0) {
+            velocity.setX(Math.max(0, velocity.getX() - deacceleration * delta));
+        }
+        if (right) {
+            if (velocity.getX() > -maxAcceleration) {
+                velocity.setX(Math.max(-maxAcceleration, velocity.getX() - acceleration * delta));
+            }
+        } else if (velocity.getX() < 0) {
+            velocity.setX(Math.min(0, velocity.getX() + deacceleration * delta));
+        }
+
+        // Jump
+        if (space) {
+            velocity.setY(jumpAcceleration);
+        }
+
+        positionPart.setX(velocity.getX());
+        positionPart.setY(velocity.getY());
+
+
+
+
+        /*
         // turning
         if (left) {
             //radians += rotationSpeed * dt;
@@ -138,6 +178,10 @@ public class MovingPart implements EntityPart {
         positionPart.setY(y);
 
         positionPart.setRadians(radians);
+
+
+         */
     }
+
 
 }
