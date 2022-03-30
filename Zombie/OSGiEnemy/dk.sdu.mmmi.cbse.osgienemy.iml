@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.cbse.osgienemy.internal.*,dk.sdu.mmmi.cbse.osgienemy.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.cbse.osgienemy.internal.*" />
           <property key="Bundle-Name" value="OSGIEnemy" />
-          <property key="Include-Resource" value="META-INF/entityprocessor.xml=$MODULE_DIR$/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=$MODULE_DIR$/src/main/resources/META-INF/gameplugin.xml" />
+          <property key="Include-Resource" value="META-INF/entityprocessor.xml=C:/Users/Emil/Desktop/UNI/SemesterProject4/4semesterGruppe11/Zombie/OSGiEnemy/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=C:/Users/Emil/Desktop/UNI/SemesterProject4/4semesterGruppe11/Zombie/OSGiEnemy/src/main/resources/META-INF/gameplugin.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

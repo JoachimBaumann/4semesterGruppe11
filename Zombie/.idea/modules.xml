@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/OSGiLibGDX/LibGDX.iml" filepath="$PROJECT_DIR$/OSGiLibGDX/LibGDX.iml" />
       <module fileurl="file://$PROJECT_DIR$/OSGiAsteroidSplitter/OSGiAsteroidSplitter.iml" filepath="$PROJECT_DIR$/OSGiAsteroidSplitter/OSGiAsteroidSplitter.iml" />
       <module fileurl="file://$PROJECT_DIR$/OSGiAsteroids/OSGiAsteroids.iml" filepath="$PROJECT_DIR$/OSGiAsteroids/OSGiAsteroids.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OSGiCollision/OSGiCollision.iml" filepath="$PROJECT_DIR$/OSGiCollision/OSGiCollision.iml" />
       <module fileurl="file://$PROJECT_DIR$/OSGiCommon/OSGiCommon.iml" filepath="$PROJECT_DIR$/OSGiCommon/OSGiCommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/OSGiCommonAsteroids/OSGiCommonAsteroids.iml" filepath="$PROJECT_DIR$/OSGiCommonAsteroids/OSGiCommonAsteroids.iml" />
       <module fileurl="file://$PROJECT_DIR$/OSGiCommonBullet/OSGiCommonBullet.iml" filepath="$PROJECT_DIR$/OSGiCommonBullet/OSGiCommonBullet.iml" />

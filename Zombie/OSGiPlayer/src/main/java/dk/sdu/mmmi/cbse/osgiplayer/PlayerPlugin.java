@@ -30,17 +30,17 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayerShip(GameData gameData) {
-        float deacceleration = 250f;
-        float acceleration = 150f;
-        float maxAccelartion = 155f;
+        float deacceleration = 150f;
+        float acceleration = 250f;
+        float maxAccelaretion = 1920f;
         float rotationSpeed = 5;
-        float x = gameData.getDisplayWidth() / 2;
-        float y = gameData.getDisplayHeight() / 2;
-        float radians = 3.1415f / 2;
+        float x = gameData.getDisplayWidth();
+        float y = gameData.getDisplayHeight();
+        float radians = 6.1415f / 2;
 
         Entity playerShip = new Player();
         playerShip.setRadius(8);
-        playerShip.add(new MovingPart(acceleration, deacceleration, maxAccelartion));
+        playerShip.add(new MovingPart(acceleration, deacceleration, maxAccelaretion));
         playerShip.add(new PositionPart(x, y, radians));
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(400, 200, "C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\gaben.png"));

@@ -95,18 +95,21 @@ public class MovingPart implements EntityPart {
         float oldX = positionPart.getX();
         float oldY = positionPart.getY();
 
+
         // Apply gravity
         Vector velocity = new Vector(x, y);
         velocity.setY(velocity.getY() - gravity * delta);
+        //positionPart.setY(y - gravity * delta);
 
 
         if (right) {
             if (velocity.getX() < maxAcceleration) {
                 velocity.setX(Math.min(maxAcceleration, velocity.getX() + acceleration * delta));
             }
-        } else if (velocity.getX() > 0) {
-            velocity.setX(Math.max(0, velocity.getX() - deacceleration * delta));
-        }
+        } //else if (velocity.getX() > 0) {
+          //  velocity.setX(Math.max(0, velocity.getX() - deacceleration * delta));
+          //  System.out.println("VelocityELSE = " + velocity.getX());
+        //}
         if (left) {
             if (velocity.getX() > -maxAcceleration) {
                 velocity.setX(Math.max(-maxAcceleration, velocity.getX() - acceleration * delta));
@@ -115,15 +118,22 @@ public class MovingPart implements EntityPart {
             velocity.setX(Math.min(0, velocity.getX() + deacceleration * delta));
         }
 
+
         // Jump
         if (space) {
             velocity.setY(jumpAcceleration);
         }
 
+
+        //floor collision
+        if (velocity.getY() <= 0) {
+            velocity.setY(0);
+        } else if (velocity.getX() <= 0) {
+            velocity.setX(0);
+         }
+
         positionPart.setX(velocity.getX());
         positionPart.setY(velocity.getY());
-
-
 
 
         /*
@@ -178,10 +188,7 @@ public class MovingPart implements EntityPart {
         positionPart.setY(y);
 
         positionPart.setRadians(radians);
-
-
-         */
+            */
     }
-
 
 }

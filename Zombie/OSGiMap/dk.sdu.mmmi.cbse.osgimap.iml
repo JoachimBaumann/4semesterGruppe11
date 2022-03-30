@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.cbse.osgimap.internal.*,dk.sdu.mmmi.cbse.osgimap.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.cbse.osgimap.internal.*" />
           <property key="Bundle-Name" value="OSGiMap" />
-          <property key="Include-Resource" value="META-INF/gameplugin.xml=$MODULE_DIR$/src/main/resources/META-INF/gameplugin.xml" />
+          <property key="Include-Resource" value="META-INF/gameplugin.xml=C:/Users/Emil/Desktop/UNI/SemesterProject4/4semesterGruppe11/Zombie/OSGiMap/src/main/resources/META-INF/gameplugin.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

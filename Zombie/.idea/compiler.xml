@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="dk.sdu.mmmi.cbse.osgienemy" />
         <module name="OSGiEnemy" />
+        <module name="OSGiCollision" />
         <module name="OSGiLaser" />
         <module name="OSGiCommonEnemy" />
         <module name="OSGiAsteroidSplitter" />
@@ -28,6 +29,7 @@
       <module name="LibGDX" target="1.8" />
       <module name="OSGiAsteroids" target="1.8" />
       <module name="OSGiAsteroidSplitter" target="1.8" />
+      <module name="OSGiCollision" target="1.8" />
       <module name="OSGiCommon" target="1.8" />
       <module name="OSGiCommonAsteroids" target="1.8" />
       <module name="OSGiCommonBullet" target="1.8" />
