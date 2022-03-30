@@ -28,7 +28,7 @@ public class MovingPart implements EntityPart {
 
     private float acceleration;
     private float deacceleration;
-    private static final float jumpAcceleration = 80F;
+    private static final float jumpAcceleration = 100F;
     private static final float gravity = 150F;
     private float maxAcceleration;
 
@@ -100,14 +100,14 @@ public class MovingPart implements EntityPart {
         velocity.setY(velocity.getY() - gravity * delta);
 
 
-        if (left) {
+        if (right) {
             if (velocity.getX() < maxAcceleration) {
                 velocity.setX(Math.min(maxAcceleration, velocity.getX() + acceleration * delta));
             }
         } else if (velocity.getX() > 0) {
             velocity.setX(Math.max(0, velocity.getX() - deacceleration * delta));
         }
-        if (right) {
+        if (left) {
             if (velocity.getX() > -maxAcceleration) {
                 velocity.setX(Math.max(-maxAcceleration, velocity.getX() - acceleration * delta));
             }
