@@ -9,7 +9,7 @@
   </parent>
 
   <properties>
-    <bundle.symbolicName>dk.sdu.mmmi.cbse</bundle.symbolicName>
+    <bundle.symbolicName>OSGiCollision</bundle.symbolicName>
     <bundle.namespace>dk.sdu.mmmi.cbse</bundle.namespace>
   </properties>
 
