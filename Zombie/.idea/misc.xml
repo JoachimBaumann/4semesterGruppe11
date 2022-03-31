@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="Osmorc" url="file://$PROJECT_DIR$/dk" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiCollision" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiCommon" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiCore" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiEnemy" />

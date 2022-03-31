@@ -30,8 +30,8 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayerShip(GameData gameData) {
-        float deacceleration = 150f;
-        float acceleration = 250f;
+        float deacceleration = 50f;
+        float acceleration = 200f;
         float maxAccelaretion = 1920f;
         float rotationSpeed = 5;
         float x = gameData.getDisplayWidth();
@@ -41,7 +41,7 @@ public class PlayerPlugin implements IGamePluginService {
         Entity playerShip = new Player();
         playerShip.setRadius(8);
         playerShip.add(new MovingPart(acceleration, deacceleration, maxAccelaretion));
-        playerShip.add(new PositionPart(x, y, radians));
+        playerShip.add(new PositionPart(900, y, radians));
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(400, 200, "C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\gaben.png"));
 

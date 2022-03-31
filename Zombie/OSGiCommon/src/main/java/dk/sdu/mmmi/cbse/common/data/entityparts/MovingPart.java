@@ -28,7 +28,7 @@ public class MovingPart implements EntityPart {
 
     private float acceleration;
     private float deacceleration;
-    private static final float jumpAcceleration = 100F;
+    private static final float jumpAcceleration = 190F;
     private static final float gravity = 150F;
     private float maxAcceleration;
 
@@ -91,7 +91,6 @@ public class MovingPart implements EntityPart {
         float y = positionPart.getY();
         float radians = positionPart.getRadians();
         float delta = gameData.getDelta();
-
         float oldX = positionPart.getX();
         float oldY = positionPart.getY();
 

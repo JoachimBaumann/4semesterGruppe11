@@ -104,6 +104,7 @@ public class Game implements ApplicationListener {
         /**
          * Try/catch has been implemented so, if map is not loaded, it will be created and loaded in, else its updated.
          */
+
         try {
             TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
 
@@ -118,6 +119,7 @@ public class Game implements ApplicationListener {
         } catch (NullPointerException e) {
             worldMap.create();
         }
+
 
 
         update();
