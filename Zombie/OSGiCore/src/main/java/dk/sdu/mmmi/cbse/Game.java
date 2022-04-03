@@ -109,6 +109,7 @@ public class Game implements ApplicationListener {
             worldMap.getRenderer().render();
         } catch (NullPointerException e) {
             worldMap.create();
+            gameData.setWorldMap(worldMap);
         }
 
 

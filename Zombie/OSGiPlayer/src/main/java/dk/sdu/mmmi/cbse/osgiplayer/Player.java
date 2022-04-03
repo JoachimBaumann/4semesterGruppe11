@@ -10,7 +10,9 @@ public class Player extends Entity {
 
     @Override
     public void create() {
-        this.setSprite(new Sprite(new Texture("C:\\Users\\kinky\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\png.jpg"),60,120));
+        this.setSprite(new Sprite(new Texture("C:\\Users\\kinky\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\png.jpg"),32,64));
+
+
     }
 
     @Override

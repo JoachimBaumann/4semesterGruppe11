@@ -23,7 +23,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
             PositionPart positionPart = player.getPart(PositionPart.class);
             MovingPart movingPart = player.getPart(MovingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
-         //   SpritePart spritePart = player.getPart(SpritePart.class);
 
             movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
@@ -33,7 +32,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
             lifePart.process(gameData, player);
-            //spritePart.process(gameData, player);
 
 
 
