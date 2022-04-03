@@ -125,8 +125,8 @@ public class MovingPart implements EntityPart {
 
 
         //floor collision
-        if (velocity.getY() <= 0) {
-            velocity.setY(0);
+        if (velocity.getY() <= 190) {
+            velocity.setY(190);
         } else if (velocity.getX() <= 0) {
             velocity.setX(0);
          }
