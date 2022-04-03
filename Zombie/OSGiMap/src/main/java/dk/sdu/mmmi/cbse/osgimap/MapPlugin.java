@@ -32,7 +32,7 @@ public class MapPlugin implements IGamePluginService {
         map = new TiledMap();
 
         TmxMapLoader loader = new TmxMapLoader();
-        map = loader.load("maps/mapforproject.tmx");
+        map = loader.load("C:\\Users\\kinky\\IdeaProjects\\4semesterGruppe11\\Zombie\\Assets\\Map\\map.tmx");
 
         renderer = new OrthogonalTiledMapRenderer(map);
         sr = new ShapeRenderer();
