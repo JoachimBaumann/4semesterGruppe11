@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1648730001873
+Bnd-LastModified: 1648993074195
 Build-Jdk: 1.8.0_322
-Built-By: Emil
+Built-By: kinky
 Bundle-ActivationPolicy: lazy
 Bundle-Description: Generated using Pax-Construct
 Bundle-ManifestVersion: 2
@@ -11,14 +11,15 @@ Bundle-Version: 1.0.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Export-Package: dk.sdu.mmmi.cbse.common.data;version="1.0.0.SNAPSHOT";us
  es:="com.badlogic.gdx,com.badlogic.gdx.graphics,com.badlogic.gdx.graphi
- cs.glutils,com.badlogic.gdx.maps.tiled,com.badlogic.gdx.maps.tiled.rend
- erers,dk.sdu.mmmi.cbse.common.data.entityparts,dk.sdu.mmmi.cbse.common.
- events",dk.sdu.mmmi.cbse.common.data.entityparts;version="1.0.0.SNAPSHO
- T";uses:="dk.sdu.mmmi.cbse.common.data",dk.sdu.mmmi.cbse.common.events;
- version="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data",dk.sdu.mm
- mi.cbse.common.services;version="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbs
- e.common.data",dk.sdu.mmmi.cbse.osgiplayer;version="1.0.0.SNAPSHOT";use
- s:="dk.sdu.mmmi.cbse.common.data,dk.sdu.mmmi.cbse.common.services"
+ cs.g2d,com.badlogic.gdx.graphics.glutils,com.badlogic.gdx.maps.tiled,co
+ m.badlogic.gdx.maps.tiled.renderers,dk.sdu.mmmi.cbse.common.data.entity
+ parts,dk.sdu.mmmi.cbse.common.events",dk.sdu.mmmi.cbse.common.data.enti
+ typarts;version="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data",d
+ k.sdu.mmmi.cbse.common.events;version="1.0.0.SNAPSHOT";uses:="dk.sdu.mm
+ mi.cbse.common.data",dk.sdu.mmmi.cbse.common.services;version="1.0.0.SN
+ APSHOT";uses:="dk.sdu.mmmi.cbse.common.data",dk.sdu.mmmi.cbse.osgiplaye
+ r;version="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data,dk.sdu.m
+ mmi.cbse.common.services"
 Import-Package: com.badlogic.gdx,com.badlogic.gdx.graphics,com.badlogic.
  gdx.graphics.g2d,com.badlogic.gdx.graphics.glutils,com.badlogic.gdx.map
  s.tiled,com.badlogic.gdx.maps.tiled.renderers,dk.sdu.mmmi.cbse.common.d

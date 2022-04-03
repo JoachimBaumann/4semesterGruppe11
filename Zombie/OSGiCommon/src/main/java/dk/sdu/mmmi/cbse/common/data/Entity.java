@@ -1,5 +1,7 @@
 package dk.sdu.mmmi.cbse.common.data;
 
+import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 
@@ -9,13 +11,14 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Entity implements Serializable {
+public class Entity extends ApplicationAdapter implements Serializable {
     private final UUID ID = UUID.randomUUID();
 
-    // private SpritePart spritePart = new SpritePart(200,400, "C:\\Users\\Phill\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\gaben.png" );
-    private float[] shapeX = new float[4];
-    private float[] shapeY = new float[4];
-    private float radius;
+
+    //sprite stuff
+    private Sprite sprite;
+    private float width, height;
+
     private Map<Class, EntityPart> parts;
     
     public Entity() {
@@ -33,42 +36,37 @@ public class Entity implements Serializable {
     public <E extends EntityPart> E getPart(Class partClass) {
         return (E) parts.get(partClass);
     }
-    
-    public void setRadius(float r){
-        this.radius = r;
+
+    public void setSprite(Sprite sprite) {
+        setWidth(sprite.getWidth());
+        setHeight(sprite.getHeight());
+        this.sprite = sprite;
+    }
+    public Sprite getSprite(){
+        return this.sprite;
+    }
+    public float getWidth() {
+        return width;
+    }
+
+    public void setWidth(float width) {
+        this.width = width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
     }
     
-    public float getRadius(){
-        return radius;
-    }
 
     public String getID() {
         return ID.toString();
     }
 
-    public float[] getShapeX() {
-        return shapeX;
-    }
 
-    public void setShapeX(float[] shapeX) {
-        this.shapeX = shapeX;
-    }
 
-    public float[] getShapeY() {
-        return shapeY;
-    }
 
-    public void setShapeY(float[] shapeY) {
-        this.shapeY = shapeY;
-    }
-
-    /*
-    public SpritePart getSpritePart() {
-        return spritePart;
-    }
-
-    public void setSpritePart(SpritePart spritePart) {
-        this.spritePart = spritePart;
-    }
-     */
 }

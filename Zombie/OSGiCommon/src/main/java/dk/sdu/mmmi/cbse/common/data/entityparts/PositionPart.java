@@ -55,6 +55,11 @@ public class PositionPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
+        try{
+            entity.getSprite().setPosition(this.getX(), this.getY());
+        }catch(NullPointerException e){
+
+        }
     }
     
     

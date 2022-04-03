@@ -2,7 +2,6 @@ package dk.sdu.mmmi.cbse;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
@@ -17,19 +16,13 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
 
-
-
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import com.badlogic.gdx.physics.box2d.Box2D;
-import com.badlogic.gdx.math.Vector2;
 
 
 public class Game implements ApplicationListener {
@@ -43,11 +36,9 @@ public class Game implements ApplicationListener {
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
 
 
-
     private SpriteBatch batch;
     private Texture texture;
     private Sprite sprite;
-
 
 
     public Game() {
@@ -70,7 +61,7 @@ public class Game implements ApplicationListener {
 
 
         //spirit loading
-        // batch = new SpriteBatch();
+        batch = new SpriteBatch();
         //texture = new Texture(Gdx.files.internal("images\\gaben.png"));
         //sprite = new Sprite(texture);
 
@@ -121,9 +112,8 @@ public class Game implements ApplicationListener {
         }
 
 
-
-        update();
         draw();
+        update();
 
     }
 
@@ -140,19 +130,13 @@ public class Game implements ApplicationListener {
 
     //remove when sprite is implemented
     private void draw() {
-        batch = new SpriteBatch();
         batch.begin();
         for (Entity entity : world.getEntities()) {
-            PositionPart positionPart = entity.getPart(PositionPart.class);
-            SpritePart spritePart = entity.getPart(SpritePart.class);
-            float x = positionPart.getX();
-            float y = positionPart.getY();
-            Texture img = new Texture(spritePart.getSpritePath());
-            sprite = new Sprite(img);
-            sprite.setScale(0.1f);
-            sprite.setPosition(x,y);
-
-            batch.draw(img, x, y,100,100);
+            try {
+                entity.getSprite().draw(batch);
+            } catch (NullPointerException e) {
+                entity.create();
+            }
         }
         batch.end();
     }
@@ -171,6 +155,8 @@ public class Game implements ApplicationListener {
 
     @Override
     public void dispose() {
+        batch.dispose();
+        world.getWorldMap().dispose();
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {
@@ -199,6 +185,7 @@ public class Game implements ApplicationListener {
         this.gamePluginList.remove(plugin);
         plugin.stop(gameData, world);
     }
+
     public ShapeRenderer getShapeRenderer() {
         return shapeRenderer;
     }

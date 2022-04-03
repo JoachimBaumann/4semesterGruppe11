@@ -39,11 +39,9 @@ public class PlayerPlugin implements IGamePluginService {
         float radians = 6.1415f / 2;
 
         Entity playerShip = new Player();
-        playerShip.setRadius(8);
         playerShip.add(new MovingPart(acceleration, deacceleration, maxAccelaretion));
         playerShip.add(new PositionPart(900, y, radians));
         playerShip.add(new LifePart(1));
-        playerShip.add(new SpritePart(400, 200, "C:\\Users\\kinky\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\gaben.png"));
 
         return playerShip;
     }

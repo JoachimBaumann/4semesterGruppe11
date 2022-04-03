@@ -23,7 +23,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             PositionPart positionPart = player.getPart(PositionPart.class);
             MovingPart movingPart = player.getPart(MovingPart.class);
             LifePart lifePart = player.getPart(LifePart.class);
-            SpritePart spritePart = player.getPart(SpritePart.class);
+         //   SpritePart spritePart = player.getPart(SpritePart.class);
 
             movingPart.setLeft(gameData.getKeys().isDown(GameKeys.LEFT));
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
@@ -33,23 +33,12 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
             lifePart.process(gameData, player);
-            spritePart.process(gameData, player);
+            //spritePart.process(gameData, player);
 
-            updateShape(player);
+
 
         }
     }
 
-    private void updateShape(Entity entity) {
-
-        PositionPart positionPart = entity.getPart(PositionPart.class);
-        SpritePart spritePart = entity.getPart(SpritePart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float radians = positionPart.getRadians();
-        Texture img = new Texture(spritePart.getSpritePath());
-        Sprite sprite = new Sprite(img);
-        sprite.setPosition(Gdx.graphics.getWidth()/2-sprite.getRegionHeight()/2,Gdx.graphics.getWidth()/2-Gdx.graphics.getHeight()/2);
-    }
 
 }
