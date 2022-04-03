@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGiCore" />
-          <property key="Include-Resource" value="META-INF/core.xml=$MODULE_DIR$/src/main/resources/META-INF/core.xml" />
+          <property key="Include-Resource" value="META-INF/core.xml=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCore/src/main/resources/META-INF/core.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

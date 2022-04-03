@@ -45,9 +45,9 @@ public class EnemyPlugin implements IGamePluginService {
         Entity enemy = new Enemy();
         enemy.setRadius(8);
         //enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
-        enemy.add(new PositionPart(x, y, radians));
+        enemy.add(new PositionPart(x+1600, y+177, radians));
         enemy.add(new LifePart(1));
-        enemy.add(new SpritePart(1, 1, "C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\png.jpg"));
+        enemy.add(new SpritePart(1, 1, "C:\\Users\\Phill\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\enemy1.png"));
 
         return  enemy;
     }
