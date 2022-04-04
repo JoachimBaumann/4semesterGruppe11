@@ -16,16 +16,15 @@
   </properties>
   <dependencies>
     <dependency>
-      <groupId>org.apache.felix</groupId>
-      <artifactId>org.apache.felix.scr</artifactId>
-      <version>1.8.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>dk.sdu.mmmi.build</groupId>
       <artifactId>OSGiCommon</artifactId>
       <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr</artifactId>
+      <version>1.8.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -62,14 +61,15 @@
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiCommon</artifactId>
+      <artifactId>OSGiLibGDX</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiLibGDX</artifactId>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>OSGiCommonPlayer</artifactId>
       <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -77,6 +77,12 @@
       <artifactId>OSGiPlayer</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>OSGiCommonPlayer</artifactId>
+      <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -96,6 +102,13 @@
     <dependency>
       <groupId>dk.sdu.mmmi.Zombie</groupId>
       <artifactId>dk.sdu.mmmi.cbse</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>dk.sdu.mmmi.cbse.osgienemytracking</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>

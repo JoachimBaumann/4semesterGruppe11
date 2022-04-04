@@ -9,6 +9,8 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.common.player.Player;
+
 
 public class PlayerPlugin implements IGamePluginService {
 

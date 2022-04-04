@@ -2,13 +2,13 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Osmorc" name="OSGi">
-      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="dk.sdu.mmmi.cbse-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="dk.sdu.mmmi.cbse" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="dk.sdu.mmmi.cbse-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGiCollision" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
           <property key="Bundle-Description" value="Generated using Pax-Construct" />
           <property key="Export-Package" value="!dk.sdu.mmmi.cbse.internal.*,dk.sdu.mmmi.cbse.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.cbse.internal.*" />
-          <property key="Bundle-Name" value="dk.sdu.mmmi.cbse" />
-          <property key="Include-Resource" value="META-INF/postentityprocess.xml=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCollision/src/main/resources/META-INF/postentityprocess.xml" />
+          <property key="Bundle-Name" value="OSGiCollision" />
+          <property key="Include-Resource" value="META-INF/postentityprocess.xml=$MODULE_DIR$/src/main/resources/META-INF/postentityprocess.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

@@ -2,7 +2,7 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Osmorc" name="OSGi">
-      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiPlayer-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="dk.sdu.mmmi.common" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiPlayer-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGiPlayer" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
           <property key="Bundle-Description" value="Generated using Pax-Construct" />
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
@@ -26,6 +26,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.0" level="project" />
     <orderEntry type="module" module-name="OSGiCommon" />
+    <orderEntry type="module" module-name="OSGiCommonPlayer" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
   </component>
 </module>

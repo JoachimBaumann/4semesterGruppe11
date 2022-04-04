@@ -8,7 +8,7 @@
     </parent>
 
     <properties>
-        <bundle.symbolicName>dk.sdu.mmmi.common</bundle.symbolicName>
+        <bundle.symbolicName>OSGiCommon</bundle.symbolicName>
         <bundle.namespace>dk.sdu.mmmi</bundle.namespace>
     </properties>
     <modelVersion>4.0.0</modelVersion>

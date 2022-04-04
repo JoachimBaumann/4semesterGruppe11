@@ -11,7 +11,7 @@
   </parent>
 
   <properties>
-    <bundle.symbolicName>dk.sdu.mmmi.common</bundle.symbolicName>
+    <bundle.symbolicName>OSGiPlayer</bundle.symbolicName>
     <bundle.namespace>dk.sdu.mmmi</bundle.namespace>
   </properties>
 
@@ -47,11 +47,17 @@
       <scope>compile</scope>
     </dependency>
       <dependency>
-          <groupId>com.badlogicgames.gdx</groupId>
-          <artifactId>gdx</artifactId>
-          <version>1.5.0</version>
+          <groupId>dk.sdu.mmmi.Zombie</groupId>
+          <artifactId>OSGiCommonPlayer</artifactId>
+          <version>1.0-SNAPSHOT</version>
           <scope>compile</scope>
       </dependency>
+    <dependency>
+      <groupId>com.badlogicgames.gdx</groupId>
+      <artifactId>gdx</artifactId>
+      <version>1.5.0</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
   <build>
