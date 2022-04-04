@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.cbse.osgienemy;
 
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -47,7 +48,7 @@ public class EnemyPlugin implements IGamePluginService {
         //enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemy.add(new PositionPart(x+1600, y+177, radians));
         enemy.add(new LifePart(1));
-        enemy.add(new SpritePart(1, 1, "C:\\Users\\Phill\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\enemy1.png"));
+        enemy.add(new SpritePart(1, 1, AssetLoader.getAssetPath("enemy1.png")));
 
         return  enemy;
     }

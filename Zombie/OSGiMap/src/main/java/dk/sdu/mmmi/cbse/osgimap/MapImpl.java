@@ -5,7 +5,17 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
+
+
+
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class MapImpl extends WorldMap {
 
@@ -15,9 +25,11 @@ public class MapImpl extends WorldMap {
     @Override
     public void create() {
         TiledMap map = new TiledMap();
-
         TmxMapLoader loader = new TmxMapLoader();
-        map = loader.load("C:\\Users\\Phill\\IdeaProjects\\4semesterGruppe11\\Zombie\\Assets\\Map\\map.tmx");
+        AssetLoader.getAssetPath("map.tmx");
+        map = loader.load(AssetLoader.getAssetPath("map.tmx"));
+
+
         this.setMap(map);
 
         this.setRenderer(new OrthogonalTiledMapRenderer(map));

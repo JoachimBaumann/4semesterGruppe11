@@ -1,5 +1,6 @@
 package dk.sdu.mmmi.cbse.osgiplayer;
 
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -43,7 +44,7 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new MovingPart(acceleration, deacceleration, maxAccelaretion));
         playerShip.add(new PositionPart(900, y, radians));
         playerShip.add(new LifePart(1));
-        playerShip.add(new SpritePart(400, 200, "C:\\Users\\Phill\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\player.png"));
+        playerShip.add(new SpritePart(400, 200, AssetLoader.getAssetPath("gaben.png")));
 
         return playerShip;
     }
