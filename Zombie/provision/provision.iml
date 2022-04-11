@@ -10,7 +10,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.apache.felix:org.apache.felix.scr:1.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.9" level="project" />
-    <orderEntry type="module" module-name="OSGiCommon" />
+    <orderEntry type="module" module-name="OSGiCommonEnemy" />
+    <orderEntry type="library" name="Maven: dk.sdu.mmmi.build:OSGiCommon:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
   </component>
 </module>

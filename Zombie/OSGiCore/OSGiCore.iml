@@ -26,7 +26,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.compendium:4.3.0" level="project" />
-    <orderEntry type="module" module-name="OSGiCommon" />
+    <orderEntry type="library" name="Maven: dk.sdu.mmmi.build:OSGiCommon:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
     <orderEntry type="module" module-name="LibGDX" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx-platform:1.5.0" level="project" />
@@ -52,5 +52,6 @@
     <orderEntry type="library" name="Maven: com.google.code.javaparser:javaparser:1.0.8" level="project" />
     <orderEntry type="library" name="Maven: com.diffplug.osgi:com.diffplug.osgi.extension.sun.misc:0.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.diffplug.osgi:com.diffplug.osgi.extension.sun.reflect:0.0.0" level="project" />
+    <orderEntry type="module" module-name="OSGiCommonEnemy" />
   </component>
 </module>

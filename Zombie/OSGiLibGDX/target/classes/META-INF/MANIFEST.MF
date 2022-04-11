@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1649077574221
+Bnd-LastModified: 1649667453696
 Build-Jdk: 1.8.0_322
 Built-By: Emil
 Bundle-ClassPath: .,org.osgi.core-4.3.0.jar,gdx-1.5.0.jar,gdx-platform-1
@@ -12,8 +12,7 @@ Bundle-ClassPath: .,org.osgi.core-4.3.0.jar,gdx-1.5.0.jar,gdx-platform-1
  ,gdx-platform-1.5.0-natives-desktop.jar,gdx-box2d-platform-1.5.0-native
  s-desktop.jar,gdx-freetype-platform-1.5.0-natives-desktop.jar,gdx-jnige
  n-1.5.0.jar,javaparser-1.0.8.jar,com.diffplug.osgi.extension.sun.misc-0
- .0.0.jar,com.diffplug.osgi.extension.sun.reflect-0.0.0.jar,OSGiCommon-1
- .0-SNAPSHOT.jar
+ .0.0.jar,com.diffplug.osgi.extension.sun.reflect-0.0.0.jar
 Bundle-Description: Generated using Pax-Construct
 Bundle-ManifestVersion: 2
 Bundle-Name: OSGiLibGDX
@@ -53,8 +52,7 @@ Embedded-Artifacts: org.osgi.core-4.3.0.jar;g="org.osgi";a="org.osgi.cor
  osgi.extension.sun.misc-0.0.0.jar;g="com.diffplug.osgi";a="com.diffplug
  .osgi.extension.sun.misc";v="0.0.0",com.diffplug.osgi.extension.sun.ref
  lect-0.0.0.jar;g="com.diffplug.osgi";a="com.diffplug.osgi.extension.sun
- .reflect";v="0.0.0",OSGiCommon-1.0-SNAPSHOT.jar;g="dk.sdu.mmmi.build";a
- ="OSGiCommon";v="1.0-SNAPSHOT"
+ .reflect";v="0.0.0"
 Export-Package: com.badlogic.gdx;uses:="com.badlogic.gdx.audio,com.badlo
  gic.gdx.files,com.badlogic.gdx.graphics,com.badlogic.gdx.net,com.badlog
  ic.gdx.utils";version="1.0.0",com.badlogic.gdx.assets;uses:="com.badlog
@@ -211,16 +209,16 @@ Import-Package: com.badlogic.gdx,com.badlogic.gdx.assets,com.badlogic.gd
  s,com.badlogic.gdx.graphics.g3d.utils,com.badlogic.gdx.graphics.glutils
  ,com.badlogic.gdx.input,com.badlogic.gdx.jnigen,com.badlogic.gdx.maps,c
  om.badlogic.gdx.maps.objects,com.badlogic.gdx.maps.tiled,com.badlogic.g
- dx.maps.tiled.renderers,com.badlogic.gdx.maps.tiled.tiles,com.badlogic.
- gdx.math,com.badlogic.gdx.math.collision,com.badlogic.gdx.net,com.badlo
- gic.gdx.physics.box2d,com.badlogic.gdx.physics.box2d.joints,com.badlogi
- c.gdx.scenes.scene2d,com.badlogic.gdx.scenes.scene2d.actions,com.badlog
- ic.gdx.scenes.scene2d.ui,com.badlogic.gdx.scenes.scene2d.utils,com.badl
- ogic.gdx.utils,com.badlogic.gdx.utils.async,com.badlogic.gdx.utils.comp
- ression,com.badlogic.gdx.utils.compression.lz,com.badlogic.gdx.utils.co
- mpression.lzma,com.badlogic.gdx.utils.compression.rangecoder,com.badlog
- ic.gdx.utils.reflect,com.badlogic.gdx.utils.viewport,javax.security.aut
- h.x500,javax.sound.sampled,javax.swing,javax.swing.border,javax.swing.e
- vent,javax.swing.text,sun.misc,sun.reflect
-Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+ dx.maps.tiled.tiles,com.badlogic.gdx.math,com.badlogic.gdx.math.collisi
+ on,com.badlogic.gdx.net,com.badlogic.gdx.physics.box2d,com.badlogic.gdx
+ .physics.box2d.joints,com.badlogic.gdx.scenes.scene2d,com.badlogic.gdx.
+ scenes.scene2d.actions,com.badlogic.gdx.scenes.scene2d.ui,com.badlogic.
+ gdx.scenes.scene2d.utils,com.badlogic.gdx.utils,com.badlogic.gdx.utils.
+ async,com.badlogic.gdx.utils.compression,com.badlogic.gdx.utils.compres
+ sion.lz,com.badlogic.gdx.utils.compression.lzma,com.badlogic.gdx.utils.
+ compression.rangecoder,com.badlogic.gdx.utils.reflect,com.badlogic.gdx.
+ utils.viewport,javax.security.auth.x500,javax.sound.sampled,javax.swing
+ ,javax.swing.border,javax.swing.event,javax.swing.text,sun.misc,sun.ref
+ lect
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
 Tool: Bnd-3.5.0.201709291849
