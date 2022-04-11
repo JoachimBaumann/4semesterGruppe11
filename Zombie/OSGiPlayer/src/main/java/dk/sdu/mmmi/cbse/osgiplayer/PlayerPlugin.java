@@ -7,9 +7,10 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.player.Player;
+import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
+
 
 
 public class PlayerPlugin implements IGamePluginService {
@@ -33,18 +34,14 @@ public class PlayerPlugin implements IGamePluginService {
     }
 
     private Entity createPlayerShip(GameData gameData) {
-        float deacceleration = 50f;
-        float acceleration = 200f;
-        float maxAccelaretion = 1920f;
-        float rotationSpeed = 5;
+        float maxSpeed = 600f;
         float x = gameData.getDisplayWidth();
         float y = gameData.getDisplayHeight();
         float radians = 6.1415f / 2;
 
         Entity playerShip = new Player();
-        playerShip.setRadius(8);
-        playerShip.add(new MovingPart(acceleration, deacceleration, maxAccelaretion));
-        playerShip.add(new PositionPart(900, y, radians));
+        playerShip.add(new MovingPart(maxSpeed));
+        playerShip.add(new PositionPart(500, 500, radians));
         playerShip.add(new LifePart(1));
         playerShip.add(new SpritePart(400, 200, AssetLoader.getAssetPath("gaben.png")));
 

@@ -5,68 +5,54 @@
  */
 package dk.sdu.mmmi.cbse.common.data.entityparts;
 
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
+import com.badlogic.gdx.math.Vector2;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.Vector;
-
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
-import static java.lang.Math.sqrt;
 
 /**
- *
  * @author Alexander
  */
 public class MovingPart implements EntityPart {
 
-    private float dx, dy;
-    private float maxSpeed, rotationSpeed;
+    public MovingPart(float maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    private float maxSpeed = 60, gravity = 60 * 1.8f, increment;
+    private Vector2 velocity = new Vector2();
     private boolean left, right, up, space;
     private int count;
+    private boolean canJump = true;
 
-
-
-    private float acceleration;
-    private float deacceleration;
-    private static final float jumpAcceleration = 190F;
-    private static final float gravity = 150F;
-    private float maxAcceleration;
-
-
-    public MovingPart(float acceleration, float deacceleration, float maxAcceleration) {
-      this.acceleration = acceleration;
-      this.deacceleration = deacceleration;
-      this.maxAcceleration = maxAcceleration;
+    public float getMaxSpeed() {
+        return maxSpeed;
     }
 
-    public float getDx() {
-        return dx;
+    public float getGravity() {
+        return gravity;
     }
 
-    public float getDy() {
-        return dy;
-    }
-    
-    public void setDeceleration(float deceleration) {
-        this.deacceleration = deacceleration;
+    public void setGravity(float gravity) {
+        this.gravity = gravity;
     }
 
-    public void setAcceleration(float acceleration) {
-        this.acceleration = acceleration;
+    public Vector2 getVelocity() {
+        return velocity;
     }
+
+    public void setVelocity(Vector2 velocity) {
+        this.velocity = velocity;
+    }
+
+    private String blockedKey = "blocked";
+
 
     public void setMaxSpeed(float maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
-    
-    public void setSpeed(float speed) {
-        this.acceleration = speed;
-        this.maxSpeed = speed;
-    }
 
-    public void setRotationSpeed(float rotationSpeed) {
-        this.rotationSpeed = rotationSpeed;
-    }
 
     public void setLeft(boolean left) {
         this.left = left;
@@ -89,107 +75,114 @@ public class MovingPart implements EntityPart {
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
-        float radians = positionPart.getRadians();
         float delta = gameData.getDelta();
-        float oldX = positionPart.getX();
-        float oldY = positionPart.getY();
+        float newX, newY;
+        TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
+        float jumpHeight = 50;
+
+        // apply gravity
+        velocity.y -= gravity * delta;
+
+        // clamp velocity
+        if (velocity.y > maxSpeed)
+            velocity.y = maxSpeed;
+        else if (velocity.y < -maxSpeed)
+            velocity.y = -maxSpeed;
 
 
-        // Apply gravity
-        Vector velocity = new Vector(x, y);
-        velocity.setY(velocity.getY() - gravity * delta);
-        //positionPart.setY(y - gravity * delta);
-
-
-        if (right) {
-            if (velocity.getX() < maxAcceleration) {
-                velocity.setX(Math.min(maxAcceleration, velocity.getX() + acceleration * delta));
-            }
-        } //else if (velocity.getX() > 0) {
-          //  velocity.setX(Math.max(0, velocity.getX() - deacceleration * delta));
-          //  System.out.println("VelocityELSE = " + velocity.getX());
-        //}
         if (left) {
-            if (velocity.getX() > -maxAcceleration) {
-                velocity.setX(Math.max(-maxAcceleration, velocity.getX() - acceleration * delta));
+            velocity.x -= maxSpeed * delta;
+            if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
+                velocity.x = 0;
             }
-        } else if (velocity.getX() < 0) {
-            velocity.setX(Math.min(0, velocity.getX() + deacceleration * delta));
         }
-
-
-        // Jump
-        if (space) {
-            velocity.setY(jumpAcceleration);
-        }
-
-
-        //floor collision
-        if (velocity.getY() <= 180) {
-            velocity.setY(180);
-        } else if (velocity.getX() <= 0) {
-            velocity.setX(0);
-         }
-
-        positionPart.setX(velocity.getX());
-        positionPart.setY(velocity.getY());
-
-
-        /*
-        // turning
-        if (left) {
-            //radians += rotationSpeed * dt;
-            System.out.println("LEFT");
-            dx -=  acceleration * dt;
-        }
-
         if (right) {
-            //radians -= rotationSpeed * dt;
-            System.out.println("RIGHT");
-            dx +=  acceleration * dt;
+            velocity.x += maxSpeed * delta;
+            if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
+                velocity.x = 0;
+            }
         }
 
-        // accelerating            
+
         if (up) {
-            //dx += cos(radians) * acceleration * dt;
-            //dy += 800f * dt;
+            if (canJump) {
+                velocity.y += jumpHeight / 1.8f;
+                canJump = false;
+            }
+        }
+        if (collidesTop(x, y + velocity.y, collisonLayer, entity)) {
+            velocity.y = 0;
+        }
+        if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
+            velocity.y = 0;
         }
 
-        // deccelerating
-        float vec = (float) sqrt(dx * dx + dy * dy);
-        if (vec > 0) {
-            dx -= (dx / vec) * deceleration * dt;
-            dy -= (dy / vec) * deceleration * dt;
-        }
-        if (vec > maxSpeed) {
-            dx = (dx / vec) * maxSpeed;
-            dy = (dy / vec) * maxSpeed;
+
+        newX = x + velocity.x;
+        newY = y + velocity.y;
+
+        velocity.x = 0;
+
+        positionPart.setX(newX);
+        positionPart.setY(newY);
+
+    }
+
+
+    private boolean isCellBlocked(float x, float y, TiledMapTileLayer collisionLayer) {
+        Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
+        return cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked");
+    }
+
+    public boolean collidesRight(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
+        boolean collides = false;
+
+        for (float step = 0; step < entity.getSprite().getHeight(); step += collisionLayer.getTileHeight() / 2) {
+            if (collides = isCellBlocked(x + entity.getSprite().getWidth(), y + step, collisionLayer))
+                break;
         }
 
-        // set position
-        x += dx * dt;
-        if (x > gameData.getDisplayWidth()) {
-            x = 0;
-        }
-        else if (x < 0) {
-            x = gameData.getDisplayWidth();
+        return collides;
+    }
+
+    public boolean collidesLeft(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
+        boolean collides = false;
+
+        for (float step = 0; step < entity.getSprite().getHeight(); step += collisionLayer.getTileHeight() / 2) {
+            if (collides = isCellBlocked(x, y + step, collisionLayer)) {
+                break;
+            }
         }
 
-        y += dy * dt;
-        if (y > gameData.getDisplayHeight()) {
-            y = 0;
-        }
-        else if (y < 0) {
-            y = gameData.getDisplayHeight();
+        return collides;
+    }
+
+    public boolean collidesTop(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
+        boolean collides = false;
+
+        for (float step = 0; step < entity.getSprite().getWidth(); step += entity.getSprite().getHeight() / 2) {
+            if (collides = isCellBlocked(x + step, y + entity.getSprite().getHeight(), collisionLayer)) {
+                break;
+            }
         }
 
-        positionPart.setX(x);
-        positionPart.setY(y);
+        return collides;
 
-        positionPart.setRadians(radians);
-            */
+    }
+
+    public boolean collidesBottom(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
+        boolean collides = false;
+
+        for (float step = 0; step < entity.getSprite().getWidth(); step += entity.getSprite().getHeight() / 2) {
+            if (collides = isCellBlocked(x + step, y, collisionLayer)) {
+                canJump = true;
+                break;
+            }
+        }
+
+        return collides;
+
     }
 
 }
-
 

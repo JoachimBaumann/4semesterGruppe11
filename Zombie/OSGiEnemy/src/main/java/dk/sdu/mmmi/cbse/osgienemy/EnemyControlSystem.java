@@ -29,23 +29,11 @@ public class EnemyControlSystem implements IEntityProcessingService {
             //movingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
             lifePart.process(gameData, enemy);
-            spritePart.process(gameData, enemy);
 
-            updateShape(enemy);
 
         }
     }
-    private void updateShape(Entity entity) {
 
-        PositionPart positionPart = entity.getPart(PositionPart.class);
-        SpritePart spritePart = entity.getPart(SpritePart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float radians = positionPart.getRadians();
-        Texture img = new Texture(spritePart.getSpritePath());
-        Sprite sprite = new Sprite(img);
-        sprite.setPosition(Gdx.graphics.getWidth()/2-sprite.getRegionHeight()/2,Gdx.graphics.getWidth()/2-Gdx.graphics.getHeight()/2);
-    }
 
 
 

@@ -24,7 +24,7 @@ public class EnemyPlugin implements IGamePluginService {
         Entity enemy = createEnemy(gameData);
         enemyID = world.addEntity(enemy);
 
-        System.out.println("added player object ");
+        System.out.println("added enemy object ");
         LifePart entityLife = enemy.getPart(LifePart.class);
         System.out.println(entityLife);
     }
@@ -44,7 +44,6 @@ public class EnemyPlugin implements IGamePluginService {
         float radians = 3.1415f / 2;
 
         Entity enemy = new Enemy();
-        enemy.setRadius(8);
         //enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemy.add(new PositionPart(x+1600, y+177, radians));
         enemy.add(new LifePart(1));
