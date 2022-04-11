@@ -60,6 +60,7 @@
     <module>OSGiEnemyTracking</module>
     <module>OSGiCommonPlayer</module>
     <module>OSGiCommonEnemy</module>
+    <module>OSGiCommon</module>
   </modules>
 
   <build>

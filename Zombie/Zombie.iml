@@ -11,9 +11,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="OSGiCommon" />
-    <orderEntry type="module" module-name="OSGiCommonEnemy" />
-    <orderEntry type="library" name="Maven: dk.sdu.mmmi.build:OSGiCommon:1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
   </component>
 </module>
