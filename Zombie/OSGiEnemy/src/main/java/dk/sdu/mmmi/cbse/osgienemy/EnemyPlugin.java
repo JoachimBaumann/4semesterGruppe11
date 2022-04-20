@@ -35,7 +35,7 @@ public class EnemyPlugin implements IGamePluginService {
     private Entity createEnemy(GameData gameData){
         float deacceleration = 20;
         float acceleration = 100;
-        float maxSpeed = 400;
+        float maxSpeed = 200;
         float rotationSpeed = 5;
         float x = gameData.getDisplayWidth() / 2;
         float y = gameData.getDisplayHeight() / 2;
