@@ -50,17 +50,17 @@
 
   <modules>
     <module>poms</module>
-    <module>provision</module>
-    <module>OSGiCore</module>
     <module>OSGiLibGDX</module>
-    <module>OSGiPlayer</module>
+    <module>OSGiCore</module>
+    <module>OSGiCommon</module>
+    <module>OSGiCommonPlayer</module>
+    <module>OSGiCommonEnemy</module>
+    <module>provision</module>
     <module>OSGiMap</module>
     <module>OSGiEnemy</module>
     <module>OSGiCollision</module>
     <module>OSGiEnemyTracking</module>
-    <module>OSGiCommonPlayer</module>
-    <module>OSGiCommonEnemy</module>
-    <module>OSGiCommon</module>
+    <module>OSGiPlayer</module>
   </modules>
 
   <build>
