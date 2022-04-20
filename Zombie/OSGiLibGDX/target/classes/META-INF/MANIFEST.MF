@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1649669833567
+Bnd-LastModified: 1650451953151
 Build-Jdk: 1.8.0_322
-Built-By: Emil
+Built-By: nadia
 Bundle-ClassPath: .,org.osgi.core-4.3.0.jar,gdx-1.5.0.jar,gdx-platform-1
  .5.0.jar,gdx-backend-lwjgl-1.5.0.jar,lwjgl-2.9.1.jar,lwjgl-platform-2.9
  .1-natives-windows.jar,lwjgl-platform-2.9.1-natives-linux.jar,lwjgl-pla

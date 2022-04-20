@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="dk.sdu.mmmi.cbse.osgienemy" />
         <module name="OSGiEnemyTracking" />
         <module name="OSGiEnemy" />
         <module name="OSGiCollision" />
@@ -19,6 +20,7 @@
         <module name="OSGiPlayer" />
         <module name="OSGiCommonBullet" />
         <module name="OSGiCommonPlayer" />
+        <module name="dk.sdu.mmmi.cbse.osgimap" />
         <module name="OSGiCommonAsteroids" />
       </profile>
     </annotationProcessing>
