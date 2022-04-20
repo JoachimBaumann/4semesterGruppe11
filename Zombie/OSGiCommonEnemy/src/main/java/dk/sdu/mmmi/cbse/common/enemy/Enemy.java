@@ -2,13 +2,21 @@ package dk.sdu.mmmi.cbse.common.enemy;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 
-public class Enemy extends Entity{
+public class Enemy extends Entity {
 
     @Override
     public void create() {
-        this.setSprite(new Sprite(new Texture("C:\\Users\\kinky\\IdeaProjects\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\java\\dk\\sdu\\mmmi\\cbse\\common\\Assets\\png.jpg"),60,120));
+        this.setSprite(new Sprite(new Texture("C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\resources\\Assets\\gaben.png"),122,124));
+        System.out.println("Loaded sprite");
+        System.out.println(this.getSprite().getHeight());
+        //this.setSprite(new Sprite(new Texture(AssetLoader.getAssetPath("enemy1.png")),122,124));
+    }
 
+    @Override
+    public void dispose() {
+        super.dispose();
     }
 }

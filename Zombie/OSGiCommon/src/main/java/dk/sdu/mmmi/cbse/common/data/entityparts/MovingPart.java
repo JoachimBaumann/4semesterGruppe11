@@ -14,12 +14,15 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 /**
  * @author Alexander
  */
-public class MovingPart implements EntityPart {
 
-    public MovingPart(float maxSpeed) {
-        this.maxSpeed = maxSpeed;
+
+public class MovingPart {
+
+    public MovingPart() {
     }
 
+    public boolean canJump = true;
+    /*
     private float maxSpeed = 60, gravity = 60 * 1.8f, increment;
     private Vector2 velocity = new Vector2();
     private boolean left, right, up, space;
@@ -70,66 +73,10 @@ public class MovingPart implements EntityPart {
         this.space = space;
     }
 
-    @Override
-    public void process(GameData gameData, Entity entity) {
-        PositionPart positionPart = entity.getPart(PositionPart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float delta = gameData.getDelta();
-        float newX, newY;
-        TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
-        float jumpHeight = 50;
-
-        // apply gravity
-        velocity.y -= gravity * delta;
-
-        // clamp velocity
-        if (velocity.y > maxSpeed)
-            velocity.y = maxSpeed;
-        else if (velocity.y < -maxSpeed)
-            velocity.y = -maxSpeed;
+     */
 
 
-        if (left) {
-            velocity.x -= maxSpeed * delta;
-            if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
-                velocity.x = 0;
-            }
-        }
-        if (right) {
-            velocity.x += maxSpeed * delta;
-            if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
-                velocity.x = 0;
-            }
-        }
-
-
-        if (up) {
-            if (canJump) {
-                velocity.y += jumpHeight / 1.8f;
-                canJump = false;
-            }
-        }
-        if (collidesTop(x, y + velocity.y, collisonLayer, entity)) {
-            velocity.y = 0;
-        }
-        if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
-            velocity.y = 0;
-        }
-
-
-        newX = x + velocity.x;
-        newY = y + velocity.y;
-
-        velocity.x = 0;
-
-        positionPart.setX(newX);
-        positionPart.setY(newY);
-
-    }
-
-
-    private boolean isCellBlocked(float x, float y, TiledMapTileLayer collisionLayer) {
+    public boolean isCellBlocked(float x, float y, TiledMapTileLayer collisionLayer) {
         Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
         return cell != null && cell.getTile() != null && cell.getTile().getProperties().containsKey("blocked");
     }

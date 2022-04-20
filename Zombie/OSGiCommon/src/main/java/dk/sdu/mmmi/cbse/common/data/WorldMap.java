@@ -18,6 +18,10 @@ public class WorldMap extends ApplicationAdapter {
         return sr;
     }
 
+    public String getMapBounds() {
+        return map.getTileSets().toString();
+    }
+
     // sets the renderer
     public void setSr(ShapeRenderer sr) {
         this.sr = sr;

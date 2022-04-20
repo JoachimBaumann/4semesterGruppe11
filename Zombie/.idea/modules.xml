@@ -19,6 +19,8 @@
       <module fileurl="file://$PROJECT_DIR$/OSGiPlayer/OSGiPlayer.iml" filepath="$PROJECT_DIR$/OSGiPlayer/OSGiPlayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zombie.iml" filepath="$PROJECT_DIR$/Zombie.iml" />
       <module fileurl="file://$PROJECT_DIR$/poms/compiled/compiled-bundle-settings.iml" filepath="$PROJECT_DIR$/poms/compiled/compiled-bundle-settings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OSGiEnemy/dk.sdu.mmmi.cbse.osgienemy.iml" filepath="$PROJECT_DIR$/OSGiEnemy/dk.sdu.mmmi.cbse.osgienemy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OSGiMap/dk.sdu.mmmi.cbse.osgimap.iml" filepath="$PROJECT_DIR$/OSGiMap/dk.sdu.mmmi.cbse.osgimap.iml" />
       <module fileurl="file://$PROJECT_DIR$/provision/provision.iml" filepath="$PROJECT_DIR$/provision/provision.iml" />
       <module fileurl="file://$PROJECT_DIR$/poms/shared-plugin-settings.iml" filepath="$PROJECT_DIR$/poms/shared-plugin-settings.iml" />
       <module fileurl="file://$PROJECT_DIR$/poms/wrappers/wrapper-bundle-settings.iml" filepath="$PROJECT_DIR$/poms/wrappers/wrapper-bundle-settings.iml" />

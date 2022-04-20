@@ -4,9 +4,7 @@ import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 
@@ -41,13 +39,13 @@ public class EnemyPlugin implements IGamePluginService {
         float rotationSpeed = 5;
         float x = gameData.getDisplayWidth() / 2;
         float y = gameData.getDisplayHeight() / 2;
-        float radians = 3.1415f / 2;
+        float radians = 6.1415f / 2;
 
         Entity enemy = new Enemy();
-        //enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
-        enemy.add(new PositionPart(x+1600, y+177, radians));
+        enemy.add(new EnemyMovingPart(maxSpeed));
+        enemy.add(new PositionPart(10 , 500 , radians));
         enemy.add(new LifePart(1));
-        enemy.add(new SpritePart(1, 1, AssetLoader.getAssetPath("enemy1.png")));
+        //enemy.add(new SpritePart(1, 1, AssetLoader.getAssetPath("enemy1.png")));
 
         return  enemy;
     }

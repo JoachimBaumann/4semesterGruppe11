@@ -10,12 +10,11 @@
 
   <properties>
     <bundle.symbolicName>OSGIEnemy</bundle.symbolicName>
-    <bundle.namespace>dk.sdu.mmmi.cbse.osgienemy</bundle.namespace>
+    <bundle.namespace>dk.sdu.mmmi</bundle.namespace>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>dk.sdu.mmmi.Zombie</groupId>
-  <artifactId>dk.sdu.mmmi.cbse.osgienemy</artifactId>
+  <artifactId>OSGiEnemy</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>${bundle.symbolicName}</name>

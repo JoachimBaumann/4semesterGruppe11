@@ -10,7 +10,7 @@
 
   <properties>
     <bundle.symbolicName>OSGiCommonEnemy</bundle.symbolicName>
-    <bundle.namespace>OSGiCommonEnemy</bundle.namespace>
+    <bundle.namespace>dk.sdu.mmmi</bundle.namespace>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>

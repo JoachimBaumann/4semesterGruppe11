@@ -8,6 +8,8 @@ package dk.sdu.mmmi.cbse.common.data.entityparts;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Alexander
@@ -17,11 +19,15 @@ public class PositionPart implements EntityPart {
     private float x;
     private float y;
     private float radians;
+    private ArrayList prevY;
+    private ArrayList prevX;
+
 
     public PositionPart(float x, float y, float radians) {
         this.x = x;
         this.y = y;
         this.radians = radians;
+
     }
 
     public float getX() {
@@ -35,13 +41,21 @@ public class PositionPart implements EntityPart {
     public float getRadians() {
         return radians;
     }
-    
+
+
+
     public void setX(float newX) {
+
         this.x = newX;
     }
     
     public void setY(float newY) {
         this.y = newY;
+    }
+
+    public boolean isStuck() {
+        //todo: implement isStuck
+        return true;
     }
 
     public void setPosition(float newX, float newY) {

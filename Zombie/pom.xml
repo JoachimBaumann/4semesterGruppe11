@@ -53,14 +53,14 @@
     <module>provision</module>
     <module>OSGiCore</module>
     <module>OSGiLibGDX</module>
+    <module>OSGiCommon</module>
+    <module>OSGiCommonEnemy</module>
     <module>OSGiPlayer</module>
     <module>OSGiMap</module>
     <module>OSGiEnemy</module>
     <module>OSGiCollision</module>
     <module>OSGiEnemyTracking</module>
     <module>OSGiCommonPlayer</module>
-    <module>OSGiCommonEnemy</module>
-    <module>OSGiCommon</module>
   </modules>
 
   <build>

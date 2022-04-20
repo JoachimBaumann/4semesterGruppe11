@@ -5,8 +5,8 @@
       <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiCommonEnemy-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGiCommonEnemy" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
           <property key="Bundle-Description" value="Generated using Pax-Construct" />
-          <property key="Export-Package" value="!OSGiCommonEnemy.internal.*,OSGiCommonEnemy.*;version=&quot;1.0-SNAPSHOT&quot;" />
-          <property key="Private-Package" value="OSGiCommonEnemy.internal.*" />
+          <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
+          <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGiCommonEnemy" />
         </additionalProperties>
         <additionalJARContents />
@@ -23,7 +23,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.0" level="project" />
-    <orderEntry type="library" name="Maven: dk.sdu.mmmi.build:OSGiCommon:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="OSGiCommon" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
   </component>
 </module>

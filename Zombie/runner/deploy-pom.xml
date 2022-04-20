@@ -74,6 +74,13 @@
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>OSGiCommonEnemy</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
       <artifactId>OSGiCommonPlayer</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
@@ -100,8 +107,8 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>dk.sdu.mmmi.cbse.osgienemy</artifactId>
+      <groupId>dk.sdu.mmmi.build</groupId>
+      <artifactId>OSGiEnemy</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
@@ -130,7 +137,6 @@
       <groupId>dk.sdu.mmmi.Zombie</groupId>
       <artifactId>OSGiCommonEnemy</artifactId>
       <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
       <scope>provided</scope>
     </dependency>
   </dependencies>
