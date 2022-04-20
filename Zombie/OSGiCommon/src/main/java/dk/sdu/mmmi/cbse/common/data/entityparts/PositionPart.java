@@ -10,6 +10,7 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 
 import java.util.ArrayList;
 
+
 /**
  *
  * @author Alexander
@@ -19,8 +20,7 @@ public class PositionPart implements EntityPart {
     private float x;
     private float y;
     private float radians;
-    private ArrayList prevY;
-    private ArrayList prevX;
+    private ArrayList<Float> prevX = new ArrayList<>();
 
 
     public PositionPart(float x, float y, float radians) {
@@ -42,21 +42,31 @@ public class PositionPart implements EntityPart {
         return radians;
     }
 
-
+    private void addPrev(float x) {
+        if (prevX.size() > 40) prevX.clear();
+        prevX.add(x);
+    }
 
     public void setX(float newX) {
-
+        addPrev(x);
         this.x = newX;
     }
     
     public void setY(float newY) {
+
         this.y = newY;
     }
 
     public boolean isStuck() {
-        //todo: implement isStuck
+        for (Float f : prevX) {
+            if (!f.equals(prevX.get(0))) {
+                return false;
+            }
+        }
         return true;
     }
+
+
 
     public void setPosition(float newX, float newY) {
         this.x = newX;

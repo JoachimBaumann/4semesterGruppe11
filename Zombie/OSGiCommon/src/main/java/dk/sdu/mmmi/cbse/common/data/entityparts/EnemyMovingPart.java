@@ -5,6 +5,9 @@ import com.badlogic.gdx.math.Vector2;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class EnemyMovingPart extends MovingPart implements EntityPart {
 
     public EnemyMovingPart(float maxSpeed) {
@@ -12,10 +15,11 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         this.maxSpeed = maxSpeed;
     }
 
-    private float maxSpeed = 60, gravity = 60 * 1.8f, increment;
+    private float maxSpeed = 20, gravity = 60 * 1.8f, increment;
     private Vector2 velocity = new Vector2();
     private boolean left, right, space;
     private int count;
+
 
 
 
@@ -119,6 +123,8 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         positionPart.setY(newY);
 
 
-        System.out.println(this.left + " " + this.right);
+        //System.out.println(this.left + " " + this.right);
     }
+
+
 }

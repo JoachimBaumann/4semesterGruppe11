@@ -46,11 +46,10 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
                 enemyMovingPart.setRight(false);
 
             }
-            //Check if player is above
-            if (playerPositionPart.getY() > enemyPositionPart.getY()) {
-                System.out.println(playerPositionPart.getY() + " - " +  enemyPositionPart.getY());
+            //Check if player is above and if enemy is stuck in ground position
+            if (playerPositionPart.getY() > enemyPositionPart.getY() && enemyPositionPart.isStuck()) {
                 enemyMovingPart.setSpace(true);
-
+                
             }
         }
     }
