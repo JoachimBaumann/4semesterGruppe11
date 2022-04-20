@@ -43,8 +43,9 @@ public class PositionPart implements EntityPart {
     }
 
     private void addPrev(float x) {
-        if (prevX.size() > 40) prevX.clear();
+        if (prevX.size() > 100) prevX.clear();
         prevX.add(x);
+        //System.out.println(x);
     }
 
     public void setX(float newX) {

@@ -74,7 +74,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         float delta = gameData.getDelta();
         float newX, newY;
         TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
-        float jumpHeight = 60;
+        float jumpHeight = 50;
 
         // apply gravity
         velocity.y -= gravity * delta;
