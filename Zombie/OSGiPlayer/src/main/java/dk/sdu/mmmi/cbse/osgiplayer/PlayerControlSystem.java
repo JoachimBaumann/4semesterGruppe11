@@ -19,6 +19,9 @@ import dk.sdu.mmmi.cbse.common.weapon.WeaponSPI;
 
 public class PlayerControlSystem implements IEntityProcessingService {
 
+    private WeaponSPI weaponService;
+
+
     @Override
     public void process(GameData gameData, World world) {
 
@@ -31,6 +34,14 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
             movingPart.setSpace(gameData.getKeys().isDown(GameKeys.SPACE));
+
+
+            if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null) {
+                System.out.println("Skud!");
+                Entity bullet = weaponService.createWeapon(player, gameData);
+                world.addEntity(bullet);
+            }
+
 
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
