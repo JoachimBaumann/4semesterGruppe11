@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1650451955770
+Bnd-LastModified: 1650881515705
 Build-Jdk: 1.8.0_322
-Built-By: nadia
+Built-By: kinky
 Bundle-ActivationPolicy: lazy
 Bundle-Description: Generated using Pax-Construct
 Bundle-ManifestVersion: 2
@@ -9,26 +9,29 @@ Bundle-Name: OSGiPlayer
 Bundle-SymbolicName: OSGiPlayer
 Bundle-Version: 1.0.0.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Export-Package: dk.sdu.mmmi.cbse.common.data;version="1.0.0.SNAPSHOT";us
- es:="com.badlogic.gdx,com.badlogic.gdx.graphics,com.badlogic.gdx.graphi
- cs.g2d,com.badlogic.gdx.graphics.glutils,com.badlogic.gdx.maps.tiled,co
- m.badlogic.gdx.maps.tiled.renderers,dk.sdu.mmmi.cbse.common.data.entity
- parts,dk.sdu.mmmi.cbse.common.events",dk.sdu.mmmi.cbse.common.data.enti
- typarts;version="1.0.0.SNAPSHOT";uses:="com.badlogic.gdx.maps.tiled,com
- .badlogic.gdx.math,dk.sdu.mmmi.cbse.common.data",dk.sdu.mmmi.cbse.commo
- n.events;version="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data",
- dk.sdu.mmmi.cbse.common.player;version="1.0.0.SNAPSHOT";uses:="dk.sdu.m
- mmi.cbse.common.data",dk.sdu.mmmi.cbse.common.services;version="1.0.0.S
+Export-Package: dk.sdu.mmmi.cbse.bullet;version="1.0.0.SNAPSHOT",dk.sdu.
+ mmmi.cbse.common.data;version="1.0.0.SNAPSHOT";uses:="com.badlogic.gdx,
+ com.badlogic.gdx.graphics,com.badlogic.gdx.graphics.g2d,com.badlogic.gd
+ x.graphics.glutils,com.badlogic.gdx.maps.tiled,com.badlogic.gdx.maps.ti
+ led.renderers,dk.sdu.mmmi.cbse.common.data.entityparts,dk.sdu.mmmi.cbse
+ .common.events",dk.sdu.mmmi.cbse.common.data.entityparts;version="1.0.0
+ .SNAPSHOT";uses:="com.badlogic.gdx.maps.tiled,com.badlogic.gdx.math,dk.
+ sdu.mmmi.cbse.common.data",dk.sdu.mmmi.cbse.common.events;version="1.0.
+ 0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data",dk.sdu.mmmi.cbse.commo
+ n.player;version="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data",
+ dk.sdu.mmmi.cbse.common.services;version="1.0.0.SNAPSHOT";uses:="dk.sdu
+ .mmmi.cbse.common.data",dk.sdu.mmmi.cbse.common.weapon;version="1.0.0.S
  NAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data",dk.sdu.mmmi.cbse.osgiplay
  er;version="1.0.0.SNAPSHOT";uses:="dk.sdu.mmmi.cbse.common.data,dk.sdu.
- mmmi.cbse.common.services"
+ mmmi.cbse.common.services,dk.sdu.mmmi.cbse.common.weapon"
 Import-Package: com.badlogic.gdx,com.badlogic.gdx.graphics,com.badlogic.
  gdx.graphics.g2d,com.badlogic.gdx.graphics.glutils,com.badlogic.gdx.map
  s,com.badlogic.gdx.maps.tiled,com.badlogic.gdx.maps.tiled.renderers,com
  .badlogic.gdx.math,dk.sdu.mmmi.cbse.common.data;version="[1.0,2)",dk.sd
  u.mmmi.cbse.common.data.entityparts;version="[1.0,2)",dk.sdu.mmmi.cbse.
  common.events;version="[1.0,2)",dk.sdu.mmmi.cbse.common.player;version=
- "[1.0,2)",dk.sdu.mmmi.cbse.common.services;version="[1.0,2)"
+ "[1.0,2)",dk.sdu.mmmi.cbse.common.services;version="[1.0,2)",dk.sdu.mmm
+ i.cbse.common.weapon;version="[1.0,2)"
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
 Service-Component: META-INF/entityprocessor.xml,META-INF/gameplugin.xml
 Tool: Bnd-3.5.0.201709291849
