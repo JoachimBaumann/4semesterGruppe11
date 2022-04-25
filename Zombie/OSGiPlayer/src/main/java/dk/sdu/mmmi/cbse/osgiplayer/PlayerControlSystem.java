@@ -13,6 +13,8 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.player.Player;
+import dk.sdu.mmmi.cbse.common.weapon.Weapon;
+import dk.sdu.mmmi.cbse.common.weapon.WeaponSPI;
 
 
 public class PlayerControlSystem implements IEntityProcessingService {
@@ -37,6 +39,15 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
 
         }
+    }
+
+    //TODO: Dependency injection via Declarative Services
+    public void setWeaponService(WeaponSPI weaponSPI) {
+        this.weaponService = weaponSPI;
+    }
+
+    public void removeWeaponService(WeaponSPI weaponSPI) {
+        this.weaponService = null;
     }
 
 

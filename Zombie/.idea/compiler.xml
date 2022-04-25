@@ -8,15 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="dk.sdu.mmmi.cbse.osgienemy" />
         <module name="OSGiEnemyTracking" />
+        <module name="dk.sdu.mmmi.cbse.OSGILaser" />
         <module name="OSGiEnemy" />
         <module name="OSGiCollision" />
         <module name="OSGiLaser" />
         <module name="OSGiCommonEnemy" />
         <module name="OSGiAsteroidSplitter" />
+        <module name="OSGiWeapon" />
         <module name="OSGiCommon" />
         <module name="OSGiAsteroids" />
         <module name="LibGDX" />
         <module name="OSGiCore" />
+        <module name="OSGiCommonWeapon" />
         <module name="OSGiPlayer" />
         <module name="OSGiCommonBullet" />
         <module name="OSGiCommonPlayer" />
@@ -27,6 +30,7 @@
     <bytecodeTargetLevel>
       <module name="compiled-bundle-settings" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.osgienemy" target="1.8" />
+      <module name="dk.sdu.mmmi.cbse.OSGILaser" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.osgimap" target="1.8" />
       <module name="LibGDX" target="1.8" />
       <module name="OSGiAsteroids" target="1.8" />
@@ -37,11 +41,13 @@
       <module name="OSGiCommonBullet" target="1.8" />
       <module name="OSGiCommonEnemy" target="1.8" />
       <module name="OSGiCommonPlayer" target="1.8" />
+      <module name="OSGiCommonWeapon" target="1.8" />
       <module name="OSGiCore" target="1.8" />
       <module name="OSGiEnemy" target="1.8" />
       <module name="OSGiEnemyTracking" target="1.8" />
       <module name="OSGiLaser" target="1.8" />
       <module name="OSGiPlayer" target="1.8" />
+      <module name="OSGiWeapon" target="1.8" />
       <module name="provision" target="1.8" />
       <module name="shared-plugin-settings" target="1.8" />
       <module name="wrapper-bundle-settings" target="1.8" />

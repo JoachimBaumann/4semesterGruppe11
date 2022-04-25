@@ -5,4 +5,9 @@
         <provide interface="dk.sdu.mmmi.cbse.common.services.IEntityProcessingService"/>
     </service>
 
+    <reference bind="setWeaponService" cardinality="0..1"
+               interface="dk.sdu.mmmi.cbse.common.weapon.WeaponSPI"
+               name="WeaponService" policy="dynamic" unbind="removeWeaponService"/>
+
+
 </scr:component>
