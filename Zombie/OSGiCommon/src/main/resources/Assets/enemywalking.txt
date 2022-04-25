@@ -1,0 +1,40 @@
+enemywalking.png
+size: 243, 234
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+z00
+  rotate: false
+  xy: 85, 118
+  size: 80, 115
+  orig: 84, 117
+  offset: 2, 0
+  index: -1
+z01
+  rotate: false
+  xy: 86, 1
+  size: 78, 115
+  orig: 84, 117
+  offset: 3, 0
+  index: -1
+z02
+  rotate: false
+  xy: 166, 1
+  size: 76, 115
+  orig: 84, 117
+  offset: 4, 0
+  index: -1
+z03
+  rotate: false
+  xy: 1, 118
+  size: 82, 115
+  orig: 84, 117
+  offset: 1, 0
+  index: -1
+z04
+  rotate: false
+  xy: 1, 1
+  size: 83, 115
+  orig: 84, 117
+  offset: 1, 0
+  index: -1

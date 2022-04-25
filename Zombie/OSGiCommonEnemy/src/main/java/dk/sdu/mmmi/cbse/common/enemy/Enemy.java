@@ -1,7 +1,11 @@
 package dk.sdu.mmmi.cbse.common.enemy;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 
@@ -9,7 +13,13 @@ public class Enemy extends Entity{
 
     @Override
     public void create() {
-        this.setSprite(new Sprite(new Texture(AssetLoader.getAssetPath("player.png")),60,120));
+        this.setTextureAtlas(new TextureAtlas("C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/enemywalking.txt"));
+        this.setAnimation(new Animation(1/15f,getTextureAtlas().getRegions()));
 
+    }
+
+    @Override
+    public void dispose(){
+        super.dispose();
     }
 }

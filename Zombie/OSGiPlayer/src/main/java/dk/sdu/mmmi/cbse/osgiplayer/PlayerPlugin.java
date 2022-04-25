@@ -9,7 +9,6 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.player.Player;
-import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 
 
 
@@ -43,7 +42,8 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new MovingPart(maxSpeed));
         playerShip.add(new PositionPart(500, 500, radians));
         playerShip.add(new LifePart(1));
-        playerShip.add(new SpritePart(400, 200, AssetLoader.getAssetPath("gaben.png")));
+        playerShip.setHeight(84);
+        playerShip.setWidth(115);
 
         return playerShip;
     }

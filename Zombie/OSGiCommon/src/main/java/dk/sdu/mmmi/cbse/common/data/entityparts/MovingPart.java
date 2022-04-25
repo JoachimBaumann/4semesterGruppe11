@@ -137,8 +137,8 @@ public class MovingPart implements EntityPart {
     public boolean collidesRight(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
         boolean collides = false;
 
-        for (float step = 0; step < entity.getSprite().getHeight(); step += collisionLayer.getTileHeight() / 2) {
-            if (collides = isCellBlocked(x + entity.getSprite().getWidth(), y + step, collisionLayer))
+        for (float step = 0; step < entity.getHeight(); step += collisionLayer.getTileHeight() / 2) {
+            if (collides = isCellBlocked(x + entity.getHeight(), y + step, collisionLayer))
                 break;
         }
 
@@ -148,7 +148,7 @@ public class MovingPart implements EntityPart {
     public boolean collidesLeft(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
         boolean collides = false;
 
-        for (float step = 0; step < entity.getSprite().getHeight(); step += collisionLayer.getTileHeight() / 2) {
+        for (float step = 0; step < entity.getHeight(); step += collisionLayer.getTileHeight() / 2) {
             if (collides = isCellBlocked(x, y + step, collisionLayer)) {
                 break;
             }
@@ -160,8 +160,8 @@ public class MovingPart implements EntityPart {
     public boolean collidesTop(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
         boolean collides = false;
 
-        for (float step = 0; step < entity.getSprite().getWidth(); step += entity.getSprite().getHeight() / 2) {
-            if (collides = isCellBlocked(x + step, y + entity.getSprite().getHeight(), collisionLayer)) {
+        for (float step = 0; step < entity.getHeight(); step += entity.getHeight() / 2) {
+            if (collides = isCellBlocked(x + step, y + entity.getHeight(), collisionLayer)) {
                 break;
             }
         }
@@ -173,7 +173,7 @@ public class MovingPart implements EntityPart {
     public boolean collidesBottom(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
         boolean collides = false;
 
-        for (float step = 0; step < entity.getSprite().getWidth(); step += entity.getSprite().getHeight() / 2) {
+        for (float step = 0; step < entity.getWidth(); step += entity.getHeight() / 2) {
             if (collides = isCellBlocked(x + step, y, collisionLayer)) {
                 canJump = true;
                 break;
