@@ -10,7 +10,7 @@ public class Player extends Entity {
 
     @Override
     public void create() {
-        this.setSprite(new Sprite(new Texture(AssetLoader.getAssetPath("player.png")),32,64));
+        this.setSprite(new Sprite(new Texture(AssetLoader.getAssetPath("player.png")),64,128));
 
 
     }
