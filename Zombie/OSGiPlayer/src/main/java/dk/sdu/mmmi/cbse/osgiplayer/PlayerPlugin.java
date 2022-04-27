@@ -1,11 +1,13 @@
 package dk.sdu.mmmi.cbse.osgiplayer;
 
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.player.Player;
+
 
 
 public class PlayerPlugin implements IGamePluginService {
@@ -38,7 +40,8 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(500, 500, radians));
         playerShip.add(new LifePart(1));
-        //playerShip.add(new SpritePart(400, 200, AssetLoader.getAssetPath("gaben.png")));
+        playerShip.setHeight(84);
+        playerShip.setWidth(115);
 
         return playerShip;
     }

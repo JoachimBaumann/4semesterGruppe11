@@ -6,9 +6,14 @@
  */
 package dk.sdu.mmmi.cbse.common.data.entityparts;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
@@ -93,6 +98,7 @@ public class MovingPart implements EntityPart {
         float newX, newY;
         TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
         float jumpHeight = 50;
+        Array<Sprite> entitySprites = entity.getTextureAtlas().createSprites();
 
         // apply gravity
         velocity.y -= gravity * delta;
@@ -105,12 +111,16 @@ public class MovingPart implements EntityPart {
 
 
         if (left) {
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
+            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
         }
         if (right) {
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerwalk.txt")));
+            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
@@ -119,7 +129,10 @@ public class MovingPart implements EntityPart {
 
 
         if (up) {
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerjump.txt")));
+            entity.setAnimation(new Animation(1f/3f,entity.getTextureAtlas().getRegions()));
             if (canJump) {
+
                 velocity.y += jumpHeight / 1.8f;
                 canJump = false;
             }
@@ -151,8 +164,8 @@ public class MovingPart implements EntityPart {
     public boolean collidesRight(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
         boolean collides = false;
 
-        for (float step = 0; step < entity.getSprite().getHeight(); step += collisionLayer.getTileHeight() / 2) {
-            if (collides = isCellBlocked(x + entity.getSprite().getWidth(), y + step, collisionLayer))
+        for (float step = 0; step < entity.getHeight(); step += collisionLayer.getTileHeight() / 2) {
+            if (collides = isCellBlocked(x + entity.getHeight(), y + step, collisionLayer))
                 break;
         }
 
@@ -162,7 +175,7 @@ public class MovingPart implements EntityPart {
     public boolean collidesLeft(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
         boolean collides = false;
 
-        for (float step = 0; step < entity.getSprite().getHeight(); step += collisionLayer.getTileHeight() / 2) {
+        for (float step = 0; step < entity.getHeight(); step += collisionLayer.getTileHeight() / 2) {
             if (collides = isCellBlocked(x, y + step, collisionLayer)) {
                 break;
             }
@@ -174,8 +187,8 @@ public class MovingPart implements EntityPart {
     public boolean collidesTop(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
         boolean collides = false;
 
-        for (float step = 0; step < entity.getSprite().getWidth(); step += entity.getSprite().getHeight() / 2) {
-            if (collides = isCellBlocked(x + step, y + entity.getSprite().getHeight(), collisionLayer)) {
+        for (float step = 0; step < entity.getHeight(); step += entity.getHeight() / 2) {
+            if (collides = isCellBlocked(x + step, y + entity.getHeight(), collisionLayer)) {
                 break;
             }
         }
@@ -187,7 +200,7 @@ public class MovingPart implements EntityPart {
     public boolean collidesBottom(float x, float y, TiledMapTileLayer collisionLayer, Entity entity) {
         boolean collides = false;
 
-        for (float step = 0; step < entity.getSprite().getWidth(); step += entity.getSprite().getHeight() / 2) {
+        for (float step = 0; step < entity.getWidth(); step += entity.getHeight() / 2) {
             if (collides = isCellBlocked(x + step, y, collisionLayer)) {
                 canJump = true;
                 break;

@@ -1,12 +1,13 @@
 package dk.sdu.mmmi.cbse.common.data;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,7 +18,9 @@ public class Entity extends ApplicationAdapter implements Serializable {
 
     //sprite stuff
     private Sprite sprite;
+    private TextureAtlas textureAtlas;
     private float width, height;
+    private Animation animation;
 
     private Map<Class, EntityPart> parts;
     
@@ -67,6 +70,19 @@ public class Entity extends ApplicationAdapter implements Serializable {
     }
 
 
+    public TextureAtlas getTextureAtlas() {
+        return textureAtlas;
+    }
 
+    public void setTextureAtlas(TextureAtlas textureAtlas) {
+        this.textureAtlas = textureAtlas;
+    }
 
+    public Animation getAnimation() {
+        return animation;
+    }
+
+    public void setAnimation(Animation animation) {
+        this.animation = animation;
+    }
 }

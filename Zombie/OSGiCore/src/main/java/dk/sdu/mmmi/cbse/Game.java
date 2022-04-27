@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector3;
@@ -16,6 +17,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
+import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
@@ -37,8 +39,7 @@ public class Game implements ApplicationListener {
 
 
     private SpriteBatch batch;
-    private Texture texture;
-    private Sprite sprite;
+    private float elapsedTime = 0;
 
 
     public Game() {
@@ -132,14 +133,18 @@ public class Game implements ApplicationListener {
     //remove when sprite is implemented
     private void draw() {
         batch.begin();
+        elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
             try {
+                PositionPart positionPart = entity.getPart(PositionPart.class);
+                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX(),positionPart.getY());
                 entity.getSprite().draw(batch);
             } catch (NullPointerException e) {
                 entity.create();
             }
         }
         batch.end();
+
     }
 
     @Override
