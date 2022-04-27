@@ -17,7 +17,7 @@ public class MapImpl extends WorldMap {
     public void create() {
         TiledMap map = new TiledMap();
         TmxMapLoader loader = new TmxMapLoader();
-        AssetLoader.getAssetPath("map1.tmx");
+        //AssetLoader.getAssetPath("map1.tmx");
         map = loader.load(AssetLoader.getAssetPath("map1.tmx"));
 
 

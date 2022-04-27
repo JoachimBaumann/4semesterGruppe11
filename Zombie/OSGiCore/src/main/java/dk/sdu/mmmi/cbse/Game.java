@@ -18,9 +18,11 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
+
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
 
 import java.util.List;
@@ -74,6 +76,8 @@ public class Game implements ApplicationListener {
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
         cam.update();
 
+
+
         shapeRenderer = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
@@ -100,12 +104,26 @@ public class Game implements ApplicationListener {
         try {
             TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
 
+
+            //Todo: Fix cam position
             Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
-            cam.position.set(center);
+            Vector3 camPos = new Vector3(5080, 1080, 0);
+
+
+            Entity player = world.getEntities(Player.class).get(0); //This works because there is only 1 player object.
+
+
+            float lerp = 0.1f;
+            Vector3 position = cam.position;
+            position.x += (player.getHeight() + position.x) * lerp * gameData.getDelta();
+
+            cam.position.set(position);
 
             cam.update();
 
             worldMap.getRenderer().setView(cam);
+
+
 
             worldMap.getRenderer().render();
         } catch (NullPointerException e) {
