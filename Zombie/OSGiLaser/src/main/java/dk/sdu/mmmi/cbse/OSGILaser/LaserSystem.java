@@ -10,6 +10,8 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.weapon.Weapon;
 import dk.sdu.mmmi.cbse.common.weapon.WeaponSPI;
 
+import dk.sdu.mmmi.cbse.common.*;
+
 public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
     private float CD;

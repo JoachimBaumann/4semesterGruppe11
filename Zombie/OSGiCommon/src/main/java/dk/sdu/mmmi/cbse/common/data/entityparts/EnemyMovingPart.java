@@ -101,9 +101,9 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
 
 
         if (space) {
-            if (canJump) {
+            if (super.getCantJump()) {
                 velocity.y += jumpHeight / 1.8f;
-                canJump = false;
+                super.setCanJump(false);
             }
         }
         if (collidesTop(x, y + velocity.y, collisonLayer, entity)) {
