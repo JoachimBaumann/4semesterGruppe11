@@ -9,7 +9,6 @@ public class Enemy extends Entity {
 
     @Override
     public void create() {
-        //this.setSprite(new Sprite(new Texture("C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\resources\\Assets\\gaben.png"),122,124));
 
         this.setSprite(new Sprite(new Texture(AssetLoader.getAssetPath("philliplugter.png")),122,124));
     }

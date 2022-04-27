@@ -2,11 +2,11 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Osmorc" name="OSGi">
-      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiEnemy-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGIEnemy" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="dk.sdu.mmmi.cbse.osgienemy-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGIEnemy" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
           <property key="Bundle-Description" value="Generated using Pax-Construct" />
-          <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
-          <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
+          <property key="Export-Package" value="!dk.sdu.mmmi.cbse.osgienemy.internal.*,dk.sdu.mmmi.cbse.osgienemy.*;version=&quot;1.0-SNAPSHOT&quot;" />
+          <property key="Private-Package" value="dk.sdu.mmmi.cbse.osgienemy.internal.*" />
           <property key="Bundle-Name" value="OSGIEnemy" />
           <property key="Include-Resource" value="META-INF/entityprocessor.xml=$MODULE_DIR$/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=$MODULE_DIR$/src/main/resources/META-INF/gameplugin.xml" />
         </additionalProperties>

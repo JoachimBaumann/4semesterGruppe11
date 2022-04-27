@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGiCommon" />
-          <property key="Include-Resource" value="Assets/enemy1.png=$MODULE_DIR$/src/main/resources/Assets/enemy1.png,Assets/gaben.png=$MODULE_DIR$/src/main/resources/Assets/gaben.png,Assets/hyptosis_tile-art-batch-1.png=$MODULE_DIR$/src/main/resources/Assets/hyptosis_tile-art-batch-1.png,Assets/hyptosis_tile-art-batch-1.tsx=$MODULE_DIR$/src/main/resources/Assets/hyptosis_tile-art-batch-1.tsx,Assets/map.tmx=$MODULE_DIR$/src/main/resources/Assets/map.tmx,Assets/philliplugter.png=$MODULE_DIR$/src/main/resources/Assets/philliplugter.png,Assets/player.png=$MODULE_DIR$/src/main/resources/Assets/player.png" />
+          <property key="Include-Resource" value="Assets/enemy1.png=$MODULE_DIR$/src/main/resources/Assets/enemy1.png,Assets/gaben.png=$MODULE_DIR$/src/main/resources/Assets/gaben.png,Assets/hyptosis_tile-art-batch-1.png=$MODULE_DIR$/src/main/resources/Assets/hyptosis_tile-art-batch-1.png,Assets/hyptosis_tile-art-batch-1.tsx=$MODULE_DIR$/src/main/resources/Assets/hyptosis_tile-art-batch-1.tsx,Assets/map.tmx=$MODULE_DIR$/src/main/resources/Assets/map.tmx,Assets/player.png=$MODULE_DIR$/src/main/resources/Assets/player.png,Assets/png.png=$MODULE_DIR$/src/main/resources/Assets/png.png" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
