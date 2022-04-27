@@ -94,30 +94,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>3.9.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.bytebuddy</groupId>
-      <artifactId>byte-buddy</artifactId>
-      <version>1.10.20</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.bytebuddy</groupId>
-      <artifactId>byte-buddy-agent</artifactId>
-      <version>1.10.20</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.objenesis</groupId>
-      <artifactId>objenesis</artifactId>
-      <version>3.2</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>dk.sdu.mmmi.build</groupId>
       <artifactId>OSGiEnemy</artifactId>
       <version>1.0-SNAPSHOT</version>

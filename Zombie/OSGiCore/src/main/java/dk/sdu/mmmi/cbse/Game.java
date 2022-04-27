@@ -13,17 +13,11 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector3;
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.WorldMap;
-import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
+import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
 
 import java.util.List;
@@ -43,6 +37,7 @@ public class Game implements ApplicationListener {
 
     private SpriteBatch batch;
     private float elapsedTime = 0;
+    private Texture img;
 
 
     public Game() {
@@ -64,11 +59,13 @@ public class Game implements ApplicationListener {
     public void create() {
 
 
+
         //spirit loading
         batch = new SpriteBatch();
-        //texture = new Texture(Gdx.files.internal("images\\gaben.png"));
-        //sprite = new Sprite(texture);
-
+        img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
+        batch.begin();
+        batch.draw(img,0,0);
+        batch.end();
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -76,8 +73,6 @@ public class Game implements ApplicationListener {
         cam = new OrthographicCamera(gameData.getDisplayWidth(), gameData.getDisplayHeight());
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
         cam.update();
-
-
 
         shapeRenderer = new ShapeRenderer();
 
@@ -105,19 +100,8 @@ public class Game implements ApplicationListener {
         try {
             TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
 
-
-            //Todo: Fix cam position
-
-
-            Entity player = world.getEntities(Player.class).get(0);
-            PositionPart playerPositionPart = player.getPart(PositionPart.class);
-
-            Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() + playerPositionPart.getX() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
-
-            float lerp = 0.1f;
-            Vector3 position = cam.position;
-            position.x = playerPositionPart.getX();
-            //System.out.println("Player Position: " + playerPositionPart.getX() + ". Position.x: " + position.x + ". Cam position: " + cam.position);
+            Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
+            cam.position.set(center);
 
             cam.update();
 
@@ -153,7 +137,7 @@ public class Game implements ApplicationListener {
         for (Entity entity : world.getEntities()) {
             try {
                 PositionPart positionPart = entity.getPart(PositionPart.class);
-                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX(),positionPart.getY());
+                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX()-12f,positionPart.getY()-12f);
                 entity.getSprite().draw(batch);
             } catch (NullPointerException e) {
                 entity.create();

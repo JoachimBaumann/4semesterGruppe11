@@ -1,7 +1,10 @@
 package dk.sdu.mmmi.cbse.common.data.entityparts;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
@@ -88,11 +91,14 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
 
         if (left) {
             velocity.x -= maxSpeed * delta;
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyLeft/enemywalking.txt")));
+            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
         }
         if (right) {
+            velocity.x -= maxSpeed * delta;
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
@@ -111,6 +117,9 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         }
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
+        }else{
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
+            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
         }
 
 
