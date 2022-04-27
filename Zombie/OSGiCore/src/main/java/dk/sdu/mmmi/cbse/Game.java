@@ -13,10 +13,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector3;
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.WorldMap;
+import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
@@ -40,6 +37,7 @@ public class Game implements ApplicationListener {
 
     private SpriteBatch batch;
     private float elapsedTime = 0;
+    private Texture img;
 
 
     public Game() {
@@ -61,11 +59,13 @@ public class Game implements ApplicationListener {
     public void create() {
 
 
+
         //spirit loading
         batch = new SpriteBatch();
-        //texture = new Texture(Gdx.files.internal("images\\gaben.png"));
-        //sprite = new Sprite(texture);
-
+        img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
+        batch.begin();
+        batch.draw(img,0,0);
+        batch.end();
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -137,7 +137,7 @@ public class Game implements ApplicationListener {
         for (Entity entity : world.getEntities()) {
             try {
                 PositionPart positionPart = entity.getPart(PositionPart.class);
-                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX(),positionPart.getY());
+                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX()-12f,positionPart.getY()-12f);
                 entity.getSprite().draw(batch);
             } catch (NullPointerException e) {
                 entity.create();

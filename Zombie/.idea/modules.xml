@@ -18,7 +18,6 @@
       <module fileurl="file://$PROJECT_DIR$/OSGiLaser/OSGiLaser.iml" filepath="$PROJECT_DIR$/OSGiLaser/OSGiLaser.iml" />
       <module fileurl="file://$PROJECT_DIR$/OSGiMap/OSGiMap.iml" filepath="$PROJECT_DIR$/OSGiMap/OSGiMap.iml" />
       <module fileurl="file://$PROJECT_DIR$/OSGiPlayer/OSGiPlayer.iml" filepath="$PROJECT_DIR$/OSGiPlayer/OSGiPlayer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/OSGiWeapon/OSGiWeapon.iml" filepath="$PROJECT_DIR$/OSGiWeapon/OSGiWeapon.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zombie.iml" filepath="$PROJECT_DIR$/Zombie.iml" />
       <module fileurl="file://$PROJECT_DIR$/poms/compiled/compiled-bundle-settings.iml" filepath="$PROJECT_DIR$/poms/compiled/compiled-bundle-settings.iml" />
       <module fileurl="file://$PROJECT_DIR$/OSGiLaser/dk.sdu.mmmi.cbse.OSGILaser.iml" filepath="$PROJECT_DIR$/OSGiLaser/dk.sdu.mmmi.cbse.OSGILaser.iml" />
