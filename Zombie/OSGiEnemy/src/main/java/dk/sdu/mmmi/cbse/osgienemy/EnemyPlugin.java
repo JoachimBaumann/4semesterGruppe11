@@ -23,8 +23,7 @@ public class EnemyPlugin implements IGamePluginService {
         enemyID = world.addEntity(enemy);
 
         System.out.println("added enemy object ");
-        LifePart entityLife = enemy.getPart(LifePart.class);
-        System.out.println(entityLife);
+        //LifePart entityLife = enemy.getPart(LifePart.class);
     }
 
     @Override
