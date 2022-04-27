@@ -12,6 +12,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
@@ -96,7 +97,7 @@ public class MovingPart implements EntityPart {
 
 
         if (left) {
-            entity.setTextureAtlas(new TextureAtlas("C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/flippedPlayerWalk.txt"));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
             entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
@@ -104,7 +105,7 @@ public class MovingPart implements EntityPart {
             }
         }
         if (right) {
-            entity.setTextureAtlas(new TextureAtlas("C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/playerwalk.txt"));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerwalk.txt")));
             entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
@@ -114,7 +115,7 @@ public class MovingPart implements EntityPart {
 
 
         if (up) {
-            entity.setTextureAtlas(new TextureAtlas("C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/playerjump.txt"));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerjump.txt")));
             entity.setAnimation(new Animation(1f/3f,entity.getTextureAtlas().getRegions()));
             if (canJump) {
 
