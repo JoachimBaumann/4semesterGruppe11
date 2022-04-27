@@ -52,13 +52,13 @@
     <module>OSGiCommon</module>
     <module>OSGiCommonEnemy</module>
     <module>OSGiPlayer</module>
+    <module>OSGiEnemy</module>
     <module>OSGiCore</module>
     <module>OSGiCommonPlayer</module>
     <module>OSGiCommonWeapon</module>
     <module>provision</module>
     <module>OSGiMap</module>
     <!--    <module>OSGiWeapon</module>-->
-    <module>OSGiEnemy</module>
     <module>OSGiCollision</module>
     <module>OSGiEnemyTracking</module>
     <module>OSGiLaser</module>

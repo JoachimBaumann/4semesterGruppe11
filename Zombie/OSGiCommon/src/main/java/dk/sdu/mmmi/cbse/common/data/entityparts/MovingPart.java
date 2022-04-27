@@ -111,16 +111,14 @@ public class MovingPart implements EntityPart {
 
 
         if (left) {
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
-            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
+
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
         }
         if (right) {
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerwalk.txt")));
-            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
+
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
@@ -129,8 +127,7 @@ public class MovingPart implements EntityPart {
 
 
         if (up) {
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerjump.txt")));
-            entity.setAnimation(new Animation(1f/3f,entity.getTextureAtlas().getRegions()));
+
             if (canJump) {
 
                 velocity.y += jumpHeight / 1.8f;

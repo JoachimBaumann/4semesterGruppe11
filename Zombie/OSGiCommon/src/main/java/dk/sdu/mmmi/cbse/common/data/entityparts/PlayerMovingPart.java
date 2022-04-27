@@ -1,7 +1,10 @@
 package dk.sdu.mmmi.cbse.common.data.entityparts;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector2;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
@@ -84,12 +87,16 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
 
 
         if (left) {
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
+            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
         }
         if (right) {
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerwalk.txt")));
+            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
@@ -97,7 +104,9 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         }
 
 
-        if (space) {
+        if (up) {
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerjump.txt")));
+            entity.setAnimation(new Animation(1f/3f,entity.getTextureAtlas().getRegions()));
             if (super.getCantJump()) {
                 velocity.y += jumpHeight / 1.8f;
                 super.setCanJump(false);
