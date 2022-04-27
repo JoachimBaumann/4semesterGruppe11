@@ -5,9 +5,13 @@
  */
 package dk.sdu.mmmi.cbse.common.data.entityparts;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
@@ -79,6 +83,7 @@ public class MovingPart implements EntityPart {
         float newX, newY;
         TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
         float jumpHeight = 50;
+        Array<Sprite> entitySprites = entity.getTextureAtlas().createSprites();
 
         // apply gravity
         velocity.y -= gravity * delta;
@@ -91,12 +96,16 @@ public class MovingPart implements EntityPart {
 
 
         if (left) {
+            entity.setTextureAtlas(new TextureAtlas("C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/flippedPlayerWalk.txt"));
+            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
         }
         if (right) {
+            entity.setTextureAtlas(new TextureAtlas("C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/playerwalk.txt"));
+            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
@@ -105,7 +114,10 @@ public class MovingPart implements EntityPart {
 
 
         if (up) {
+            entity.setTextureAtlas(new TextureAtlas("C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/playerjump.txt"));
+            entity.setAnimation(new Animation(1f/3f,entity.getTextureAtlas().getRegions()));
             if (canJump) {
+
                 velocity.y += jumpHeight / 1.8f;
                 canJump = false;
             }

@@ -47,7 +47,6 @@ public class EnemyPlugin implements IGamePluginService {
         //enemy.add(new MovingPart(deacceleration, acceleration, maxSpeed, rotationSpeed));
         enemy.add(new PositionPart(x+1600, y+177, radians));
         enemy.add(new LifePart(1));
-        enemy.add(new SpritePart(1, 1, AssetLoader.getAssetPath("enemy1.png")));
 
         return  enemy;
     }
