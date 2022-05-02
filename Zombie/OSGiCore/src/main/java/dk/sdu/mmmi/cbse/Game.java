@@ -109,15 +109,17 @@ public class Game implements ApplicationListener {
 
             //Todo: Fix cam position
 
+            try {
+                Entity player = world.getEntities(Player.class).get(0);
+                PositionPart playerPositionPart = player.getPart(PositionPart.class);
+                Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() + playerPositionPart.getX() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
 
-            Entity player = world.getEntities(Player.class).get(0);
-            PositionPart playerPositionPart = player.getPart(PositionPart.class);
+                Vector3 position = cam.position;
+                position.x = playerPositionPart.getX();
 
-            Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() + playerPositionPart.getX() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
-
-            Vector3 position = cam.position;
-            position.x = playerPositionPart.getX();
-
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("No player object - ");
+            }
 
 
             cam.update();
