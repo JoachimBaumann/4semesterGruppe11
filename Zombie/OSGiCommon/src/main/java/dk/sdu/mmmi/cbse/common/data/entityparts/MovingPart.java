@@ -26,6 +26,10 @@ public class MovingPart implements EntityPart {
         this.maxSpeed = maxSpeed;
     }
 
+    public MovingPart(float maxSpeed, float gravity) {
+        this.maxSpeed = maxSpeed;
+        this.gravity = gravity;
+    }
 
     private float maxSpeed = 60, gravity = 60 * 1.8f, increment;
     private Vector2 velocity = new Vector2();

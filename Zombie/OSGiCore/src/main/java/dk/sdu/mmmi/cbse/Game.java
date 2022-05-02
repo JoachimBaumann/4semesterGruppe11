@@ -18,6 +18,7 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
+import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
@@ -43,6 +44,7 @@ public class Game implements ApplicationListener {
 
     private SpriteBatch batch;
     private float elapsedTime = 0;
+    private Texture img;
 
 
     public Game() {
@@ -66,8 +68,7 @@ public class Game implements ApplicationListener {
 
         //spirit loading
         batch = new SpriteBatch();
-        //texture = new Texture(Gdx.files.internal("images\\gaben.png"));
-        //sprite = new Sprite(texture);
+        img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
@@ -114,10 +115,8 @@ public class Game implements ApplicationListener {
 
             Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() + playerPositionPart.getX() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
 
-            float lerp = 0.1f;
             Vector3 position = cam.position;
             position.x = playerPositionPart.getX();
-            //System.out.println("Player Position: " + playerPositionPart.getX() + ". Position.x: " + position.x + ". Cam position: " + cam.position);
 
             cam.update();
 
@@ -149,11 +148,12 @@ public class Game implements ApplicationListener {
     //remove when sprite is implemented
     private void draw() {
         batch.begin();
+        batch.draw(img,0,0);
         elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
             try {
                 PositionPart positionPart = entity.getPart(PositionPart.class);
-                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX(),positionPart.getY());
+                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX()-12f,positionPart.getY()-12f);
                 entity.getSprite().draw(batch);
             } catch (NullPointerException e) {
                 entity.create();

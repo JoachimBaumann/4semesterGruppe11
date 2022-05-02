@@ -2,11 +2,10 @@ package dk.sdu.mmmi.cbse.osgiplayer;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.GameKeys;
-import dk.sdu.mmmi.cbse.common.data.World;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.player.Player;
@@ -34,9 +33,13 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
 
             if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null) {
-                System.out.println("Skud!");
                 Entity bullet = weaponService.createWeapon(player, gameData);
                 world.addEntity(bullet);
+                player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playershootright.txt")));
+                player.setAnimation(new Animation(1f/30f,player.getTextureAtlas().getRegions()));
+            }else if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService == null) {
+                player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playermeleeright.txt")));
+                player.setAnimation(new Animation(1f/6f,player.getTextureAtlas().getRegions()));
             }
 
 

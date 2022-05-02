@@ -19,15 +19,20 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 // if the two entities are identical, skip the iteration
                 if (entity.getID().equals(collisionDetection.getID())) {
                     continue;
+                }
 
-                    // remove entities with zero in expiration
+                // remove entities with zero in expiration
+                if (entityLife.isDead()) {
+                    System.out.println("Bullet removed maybe?");
+                    world.removeEntity(entity);
                 }
 
                 // CollisionDetection
                 if (this.Collides(entity, collisionDetection)) {
                     //System.out.println("Collision");
                     continue;
-                    /* if entity has been hit, and should have its life reduced
+                    // if entity has been hit, and should have its life reduced
+                    /*
                     if (entityLife.getLife() > 0) {
                         entityLife.setLife(entityLife.getLife() - 1);
                         entityLife.setIsHit(true);
@@ -35,9 +40,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
                         if (entityLife.getLife() <= 0) {
                             world.removeEntity(entity);
                         }
-                    }
-
-                     */
+                    }*/
                 }
             }
         }

@@ -105,8 +105,6 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
 
 
         if (up) {
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerjump.txt")));
-            entity.setAnimation(new Animation(1f/3f,entity.getTextureAtlas().getRegions()));
             if (super.getCantJump()) {
                 velocity.y += jumpHeight / 1.8f;
                 super.setCanJump(false);
@@ -117,6 +115,9 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         }
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
+        }else {
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerjump.txt")));
+            entity.setAnimation(new Animation(1f/3f,entity.getTextureAtlas().getRegions()));
         }
 
 
