@@ -27,7 +27,8 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 // CollisionDetection
                 if (this.Collides(entity, collisionDetection)) {
                     continue;
-                    /* if entity has been hit, and should have its life reduced
+                    // if entity has been hit, and should have its life reduced
+                    /*
                     if (entityLife.getLife() > 0) {
                         entityLife.setLife(entityLife.getLife() - 1);
                         entityLife.setIsHit(true);
@@ -35,9 +36,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
                         if (entityLife.getLife() <= 0) {
                             world.removeEntity(entity);
                         }
-                    }
-
-                     */
+                    }*/
                 }
             }
         }
