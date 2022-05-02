@@ -13,7 +13,7 @@ public class Enemy extends Entity{
 
     @Override
     public void create() {
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/enemywalking.txt")));
+        this.setTextureAtlas(new TextureAtlas("/Users/faezeh/Desktop/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/EnemyAssets/enemywalking.txt"));
         this.setAnimation(new Animation(1/15f,getTextureAtlas().getRegions()));
 
     }
