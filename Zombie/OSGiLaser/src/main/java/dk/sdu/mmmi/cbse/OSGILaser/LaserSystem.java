@@ -1,8 +1,12 @@
 package dk.sdu.mmmi.cbse.OSGILaser;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.TimerPart;
@@ -34,6 +38,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             // movingPart.process(gameData, bullet);
             positionPart.process(gameData, bullet);
 
+
         }
     }
 
@@ -41,6 +46,8 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
     public Entity createWeapon(Entity shooter, GameData gameData) {
         PositionPart shooterPos = shooter.getPart(PositionPart.class);
         MovingPart shooterMovingPart = shooter.getPart(MovingPart.class);
+
+
 
         float x = shooterPos.getX();
         float y = shooterPos.getY();
@@ -52,10 +59,10 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
         //bullet.setRadius(2);
 
 
-        bullet.add(new PositionPart(x, y, radians));
-        // bullet.add(new LifePart(1));
-        bullet.add(new MovingPart(500));
-        bullet.add(new TimerPart(1));
+        bullet.add(new PositionPart(x + 180, y + 70, radians));
+        bullet.add(new LifePart(1));
+        bullet.add(new MovingPart(300,0f));
+        bullet.add(new TimerPart(5));
 
 
         return bullet;

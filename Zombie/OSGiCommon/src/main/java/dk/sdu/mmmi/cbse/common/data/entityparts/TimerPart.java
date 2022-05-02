@@ -37,7 +37,12 @@ public class TimerPart
     public void process(GameData gameData, Entity entity) {
         if (expiration > 0) {
             reduceExpiration(gameData.getDelta());
+
+        }
+        if (expiration <= 0) {
+                LifePart lifePart = entity.getPart(LifePart.class);
+                lifePart.setLife(0);
+
         }
     }
-
 }
