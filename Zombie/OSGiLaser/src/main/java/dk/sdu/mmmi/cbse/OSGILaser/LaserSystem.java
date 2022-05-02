@@ -29,13 +29,14 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             PositionPart positionPart = bullet.getPart(PositionPart.class);
             MovingPart movingPart = bullet.getPart(MovingPart.class);
             TimerPart timerPart = bullet.getPart(TimerPart.class);
-            movingPart.setUp(true);
+            movingPart.setRight(true);
             if (timerPart.getExpiration() < 0) {
                 world.removeEntity(bullet);
             }
 
-            // timerPart.process(gameData, bullet);
-            // movingPart.process(gameData, bullet);
+            timerPart.process(gameData, bullet);
+            movingPart.process(gameData,bullet);
+
             positionPart.process(gameData, bullet);
 
 
@@ -57,7 +58,8 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
         Entity bullet = new Weapon();
         //bullet.setRadius(2);
-
+        bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/ShootingAssets/ShootingRight/shotright.txt")));
+        bullet.setAnimation(new Animation(1f / 6f, bullet.getTextureAtlas().getRegions()));
 
         bullet.add(new PositionPart(x + 180, y + 70, radians));
         bullet.add(new LifePart(1));
