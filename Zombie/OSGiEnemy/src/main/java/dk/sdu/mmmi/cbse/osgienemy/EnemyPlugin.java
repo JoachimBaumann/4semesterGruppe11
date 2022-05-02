@@ -29,7 +29,6 @@ public class EnemyPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
 
-
     }
 
     private Entity createEnemy(GameData gameData){

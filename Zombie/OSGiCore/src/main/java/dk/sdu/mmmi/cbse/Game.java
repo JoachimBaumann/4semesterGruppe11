@@ -68,7 +68,7 @@ public class Game implements ApplicationListener {
 
         //spirit loading
         batch = new SpriteBatch();
-        img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
+        //img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
@@ -118,6 +118,8 @@ public class Game implements ApplicationListener {
             Vector3 position = cam.position;
             position.x = playerPositionPart.getX();
 
+
+
             cam.update();
 
             worldMap.getRenderer().setView(cam);
@@ -148,7 +150,7 @@ public class Game implements ApplicationListener {
     //remove when sprite is implemented
     private void draw() {
         batch.begin();
-        batch.draw(img,0,0);
+        //batch.draw(img,0,0);
         elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
             try {

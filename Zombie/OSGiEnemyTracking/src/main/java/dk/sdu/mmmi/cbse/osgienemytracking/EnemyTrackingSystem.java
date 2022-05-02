@@ -41,6 +41,7 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
                     enemyMovingPart.setSpace(false);
                     enemyMovingPart.setLeft(false);
                 } else {
+
                     enemyMovingPart.setLeft(true);
                     enemyMovingPart.setSpace(false);
                     enemyMovingPart.setRight(false);
