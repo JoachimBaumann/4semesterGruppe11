@@ -90,6 +90,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
 
 
         if (left) {
+            System.out.println("left");
             velocity.x -= maxSpeed * delta;
             entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyLeft/enemywalking.txt")));
             entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
@@ -98,9 +99,13 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
             }
         }
         if (right) {
-            velocity.x -= maxSpeed * delta;
+            System.out.println("right ");
             velocity.x += maxSpeed * delta;
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
+            entity.setAnimation(new Animation(1/15f,entity.getTextureAtlas().getRegions()));
+
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
+                System.out.println("collides");
                 velocity.x = 0;
             }
         }
