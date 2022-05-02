@@ -62,6 +62,7 @@
     <!--    <module>OSGiWeapon</module>-->
     <module>OSGiEnemyTracking</module>
     <module>OSGiLaser</module>
+    <module>OSGiEnemySpawningSystem</module>
   </modules>
 
   <build>
