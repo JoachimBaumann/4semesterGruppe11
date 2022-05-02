@@ -21,6 +21,7 @@ public class Entity extends ApplicationAdapter implements Serializable {
     private TextureAtlas textureAtlas;
     private float width, height;
     private Animation animation;
+    private float radius;
 
     private Map<Class, EntityPart> parts;
     
@@ -38,6 +39,14 @@ public class Entity extends ApplicationAdapter implements Serializable {
     
     public <E extends EntityPart> E getPart(Class partClass) {
         return (E) parts.get(partClass);
+    }
+
+    public float getRadius() {
+        return this.radius;
+    }
+
+    public void setRadius(float radius) {
+        this.radius = radius;
     }
 
     public void setSprite(Sprite sprite) {

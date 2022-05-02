@@ -69,6 +69,7 @@ public class PositionPart implements EntityPart {
 
 
 
+
     public void setPosition(float newX, float newY) {
         this.x = newX;
         this.y = newY;

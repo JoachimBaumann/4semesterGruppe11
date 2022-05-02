@@ -47,7 +47,7 @@ public class EnemyPlugin implements IGamePluginService {
         enemy.add(new LifePart(1));
         enemy.setHeight(84);
         enemy.setWidth(115);
-
+        enemy.setRadius(20);
         return  enemy;
     }
 }

@@ -17,6 +17,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
+import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
@@ -106,24 +107,21 @@ public class Game implements ApplicationListener {
 
 
             //Todo: Fix cam position
-            Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
-            Vector3 camPos = new Vector3(5080, 1080, 0);
 
 
-            Entity player = world.getEntities(Player.class).get(0); //This works because there is only 1 player object.
+            Entity player = world.getEntities(Player.class).get(0);
+            PositionPart playerPositionPart = player.getPart(PositionPart.class);
 
+            Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() + playerPositionPart.getX() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
 
             float lerp = 0.1f;
             Vector3 position = cam.position;
-            position.x += (player.getHeight() + position.x) * lerp * gameData.getDelta();
-
-            cam.position.set(position);
+            position.x = playerPositionPart.getX();
+            //System.out.println("Player Position: " + playerPositionPart.getX() + ". Position.x: " + position.x + ". Cam position: " + cam.position);
 
             cam.update();
 
             worldMap.getRenderer().setView(cam);
-
-
 
             worldMap.getRenderer().render();
         } catch (NullPointerException e) {
