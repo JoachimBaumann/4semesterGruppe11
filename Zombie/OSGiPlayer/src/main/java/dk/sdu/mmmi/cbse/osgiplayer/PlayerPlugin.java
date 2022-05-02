@@ -24,7 +24,7 @@ public class PlayerPlugin implements IGamePluginService {
         Entity player = createPlayerShip(gameData);
         playerID = world.addEntity(player);
 
-        System.out.println("added player object ");
+        System.out.println("added player object");
         LifePart entityLife = player.getPart(LifePart.class);
         System.out.println(entityLife);
 
@@ -42,7 +42,7 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new LifePart(1));
         playerShip.setHeight(84);
         playerShip.setWidth(115);
-
+        playerShip.setRadius(20);
         return playerShip;
     }
 

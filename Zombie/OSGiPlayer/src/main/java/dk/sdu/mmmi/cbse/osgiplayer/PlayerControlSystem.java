@@ -44,8 +44,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
             positionPart.process(gameData, player);
             lifePart.process(gameData, player);
 
-            System.out.println(positionPart.getX() + " - " + positionPart.getY());
-
         }
     }
 
