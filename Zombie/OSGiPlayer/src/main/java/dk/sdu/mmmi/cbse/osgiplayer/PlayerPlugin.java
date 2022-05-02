@@ -50,6 +50,7 @@ public class PlayerPlugin implements IGamePluginService {
     public void stop(GameData gameData, World world) {
         // Remove entities
         world.removeEntity(playerID);
+        System.out.println("removed player");
     }
 
 }

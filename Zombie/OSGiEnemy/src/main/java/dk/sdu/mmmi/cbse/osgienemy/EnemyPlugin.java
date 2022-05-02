@@ -28,7 +28,8 @@ public class EnemyPlugin implements IGamePluginService {
 
     @Override
     public void stop(GameData gameData, World world) {
-
+        world.removeEntity(enemyID);
+        System.out.println("removed enemy");
 
     }
 
