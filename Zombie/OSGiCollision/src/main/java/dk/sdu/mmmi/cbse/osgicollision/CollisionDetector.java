@@ -22,6 +22,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 }
 
                 // remove entities with zero in expiration
+
                 if (entityLife.isDead()) {
                     System.out.println("Bullet removed maybe?");
                     world.removeEntity(entity);

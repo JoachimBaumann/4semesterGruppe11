@@ -43,7 +43,7 @@ public class EnemyPlugin implements IGamePluginService {
         Entity enemy = new Enemy();
         enemy.add(new EnemyMovingPart(maxSpeed));
         enemy.add(new PositionPart(500 , 200 , radians));
-        enemy.add(new LifePart(3));
+        enemy.add(new LifePart(5));
         enemy.setHeight(84);
         enemy.setWidth(115);
         enemy.setRadius(20);
