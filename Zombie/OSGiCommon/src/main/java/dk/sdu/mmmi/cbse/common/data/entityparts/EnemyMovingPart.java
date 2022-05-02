@@ -24,8 +24,6 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
     private int count;
 
 
-
-
     public float getMaxSpeed() {
         return maxSpeed;
     }
