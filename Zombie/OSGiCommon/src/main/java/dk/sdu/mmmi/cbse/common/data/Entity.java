@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class Entity extends ApplicationAdapter implements Serializable {
+public abstract class Entity extends ApplicationAdapter implements Serializable {
     private final UUID ID = UUID.randomUUID();
 
 
@@ -22,6 +22,7 @@ public class Entity extends ApplicationAdapter implements Serializable {
     private float width, height;
     private Animation animation;
     private float radius;
+    private String name;
 
     private Map<Class, EntityPart> parts;
     
@@ -32,6 +33,7 @@ public class Entity extends ApplicationAdapter implements Serializable {
     public void add(EntityPart part) {
         parts.put(part.getClass(), part);
     }
+
     
     public void remove(Class partClass) {
         parts.remove(partClass);
@@ -94,4 +96,7 @@ public class Entity extends ApplicationAdapter implements Serializable {
     public void setAnimation(Animation animation) {
         this.animation = animation;
     }
+
+
+    public abstract String getName();
 }

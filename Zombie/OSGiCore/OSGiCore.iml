@@ -28,6 +28,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.compendium:4.3.0" level="project" />
     <orderEntry type="module" module-name="OSGiCommon" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
+    <orderEntry type="module" module-name="OSGiCommonEnemy" />
     <orderEntry type="module" module-name="LibGDX" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx-platform:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx-backend-lwjgl:1.5.0" level="project" />

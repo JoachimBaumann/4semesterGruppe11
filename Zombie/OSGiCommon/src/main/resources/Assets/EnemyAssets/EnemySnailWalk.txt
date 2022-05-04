@@ -1,0 +1,61 @@
+EnemySnailWalk.png
+size: 1276, 376
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+sn00
+  rotate: false
+  xy: 1, 1
+  size: 326, 186
+  orig: 336, 192
+  offset: 5, 0
+  index: -1
+sn01
+  rotate: false
+  xy: 329, 189
+  size: 317, 186
+  orig: 336, 192
+  offset: 5, 0
+  index: -1
+sn02
+  rotate: false
+  xy: 653, 1
+  size: 310, 186
+  orig: 336, 192
+  offset: 5, 0
+  index: -1
+sn03
+  rotate: false
+  xy: 967, 189
+  size: 301, 186
+  orig: 336, 192
+  offset: 5, 0
+  index: -1
+sn04
+  rotate: false
+  xy: 965, 1
+  size: 310, 186
+  orig: 336, 192
+  offset: 5, 0
+  index: -1
+sn05
+  rotate: false
+  xy: 648, 189
+  size: 317, 186
+  orig: 336, 192
+  offset: 5, 0
+  index: -1
+sn06
+  rotate: false
+  xy: 329, 1
+  size: 322, 186
+  orig: 336, 192
+  offset: 5, 0
+  index: -1
+sn07
+  rotate: false
+  xy: 1, 189
+  size: 326, 186
+  orig: 336, 192
+  offset: 5, 0
+  index: -1

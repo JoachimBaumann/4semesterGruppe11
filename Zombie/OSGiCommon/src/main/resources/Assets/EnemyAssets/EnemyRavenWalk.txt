@@ -1,0 +1,47 @@
+EnemyRavenWalk.png
+size: 1225, 503
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+r00
+  rotate: false
+  xy: 1, 253
+  size: 407, 249
+  orig: 428, 368
+  offset: 10, 107
+  index: -1
+r01
+  rotate: false
+  xy: 1, 1
+  size: 407, 250
+  orig: 428, 368
+  offset: 10, 107
+  index: -1
+r02
+  rotate: false
+  xy: 410, 1
+  size: 407, 249
+  orig: 428, 368
+  offset: 10, 9
+  index: -1
+r03
+  rotate: false
+  xy: 817, 252
+  size: 405, 249
+  orig: 428, 368
+  offset: 12, 107
+  index: -1
+r04
+  rotate: false
+  xy: 410, 252
+  size: 405, 250
+  orig: 428, 368
+  offset: 12, 107
+  index: -1
+r05
+  rotate: false
+  xy: 819, 1
+  size: 405, 249
+  orig: 428, 368
+  offset: 12, 9
+  index: -1

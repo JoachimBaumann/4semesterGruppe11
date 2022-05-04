@@ -6,24 +6,40 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.EnemyMovingPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.SpritePart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.*;
+import dk.sdu.mmmi.cbse.common.enemy.*;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
+import dk.sdu.mmmi.cbse.common.data.*;
+
+
+
+
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EnemyControlSystem implements IEntityProcessingService {
+
+    List<Entity> enemies;
+
+
+
     @Override
     public void process(GameData gameData, World world) {
-        for (Entity enemy : world.getEntities(Enemy.class)) {
+        enemies = world.getEntities(EnemyBat.class);
+        enemies.addAll(world.getEntities(EnemyRaven.class));
+        enemies.addAll(world.getEntities(EnemySnail.class));
+        enemies.addAll(world.getEntities(Enemy.class));
+
+        System.out.println(enemies.size());
+        for (Entity enemy : enemies) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
-            EnemyMovingPart movingPart = enemy.getPart(EnemyMovingPart.class);
+            EnemyMovingPart enemyMovingPart = enemy.getPart(EnemyMovingPart.class);
             //LifePart lifePart = enemy.getPart(LifePart.class);
-            SpritePart spritePart = enemy.getPart(SpritePart.class);
 
 
-            movingPart.process(gameData, enemy);
+            enemyMovingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
 
             //lifePart.process(gameData, enemy);

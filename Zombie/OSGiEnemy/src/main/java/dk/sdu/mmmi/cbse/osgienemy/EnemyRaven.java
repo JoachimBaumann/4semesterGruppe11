@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse.common.enemy;
+package dk.sdu.mmmi.cbse.osgienemy;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -8,15 +8,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
+import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
-public class Enemy extends Entity {
-
-    private String name = "enemy";
+public class EnemyRaven extends Entity {
 
     @Override
     public void create() {
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyLeft/enemywalking.txt")));
-        this.setAnimation(new Animation(1/15f,getTextureAtlas().getRegions()));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyRavenWalk.txt")));
+        this.setAnimation(new Animation(1/6f,getTextureAtlas().getRegions()));
     }
 
     @Override
@@ -24,8 +23,8 @@ public class Enemy extends Entity {
         super.dispose();
     }
 
-
+    @Override
     public String getName() {
-        return this.name;
+        return null;
     }
 }

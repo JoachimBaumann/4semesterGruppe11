@@ -86,21 +86,24 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
             velocity.y = maxSpeed;
         else if (velocity.y < -maxSpeed)
             velocity.y = -maxSpeed;
-
+        ;
 
         if (left) {
             velocity.x -= maxSpeed * delta;
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyLeft/enemywalking.txt")));
-            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
+            if (entity.getName() == "enemy") {
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyLeft/enemywalking.txt")));
+                entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
+            }
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
         }
         if (right) {
             velocity.x += maxSpeed * delta;
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
-            entity.setAnimation(new Animation(1/15f,entity.getTextureAtlas().getRegions()));
-
+            if (entity.getName() == "enemy") {
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
+                entity.setAnimation(new Animation(1 / 15f, entity.getTextureAtlas().getRegions()));
+            }
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
@@ -119,8 +122,10 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
         }else{
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
-            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
+            if (entity.getName() == "enemy") {
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
+                entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
+            }
         }
 
 
