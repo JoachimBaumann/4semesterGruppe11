@@ -16,7 +16,7 @@ public class Player extends Entity {
     @Override
     public void create() {
         //this.setSprite(new Sprite(new Texture(AssetLoader.getAssetPath("player.png")),128,256));
-        this.setTextureAtlas(new TextureAtlas("/Users/faezeh/Desktop/4semesterGruppe11/Zombie/OSGiCommon/src/main/resources/Assets/PlayerAssets/PlayerRight/playeridle.txt"));
+        this.setTextureAtlas(new TextureAtlas("/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/3/Zombie/OSGiCommon/src/main/resources/Assets/PlayerAssets/PlayerRight/playeridle.txt"));
         this.setAnimation(new Animation(1f/6f,getTextureAtlas().getRegions()));
 
 
