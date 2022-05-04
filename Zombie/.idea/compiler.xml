@@ -24,6 +24,7 @@
         <module name="OSGiCommonPlayer" />
         <module name="dk.sdu.mmmi.cbse.osgimap" />
         <module name="OSGiCommonAsteroids" />
+        <module name="OSGiEnemySpawningSystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -43,6 +44,7 @@
       <module name="OSGiCommonWeapon" target="1.8" />
       <module name="OSGiCore" target="1.8" />
       <module name="OSGiEnemy" target="1.8" />
+      <module name="OSGiEnemySpawningSystem" target="1.8" />
       <module name="OSGiEnemyTracking" target="1.8" />
       <module name="OSGiLaser" target="1.8" />
       <module name="OSGiPlayer" target="1.8" />
