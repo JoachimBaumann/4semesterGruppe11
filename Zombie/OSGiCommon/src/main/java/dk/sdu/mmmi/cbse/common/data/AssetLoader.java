@@ -5,7 +5,7 @@ import java.nio.file.Paths;
 
 public class AssetLoader {
 
-    private static final String assetPath = "\\Zombie\\OSGiCommon\\src\\main\\resources\\Assets\\";
+    private static final String assetPath = "/Zombie/OSGiCommon/src/main/resources/Assets/";
 
     public static String getAssetPath(String fileName) {
         Path currentRelativePath = Paths.get("");
