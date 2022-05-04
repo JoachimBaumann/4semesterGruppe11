@@ -107,8 +107,6 @@ public class Game implements ApplicationListener {
             TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
 
 
-            //Todo: Fix cam position
-
             try {
                 Entity player = world.getEntities(Player.class).get(0);
                 PositionPart playerPositionPart = player.getPart(PositionPart.class);

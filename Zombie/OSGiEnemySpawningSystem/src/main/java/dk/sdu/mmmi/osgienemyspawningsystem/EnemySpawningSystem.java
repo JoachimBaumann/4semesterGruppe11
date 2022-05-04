@@ -18,7 +18,8 @@ import java.util.*;
 
 public class EnemySpawningSystem implements IEntityProcessingService {
 
-    Map<Integer, Integer> waves = createMap();
+    Map<Integer, Integer> waves = createWaveMap();
+
     private int currentLevel = 1;
     List<Entity> enemies = new ArrayList<>();
 
@@ -46,6 +47,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);
         }
+
     }
 
     private void spawnBoss(GameData gameData, World world) {
@@ -56,9 +58,10 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     private void updateLevel(GameData gameData) {
         this.currentLevel++;
         gameData.setCurrentLevel(this.currentLevel);
+        System.out.println("Current level: " + String.valueOf(currentLevel));
     }
 
-    private static Map<Integer, Integer> createMap() {
+    private static Map<Integer, Integer> createWaveMap() {
         Map<Integer,Integer> myMap = new HashMap<Integer,Integer>();
         myMap.put(1, 1);
         myMap.put(2, 2);
@@ -73,19 +76,22 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         return myMap;
     }
 
+
     private void createEnemy(GameData gameData, World world){
         //random to spawning position, should be integers between x=(5, 3000) y=(5, 500)
         //random to maxSpeed (50, 150)'
 
         float deacceleration = 20;
         float acceleration = 50;
-        float maxSpeed = getRandomNumber(50, 150);
+        float maxSpeed = getRandomNumber(50, 450);
         float rotationSpeed = 5;
         float x = gameData.getDisplayWidth() / 2;
         float y = gameData.getDisplayHeight() / 2;
         float radians = 3.1415f / 2;
 
         Entity enemy = new Enemy();
+        //Entity enemy = getRandomEnemy();
+
         enemy.add(new EnemyMovingPart(maxSpeed));
         int xCoordinate = getRandomNumber(0, 2000);
         int yCoordinate = getRandomNumber(10, 1500);
@@ -95,7 +101,30 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         enemy.setWidth(115);
         enemy.setRadius(20);
         world.addEntity(enemy);
-        System.out.println("Enemy created");
+    }
+
+
+
+
+    //todo: Implement random enemy selector
+    private Entity getRandomEnemy() {
+        int randomInt = getRandomNumber(0, 3);
+
+        switch(randomInt) {
+            case 0:
+                Entity entity = new Enemy();
+                return entity;
+            case 1:
+                Entity entity2 = new Enemy();
+                return entity2;
+            case 2:
+                Entity entity3 = new Enemy();
+                return entity3;
+            case 3:
+                Entity entity4 = new Enemy();
+                return entity4;
+        }
+        return null;
     }
 
 
