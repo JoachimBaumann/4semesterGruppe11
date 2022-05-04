@@ -22,7 +22,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
     Map<Integer, Integer> waves = createWaveMap();
 
-    private int currentLevel = 4;
+    private int currentLevel = 1;
     List<Entity> enemies = new ArrayList<>();
 
 
