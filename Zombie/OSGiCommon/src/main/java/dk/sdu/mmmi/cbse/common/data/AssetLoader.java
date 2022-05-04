@@ -9,8 +9,14 @@ public class AssetLoader {
 
     public static String getAssetPath(String fileName) {
         Path currentRelativePath = Paths.get("");
+        System.out.println(System.getProperty("os.name"));
+
+        if (System.getProperty("os.name"){
+           /* assetPath = macP; */
+        }
         String workingPath = currentRelativePath.toAbsolutePath().getParent().getParent().toString();
         return workingPath + assetPath + fileName;
+
     }
 }
 
