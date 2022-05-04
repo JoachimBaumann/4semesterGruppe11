@@ -13,14 +13,13 @@ public class AssetLoader {
     public static String getAssetPath(String fileName) {
         String assetPath;
 
-        Path currentRelativePath = Paths.get("");
-
         if (Objects.equals(System.getProperty("os.name"), "Mac OS X")){
             assetPath = macPath;
         } else {
             assetPath = windowsPath;
         }
 
+        Path currentRelativePath = Paths.get("");
         String workingPath = currentRelativePath.toAbsolutePath().getParent().getParent().toString();
         return workingPath + assetPath + fileName;
     }
