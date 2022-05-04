@@ -25,9 +25,10 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
 
     @Override
-    public void process(GameData gameData, World world) {
+    public void process(GameData gameData, World world) throws InterruptedException {
         enemies = world.getEntities(Enemy.class);
         if (enemies.size() == 0 && currentLevel < 10) {
+            wait(5000);
             spawnEnemies(currentLevel, gameData, world);
             updateLevel(gameData);
         if (currentLevel == 10) {

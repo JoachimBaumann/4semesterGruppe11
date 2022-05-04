@@ -3,9 +3,3 @@ Known bugs
 - Player can die by own bullet
 - No cooldown on getting hit by entity
 - No shooting to the left
-
-
-Todos:
-
-- implement more enemies
--
