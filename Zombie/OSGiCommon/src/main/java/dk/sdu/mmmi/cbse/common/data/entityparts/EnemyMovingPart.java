@@ -18,7 +18,8 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         this.maxSpeed = maxSpeed;
     }
 
-    private float maxSpeed = 20, gravity = 60 * 1.8f, increment;
+    private float maxSpeed;
+    private float gravity = 60 * 1.8f, increment;
     private Vector2 velocity = new Vector2();
     private boolean left, right, space;
     private int count;

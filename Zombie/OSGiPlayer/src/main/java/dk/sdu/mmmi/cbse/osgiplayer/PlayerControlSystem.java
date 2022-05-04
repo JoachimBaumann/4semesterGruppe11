@@ -50,7 +50,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
         }
     }
 
-    //TODO: Dependency injection via Declarative Services
     public void setWeaponService(WeaponSPI weaponSPI) {
         this.weaponService = weaponSPI;
     }
