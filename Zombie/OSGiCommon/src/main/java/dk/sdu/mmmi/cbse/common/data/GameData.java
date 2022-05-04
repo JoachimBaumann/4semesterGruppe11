@@ -13,6 +13,7 @@ public class GameData {
     private final GameKeys keys = new GameKeys();
     private List<Event> events = new CopyOnWriteArrayList<>();
     WorldMap worldMap;
+    private int currentLevel;
 
     public WorldMap getWorldMap() {
         return worldMap;
@@ -22,6 +23,13 @@ public class GameData {
         this.worldMap = worldMap;
     }
 
+    public void setCurrentLevel(int level) {
+        this.currentLevel = level;
+    }
+
+    public int getCurrentLevel() {
+        return this.currentLevel;
+    }
     public void addEvent(Event e) {
         events.add(e);
     }
