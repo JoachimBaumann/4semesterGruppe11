@@ -25,4 +25,9 @@ public class Player extends Entity {
     public void dispose() {
         super.dispose();
     }
+
+    @Override
+    public String getName() {
+        return null;
+    }
 }

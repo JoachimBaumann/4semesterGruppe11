@@ -40,5 +40,7 @@
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
     <orderEntry type="module" module-name="OSGiCommonPlayer" />
     <orderEntry type="module" module-name="OSGiCommonEnemy" />
+    <orderEntry type="module" module-name="dk.sdu.mmmi.cbse.osgienemy" />
+    <orderEntry type="library" name="Maven: dk.sdu.mmmi.build:OSGiCommonEnemy:1.0-SNAPSHOT" level="project" />
   </component>
 </module>

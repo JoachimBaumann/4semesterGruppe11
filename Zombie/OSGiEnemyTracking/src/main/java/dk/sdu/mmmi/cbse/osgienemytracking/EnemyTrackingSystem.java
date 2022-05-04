@@ -9,8 +9,11 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
+import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
+import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
+import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
 
-
+import java.util.List;
 
 
 public class EnemyTrackingSystem implements IPostEntityProcessingService {
@@ -18,6 +21,7 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
     private float maxSpeed = 60, gravity = 60 * 1.8f, increment;
     private Vector2 velocity = new Vector2();
     private boolean canJump = true;
+    private List<Entity> enemies;
 
 
     @Override
@@ -28,8 +32,14 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
             PositionPart playerPositionPart = player.getPart(PositionPart.class);
 
 
+            enemies = world.getEntities(EnemyBat.class);
+            enemies.addAll(world.getEntities(EnemyRaven.class));
+            enemies.addAll(world.getEntities(EnemySnail.class));
+            enemies.addAll(world.getEntities(Enemy.class));
+
+
             //get all enemy positions
-            for (Entity entity : world.getEntities(Enemy.class)) {
+            for (Entity entity : enemies) {
 
                 //Get enemy data positions
                 PositionPart enemyPositionPart = entity.getPart(PositionPart.class);
