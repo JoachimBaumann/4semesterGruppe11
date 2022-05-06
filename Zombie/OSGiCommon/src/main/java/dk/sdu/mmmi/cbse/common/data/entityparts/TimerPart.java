@@ -41,6 +41,7 @@ public class TimerPart
         }
         if (expiration <= 0) {
                 LifePart lifePart = entity.getPart(LifePart.class);
+
                 lifePart.setLife(0);
 
         }

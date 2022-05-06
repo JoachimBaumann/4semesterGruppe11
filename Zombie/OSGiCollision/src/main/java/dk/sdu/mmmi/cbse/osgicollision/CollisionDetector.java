@@ -22,22 +22,22 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 }
 
                 // remove entities with zero in expiration
-
                 if (entityLife.isDead()) {
                     System.out.println("Bullet removed maybe?");
                     world.removeEntity(entity);
                 }
 
+
+
                 // CollisionDetection
                 if (this.Collides(entity, collisionDetection)) {
-
                     // if entity has been hit, and should have its life reduced
 
                     if (entityLife.getLife() > 0) {
                         entityLife.setLife(entityLife.getLife() - 1);
                         entityLife.setIsHit(true);
                         // if entity is out of life - remove
-                        if (entityLife.getLife() <= 0) {
+                        if (entityLife.getLife() <= 0 && entity.getName() != "bullet") {
                             world.removeEntity(entity);
                         }
                     }
