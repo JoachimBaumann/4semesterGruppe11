@@ -17,6 +17,11 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         super();
         this.maxSpeed = maxSpeed;
     }
+    public EnemyMovingPart(float maxSpeed, float gravity){
+        super();
+        this.maxSpeed = maxSpeed;
+        this.gravity = gravity;
+    }
 
     private float maxSpeed;
     private float gravity = 60 * 1.8f, increment;

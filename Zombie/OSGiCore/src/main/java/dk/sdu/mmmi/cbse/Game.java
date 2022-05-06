@@ -68,7 +68,7 @@ public class Game implements ApplicationListener {
 
         //spirit loading
         batch = new SpriteBatch();
-        //img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
+        img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
@@ -139,7 +139,6 @@ public class Game implements ApplicationListener {
     private void update() {
         // Update
         for (IEntityProcessingService entityProcessorService : entityProcessorList) {
-
             entityProcessorService.process(gameData, world);
         }
         // Post Update
