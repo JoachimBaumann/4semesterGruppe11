@@ -37,6 +37,8 @@ public class CollisionDetector implements IPostEntityProcessingService {
                     if (entityLife.getLife() > 0) {
                         entityLife.setLife(entityLife.getLife() - 1);
                         entityLife.setIsHit(true);
+                        LifePart coldetect = collisionDetection.getPart(LifePart.class);
+                        coldetect.setIsHit(true);
                         // if entity is out of life - remove
                         if (entityLife.getLife() == 0 && entity.getName() != "Bullet") {
                             world.removeEntity(entity);
