@@ -34,10 +34,10 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         enemies.addAll(world.getEntities(Enemy.class));
 
         if (enemies.size() == 0 && currentLevel < 10) {
-            createEnemy(gameData, world);
+            //createEnemy(gameData, world);
 
-            //spawnEnemies(currentLevel, gameData, world);
-            //updateLevel(gameData);
+            spawnEnemies(currentLevel, gameData, world);
+            updateLevel(gameData);
         if (currentLevel == 10) {
             spawnBoss(gameData, world);
             updateLevel(gameData); }
@@ -46,8 +46,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
     private void endGame(GameData gameData, World world) {
-        System.out.println("Game finished, you reached level " + String.valueOf(currentLevel)
-                + ", killing " + String.valueOf(waves.get(currentLevel)) + " enemies."); }
+        //System.out.println();
+    }
 
 
     private void spawnEnemies(int currentLevel, GameData gameData, World world) {
@@ -55,21 +55,22 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);
         }
+
     }
 
     private void spawnBoss(GameData gameData, World world) {
-        //todo?
+
     }
 
 
     private void updateLevel(GameData gameData) {
         this.currentLevel++;
         gameData.setCurrentLevel(this.currentLevel);
-        System.out.println("Current level: " + String.valueOf(currentLevel));
+        //System.out.println("Current level: " + String.valueOf(currentLevel));
     }
 
     private static Map<Integer, Integer> createWaveMap() {
-        Map<Integer,Integer> myMap = new HashMap<>();
+        Map<Integer,Integer> myMap = new HashMap<Integer,Integer>();
         myMap.put(1, 1);
         myMap.put(2, 2);
         myMap.put(3, 4);
@@ -144,9 +145,6 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         return null;
     }
 
-    public int getCurrentLevel() {
-        return currentLevel;
-    }
 
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);

@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public abstract class Entity extends ApplicationAdapter implements Serializable {
+public class Entity extends ApplicationAdapter implements Serializable {
     private final UUID ID = UUID.randomUUID();
 
 
@@ -98,5 +98,7 @@ public abstract class Entity extends ApplicationAdapter implements Serializable 
     }
 
 
-    public abstract String getName();
+    public String getName(){
+        return null;
+    }
 }
