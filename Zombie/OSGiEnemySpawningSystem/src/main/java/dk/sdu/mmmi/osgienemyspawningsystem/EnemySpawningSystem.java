@@ -46,7 +46,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
     private void endGame(GameData gameData, World world) {
-        System.out.println();
+        //System.out.println();
     }
 
 
@@ -66,7 +66,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     private void updateLevel(GameData gameData) {
         this.currentLevel++;
         gameData.setCurrentLevel(this.currentLevel);
-        System.out.println("Current level: " + String.valueOf(currentLevel));
+        //System.out.println("Current level: " + String.valueOf(currentLevel));
     }
 
     private static Map<Integer, Integer> createWaveMap() {

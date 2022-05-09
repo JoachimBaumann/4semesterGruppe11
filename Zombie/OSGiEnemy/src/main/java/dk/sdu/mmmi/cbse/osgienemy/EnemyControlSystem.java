@@ -32,7 +32,7 @@ public class EnemyControlSystem implements IEntityProcessingService {
         enemies.addAll(world.getEntities(EnemySnail.class));
         enemies.addAll(world.getEntities(Enemy.class));
 
-        System.out.println(enemies.size());
+        //System.out.println(enemies.size());
         for (Entity enemy : enemies) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             EnemyMovingPart enemyMovingPart = enemy.getPart(EnemyMovingPart.class);

@@ -33,24 +33,27 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             LifePart lifepart = bullet.getPart(LifePart.class);
             movingPart.setRight(true);
 
+            float animationTime = 0;
+
             if (lifepart.isHit()){
                 movingPart.setVelocity(new Vector2(0,0));
                 movingPart.setMaxSpeed(0f);
-                timerPart.setExpiration(0.25f);
+                animationTime = gameData.getDelta();
             }
-            if (timerPart.getExpiration() < 0.25f){
+            if (animationTime <= 0.05f && lifepart.isHit() || timerPart.getExpiration() <= 0.25f){
                 bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/ShootingAssets/ShootingRight/shootexplosion.txt")));
                 bullet.setAnimation(new Animation(1f / 4f, bullet.getTextureAtlas().getRegions()));
                 movingPart.setVelocity(new Vector2(0,0));
                 movingPart.setMaxSpeed(0f);
+            }
+
+            if (timerPart.getExpiration() <= 0){
+                world.removeEntity(bullet);
 
             }
-            if (timerPart.getExpiration() < 0){
-                world.removeEntity(bullet);
-            }
+
             timerPart.process(gameData, bullet);
             movingPart.process(gameData,bullet);
-
             positionPart.process(gameData, bullet);
 
 
@@ -76,7 +79,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
         bullet.setAnimation(new Animation(1f / 6f, bullet.getTextureAtlas().getRegions()));
 
         bullet.add(new PositionPart(x + 140, y + 70, radians));
-        bullet.add(new LifePart(1));
+        bullet.add(new LifePart(2));
         bullet.add(new MovingPart(350,0f));
         bullet.add(new TimerPart(2));
 

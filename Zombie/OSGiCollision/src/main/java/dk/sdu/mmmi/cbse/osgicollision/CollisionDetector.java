@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.weapon.Weapon;
 
 public class CollisionDetector implements IPostEntityProcessingService {
 
@@ -37,7 +38,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
                         entityLife.setLife(entityLife.getLife() - 1);
                         entityLife.setIsHit(true);
                         // if entity is out of life - remove
-                        if (entityLife.getLife() <= 0 && entity.getName() != "bullet") {
+                        if (entityLife.getLife() == 0 && entity.getName() != "Bullet") {
                             world.removeEntity(entity);
                         }
                     }
