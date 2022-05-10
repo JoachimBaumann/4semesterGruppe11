@@ -34,10 +34,10 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         enemies.addAll(world.getEntities(Enemy.class));
 
         if (enemies.size() == 0 && currentLevel < 10) {
-            //createEnemy(gameData, world);
+            createEnemy(gameData, world);
 
-            spawnEnemies(currentLevel, gameData, world);
-            updateLevel(gameData);
+            //spawnEnemies(currentLevel, gameData, world);
+            //updateLevel(gameData);
         if (currentLevel == 10) {
             spawnBoss(gameData, world);
             updateLevel(gameData); }
@@ -70,7 +70,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
     private static Map<Integer, Integer> createWaveMap() {
-        Map<Integer,Integer> myMap = new HashMap<Integer,Integer>();
+        Map<Integer,Integer> myMap = new HashMap<>();
         myMap.put(1, 1);
         myMap.put(2, 2);
         myMap.put(3, 4);
