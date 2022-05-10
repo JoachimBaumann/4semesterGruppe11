@@ -46,8 +46,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
     private void endGame(GameData gameData, World world) {
-        System.out.println();
-    }
+        System.out.println("Game finished, you reached level " + String.valueOf(currentLevel)
+                + ", killing " + String.valueOf(waves.get(currentLevel)) + " enemies."); }
 
 
     private void spawnEnemies(int currentLevel, GameData gameData, World world) {
@@ -55,11 +55,10 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);
         }
-
     }
 
     private void spawnBoss(GameData gameData, World world) {
-
+        //todo?
     }
 
 
@@ -141,6 +140,9 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         return null;
     }
 
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
 
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
