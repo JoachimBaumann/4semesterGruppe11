@@ -3,6 +3,7 @@ package dk.sdu.mmmi.cbse.OSGiEnemySpawningSystem;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.osgienemyspawningsystem.EnemySpawningSystem;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
@@ -20,8 +21,7 @@ public class EnemySpawningSystemTest {
         GameData gameData = mock(GameData.class); //creates a mock object
         World world = mock(World.class); //creates another mock object
 
-        EnemySpawningSystemTest instance = new EnemySpawningSystemTest();
-
+        EnemySpawningSystem instance = new EnemySpawningSystem();
 
 
     }
