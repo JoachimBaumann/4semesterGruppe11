@@ -68,8 +68,13 @@ public class Game implements ApplicationListener {
 
         //spirit loading
         batch = new SpriteBatch();
-        //img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
+        /*
+        img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
+        batch.begin();
+        batch.draw(img, 0,0);
+        batch.end();
 
+         */
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -139,7 +144,6 @@ public class Game implements ApplicationListener {
     private void update() {
         // Update
         for (IEntityProcessingService entityProcessorService : entityProcessorList) {
-
             entityProcessorService.process(gameData, world);
         }
         // Post Update

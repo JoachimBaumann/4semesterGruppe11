@@ -1,0 +1,19 @@
+shootexplosion.png
+size: 155, 110
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+flash3
+  rotate: false
+  xy: 84, 1
+  size: 70, 99
+  orig: 70, 99
+  offset: 0, 0
+  index: -1
+flash4
+  rotate: false
+  xy: 1, 1
+  size: 81, 108
+  orig: 81, 108
+  offset: 0, 0
+  index: -1

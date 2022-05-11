@@ -16,6 +16,7 @@ import dk.sdu.mmmi.cbse.common.weapon.WeaponSPI;
 public class PlayerControlSystem implements IEntityProcessingService {
 
     private WeaponSPI weaponService;
+    float shootTime = 0;
 
 
     @Override
@@ -30,16 +31,19 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
             movingPart.setSpace(gameData.getKeys().isDown(GameKeys.SPACE));
+            shootTime += gameData.getDelta();
 
-
-            if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null) {
-                Entity bullet = weaponService.createWeapon(player, gameData);
-                world.addEntity(bullet);
+            if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null){
                 player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playershootright.txt")));
                 player.setAnimation(new Animation(1f/30f,player.getTextureAtlas().getRegions()));
+                if(shootTime > 0.2f){
+                    shootTime = 0;
+                    Entity bullet = weaponService.createWeapon(player, gameData);
+                    world.addEntity(bullet);
+                }
             }else if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService == null) {
                 player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playermeleeright.txt")));
-                player.setAnimation(new Animation(1f/6f,player.getTextureAtlas().getRegions()));
+                player.setAnimation(new Animation(1f / 6f, player.getTextureAtlas().getRegions()));
             }
 
 

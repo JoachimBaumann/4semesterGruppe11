@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.weapon.Weapon;
 
 public class CollisionDetector implements IPostEntityProcessingService {
 
@@ -22,22 +23,24 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 }
 
                 // remove entities with zero in expiration
-
                 if (entityLife.isDead()) {
                     System.out.println("Bullet removed maybe?");
                     world.removeEntity(entity);
                 }
 
+
+
                 // CollisionDetection
                 if (this.Collides(entity, collisionDetection)) {
-
                     // if entity has been hit, and should have its life reduced
 
                     if (entityLife.getLife() > 0) {
                         entityLife.setLife(entityLife.getLife() - 1);
                         entityLife.setIsHit(true);
+                        LifePart coldetect = collisionDetection.getPart(LifePart.class);
+                        coldetect.setIsHit(true);
                         // if entity is out of life - remove
-                        if (entityLife.getLife() <= 0) {
+                        if (entityLife.getLife() == 0 && entity.getName() != "Bullet") {
                             world.removeEntity(entity);
                         }
                     }
