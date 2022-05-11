@@ -10,10 +10,7 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 
 public class ScoreSystem implements IGamePluginService {
@@ -25,48 +22,51 @@ public class ScoreSystem implements IGamePluginService {
     //TreeMap insert, delete, search offers O(log(n)) time
     //HashMap and LinkedHashMap offers 0(n)
     //Choose a structure to hold scores
-    TreeMap<Integer, Integer> treeMapScores = new TreeMap<Integer, Integer>(new Comparator<Integer>()
-    {
-        @Override
-        public int compare(Integer o1, Integer o2) {
-            return o2 - o1;
-        }
-    });
 
-    HashMap<Integer, Integer> hashMapScores = new HashMap<>();
+    private TreeMap<String, Integer> treeMapScores = new TreeMap<>();
+
+    private HashMap<String, Integer> hashMapScores = new HashMap<>();
 
     @Override
     public void start(GameData gameData, World world) {
-        pass
+
     }
 
     @Override
     public void stop(GameData gameData, World world) {
-        pass
+
     }
 
 
     /**
      * Loads comma separated text file and adds entries to Map structure
      */
-    private void loadScores() {
-
+    public TreeMap<String, Integer> loadScores() {
         String lines;
         try {
-            File scores = new File("filename.txt");
+            File scores = new File(path);
             Scanner myReader = new Scanner(scores);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-
+                String[] dict = data.split(",");
+                String key = dict[0];
+                int value = Integer.parseInt(dict[1]);
+                treeInsert(key, value);
             }
             myReader.close();
+            return treeMapScores;
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred reading from file: " + e.toString());
+            return null;
         }
     }
 
-    private void treeInsert(int key, int value) {
+
+    private void treeInsert(String key, int value) {
         treeMapScores.put(key, value);
     }
 
+    private void hashInsert(String key, int value) {
+        hashMapScores.put(key, value);
+    }
 }

@@ -77,7 +77,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         try {
             String path = AssetLoader.getAssetPath("\\scores\\scores.txt");
             FileWriter myWriter = new FileWriter(path, true);
-            myWriter.write(username + ", " + score + "\n");
+            myWriter.write(username + "," + score + "\n");
             myWriter.close();
         } catch (IOException e) {
             System.out.println("An error occured writing to file: " + e.toString());
