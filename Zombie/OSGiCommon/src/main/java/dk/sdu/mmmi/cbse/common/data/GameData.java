@@ -15,6 +15,16 @@ public class GameData {
     WorldMap worldMap;
     private int currentLevel;
 
+    public String getPlayerID() {
+        return playerID;
+    }
+
+    public void setPlayerID(String playerID) {
+        this.playerID = playerID;
+    }
+
+    private String playerID;
+
     public WorldMap getWorldMap() {
         return worldMap;
     }
@@ -33,6 +43,8 @@ public class GameData {
     public void addEvent(Event e) {
         events.add(e);
     }
+
+
 
     public void removeEvent(Event e) {
         events.remove(e);

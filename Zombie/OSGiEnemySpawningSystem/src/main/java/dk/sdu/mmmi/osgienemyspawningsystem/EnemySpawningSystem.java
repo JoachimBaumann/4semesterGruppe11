@@ -22,10 +22,8 @@ import java.util.*;
 
 
 public class EnemySpawningSystem implements IEntityProcessingService {
-
-    Map<Integer, Integer> waves = createWaveMap();
-
     private int currentLevel = 1;
+    Map<Integer, Integer> waves = createWaveMap();
     List<Entity> enemies = new ArrayList<>();
 
 
@@ -36,7 +34,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         enemies.addAll(world.getEntities(EnemySnail.class));
         enemies.addAll(world.getEntities(Enemy.class));
 
-        getKills();
+
         if (enemies.size() == 0 && currentLevel < 10) {
             spawnEnemies(gameData, world);
             updateLevel(gameData);
@@ -48,6 +46,9 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         if (currentLevel == 11) {
             endGame(gameData, world);
             updateLevel(gameData);
+        }
+        if (currentLevel == 12) {
+            currentHighscore();
         }
     }
 
@@ -75,7 +76,6 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     public void writeToFile(String username, String score) {
         try {
             String path = AssetLoader.getAssetPath("\\scores\\scores.txt");
-            System.out.println(path);
             FileWriter myWriter = new FileWriter(path, true);
             myWriter.write(username + ", " + score + "\n");
             myWriter.close();
@@ -90,6 +90,10 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);
         }
+
+    }
+
+    private void currentHighscore() {
 
     }
 
@@ -138,8 +142,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         Entity enemy = getRandomEnemy();
 
         //enemy.add(new EnemyMovingPart(maxSpeed));
-        int xCoordinate = getRandomNumber(0, 500);
-        int yCoordinate = getRandomNumber(50, 400);
+        int xCoordinate = getRandomNumber(-1000, 3000);
+        int yCoordinate = getRandomNumber(100, 500);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , radians));
         enemy.add(new LifePart(1));
         enemy.setWidth(115);

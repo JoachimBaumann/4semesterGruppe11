@@ -63,6 +63,7 @@
     <module>OSGiEnemyTracking</module>
     <module>OSGiLaser</module>
     <module>OSGiEnemySpawningSystem</module>
+    <module>OSGiScoreSystem</module>
   </modules>
 
   <build>
