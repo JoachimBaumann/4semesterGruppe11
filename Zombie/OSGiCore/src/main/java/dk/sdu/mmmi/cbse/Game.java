@@ -19,6 +19,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
 import dk.sdu.mmmi.cbse.common.data.*;
+import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
@@ -45,6 +46,7 @@ public class Game implements ApplicationListener {
     private SpriteBatch batch;
     private float elapsedTime = 0;
     private Texture img;
+    private Sprite healthbar;
 
 
     public Game() {
@@ -75,6 +77,12 @@ public class Game implements ApplicationListener {
         batch.end();
 
          */
+
+        //Healthbar sprite
+        img = new Texture(AssetLoader.getAssetPath("/UI/Health.png"));
+        healthbar = new Sprite(img,50,50,1045,64);
+        healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
+        healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -134,7 +142,13 @@ public class Game implements ApplicationListener {
             worldMap.create();
             gameData.setWorldMap(worldMap);
         }
-
+        try {
+            Entity player = world.getEntities(Player.class).get(0);
+            LifePart playerLifePart = player.getPart(LifePart.class);
+            healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("No player found / Player may be dead");
+        }
 
         draw();
         update();
@@ -155,6 +169,7 @@ public class Game implements ApplicationListener {
     //remove when sprite is implemented
     private void draw() {
         batch.begin();
+        healthbar.draw(batch);
         //batch.draw(img,0,0);
         elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
