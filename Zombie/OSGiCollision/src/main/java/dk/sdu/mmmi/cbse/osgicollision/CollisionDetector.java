@@ -19,6 +19,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 LifePart entityLife = entity.getPart(LifePart.class);
                 // if the two entities are identical, skip the iteration
                 if (entity.getID().equals(collisionDetection.getID())) {
+
                     continue;
                 }
 
