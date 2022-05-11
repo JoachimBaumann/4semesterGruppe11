@@ -34,10 +34,10 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         enemies.addAll(world.getEntities(Enemy.class));
 
         if (enemies.size() == 0 && currentLevel < 10) {
-            //createEnemy(gameData, world);
+            createEnemy(gameData, world);
 
-            spawnEnemies(currentLevel, gameData, world);
-            updateLevel(gameData);
+            //spawnEnemies(currentLevel, gameData, world);
+            //updateLevel(gameData);
         if (currentLevel == 10) {
             spawnBoss(gameData, world);
             updateLevel(gameData); }
@@ -46,8 +46,15 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
     private void endGame(GameData gameData, World world) {
-        //System.out.println();
+        System.out.println("Game finished, you reached level " + String.valueOf(currentLevel)
+                + ", killing " + String.valueOf(waves.get(currentLevel)) + " enemies.");
     }
+
+
+    private void writeToFile(String score) {
+
+    }
+
 
 
     private void spawnEnemies(int currentLevel, GameData gameData, World world) {
@@ -59,18 +66,18 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
     private void spawnBoss(GameData gameData, World world) {
-
+        //todo?
     }
 
 
     private void updateLevel(GameData gameData) {
         this.currentLevel++;
         gameData.setCurrentLevel(this.currentLevel);
-        //System.out.println("Current level: " + String.valueOf(currentLevel));
+        System.out.println("Current level: " + String.valueOf(currentLevel));
     }
 
     private static Map<Integer, Integer> createWaveMap() {
-        Map<Integer,Integer> myMap = new HashMap<Integer,Integer>();
+        Map<Integer,Integer> myMap = new HashMap<>();
         myMap.put(1, 1);
         myMap.put(2, 2);
         myMap.put(3, 4);
@@ -100,7 +107,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         //Entity enemy = new Enemy();
         Entity enemy = getRandomEnemy();
 
-        enemy.add(new EnemyMovingPart(0));
+        //enemy.add(new EnemyMovingPart(maxSpeed));
         int xCoordinate = getRandomNumber(0, 500);
         int yCoordinate = getRandomNumber(50, 400);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , radians));
@@ -121,30 +128,33 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 Entity entity1 = new EnemyBat();
                 entity1.setHeight(50);
                 entity1.setWidth(50);
-                //entity1.add(new EnemyMovingPart(75));
+                entity1.add(new EnemyMovingPart(75));
                 return entity1;
             case 1:
                 Entity entity2 = new EnemyRaven();
                 entity2.setHeight(50);
                 entity2.setWidth(50);
-                //entity2.add(new EnemyMovingPart(500,0));
+                entity2.add(new EnemyMovingPart(500,0));
                 return entity2;
             case 2:
                 Entity entity3 = new EnemySnail();
                 entity3.setHeight(186);
                 entity3.setWidth(336);
-                //entity3.add(new EnemyMovingPart(50));
+                entity3.add(new EnemyMovingPart(50));
                 return entity3;
             case 3:
                 Entity entity4 = new Enemy();
                 entity4.setHeight(100);
                 entity4.setWidth(115);
-                //entity4.add(new EnemyMovingPart(200));
+                entity4.add(new EnemyMovingPart(200));
                 return entity4;
         }
         return null;
     }
 
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
 
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
