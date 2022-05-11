@@ -23,7 +23,6 @@ public class EnemySpawningSystemTest {
 
         EnemySpawningSystem instance = new EnemySpawningSystem();
 
-
     }
 
     @Test
