@@ -14,12 +14,13 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
  */
 public class LifePart implements EntityPart {
     private boolean dead = false;
-    private int life;
     private boolean isHit = false;
-
+    private int life;
+    private int starterLife;
 
     public LifePart(int life) {
         this.life = life;
+        starterLife = life;
     }
 
     public int getLife() {
@@ -54,5 +55,13 @@ public class LifePart implements EntityPart {
             dead = true;
         }
 
+    }
+
+    public int getStarterLife() {
+        return starterLife;
+    }
+
+    public void setStarterLife(int starterLife) {
+        this.starterLife = starterLife;
     }
 }
