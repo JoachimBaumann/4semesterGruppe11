@@ -29,15 +29,15 @@ public class ScoreSystem implements IGamePluginService {
 
     HashMap<Integer, Integer> hashMapScores = new HashMap<>();
 
-
-
     @Override
     public void start(GameData gameData, World world) {
-
+        pass
     }
 
     @Override
     public void stop(GameData gameData, World world) {
-
+        pass
     }
+
+
 }
