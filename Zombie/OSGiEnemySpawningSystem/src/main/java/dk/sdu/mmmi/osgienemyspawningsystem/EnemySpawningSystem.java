@@ -7,6 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.EnemyMovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
@@ -15,6 +16,8 @@ import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
 
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 
@@ -33,31 +36,56 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         enemies.addAll(world.getEntities(EnemySnail.class));
         enemies.addAll(world.getEntities(Enemy.class));
 
+        getKills();
         if (enemies.size() == 0 && currentLevel < 10) {
-            createEnemy(gameData, world);
-
-            //spawnEnemies(currentLevel, gameData, world);
-            //updateLevel(gameData);
+            spawnEnemies(gameData, world);
+            updateLevel(gameData);
+        }
         if (currentLevel == 10) {
             spawnBoss(gameData, world);
-            updateLevel(gameData); }
-        if (currentLevel >= 10) endGame(gameData, world);
+            updateLevel(gameData);
+        }
+        if (currentLevel == 11) {
+            endGame(gameData, world);
+            updateLevel(gameData);
         }
     }
 
     private void endGame(GameData gameData, World world) {
+        String kills = String.valueOf(getKills());
         System.out.println("Game finished, you reached level " + String.valueOf(currentLevel)
-                + ", killing " + String.valueOf(waves.get(currentLevel)) + " enemies.");
+                + ", killing " +  kills + " enemies.");
+        try {
+            String playerID = world.getEntities(Player.class).get(0).getID();
+            writeToFile(playerID, kills);
+        } catch (NullPointerException e) {
+            System.out.println("An error occured ending game: " + e.toString());
+        }
+    }
+
+    private int getKills() {
+        int totalKills = 0;
+        for (int i = 1; i < currentLevel; i++) {
+            totalKills += waves.get(i);
+        }
+        return totalKills;
     }
 
 
-    private void writeToFile(String score) {
-
+    public void writeToFile(String username, String score) {
+        try {
+            String path = AssetLoader.getAssetPath("\\scores\\scores.txt");
+            System.out.println(path);
+            FileWriter myWriter = new FileWriter(path, true);
+            myWriter.write(username + ", " + score + "\n");
+            myWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occured writing to file: " + e.toString());
+        }
     }
 
 
-
-    private void spawnEnemies(int currentLevel, GameData gameData, World world) {
+    private void spawnEnemies(GameData gameData, World world) {
         int enemyAmount = waves.get(currentLevel);
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);
@@ -67,12 +95,13 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
     private void spawnBoss(GameData gameData, World world) {
         //todo?
+        System.out.println("boss spawned");
     }
 
 
     private void updateLevel(GameData gameData) {
-        this.currentLevel++;
-        gameData.setCurrentLevel(this.currentLevel);
+        currentLevel++;
+        gameData.setCurrentLevel(currentLevel);
         System.out.println("Current level: " + String.valueOf(currentLevel));
     }
 
@@ -88,6 +117,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         myMap.put(8, 26);
         myMap.put(9, 30);
         myMap.put(10, 1);
+        myMap.put(11, 0);
         return myMap;
     }
 
@@ -134,7 +164,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 Entity entity2 = new EnemyRaven();
                 entity2.setHeight(50);
                 entity2.setWidth(50);
-                entity2.add(new EnemyMovingPart(500,0));
+                entity2.add(new EnemyMovingPart(400));
                 return entity2;
             case 2:
                 Entity entity3 = new EnemySnail();
