@@ -5,8 +5,8 @@
       <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiPlayer-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGiPlayer" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
           <property key="Bundle-Description" value="Generated using Pax-Construct" />
-          <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
-          <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
+          <property key="Export-Package" value="!dk.sdu.mmmi.cbse.internal.*,dk.sdu.mmmi.cbse.*;version=&quot;1.0-SNAPSHOT&quot;" />
+          <property key="Private-Package" value="dk.sdu.mmmi.cbse.internal.*" />
           <property key="Bundle-Name" value="OSGiPlayer" />
           <property key="Include-Resource" value="META-INF/entityprocessor.xml=$MODULE_DIR$/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=$MODULE_DIR$/src/main/resources/META-INF/gameplugin.xml" />
         </additionalProperties>
@@ -38,7 +38,6 @@
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy-agent:1.10.20" level="project" />
     <orderEntry type="library" name="Maven: org.objenesis:objenesis:3.2" level="project" />
     <orderEntry type="module" module-name="OSGiCommon" />
-    <orderEntry type="module" module-name="OSGiCommonEnemy" />
     <orderEntry type="module" module-name="OSGiCommonPlayer" />
     <orderEntry type="module" module-name="OSGiCommonWeapon" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />

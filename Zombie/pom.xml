@@ -60,10 +60,15 @@
     <module>provision</module>
     <module>OSGiMap</module>
     <!--    <module>OSGiWeapon</module>-->
+<!--
     <module>OSGiEnemyTracking</module>
+ -->
     <module>OSGiLaser</module>
+<!--
     <module>OSGiEnemySpawningSystem</module>
+ -->
     <module>OSGiScoreSystem</module>
+    <module>OSGiBoss</module>
   </modules>
 
   <build>
@@ -78,7 +83,7 @@
                               -->
           <provision>
             <param>--platform=felix</param>
-            <param>--vmOptions=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</param>
+            <param>--vmOptions=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</param>
           </provision>
         </configuration>
         <executions>

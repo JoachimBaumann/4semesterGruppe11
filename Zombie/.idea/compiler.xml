@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dk.sdu.mmmi.cbse.osgienemy" />
-        <module name="OSGiEnemyTracking" />
         <module name="dk.sdu.mmmi.cbse.OSGILaser" />
+        <module name="OSGiBoss" />
+        <module name="dk.sdu.mmmi.cbse" />
         <module name="OSGiEnemy" />
         <module name="OSGiCollision" />
         <module name="OSGiLaser" />
@@ -24,17 +25,18 @@
         <module name="OSGiCommonPlayer" />
         <module name="dk.sdu.mmmi.cbse.osgimap" />
         <module name="OSGiCommonAsteroids" />
-        <module name="OSGiEnemySpawningSystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="compiled-bundle-settings" target="1.8" />
+      <module name="dk.sdu.mmmi.cbse" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.osgienemy" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.OSGILaser" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.osgimap" target="1.8" />
       <module name="LibGDX" target="1.8" />
       <module name="OSGiAsteroids" target="1.8" />
       <module name="OSGiAsteroidSplitter" target="1.8" />
+      <module name="OSGiBoss" target="1.8" />
       <module name="OSGiCollision" target="1.8" />
       <module name="OSGiCommon" target="1.8" />
       <module name="OSGiCommonAsteroids" target="1.8" />
