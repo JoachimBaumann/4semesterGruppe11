@@ -14,7 +14,7 @@ public class EnemySnail extends Entity {
 
     @Override
     public void create() {
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemySnailWalk.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemySnail/EnemySnailWalk.txt")));
         this.setAnimation(new Animation(1/8f,getTextureAtlas().getRegions()));
     }
 

@@ -12,10 +12,18 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 public class Player extends Entity {
 
 
+    private static Player instance;
+    static public Player getInstance()
+    {
+        if (instance == null)
+            instance = new Player();
+        return instance;
+    }
+
 
     @Override
     public void create() {
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playeridle.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getCommonPlayerAssetPath("playeridle.txt")));
         this.setAnimation(new Animation(1f/6f,getTextureAtlas().getRegions()));
 
 
@@ -30,4 +38,6 @@ public class Player extends Entity {
     public String getName() {
         return null;
     }
+
+
 }
