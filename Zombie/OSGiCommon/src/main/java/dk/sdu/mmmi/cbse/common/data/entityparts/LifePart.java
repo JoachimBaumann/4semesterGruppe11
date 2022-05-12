@@ -18,6 +18,9 @@ public class LifePart implements EntityPart {
     private int life;
     private int starterLife;
 
+
+    public LifePart(){}
+
     public LifePart(int life) {
         this.life = life;
         starterLife = life;

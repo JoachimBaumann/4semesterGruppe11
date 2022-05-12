@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector3;
@@ -17,7 +16,6 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
-import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
 import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
@@ -45,7 +43,9 @@ public class Game implements ApplicationListener {
 
     private SpriteBatch batch;
     private float elapsedTime = 0;
-    private Texture img;
+    private Texture hpbar;
+    private Texture gun;
+    private Sprite gunSprite;
     private Sprite healthbar;
 
 
@@ -79,10 +79,18 @@ public class Game implements ApplicationListener {
          */
 
         //Healthbar sprite
-        img = new Texture(AssetLoader.getAssetPath("/UI/Health.png"));
-        healthbar = new Sprite(img,50,50,1045,64);
+        hpbar = new Texture(AssetLoader.getCoreAssetPath("/UI/Health.png"));
+        healthbar = new Sprite(hpbar,50,50,1045,64);
         healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
         healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
+
+        //Gun Sprite
+        gun = new Texture(AssetLoader.getCoreAssetPath("/Gun/blaster_1.png"));
+        gunSprite = new Sprite(gun, 130, 88);
+        gunSprite.setPosition(100,60);
+        gunSprite.setSize(60f,30f);
+        gunSprite.rotate(135);
+
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
@@ -170,6 +178,7 @@ public class Game implements ApplicationListener {
     private void draw() {
         batch.begin();
         healthbar.draw(batch);
+        gunSprite.draw(batch);
         //batch.draw(img,0,0);
         elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
