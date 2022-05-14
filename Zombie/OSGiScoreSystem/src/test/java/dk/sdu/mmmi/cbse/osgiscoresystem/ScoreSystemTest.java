@@ -31,9 +31,6 @@ public class ScoreSystemTest {
                     "[" + entry.getKey()
                             + ", " + entry.getValue() + "]");
 
-
-
-
     }
 
     @Test
