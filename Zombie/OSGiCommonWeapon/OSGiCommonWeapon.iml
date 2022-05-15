@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.cbse.osgicommonweapon.internal.*,dk.sdu.mmmi.cbse.osgicommonweapon.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.cbse.osgicommonweapon.internal.*" />
           <property key="Bundle-Name" value="OSGiCommonWeapon" />
-          <property key="Include-Resource" value="dk.sdu.mmmi.cbse.bullet/Bundle.properties=$MODULE_DIR$/src/main/resources/dk.sdu.mmmi.cbse.bullet/Bundle.properties" />
+          <property key="Include-Resource" value="dk.sdu.mmmi.cbse.bullet/Bundle.properties=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiCommonWeapon/src/main/resources/dk.sdu.mmmi.cbse.bullet/Bundle.properties" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

@@ -31,12 +31,9 @@ public class PlayerControlSystem implements IEntityProcessingService {
             shootTime += gameData.getDelta();
 
             if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null){
-                if (movingPart.isRight()) {
                     player.setTextureAtlas(new TextureAtlas(AssetLoader.getPlayerAssetPath("/PlayerRight/playershootright.txt")));
                     player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
-                }if (movingPart.isLeft()){
-                    //player.flip();
-                }
+
                 if(shootTime > 0.2f){
                     shootTime = 0;
                     Entity bullet = weaponService.createWeapon(player, gameData);

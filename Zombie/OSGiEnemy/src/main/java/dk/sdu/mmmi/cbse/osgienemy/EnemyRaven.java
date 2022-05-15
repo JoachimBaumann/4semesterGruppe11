@@ -9,7 +9,7 @@ public class EnemyRaven extends Entity {
 
     @Override
     public void create() {
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemyRaven/EnemyRavenWalk.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemyRaven/RavenLeft/EnemyRavenWalk.txt")));
         this.setAnimation(new Animation(1/6f, getTextureAtlas().getRegions()));
     }
 
@@ -20,6 +20,6 @@ public class EnemyRaven extends Entity {
 
     @Override
     public String getName() {
-        return null;
+        return "raven";
     }
 }

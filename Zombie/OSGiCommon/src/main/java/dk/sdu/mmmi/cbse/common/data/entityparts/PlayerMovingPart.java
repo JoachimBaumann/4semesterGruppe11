@@ -10,7 +10,6 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 
 public class PlayerMovingPart extends MovingPart implements EntityPart {
 
-    String playerRight = "/PlayerAssets/PlayerRight/playerwalk.txt";
 
     public PlayerMovingPart(float maxSpeed) {
         super();
@@ -103,9 +102,9 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
 
 
         if (left) {
-            entity.flip(new TextureAtlas(AssetLoader.getAssetPath(playerRight)), "green");
-            //entity.setTextureAtlasIdle(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
-            //entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlasIdle().getRegions()));
+            //entity.flip(new TextureAtlas(AssetLoader.getAssetPath(playerRight)), "green");
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
+            entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;

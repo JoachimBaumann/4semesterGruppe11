@@ -21,6 +21,6 @@ public class EnemyBat extends Entity {
 
     @Override
     public String getName() {
-        return null;
+        return "bat";
     }
 }

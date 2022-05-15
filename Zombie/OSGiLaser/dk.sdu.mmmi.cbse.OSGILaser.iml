@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGILaser" />
-          <property key="Include-Resource" value="META-INF/MANIFEST.MF=$MODULE_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+          <property key="Include-Resource" value="META-INF/MANIFEST.MF=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/META-INF/MANIFEST.MF" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
