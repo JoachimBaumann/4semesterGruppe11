@@ -1,6 +1,7 @@
 package dk.sdu.mmmi.cbse.osgienemytracking;
 
 import com.badlogic.gdx.math.Vector2;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -13,6 +14,9 @@ import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -22,6 +26,15 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
     private Vector2 velocity = new Vector2();
     private boolean canJump = true;
     private List<Entity> enemies;
+    FileWriter myWriter;
+
+    {
+        try {
+            myWriter = new FileWriter(AssetLoader.getEnemySpawningassetPath("/Errors/Errors.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @Override
@@ -63,7 +76,12 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
             }
 
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Exception in Enemy Tracking System: " + e.toString());
+            try {
+                myWriter.write(e.toString() + "\n");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            //System.out.println("Exception in Enemy Tracking System: " + e.toString());
         }
     }
 }
