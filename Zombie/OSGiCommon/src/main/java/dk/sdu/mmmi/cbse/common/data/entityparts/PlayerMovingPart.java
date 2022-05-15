@@ -107,9 +107,8 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         String assetPath = AssetLoader.whichOS(coreAssetPath);
 
         if (left) {
-            entity.flip(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/PlayerAssets/PlayerRight/playerwalk.txt")), "green");
-            //entity.setTextureAtlasIdle(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
-            //entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlasIdle().getRegions()));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
+            entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
