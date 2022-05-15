@@ -41,7 +41,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
             }
             if (timerPart.getExpiration() <= 0.25f){
-                bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/ShootingAssets/ShootingRight/shootexplosion.txt")));
+                bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getLaserSystemAssetPath("/ShootingAssets/ShootingRight/shootexplosion.txt")));
                 bullet.setAnimation(new Animation(1f / 4f, bullet.getTextureAtlas().getRegions()));
                 movingPart.setVelocity(new Vector2(0,0));
                 movingPart.setMaxSpeed(0f);
