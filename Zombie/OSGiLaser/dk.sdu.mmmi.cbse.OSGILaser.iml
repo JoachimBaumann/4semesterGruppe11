@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGILaser" />
-          <property key="Include-Resource" value="META-INF/MANIFEST.MF=$MODULE_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+          <property key="Include-Resource" value="META-INF/MANIFEST.MF=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiLaser/src/main/resources/META-INF/MANIFEST.MF" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
@@ -26,7 +26,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.0" level="project" />
     <orderEntry type="module" module-name="OSGiCommon" />
-    <orderEntry type="module" module-name="OSGiCommonEnemy" />
     <orderEntry type="module" module-name="OSGiCommonPlayer" />
     <orderEntry type="module" module-name="OSGiCommonWeapon" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />

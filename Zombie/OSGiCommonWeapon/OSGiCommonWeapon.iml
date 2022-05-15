@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.cbse.osgicommonweapon.internal.*,dk.sdu.mmmi.cbse.osgicommonweapon.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.cbse.osgicommonweapon.internal.*" />
           <property key="Bundle-Name" value="OSGiCommonWeapon" />
-          <property key="Include-Resource" value="dk.sdu.mmmi.cbse.bullet/Bundle.properties=$MODULE_DIR$/src/main/resources/dk.sdu.mmmi.cbse.bullet/Bundle.properties" />
+          <property key="Include-Resource" value="dk.sdu.mmmi.cbse.bullet/Bundle.properties=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiCommonWeapon/src/main/resources/dk.sdu.mmmi.cbse.bullet/Bundle.properties" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
@@ -27,6 +27,5 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.0" level="project" />
     <orderEntry type="module" module-name="OSGiCommon" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
-    <orderEntry type="module" module-name="OSGiCommonEnemy" />
   </component>
 </module>

@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGiCore" />
-          <property key="Include-Resource" value="META-INF/core.xml=$MODULE_DIR$/src/main/resources/META-INF/core.xml" />
+          <property key="Include-Resource" value="META-INF/core.xml=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiCore/src/main/resources/META-INF/core.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
@@ -28,7 +28,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.compendium:4.3.0" level="project" />
     <orderEntry type="module" module-name="OSGiCommon" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
-    <orderEntry type="module" module-name="OSGiCommonEnemy" />
     <orderEntry type="module" module-name="LibGDX" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx-platform:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx-backend-lwjgl:1.5.0" level="project" />
