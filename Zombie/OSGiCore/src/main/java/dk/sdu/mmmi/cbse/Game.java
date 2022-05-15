@@ -48,6 +48,7 @@ public class Game implements ApplicationListener {
     private Sprite healthbar;
 
 
+
     public Game() {
         init();
     }
@@ -67,28 +68,18 @@ public class Game implements ApplicationListener {
     public void create() {
 
 
+
+
         //spirit loading
         batch = new SpriteBatch();
-        /*
-        img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
-        batch.begin();
-        batch.draw(img, 0,0);
-        batch.end();
 
-         */
-
-        //Healthbar sprite
-        hpbar = new Texture(AssetLoader.getCoreAssetPath("/UI/Health.png"));
-        healthbar = new Sprite(hpbar,50,50,1045,64);
-        healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
-        healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
 
         //Gun Sprite
-        gun = new Texture(AssetLoader.getCoreAssetPath("/Gun/blaster_1.png"));
-        gunSprite = new Sprite(gun, 130, 88);
-        gunSprite.setPosition(100,60);
-        gunSprite.setSize(60f,30f);
-        gunSprite.rotate(135);
+        //gun = new Texture(AssetLoader.getCoreAssetPath("/Gun/blaster_1.png"));
+        //gunSprite = new Sprite(gun, 130, 88);
+        //gunSprite.setPosition(100,60);
+        //gunSprite.setSize(60f,30f);
+        //gunSprite.rotate(135);
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
@@ -102,6 +93,8 @@ public class Game implements ApplicationListener {
         shapeRenderer = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
+
+        ui();
 
     }
 
@@ -156,6 +149,7 @@ public class Game implements ApplicationListener {
 
         draw();
         update();
+        ui();
 
     }
 
@@ -175,7 +169,7 @@ public class Game implements ApplicationListener {
         batch.setProjectionMatrix(cam.combined);
         batch.begin();
         healthbar.draw(batch);
-        gunSprite.draw(batch);
+        //gunSprite.draw(batch);
         //batch.draw(img,0,0);
         elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
@@ -189,6 +183,20 @@ public class Game implements ApplicationListener {
         }
         batch.end();
 
+    }
+
+    private void ui(){
+        hpbar = new Texture(AssetLoader.getCoreAssetPath("/UI/Health.png"));
+        healthbar = new Sprite(hpbar,50,50,1045,64);
+        try {
+            Entity player = world.getEntities(Player.class).get(0);
+            PositionPart playerPositionPart = player.getPart(PositionPart.class);
+            healthbar.setPosition(playerPositionPart.getX()-Gdx.graphics.getWidth()*0.45f,Gdx.graphics.getHeight()*0.9f);
+        } catch (IndexOutOfBoundsException e) {
+            healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
+            System.out.println("No player object - ");
+        }
+        healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
     }
 
     @Override
