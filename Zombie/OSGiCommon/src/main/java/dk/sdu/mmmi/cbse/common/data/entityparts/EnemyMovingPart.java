@@ -92,6 +92,14 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
 
         if (left) {
             velocity.x -= maxSpeed * delta;
+            if(entity.getName() == "snail"){
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemySnail/SnailLeft/EnemySnailWalk.txt")));
+                entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
+            }
+            if(entity.getName() == "raven"){
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemyRaven/RavenLeft/EnemyRavenWalk.txt")));
+                entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
+            }
             if (entity.getName() == "enemy") {
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyLeft/enemywalking.txt")));
                 entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
@@ -105,6 +113,14 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
             if (entity.getName() == "enemy") {
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
                 entity.setAnimation(new Animation(1 / 15f, entity.getTextureAtlas().getRegions()));
+            }
+            if(entity.getName() == "snail"){
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemySnail/SnailRight/SnailRight.txt")));
+                entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
+            }
+            if(entity.getName() == "raven"){
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemyRaven/RavenRight/ravenRight.txt")));
+                entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
