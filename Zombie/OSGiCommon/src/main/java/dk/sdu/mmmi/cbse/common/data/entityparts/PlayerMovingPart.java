@@ -87,7 +87,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         float y = positionPart.getY();
         float delta = gameData.getDelta();
         float newX, newY;
-        TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(1);
+        TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
         float jumpHeight = 90;
 
 
