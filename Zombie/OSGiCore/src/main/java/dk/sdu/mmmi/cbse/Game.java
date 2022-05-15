@@ -7,9 +7,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector3;
@@ -17,14 +15,11 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
-import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
-import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
 
 import java.util.List;
@@ -55,7 +50,7 @@ public class Game implements ApplicationListener {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "ZombieGame";
         cfg.width = 1920;
-        cfg.height = 1080;
+        cfg.height = 960;
         cfg.useGL30 = false;
         cfg.resizable = false;
 
@@ -84,7 +79,6 @@ public class Game implements ApplicationListener {
         cam.update();
 
 
-
         shapeRenderer = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
@@ -109,13 +103,12 @@ public class Game implements ApplicationListener {
          */
 
         try {
-            TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
+            TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(1);
 
 
             try {
                 Entity player = world.getEntities(Player.class).get(0);
                 PositionPart playerPositionPart = player.getPart(PositionPart.class);
-                Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() + playerPositionPart.getX() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
 
                 Vector3 position = cam.position;
                 position.x = playerPositionPart.getX();
@@ -126,7 +119,6 @@ public class Game implements ApplicationListener {
 
 
             cam.update();
-
             worldMap.getRenderer().setView(cam);
 
             worldMap.getRenderer().render();
@@ -154,13 +146,14 @@ public class Game implements ApplicationListener {
 
     //remove when sprite is implemented
     private void draw() {
+        batch.setProjectionMatrix(cam.combined);
         batch.begin();
         //batch.draw(img,0,0);
         elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
             try {
                 PositionPart positionPart = entity.getPart(PositionPart.class);
-                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX()-12f,positionPart.getY()-12f);
+                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime, true), positionPart.getX() - 12f, positionPart.getY() - 12f);
                 entity.getSprite().draw(batch);
             } catch (NullPointerException e) {
                 entity.create();
