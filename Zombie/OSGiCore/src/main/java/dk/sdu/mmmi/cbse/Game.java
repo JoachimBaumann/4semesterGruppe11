@@ -26,6 +26,8 @@ import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -47,7 +49,7 @@ public class Game implements ApplicationListener {
     private Texture gun;
     private Sprite gunSprite;
     private Sprite healthbar;
-
+    FileWriter myWriter;
 
 
     public Game() {
@@ -67,9 +69,11 @@ public class Game implements ApplicationListener {
 
     @Override
     public void create() {
-
-
-
+            try {
+                myWriter = new FileWriter(AssetLoader.getAssetPath("/Errors/Errors.txt"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         //spirit loading
         batch = new SpriteBatch();
@@ -130,7 +134,12 @@ public class Game implements ApplicationListener {
                 position.x = playerPositionPart.getX();
 
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("No player object - ");
+                try {
+                    myWriter.write(e.toString() + "\n");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                //System.out.println("No player object - ");
             }
 
 
@@ -148,7 +157,12 @@ public class Game implements ApplicationListener {
             LifePart playerLifePart = player.getPart(LifePart.class);
             healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
         }catch (IndexOutOfBoundsException e){
-            System.out.println("No player found / Player may be dead");
+            try {
+                myWriter.write(e.toString() + "\n");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            //System.out.println("No player found / Player may be dead");
         }
 
         draw();
@@ -197,7 +211,11 @@ public class Game implements ApplicationListener {
             healthbar.setPosition(playerPositionPart.getX()-Gdx.graphics.getWidth()*0.45f,Gdx.graphics.getHeight()*0.9f);
         } catch (IndexOutOfBoundsException e) {
             healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
-            System.out.println("No player object - ");
+            try {
+                myWriter.write(e.toString() + "\n");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
         healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
     }
