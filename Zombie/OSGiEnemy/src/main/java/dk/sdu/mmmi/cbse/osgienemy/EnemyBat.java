@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.*;
+import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
 public class EnemyBat extends Enemy {
@@ -22,14 +23,7 @@ public class EnemyBat extends Enemy {
         this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/EnemyAssets/EnemyBat/EnemyBatWalk.txt")));
         this.setAnimation(new Animation(1 / 8f, getTextureAtlas().getRegions()));
 
-        Texture hpbar;
-        Sprite healthbar;
 
-        String corePath = AssetLoader.whichOS(coreAssetPath);
-        hpbar = new Texture(AssetLoader.getAssetPath(corePath,"/UI/Health.png"));
-        healthbar = new Sprite(hpbar, 50, 50, 1045, 64);
-        healthbar.setPosition(Gdx.graphics.getWidth() * 0.07f, Gdx.graphics.getHeight() * 0.11f);
-        healthbar.setSize(Gdx.graphics.getWidth() * 0.6f, Gdx.graphics.getHeight() * 0.07f);
 
        /* gameData.setDisplayWidth(Gdx.graphics.getWidth());
         gameData.setDisplayHeight(Gdx.graphics.getHeight());
