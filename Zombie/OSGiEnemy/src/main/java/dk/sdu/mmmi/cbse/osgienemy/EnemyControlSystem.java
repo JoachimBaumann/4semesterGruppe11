@@ -23,6 +23,9 @@ public class EnemyControlSystem implements IEntityProcessingService {
 
     List<Entity> enemies;
 
+    private static final String coreAssetPath = "\\Zombie\\OSGICore\\src\\main\\resources\\Assets\\";
+
+
 
 
     @Override
@@ -36,9 +39,25 @@ public class EnemyControlSystem implements IEntityProcessingService {
         for (Entity enemy : enemies) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             EnemyMovingPart enemyMovingPart = enemy.getPart(EnemyMovingPart.class);
-            //LifePart lifePart = enemy.getPart(LifePart.class);
 
+            float x = positionPart.getX();
+            float y = positionPart.getY();
+            Texture hpbar;
+            Sprite healthbar;
 
+            String corePath = AssetLoader.whichOS(coreAssetPath);
+            hpbar = new Texture(AssetLoader.getAssetPath(corePath,"/UI/Health.png"));
+            healthbar = new Sprite(hpbar, 50, 50, 1045, 64);
+
+            System.out.println(healthbar + "   "+ hpbar);
+
+            //PositionPart positionPart = enemyBat.getPart(PositionPart.class);
+
+            healthbar.setPosition(x,y);
+            //healthbar.setPosition(Gdx.graphics.getWidth() * 0.005f, Gdx.graphics.getHeight() * 0.09f);
+            healthbar.setSize(Gdx.graphics.getWidth() * 0.04f, Gdx.graphics.getHeight() * 0.05f);
+
+            //process
             enemyMovingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
 
