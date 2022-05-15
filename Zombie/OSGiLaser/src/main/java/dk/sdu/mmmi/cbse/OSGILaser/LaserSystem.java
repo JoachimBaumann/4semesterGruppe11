@@ -21,6 +21,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
     private float CD;
     private boolean canShoot = true;
+    private boolean isFirst = true;
 
     @Override
     public void process(GameData gameData, World world) {
@@ -33,14 +34,15 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             LifePart lifepart = bullet.getPart(LifePart.class);
             movingPart.setRight(true);
 
-            float animationTime = 0;
 
-            if (lifepart.isHit()){
+            if (lifepart.isHit() && isFirst){
                 movingPart.setVelocity(new Vector2(0,0));
                 movingPart.setMaxSpeed(0f);
-                animationTime = gameData.getDelta();
+                isFirst = false;
+                timerPart.setExpiration(0.25f);
+
             }
-            if (animationTime <= 0.05f && lifepart.isHit() || timerPart.getExpiration() <= 0.25f){
+            if (timerPart.getExpiration() <= 0.25f){
                 bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/ShootingAssets/ShootingRight/shootexplosion.txt")));
                 bullet.setAnimation(new Animation(1f / 4f, bullet.getTextureAtlas().getRegions()));
                 movingPart.setVelocity(new Vector2(0,0));
@@ -49,6 +51,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
             if (timerPart.getExpiration() <= 0){
                 world.removeEntity(bullet);
+                isFirst = true;
 
             }
 
