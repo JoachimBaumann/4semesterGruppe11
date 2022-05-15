@@ -8,9 +8,6 @@ import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class EnemyMovingPart extends MovingPart implements EntityPart {
 
     public EnemyMovingPart(float maxSpeed) {
