@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGiPlayer" />
-          <property key="Include-Resource" value="META-INF/entityprocessor.xml=$MODULE_DIR$/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=$MODULE_DIR$/src/main/resources/META-INF/gameplugin.xml" />
+          <property key="Include-Resource" value="META-INF/entityprocessor.xml=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/META-INF/gameplugin.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

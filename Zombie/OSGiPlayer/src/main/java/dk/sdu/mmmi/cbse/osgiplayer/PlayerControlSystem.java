@@ -1,15 +1,11 @@
 package dk.sdu.mmmi.cbse.osgiplayer;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.player.Player;
-import dk.sdu.mmmi.cbse.common.weapon.Weapon;
 import dk.sdu.mmmi.cbse.common.weapon.WeaponSPI;
 
 
@@ -17,6 +13,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
     private WeaponSPI weaponService;
     float shootTime = 0;
+    String playerShootRight = "/PlayerRight/playershootright.txt";
 
 
     @Override
@@ -34,18 +31,15 @@ public class PlayerControlSystem implements IEntityProcessingService {
             shootTime += gameData.getDelta();
 
             if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null){
-                player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playershootright.txt")));
-                player.setAnimation(new Animation(1f/30f,player.getTextureAtlas().getRegions()));
+                    player.setTextureAtlas(new TextureAtlas(AssetLoader.getPlayerAssetPath("/PlayerRight/playershootright.txt")));
+                    player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
+
                 if(shootTime > 0.2f){
                     shootTime = 0;
                     Entity bullet = weaponService.createWeapon(player, gameData);
                     world.addEntity(bullet);
                 }
-            }else if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService == null) {
-                player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playermeleeright.txt")));
-                player.setAnimation(new Animation(1f / 6f, player.getTextureAtlas().getRegions()));
             }
-
 
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);

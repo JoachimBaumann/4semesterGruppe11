@@ -10,6 +10,7 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 
 public class PlayerMovingPart extends MovingPart implements EntityPart {
 
+
     public PlayerMovingPart(float maxSpeed) {
         super();
         this.maxSpeed = maxSpeed;
@@ -17,6 +18,19 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
 
     private float maxSpeed = 60, gravity = 60 * 1.8f, increment;
     private Vector2 velocity = new Vector2();
+
+    public boolean isLeft() {
+        return left;
+    }
+
+    public boolean isRight() {
+        return right;
+    }
+
+    public boolean isUp() {
+        return up;
+    }
+
     private boolean left, right, up, space;
     private int count;
 
@@ -76,6 +90,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(1);
         float jumpHeight = 90;
 
+
         // apply gravity
         velocity.y -= gravity * delta;
 
@@ -87,8 +102,9 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
 
 
         if (left) {
+            //entity.flip(new TextureAtlas(AssetLoader.getAssetPath(playerRight)), "green");
             entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
-            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
+            entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
@@ -96,7 +112,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         }
         if (right) {
             entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerwalk.txt")));
-            entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
+            entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
@@ -115,9 +131,9 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         }
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
-        }else {
+        } else {
             entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerjump.txt")));
-            entity.setAnimation(new Animation(1f/3f,entity.getTextureAtlas().getRegions()));
+            entity.setAnimation(new Animation(1f / 3f, entity.getTextureAtlas().getRegions()));
         }
 
 

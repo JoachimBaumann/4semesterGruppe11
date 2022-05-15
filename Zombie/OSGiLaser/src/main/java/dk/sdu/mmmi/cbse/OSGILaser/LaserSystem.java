@@ -15,8 +15,6 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.weapon.Weapon;
 import dk.sdu.mmmi.cbse.common.weapon.WeaponSPI;
 
-import dk.sdu.mmmi.cbse.common.*;
-
 public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
     private float CD;
@@ -78,7 +76,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
         Entity bullet = new Weapon();
         //bullet.setRadius(2);
-        bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/ShootingAssets/ShootingRight/shotright.txt")));
+        bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getLaserSystemAssetPath("/ShootingAssets/ShootingRight/shotright.txt")));
         bullet.setAnimation(new Animation(1f / 6f, bullet.getTextureAtlas().getRegions()));
 
         bullet.add(new PositionPart(x + 140, y + 70, radians));
