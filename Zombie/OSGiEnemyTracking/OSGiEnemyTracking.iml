@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGiEnemyTracking" />
-          <property key="Include-Resource" value="META-INF/postentityprocess.xml=$MODULE_DIR$/src/main/resources/META-INF/postentityprocess.xml" />
+          <property key="Include-Resource" value="META-INF/postentityprocess.xml=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiEnemyTracking/src/main/resources/META-INF/postentityprocess.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

@@ -19,7 +19,8 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
     private float CD;
     private boolean canShoot = true;
-    private boolean isFirst = true;
+    private static final String laserAssetPath = "\\Zombie\\OSGILaser\\src\\main\\resources\\Assets\\";
+
 
     @Override
     public void process(GameData gameData, World world) {
@@ -32,16 +33,16 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             LifePart lifepart = bullet.getPart(LifePart.class);
             movingPart.setRight(true);
 
+            float animationTime = 0;
 
-            if (lifepart.isHit() && isFirst){
+            if (lifepart.isHit()){
                 movingPart.setVelocity(new Vector2(0,0));
                 movingPart.setMaxSpeed(0f);
-                isFirst = false;
-                timerPart.setExpiration(0.25f);
-
+                animationTime = gameData.getDelta();
             }
-            if (timerPart.getExpiration() <= 0.25f){
-                bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getLaserSystemAssetPath("/ShootingAssets/ShootingRight/shootexplosion.txt")));
+            if (animationTime <= 0.05f && lifepart.isHit() || timerPart.getExpiration() <= 0.25f){
+                String assetPath = AssetLoader.whichOS(laserAssetPath);
+                bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/ShootingAssets/ShootingRight/shootexplosion.txt")));
                 bullet.setAnimation(new Animation(1f / 4f, bullet.getTextureAtlas().getRegions()));
                 movingPart.setVelocity(new Vector2(0,0));
                 movingPart.setMaxSpeed(0f);
@@ -49,7 +50,6 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
             if (timerPart.getExpiration() <= 0){
                 world.removeEntity(bullet);
-                isFirst = true;
 
             }
 
@@ -76,7 +76,8 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
         Entity bullet = new Weapon();
         //bullet.setRadius(2);
-        bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getLaserSystemAssetPath("/ShootingAssets/ShootingRight/shotright.txt")));
+        String assetPath = AssetLoader.whichOS(laserAssetPath);
+        bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/ShootingAssets/ShootingRight/shotright.txt")));
         bullet.setAnimation(new Animation(1f / 6f, bullet.getTextureAtlas().getRegions()));
 
         bullet.add(new PositionPart(x + 140, y + 70, radians));

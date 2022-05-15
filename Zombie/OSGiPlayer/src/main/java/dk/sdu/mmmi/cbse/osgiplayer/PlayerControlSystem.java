@@ -13,7 +13,9 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
     private WeaponSPI weaponService;
     float shootTime = 0;
-    String playerShootRight = "/PlayerRight/playershootright.txt";
+    //String playerShootRight = "/PlayerRight/playershootright.txt";
+    private static final String playerAssetPath = "\\Zombie\\OSGIPlayer\\src\\main\\resources\\Assets\\";
+
 
 
     @Override
@@ -31,9 +33,13 @@ public class PlayerControlSystem implements IEntityProcessingService {
             shootTime += gameData.getDelta();
 
             if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null){
-                    player.setTextureAtlas(new TextureAtlas(AssetLoader.getPlayerAssetPath("/PlayerRight/playershootright.txt")));
+                if (movingPart.isRight()) {
+                    String assetPath = AssetLoader.whichOS(playerAssetPath);
+                    player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerRight/playershootright.txt")));
                     player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
-
+                }if (movingPart.isLeft()){
+                    //player.flip();
+                }
                 if(shootTime > 0.2f){
                     shootTime = 0;
                     Entity bullet = weaponService.createWeapon(player, gameData);
