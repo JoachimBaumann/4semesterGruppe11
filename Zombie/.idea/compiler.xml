@@ -29,6 +29,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="compiled-bundle-settings" target="1.8" />
+      <module name="dk.sdu.mmmi.cbse" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.osgienemy" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.OSGILaser" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.osgimap" target="1.8" />

@@ -15,6 +15,7 @@
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiLibGDX" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiMap" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiPlayer" />
+    <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiScoreSystem" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/OSGiWeapon" />
   </component>
   <component name="MavenProjectsManager">
@@ -23,6 +24,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/OSGiWeapon/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/OSGiScoreSystem/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="corretto-1.8" project-jdk-type="JavaSDK" />
