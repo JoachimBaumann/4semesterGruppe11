@@ -26,30 +26,19 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
     private Vector2 velocity = new Vector2();
     private boolean canJump = true;
     private List<Entity> enemies;
-    FileWriter myWriter;
 
-    {
-        try {
-            myWriter = new FileWriter(AssetLoader.getEnemySpawningassetPath("/Errors/Errors.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     @Override
     public void process(GameData gameData, World world) {
-        try {
-            //get current player position
-            Entity player = world.getEntities(Player.class).get(0); //This works because there is only 1 player object.
-            PositionPart playerPositionPart = player.getPart(PositionPart.class);
-
-
+        //get current player position
+        List<Entity> player = world.getEntities(Player.class);
+        if(!player.isEmpty()) {
+            PositionPart playerPositionPart = player.get(0).getPart(PositionPart.class);
             enemies = world.getEntities(EnemyBat.class);
             enemies.addAll(world.getEntities(EnemyRaven.class));
             enemies.addAll(world.getEntities(EnemySnail.class));
             enemies.addAll(world.getEntities(Enemy.class));
-
 
             //get all enemy positions
             for (Entity entity : enemies) {
@@ -74,14 +63,6 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
                 if (playerPositionPart.getY() > enemyPositionPart.getY() && enemyPositionPart.isStuck())
                     enemyMovingPart.setSpace(true);
             }
-
-        } catch (IndexOutOfBoundsException e) {
-            try {
-                myWriter.write(e.toString() + "\n");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            //System.out.println("Exception in Enemy Tracking System: " + e.toString());
         }
     }
 }

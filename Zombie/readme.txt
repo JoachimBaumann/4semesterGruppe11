@@ -7,3 +7,8 @@ mvn pax:create-bundle -Dpackage=OSGiCommonEnemy -Dname=OSGiCommonEnemy -Dversion
 
 mvn pax:wrap-jar -g groupId -a artifactId -v version
 
+Bugs to fix:
+No collision on enemies
+Add some cool down for levels
+Add endgame
+Add high score

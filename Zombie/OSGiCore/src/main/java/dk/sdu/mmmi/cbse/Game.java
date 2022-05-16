@@ -23,9 +23,10 @@ import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
-
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -47,6 +48,7 @@ public class Game implements ApplicationListener {
     private Texture gun;
     private Sprite gunSprite;
     private Sprite healthbar;
+    FileWriter myWriter;
 
 
     public Game() {
@@ -56,8 +58,8 @@ public class Game implements ApplicationListener {
     public void init() {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "ZombieGame";
-        cfg.width = 1280;
-        cfg.height = 720;
+        cfg.width = 1920;
+        cfg.height = 960;
         cfg.useGL30 = false;
         cfg.resizable = false;
 
@@ -66,34 +68,22 @@ public class Game implements ApplicationListener {
 
     @Override
     public void create() {
-
+            try {
+                myWriter = new FileWriter(AssetLoader.getAssetPath("/Errors/Errors.txt"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         //spirit loading
         batch = new SpriteBatch();
-        /*
-        img = new Texture(AssetLoader.getAssetPath("/BackgroundFlutter/_Background.png"));
-        batch.begin();
-        batch.draw(img, 0,0);
-        batch.end();
 
-         */
-
-        //Healthbar sprite
-        String coreAssetPath = "\\Zombie\\OSGICore\\src\\main\\resources\\Assets\\";
-        String assetPath = AssetLoader.whichOS(coreAssetPath);
-
-        //Health-bar sprite
-        hpbar = new Texture(AssetLoader.getAssetPath(assetPath, "/UI/Health.png"));
-        healthbar = new Sprite(hpbar,50,50,1045,64);
-        healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
-        healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
 
         //Gun Sprite
-        gun = new Texture(AssetLoader.getAssetPath(assetPath,"/Gun/blaster_1.png"));
-        gunSprite = new Sprite(gun, 130, 88);
-        gunSprite.setPosition(100,60);
-        gunSprite.setSize(60f,30f);
-        gunSprite.rotate(135);
+        //gun = new Texture(AssetLoader.getCoreAssetPath("/Gun/blaster_1.png"));
+        //gunSprite = new Sprite(gun, 130, 88);
+        //gunSprite.setPosition(100,60);
+        //gunSprite.setSize(60f,30f);
+        //gunSprite.rotate(135);
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
@@ -103,9 +93,12 @@ public class Game implements ApplicationListener {
         cam.translate(gameData.getDisplayWidth() / 2, gameData.getDisplayHeight() / 2);
         cam.update();
 
+
         shapeRenderer = new ShapeRenderer();
 
         Gdx.input.setInputProcessor(new GameInputProcessor(gameData));
+
+        ui();
 
     }
 
@@ -127,24 +120,17 @@ public class Game implements ApplicationListener {
          */
 
         try {
-            TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(0);
+            TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(1);
 
 
-            try {
-                Entity player = world.getEntities(Player.class).get(0);
-                PositionPart playerPositionPart = player.getPart(PositionPart.class);
-                Vector3 center = new Vector3(layer0.getWidth() * layer0.getTileWidth() + playerPositionPart.getX() / 2, layer0.getHeight() * layer0.getTileHeight() / 2, 0);
-
+            List<Entity> player = world.getEntities(Player.class);
+            if(!player.isEmpty()) {
+                PositionPart playerPositionPart = player.get(0).getPart(PositionPart.class);
                 Vector3 position = cam.position;
                 position.x = playerPositionPart.getX();
-
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("No player object - ");
             }
 
-
             cam.update();
-
             worldMap.getRenderer().setView(cam);
 
             worldMap.getRenderer().render();
@@ -152,16 +138,17 @@ public class Game implements ApplicationListener {
             worldMap.create();
             gameData.setWorldMap(worldMap);
         }
-        try {
-            Entity player = world.getEntities(Player.class).get(0);
-            LifePart playerLifePart = player.getPart(LifePart.class);
+
+        List<Entity> player = world.getEntities(Player.class);
+        if(!player.isEmpty()) {
+            LifePart playerLifePart = player.get(0).getPart(LifePart.class);
             healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
-        }catch (IndexOutOfBoundsException e){
-            System.out.println("No player found / Player may be dead");
         }
+
 
         draw();
         update();
+        ui();
 
     }
 
@@ -178,9 +165,10 @@ public class Game implements ApplicationListener {
 
     //remove when sprite is implemented
     private void draw() {
+        batch.setProjectionMatrix(cam.combined);
         batch.begin();
         healthbar.draw(batch);
-        gunSprite.draw(batch);
+        //gunSprite.draw(batch);
         //batch.draw(img,0,0);
         elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
@@ -194,6 +182,24 @@ public class Game implements ApplicationListener {
         }
         batch.end();
 
+    }
+
+    private void ui(){
+        hpbar = new Texture(AssetLoader.getCoreAssetPath("/UI/Health.png"));
+        healthbar = new Sprite(hpbar,50,50,1045,64);
+        try {
+            Entity player = world.getEntities(Player.class).get(0);
+            PositionPart playerPositionPart = player.getPart(PositionPart.class);
+            healthbar.setPosition(playerPositionPart.getX()-Gdx.graphics.getWidth()*0.45f,Gdx.graphics.getHeight()*0.9f);
+        } catch (IndexOutOfBoundsException e) {
+            healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
+            try {
+                myWriter.write(e.toString() + "\n");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
     }
 
     @Override
@@ -233,7 +239,6 @@ public class Game implements ApplicationListener {
     public void addGamePluginService(IGamePluginService plugin) {
         this.gamePluginList.add(plugin);
         plugin.start(gameData, world);
-
     }
 
     public void removeGamePluginService(IGamePluginService plugin) {
