@@ -18,6 +18,7 @@ public class Entity extends ApplicationAdapter implements Serializable {
 
     //sprite stuff
     private Sprite sprite;
+    private String type;
 
     public TextureAtlas getTextureAtlas() {
         return textureAtlas;
@@ -70,6 +71,10 @@ public class Entity extends ApplicationAdapter implements Serializable {
         return this.radius;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public void setRadius(float radius) {
         this.radius = radius;
     }
@@ -114,7 +119,11 @@ public class Entity extends ApplicationAdapter implements Serializable {
     }
 
 
-    public String getName(){
+    public String getType(){
+        return type;
+    }
+
+    public String getName() {
         return null;
     }
 

@@ -4,8 +4,9 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
+import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
-public class EnemyRaven extends Entity {
+public class EnemyRaven extends Enemy {
 
     @Override
     public void create() {
@@ -18,8 +19,5 @@ public class EnemyRaven extends Entity {
         super.dispose();
     }
 
-    @Override
-    public String getName() {
-        return "raven";
-    }
+
 }

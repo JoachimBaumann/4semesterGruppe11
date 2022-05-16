@@ -7,7 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 
 public class Enemy extends Entity {
 
-    private String name = "enemy";
+    private String type = "enemy";
 
     @Override
     public void create() {
@@ -21,7 +21,7 @@ public class Enemy extends Entity {
     }
 
 
-    public String getName() {
-        return this.name;
+    public String getType() {
+        return this.type;
     }
 }

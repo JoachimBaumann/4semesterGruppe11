@@ -113,13 +113,13 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         Map<Integer,Integer> myMap = new HashMap<>();
         myMap.put(1, 1);
         myMap.put(2, 2);
-        myMap.put(3, 4);
-        myMap.put(4, 8);
-        myMap.put(5, 12);
-        myMap.put(6, 18);
-        myMap.put(7, 22);
-        myMap.put(8, 26);
-        myMap.put(9, 30);
+        myMap.put(3, 10);
+        myMap.put(4, 4);
+        myMap.put(5, 5);
+        myMap.put(6, 6);
+        myMap.put(7, 8);
+        myMap.put(8, 10);
+        myMap.put(9, 14);
         myMap.put(10, 1);
         myMap.put(11, 0);
         return myMap;
@@ -132,7 +132,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
         float deacceleration = 20;
         float acceleration = 50;
-        float maxSpeed = getRandomNumber(50, 450);
+        float maxSpeed = getRandomNumber(50, 400);
         float rotationSpeed = 5;
         float x = gameData.getDisplayWidth() / 2;
         float y = gameData.getDisplayHeight() / 2;
@@ -142,7 +142,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         Entity enemy = getRandomEnemy();
 
         //enemy.add(new EnemyMovingPart(maxSpeed));
-        int xCoordinate = getRandomNumber(0, 1000);
+        int xCoordinate = getRandomNumber(0, 4000);
         int yCoordinate = getRandomNumber(100, 500);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , radians));
         enemy.add(new LifePart(1));
@@ -160,27 +160,31 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         switch(randomInt) {
             case 0:
                 Entity entity1 = new EnemyBat();
-                entity1.setHeight(50);
+                entity1.setHeight(70);
                 entity1.setWidth(50);
                 entity1.add(new EnemyMovingPart(75));
+                entity1.setType("enemy");
                 return entity1;
             case 1:
                 Entity entity2 = new EnemyRaven();
                 entity2.setHeight(50);
                 entity2.setWidth(50);
-                entity2.add(new EnemyMovingPart(400));
+                entity2.add(new EnemyMovingPart(300));
+                entity2.setType("enemy");
                 return entity2;
             case 2:
                 Entity entity3 = new EnemySnail();
                 entity3.setHeight(186);
                 entity3.setWidth(336);
                 entity3.add(new EnemyMovingPart(50));
+                entity3.setType("enemy");
                 return entity3;
             case 3:
                 Entity entity4 = new Enemy();
                 entity4.setHeight(100);
                 entity4.setWidth(115);
                 entity4.add(new EnemyMovingPart(200));
+                entity4.setType("enemy");
                 return entity4;
         }
         return null;
