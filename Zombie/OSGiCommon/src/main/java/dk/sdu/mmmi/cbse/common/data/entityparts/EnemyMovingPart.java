@@ -68,8 +68,8 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         this.space = space;
     }
 
-    private static final String coreAssetPath = "\\Zombie\\OSGICore\\src\\main\\resources\\Assets\\";
-
+    private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets\\";
+    private static final String assetPath = AssetLoader.whichOS(enemyAssetPath);
 
 
     @Override
@@ -93,16 +93,16 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
             velocity.y = -maxSpeed;
         ;
 
-        String assetPath = AssetLoader.whichOS(coreAssetPath);
+
 
         if (left) {
             velocity.x -= maxSpeed * delta;
             if(entity.getName() == "snail"){
-                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemySnail/SnailLeft/EnemySnailWalk.txt")));
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemySnail/SnailLeft/EnemySnailWalk.txt")));
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
             if(entity.getName() == "raven"){
-                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemyRaven/RavenLeft/EnemyRavenWalk.txt")));
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRaven/RavenLeft/EnemyRavenWalk.txt")));
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
             if (entity.getName() == "enemy") {
@@ -120,11 +120,11 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
                 entity.setAnimation(new Animation(1 / 15f, entity.getTextureAtlas().getRegions()));
             }
             if(entity.getName() == "snail"){
-                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemySnail/SnailRight/SnailRight.txt")));
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemySnail/SnailRight/SnailRight.txt")));
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
             if(entity.getName() == "raven"){
-                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getEnemyAssetPath("/EnemyAssets/EnemyRaven/RavenRight/ravenRight.txt")));
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRaven/RavenRight/ravenRight.txt")));
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {

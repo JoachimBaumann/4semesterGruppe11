@@ -12,8 +12,10 @@ import java.util.*;
 
 public class ScoreSystem implements IGamePluginService {
 
+    private static final String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+    private static final String assetPath = AssetLoader.whichOS(commonAssetPath);
 
-    private String path = AssetLoader.getAssetPath("\\scores\\scores.txt");
+    private String path = AssetLoader.getAssetPath(assetPath,"\\scores\\scores.txt");
 
     //Different implementations of Maps offers different time complexities - https://www.geeksforgeeks.org/differences-treemap-hashmap-linkedhashmap-java/
     //TreeMap insert, delete, search offers O(log(n)) time

@@ -48,8 +48,8 @@ public class Game implements ApplicationListener {
     private Texture gun;
     private Sprite gunSprite;
     private Sprite healthbar;
-    FileWriter myWriter;
-
+    private static final String coreAssetPath = "\\Zombie\\OSGICore\\src\\main\\resources\\Assets\\";
+    private static final String assetPath = AssetLoader.whichOS(coreAssetPath);
 
     public Game() {
         init();
@@ -68,22 +68,31 @@ public class Game implements ApplicationListener {
 
     @Override
     public void create() {
-            try {
-                myWriter = new FileWriter(AssetLoader.getAssetPath("/Errors/Errors.txt"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
 
         //spirit loading
         batch = new SpriteBatch();
 
 
+
+        //Healthbar sprite
+
+
+        //Health-bar sprite
+        hpbar = new Texture(AssetLoader.getAssetPath(assetPath, "/UI/Health.png"));
+        healthbar = new Sprite(hpbar,50,50,1045,64);
+        healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
+        healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
+
         //Gun Sprite
-        //gun = new Texture(AssetLoader.getCoreAssetPath("/Gun/blaster_1.png"));
-        //gunSprite = new Sprite(gun, 130, 88);
-        //gunSprite.setPosition(100,60);
-        //gunSprite.setSize(60f,30f);
-        //gunSprite.rotate(135);
+       /*
+        gun = new Texture(AssetLoader.getAssetPath(assetPath,"/Gun/blaster_1.png"));
+        gunSprite = new Sprite(gun, 130, 88);
+        gunSprite.setPosition(100,60);
+        gunSprite.setSize(60f,30f);
+        gunSprite.rotate(135);
+
+        */
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
@@ -185,7 +194,7 @@ public class Game implements ApplicationListener {
     }
 
     private void ui(){
-        hpbar = new Texture(AssetLoader.getCoreAssetPath("/UI/Health.png"));
+        hpbar = new Texture(AssetLoader.getAssetPath(assetPath,"/UI/Health.png"));
         healthbar = new Sprite(hpbar,50,50,1045,64);
         try {
             Entity player = world.getEntities(Player.class).get(0);
@@ -193,11 +202,6 @@ public class Game implements ApplicationListener {
             healthbar.setPosition(playerPositionPart.getX()-Gdx.graphics.getWidth()*0.45f,Gdx.graphics.getHeight()*0.9f);
         } catch (IndexOutOfBoundsException e) {
             healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
-            try {
-                myWriter.write(e.toString() + "\n");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
         }
         healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
     }
