@@ -25,6 +25,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     private int currentLevel = 1;
     Map<Integer, Integer> waves = createWaveMap();
     List<Entity> enemies = new ArrayList<>();
+    private static final String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+    private static final String assetPath = AssetLoader.whichOS(commonAssetPath);
 
 
     @Override
@@ -75,7 +77,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
     public void writeToFile(String username, String score) {
         try {
-            String path = AssetLoader.getAssetPath("\\scores\\scores.txt");
+            String path = AssetLoader.getAssetPath(assetPath,"\\scores\\scores.txt");
             FileWriter myWriter = new FileWriter(path, true);
             myWriter.write(username + "," + score + "\n");
             myWriter.close();
