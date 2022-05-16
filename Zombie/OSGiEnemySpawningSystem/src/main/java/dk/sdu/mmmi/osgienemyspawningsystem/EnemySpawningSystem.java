@@ -32,7 +32,11 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-        enemies = world.getEnemies();
+        enemies = world.getEntities(EnemyBat.class);
+        enemies.addAll(world.getEntities(EnemyRaven.class));
+        enemies.addAll(world.getEntities(EnemySnail.class));
+        enemies.addAll(world.getEntities(Enemy.class));
+
 
         if (enemies.size() == 0 && currentLevel < 10) {
             spawnEnemies(gameData, world);
@@ -43,25 +47,25 @@ public class EnemySpawningSystem implements IEntityProcessingService {
             updateLevel(gameData);
         }
         if (currentLevel == 11) {
-            gameFinished(gameData);
+            endGame(gameData, world);
             updateLevel(gameData);
+        }
+        if (currentLevel == 12) {
+            currentHighscore();
         }
     }
 
-    private void gameFinished(GameData gameData) {
+    private void endGame(GameData gameData, World world) {
         String kills = String.valueOf(getKills());
-        System.out.println("Game finished, you reached level " + currentLevel
+        System.out.println("Game finished, you reached level " + String.valueOf(currentLevel)
                 + ", killing " +  kills + " enemies.");
         try {
-            String playerID = gameData.getPlayerID();
+            String playerID = world.getEntities(Player.class).get(0).getID();
             writeToFile(playerID, kills);
-            gameData.setPlayerScore(playerID + ", " + kills);
-            gameData.setEndGame(true);
         } catch (NullPointerException e) {
             System.out.println("An error occured ending game: " + e.toString());
         }
     }
-
 
     private int getKills() {
         int totalKills = 0;
@@ -84,7 +88,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
 
-    public void spawnEnemies(GameData gameData, World world) {
+    private void spawnEnemies(GameData gameData, World world) {
         int enemyAmount = waves.get(currentLevel);
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);
@@ -92,6 +96,9 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
     }
 
+    private void currentHighscore() {
+
+    }
 
     private void spawnBoss(GameData gameData, World world) {
         //todo?
@@ -109,13 +116,13 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         Map<Integer,Integer> myMap = new HashMap<>();
         myMap.put(1, 1);
         myMap.put(2, 2);
-        myMap.put(3, 3);
+        myMap.put(3, 10);
         myMap.put(4, 4);
         myMap.put(5, 5);
         myMap.put(6, 6);
         myMap.put(7, 8);
         myMap.put(8, 10);
-        myMap.put(9, 12);
+        myMap.put(9, 14);
         myMap.put(10, 1);
         myMap.put(11, 0);
         return myMap;
@@ -141,9 +148,9 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         int xCoordinate = getRandomNumber(0, 4000);
         int yCoordinate = getRandomNumber(100, 500);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , radians));
-        enemy.add(new LifePart(1));
-        enemy.setWidth(115);
-        enemy.setRadius(20);
+        // enemy.add(new LifePart(1));
+        // enemy.setWidth(115);
+        // enemy.setRadius(20);
 
         //EnemyMovingPart part = enemy.getPart(EnemyMovingPart.class);
 
@@ -156,16 +163,18 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         switch(randomInt) {
             case 0:
                 Entity entity1 = new EnemyBat();
-                entity1.setHeight(130);
+                entity1.setHeight(70);
                 entity1.setWidth(50);
                 entity1.add(new EnemyMovingPart(75));
+                entity1.add(new LifePart(5));
                 entity1.setType("enemy");
                 return entity1;
             case 1:
                 Entity entity2 = new EnemyRaven();
-                entity2.setHeight(300);
+                entity2.setHeight(50);
                 entity2.setWidth(50);
                 entity2.add(new EnemyMovingPart(300));
+                entity2.add(new LifePart(10));
                 entity2.setType("enemy");
                 return entity2;
             case 2:
@@ -173,13 +182,15 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 entity3.setHeight(186);
                 entity3.setWidth(336);
                 entity3.add(new EnemyMovingPart(50));
+                entity3.add(new LifePart(15));
                 entity3.setType("enemy");
                 return entity3;
             case 3:
                 Entity entity4 = new EnemyZombie();
-                entity4.setHeight(100);
-                entity4.setWidth(115);
+                entity4.setHeight(70);
+                entity4.setWidth(50);
                 entity4.add(new EnemyMovingPart(200));
+                entity4.add(new LifePart(20));
                 entity4.setType("enemy");
                 return entity4;
         }

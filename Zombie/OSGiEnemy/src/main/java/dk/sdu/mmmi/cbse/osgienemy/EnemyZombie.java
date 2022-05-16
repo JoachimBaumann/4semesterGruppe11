@@ -13,10 +13,10 @@ public class EnemyZombie extends Enemy {
     private String name = "enemy";
 
     private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
-    String assetPath = AssetLoader.whichOS(coreAssetPath);
 
     @Override
     public void create() {
+        String assetPath = AssetLoader.whichOS(coreAssetPath);
         this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyLeft/enemywalking.txt")));
         this.setAnimation(new Animation(1/15f, getTextureAtlas().getRegions()));
 

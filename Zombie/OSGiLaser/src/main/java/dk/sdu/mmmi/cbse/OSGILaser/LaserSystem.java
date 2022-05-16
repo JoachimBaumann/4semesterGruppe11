@@ -73,7 +73,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
         float y = shooterPos.getY();
         float radians = shooterPos.getRadians();
         float dt = gameData.getDelta();
-        float speed = 350;
+        float speed = 800;
 
         Entity bullet = new Weapon();
         //bullet.setRadius(2);
@@ -83,7 +83,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
         bullet.add(new PositionPart(x + 140, y + 70, radians));
         bullet.add(new LifePart(2));
-        bullet.add(new MovingPart(350,0f));
+        bullet.add(new MovingPart(800,0f));
         bullet.add(new TimerPart(2));
         bullet.setType("bullet");
 
