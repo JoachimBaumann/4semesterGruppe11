@@ -30,16 +30,17 @@ public class EndScreen implements Screen {
     private static final String assetPath = AssetLoader.whichOS(screenAssetPath);
 
 
-    public EndScreen (AlienVsZombie game, int score) {
+    public EndScreen (AlienVsZombie game) {
         this.game = game;
-        this.score = score;
+        //this.score = score;
 
         // RED IMG RN
         gameOverBanner = new Texture(AssetLoader.getAssetPath(assetPath, "red.png"));
-        scoreFont = new BitmapFont(Gdx.files.internal("fonts/score.fnt"));
+        scoreFont = new BitmapFont();
 
-        /* HIGH SCORE LOGIC
-        //Get highscore from save files
+        /* TODO HIGH SCORE LOGIC
+        // this is from another game
+        // Get highscore from save files
         Preferences prefs = Gdx.app.getPreferences("alienVszombie");
         this.highscore = prefs.getInteger("highscore", 0);
 
@@ -58,21 +59,16 @@ public class EndScreen implements Screen {
     }
 
 
-
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        // TODO DRAW SCORE on screen
         game.batch.begin();
-
-
         game.batch.draw(gameOverBanner, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        //AlienVsZombie.WIDTH / 2 - BANNER_WIDTH / 2, SpaceGame.HEIGHT - BANNER_HEIGHT - 15, BANNER_WIDTH, BANNER_HEIGHT);
-
-        // DRAW SCORE on screen
-        scoreFont.draw(game.batch, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        scoreFont.draw(game.batch, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
+        scoreFont.draw(game.batch, "SCORE", Gdx.graphics.getWidth()* .25f,Gdx.graphics.getHeight()* .75f);
+        game.batch.end();
 
     }
 

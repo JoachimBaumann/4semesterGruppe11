@@ -12,13 +12,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Vector3;
-import dk.sdu.mmmi.cbse.common.data.Entity;
-import dk.sdu.mmmi.cbse.common.data.GameData;
-import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.WorldMap;
+//import dk.sdu.mmmi.cbse.common.data.Entity;
+//import dk.sdu.mmmi.cbse.common.data.GameData;
+//import dk.sdu.mmmi.cbse.common.data.World;
+//import dk.sdu.mmmi.cbse.common.data.WorldMap;
 import dk.sdu.mmmi.cbse.common.data.*;
-import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+//import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
+//import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
@@ -58,8 +59,8 @@ public class Game implements ApplicationListener {
     public void init() {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "ZombieGame";
-        cfg.width = 1920;
-        cfg.height = 960;
+        cfg.width = 1280;
+        cfg.height = 720;
         cfg.useGL30 = false;
         cfg.resizable = false;
 

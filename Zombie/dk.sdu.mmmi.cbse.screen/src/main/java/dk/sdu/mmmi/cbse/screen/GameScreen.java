@@ -8,6 +8,9 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.player.Player;
 
 public class GameScreen implements Screen {
+
+    // should hold parts of what Game holds rn
+
     final AlienVsZombie game;
 
     private final GameData gameData = new GameData();
@@ -32,12 +35,12 @@ public class GameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        //If health is depleted, go to game over screen
+        // TODO If health is depleted, go to game over screen  - maybe place in alienVsZombie instead
         for (Entity player : world.getEntities(Player.class)) {
             LifePart playerLife = player.getPart(LifePart.class);
             if (playerLife.getLife() <= 0) {
                 this.dispose();
-                game.setScreen(new EndScreen(game, score));
+                game.setScreen(new EndScreen(game));
                 return;
             }
 

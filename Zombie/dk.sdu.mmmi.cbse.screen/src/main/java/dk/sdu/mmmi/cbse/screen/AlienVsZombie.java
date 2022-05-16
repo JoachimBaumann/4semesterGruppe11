@@ -10,10 +10,21 @@ public class AlienVsZombie extends Game {
     public SpriteBatch batch;
     public BitmapFont font;
 
+    Boolean outOfHealth = true;
+
     public void create() {
+        /* TODO start game as normal create
+        *
+        *
+          */
         batch = new SpriteBatch();
         font = new BitmapFont(); // use libGDX's default Arial font
-        this.setScreen(new EndScreen(this, score));
+
+        // TODO CONDITION on changing the screen - maybe place in gameScreen instead
+        if (outOfHealth){
+            this.setScreen(new EndScreen(this));
+        }
+
     }
 
     public void render() {
