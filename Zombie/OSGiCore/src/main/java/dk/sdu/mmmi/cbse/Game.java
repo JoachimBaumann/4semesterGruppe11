@@ -123,22 +123,12 @@ public class Game implements ApplicationListener {
             TiledMapTileLayer layer0 = (TiledMapTileLayer) worldMap.getMap().getLayers().get(1);
 
 
-            try {
-                Entity player = world.getEntities(Player.class).get(0);
-                PositionPart playerPositionPart = player.getPart(PositionPart.class);
-
+            List<Entity> player = world.getEntities(Player.class);
+            if(!player.isEmpty()) {
+                PositionPart playerPositionPart = player.get(0).getPart(PositionPart.class);
                 Vector3 position = cam.position;
                 position.x = playerPositionPart.getX();
-
-            } catch (IndexOutOfBoundsException e) {
-                try {
-                    myWriter.write(e.toString() + "\n");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                //System.out.println("No player object - ");
             }
-
 
             cam.update();
             worldMap.getRenderer().setView(cam);
@@ -148,18 +138,13 @@ public class Game implements ApplicationListener {
             worldMap.create();
             gameData.setWorldMap(worldMap);
         }
-        try {
-            Entity player = world.getEntities(Player.class).get(0);
-            LifePart playerLifePart = player.getPart(LifePart.class);
+
+        List<Entity> player = world.getEntities(Player.class);
+        if(!player.isEmpty()) {
+            LifePart playerLifePart = player.get(0).getPart(LifePart.class);
             healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
-        }catch (IndexOutOfBoundsException e){
-            try {
-                myWriter.write(e.toString() + "\n");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            //System.out.println("No player found / Player may be dead");
         }
+
 
         draw();
         update();

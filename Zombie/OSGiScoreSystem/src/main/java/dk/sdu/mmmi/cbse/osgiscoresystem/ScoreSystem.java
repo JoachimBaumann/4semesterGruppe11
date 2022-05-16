@@ -17,6 +17,9 @@ public class ScoreSystem implements IGamePluginService {
 
     //Different implementations of Maps offers different time complexities - https://www.geeksforgeeks.org/differences-treemap-hashmap-linkedhashmap-java/
     //TreeMap insert, delete, search offers O(log(n)) time
+    //A red-black tree is a self-balancing binary search tree where each node has an extra bit, and that bit is often interpreted as the colour (red or black).
+    // These colours are used to ensure that the tree remains balanced during insertions and deletions. Although the balance of the tree is not perfect,
+    // it is good enough to reduce the searching time and maintain it around O(log n) time, where n is the total number of elements in the tree.
     //HashMap and LinkedHashMap offers O(n)
     //Choose a structure to hold scores
 
@@ -40,7 +43,6 @@ public class ScoreSystem implements IGamePluginService {
      * Loads comma separated text file and adds entries to Map structure
      */
     public TreeMap<String, Integer> loadScores() {
-        String lines;
         try {
             File scores = new File(path);
             Scanner myReader = new Scanner(scores);
