@@ -142,7 +142,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         Entity enemy = getRandomEnemy();
 
         //enemy.add(new EnemyMovingPart(maxSpeed));
-        int xCoordinate = getRandomNumber(-1000, 3000);
+        int xCoordinate = getRandomNumber(0, 1000);
         int yCoordinate = getRandomNumber(100, 500);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , radians));
         enemy.add(new LifePart(1));

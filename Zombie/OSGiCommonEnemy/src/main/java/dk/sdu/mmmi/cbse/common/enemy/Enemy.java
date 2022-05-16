@@ -1,10 +1,6 @@
 package dk.sdu.mmmi.cbse.common.enemy;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
@@ -15,8 +11,8 @@ public class Enemy extends Entity {
 
     @Override
     public void create() {
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/EnemyAssets/EnemyLeft/enemywalking.txt")));
-        this.setAnimation(new Animation(1/15f,getTextureAtlas().getRegions()));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getCommonEnemyAssetPath("/EnemyLeft/enemywalking.txt")));
+        this.setAnimation(new Animation(1/15f, getTextureAtlas().getRegions()));
     }
 
     @Override

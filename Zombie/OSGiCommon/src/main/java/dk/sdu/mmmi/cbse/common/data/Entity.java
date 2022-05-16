@@ -18,7 +18,18 @@ public class Entity extends ApplicationAdapter implements Serializable {
 
     //sprite stuff
     private Sprite sprite;
+
+    public TextureAtlas getTextureAtlas() {
+        return textureAtlas;
+    }
+
+    public void setTextureAtlas(TextureAtlas textureAtlas) {
+        this.textureAtlas = textureAtlas;
+    }
+
+    //TextureAtlas for animations
     private TextureAtlas textureAtlas;
+
     private float width, height;
     private Animation animation;
     private float radius;
@@ -42,6 +53,18 @@ public class Entity extends ApplicationAdapter implements Serializable {
     public <E extends EntityPart> E getPart(Class partClass) {
         return (E) parts.get(partClass);
     }
+
+    public void flip(TextureAtlas textureatlas, String regionNames){
+        this.textureAtlas = textureatlas;
+        //this.textureAtlas = new TextureAtlas(AssetLoader.getCommonPlayerAssetPath("playeridle.txt"));
+        TextureRegion[] flippedAnimation = new TextureRegion[3];
+        for(int i = 0; i<3; i++){
+            flippedAnimation[i] = new TextureRegion(textureAtlas.findRegion(regionNames +i));
+            flippedAnimation[i].flip(true,false);
+        }
+        this.setAnimation(new Animation(1f/6f,flippedAnimation));
+    }
+
 
     public float getRadius() {
         return this.radius;
@@ -81,13 +104,6 @@ public class Entity extends ApplicationAdapter implements Serializable {
     }
 
 
-    public TextureAtlas getTextureAtlas() {
-        return textureAtlas;
-    }
-
-    public void setTextureAtlas(TextureAtlas textureAtlas) {
-        this.textureAtlas = textureAtlas;
-    }
 
     public Animation getAnimation() {
         return animation;
@@ -101,4 +117,7 @@ public class Entity extends ApplicationAdapter implements Serializable {
     public String getName(){
         return null;
     }
+
+
+
 }
