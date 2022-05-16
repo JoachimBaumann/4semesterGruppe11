@@ -18,6 +18,7 @@
         <module name="OSGiAsteroids" />
         <module name="LibGDX" />
         <module name="OSGiCore" />
+        <module name="dk.sdu.mmmi.cbse.screen" />
         <module name="OSGiCommonWeapon" />
         <module name="OSGiPlayer" />
         <module name="OSGiCommonBullet" />
@@ -29,9 +30,12 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="compiled-bundle-settings" target="1.8" />
+      <module name="dk.sdu.mmmi.cbse" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.osgienemy" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.OSGILaser" target="1.8" />
       <module name="dk.sdu.mmmi.cbse.osgimap" target="1.8" />
+      <module name="dk.sdu.mmmi.cbse.osgiscreen" target="1.8" />
+      <module name="dk.sdu.mmmi.cbse.screen" target="1.8" />
       <module name="LibGDX" target="1.8" />
       <module name="OSGiAsteroids" target="1.8" />
       <module name="OSGiAsteroidSplitter" target="1.8" />

@@ -27,6 +27,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/OSGiScoreSystem/pom.xml" />
+        <option value="$PROJECT_DIR$/dk.sdu.mmmi.cbse.osgiscreen/pom.xml" />
       </set>
     </option>
   </component>

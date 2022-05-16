@@ -64,6 +64,7 @@
     <module>OSGiLaser</module>
     <module>OSGiEnemySpawningSystem</module>
     <module>OSGiScoreSystem</module>
+    <module>dk.sdu.mmmi.cbse.screen</module>
   </modules>
 
   <build>
