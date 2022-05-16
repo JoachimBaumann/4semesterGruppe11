@@ -19,7 +19,6 @@ public class EnemyRaven extends Enemy {
         String assetPath = AssetLoader.whichOS(enemyAssetPath);
         this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRaven/RavenLeft/EnemyRavenWalk.txt")));
         this.setAnimation(new Animation(1/6f, getTextureAtlas().getRegions()));
-
     }
 
     @Override

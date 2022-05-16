@@ -5,7 +5,10 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 
-public  class Enemy extends Entity {
+public class Enemy extends Entity {
+
+    private String type = "enemy";
+
     @Override
     public void create() {
     }
@@ -14,8 +17,9 @@ public  class Enemy extends Entity {
     public void dispose(){
         super.dispose();
     }
-    @Override
-    public String getName(){
-        return null;
-    };
+
+
+    public String getType() {
+        return this.type;
+    }
 }
