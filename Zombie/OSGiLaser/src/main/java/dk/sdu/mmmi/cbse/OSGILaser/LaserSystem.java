@@ -31,6 +31,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             MovingPart movingPart = bullet.getPart(MovingPart.class);
             TimerPart timerPart = bullet.getPart(TimerPart.class);
             LifePart lifepart = bullet.getPart(LifePart.class);
+
             movingPart.setRight(true);
 
             float animationTime = 0;
@@ -84,7 +85,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
         bullet.add(new LifePart(2));
         bullet.add(new MovingPart(350,0f));
         bullet.add(new TimerPart(2));
-
+        bullet.setType("bullet");
 
 
 
