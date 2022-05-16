@@ -17,6 +17,8 @@ public class MapPlugin implements IGamePluginService {
     private ShapeRenderer sr;
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
+    private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+
 
 
     @Override
@@ -33,7 +35,8 @@ public class MapPlugin implements IGamePluginService {
         map = new TiledMap();
 
         TmxMapLoader loader = new TmxMapLoader();
-        map = loader.load(AssetLoader.getAssetPath("widemap.tmx"));
+        String assetPath = AssetLoader.whichOS(coreAssetPath);
+        map = loader.load(AssetLoader.getAssetPath(assetPath,"widemap.tmx"));
 
         renderer = new OrthogonalTiledMapRenderer(map);
         sr = new ShapeRenderer();

@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.cbse.osgimap.internal.*,dk.sdu.mmmi.cbse.osgimap.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.cbse.osgimap.internal.*" />
           <property key="Bundle-Name" value="OSGiMap" />
-          <property key="Include-Resource" value="assets/hyptosis_tile-art-batch-1.png=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiMap/src/main/resources/assets/hyptosis_tile-art-batch-1.png,assets/hyptosis_tile-art-batch-1.tsx=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiMap/src/main/resources/assets/hyptosis_tile-art-batch-1.tsx,assets/map.tmx=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiMap/src/main/resources/assets/map.tmx,META-INF/gameplugin.xml=C:/Users/Phill/IdeaProjects/4semesterGruppe11/Zombie/OSGiMap/src/main/resources/META-INF/gameplugin.xml" />
+          <property key="Include-Resource" value="assets/hyptosis_tile-art-batch-1.png=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiMap/src/main/resources/assets/hyptosis_tile-art-batch-1.png,assets/hyptosis_tile-art-batch-1.tsx=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiMap/src/main/resources/assets/hyptosis_tile-art-batch-1.tsx,assets/map.tmx=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiMap/src/main/resources/assets/map.tmx,META-INF/gameplugin.xml=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiMap/src/main/resources/META-INF/gameplugin.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
@@ -27,6 +27,5 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.0" level="project" />
     <orderEntry type="module" module-name="OSGiCommon" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />
-    <orderEntry type="module" module-name="OSGiCommonEnemy" />
   </component>
 </module>

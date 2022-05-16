@@ -77,13 +77,27 @@ public class Game implements ApplicationListener {
         //spirit loading
         batch = new SpriteBatch();
 
+         */
+
+        //Healthbar sprite
+        String coreAssetPath = "\\Zombie\\OSGICore\\src\\main\\resources\\Assets\\";
+        String assetPath = AssetLoader.whichOS(coreAssetPath);
+
+        //Health-bar sprite
+        hpbar = new Texture(AssetLoader.getAssetPath(assetPath, "/UI/Health.png"));
+        healthbar = new Sprite(hpbar,50,50,1045,64);
+        healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
+        healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
 
         //Gun Sprite
-        //gun = new Texture(AssetLoader.getCoreAssetPath("/Gun/blaster_1.png"));
-        //gunSprite = new Sprite(gun, 130, 88);
-        //gunSprite.setPosition(100,60);
-        //gunSprite.setSize(60f,30f);
-        //gunSprite.rotate(135);
+       /*
+        gun = new Texture(AssetLoader.getAssetPath(assetPath,"/Gun/blaster_1.png"));
+        gunSprite = new Sprite(gun, 130, 88);
+        gunSprite.setPosition(100,60);
+        gunSprite.setSize(60f,30f);
+        gunSprite.rotate(135);
+
+        */
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());

@@ -24,7 +24,6 @@ public class EnemyControlSystem implements IEntityProcessingService {
     List<Entity> enemies;
 
 
-
     @Override
     public void process(GameData gameData, World world) {
         enemies = world.getEntities(EnemyBat.class);
@@ -36,8 +35,6 @@ public class EnemyControlSystem implements IEntityProcessingService {
         for (Entity enemy : enemies) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             EnemyMovingPart enemyMovingPart = enemy.getPart(EnemyMovingPart.class);
-            //LifePart lifePart = enemy.getPart(LifePart.class);
-
 
             enemyMovingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
@@ -48,9 +45,4 @@ public class EnemyControlSystem implements IEntityProcessingService {
 
         }
     }
-
-
-
-
-
 }

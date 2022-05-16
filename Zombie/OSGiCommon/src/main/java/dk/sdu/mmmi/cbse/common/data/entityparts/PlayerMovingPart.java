@@ -10,6 +10,7 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 
 public class PlayerMovingPart extends MovingPart implements EntityPart {
 
+    //String playerRight = "/PlayerAssets/PlayerRight/playerwalk.txt";
 
     public PlayerMovingPart(float maxSpeed) {
         super();
@@ -78,6 +79,8 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         this.space = space;
     }
 
+    private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+
 
     @Override
     public void process(GameData gameData, Entity entity) {
@@ -101,9 +104,10 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
             velocity.y = -maxSpeed;
 
 
+        String assetPath = AssetLoader.whichOS(coreAssetPath);
+
         if (left) {
-            //entity.flip(new TextureAtlas(AssetLoader.getAssetPath(playerRight)), "green");
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
             entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
@@ -111,7 +115,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
             }
         }
         if (right) {
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerwalk.txt")));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/PlayerAssets/PlayerRight/playerwalk.txt")));
             entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
@@ -132,7 +136,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
         } else {
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath("/PlayerAssets/PlayerRight/playerjump.txt")));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerRight/playerjump.txt")));
             entity.setAnimation(new Animation(1f / 3f, entity.getTextureAtlas().getRegions()));
         }
 
