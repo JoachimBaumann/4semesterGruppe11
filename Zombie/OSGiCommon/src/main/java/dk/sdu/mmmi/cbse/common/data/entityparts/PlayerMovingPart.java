@@ -17,7 +17,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         this.maxSpeed = maxSpeed;
     }
 
-    private float maxSpeed = 60, gravity = 60 * 1.8f, increment;
+    private float maxSpeed = 50, gravity = 50 * 1.8f, increment;
     private Vector2 velocity = new Vector2();
 
     public boolean isLeft() {
@@ -91,7 +91,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         float delta = gameData.getDelta();
         float newX, newY;
         TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
-        float jumpHeight = 90;
+        float jumpHeight = 70;
 
 
         // apply gravity

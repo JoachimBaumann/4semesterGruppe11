@@ -8,6 +8,8 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 
+import java.util.ArrayList;
+
 public class EnemyPlugin implements IGamePluginService {
 
     private String enemyID;
@@ -41,12 +43,14 @@ public class EnemyPlugin implements IGamePluginService {
         float radians = 3.1415f / 2;
 
         Entity enemy = new Enemy();
+
         enemy.add(new EnemyMovingPart(maxSpeed));
         enemy.add(new PositionPart(4 , 200 , radians));
         enemy.add(new LifePart(5));
         enemy.setHeight(84);
         enemy.setWidth(115);
         enemy.setRadius(20);
-        return  enemy;
+
+        return enemy;
     }
 }

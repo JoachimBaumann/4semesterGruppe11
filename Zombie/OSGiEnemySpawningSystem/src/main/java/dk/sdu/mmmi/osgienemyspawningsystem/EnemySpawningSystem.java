@@ -14,6 +14,7 @@ import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
+import dk.sdu.mmmi.cbse.osgienemy.EnemyZombie;
 
 
 import java.io.FileWriter;
@@ -147,9 +148,9 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         int xCoordinate = getRandomNumber(0, 4000);
         int yCoordinate = getRandomNumber(100, 500);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , radians));
-        enemy.add(new LifePart(1));
-        enemy.setWidth(115);
-        enemy.setRadius(20);
+        // enemy.add(new LifePart(1));
+        // enemy.setWidth(115);
+        // enemy.setRadius(20);
 
         //EnemyMovingPart part = enemy.getPart(EnemyMovingPart.class);
 
@@ -165,6 +166,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 entity1.setHeight(70);
                 entity1.setWidth(50);
                 entity1.add(new EnemyMovingPart(75));
+                entity1.add(new LifePart(5));
                 entity1.setType("enemy");
                 return entity1;
             case 1:
@@ -172,6 +174,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 entity2.setHeight(50);
                 entity2.setWidth(50);
                 entity2.add(new EnemyMovingPart(300));
+                entity2.add(new LifePart(10));
                 entity2.setType("enemy");
                 return entity2;
             case 2:
@@ -179,13 +182,15 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 entity3.setHeight(186);
                 entity3.setWidth(336);
                 entity3.add(new EnemyMovingPart(50));
+                entity3.add(new LifePart(15));
                 entity3.setType("enemy");
                 return entity3;
             case 3:
-                Entity entity4 = new Enemy();
-                entity4.setHeight(100);
-                entity4.setWidth(115);
+                Entity entity4 = new EnemyZombie();
+                entity4.setHeight(70);
+                entity4.setWidth(50);
                 entity4.add(new EnemyMovingPart(200));
+                entity4.add(new LifePart(20));
                 entity4.setType("enemy");
                 return entity4;
         }

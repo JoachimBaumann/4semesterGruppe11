@@ -17,7 +17,7 @@ public class EnemyZombie extends Enemy {
     @Override
     public void create() {
         String assetPath = AssetLoader.whichOS(coreAssetPath);
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyLeft/enemywalking.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyLeft/enemywalking.txt")));
         this.setAnimation(new Animation(1/15f, getTextureAtlas().getRegions()));
 
     }
