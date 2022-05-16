@@ -48,7 +48,7 @@ public class Game implements ApplicationListener {
     private Texture gun;
     private Sprite gunSprite;
     private Sprite healthbar;
-    private static final String coreAssetPath = "\\Zombie\\OSGICore\\src\\main\\resources\\Assets\\";
+    private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
     private static final String assetPath = AssetLoader.whichOS(coreAssetPath);
 
     public Game() {
