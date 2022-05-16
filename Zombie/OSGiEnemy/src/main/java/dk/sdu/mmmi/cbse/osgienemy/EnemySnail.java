@@ -10,7 +10,6 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
 public class EnemySnail extends Enemy {
-    private static final String coreAssetPath = "\\Zombie\\OSGICore\\src\\main\\resources\\Assets\\";
     private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets\\";
 
 
@@ -21,14 +20,6 @@ public class EnemySnail extends Enemy {
         this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemySnail/EnemySnailWalk.txt")));
         this.setAnimation(new Animation(1/8f, getTextureAtlas().getRegions()));
 
-        Texture hpbar;
-        Sprite healthbar;
-
-        String corePath = AssetLoader.whichOS(coreAssetPath);
-        hpbar = new Texture(AssetLoader.getAssetPath(corePath, "/UI/Health.png"));
-        healthbar = new Sprite(hpbar, 50, 50, 1045, 64);
-        healthbar.setPosition(Gdx.graphics.getWidth() * 0.07f, Gdx.graphics.getHeight() * 0.11f);
-        healthbar.setSize(Gdx.graphics.getWidth() * 0.6f, Gdx.graphics.getHeight() * 0.07f);
 
     }
 
