@@ -38,7 +38,7 @@ public class EndScreen implements Screen {
         // RED IMG RN
         //todo: fix paths
         //gameOverBanner = new Texture(AssetLoader.getAssetPath(assetPath, "screen/Red.png"));
-        gameOverBanner = new Texture("C:\\Users\\Emil\\Desktop\\UNI\\SemesterProject4\\Ny mappe\\4semesterGruppe11\\Zombie\\OSGiCommon\\src\\main\\resources\\Assets\\screen\\Red.png");
+        gameOverBanner = new Texture(AssetLoader.getAssetPath(assetPath, "screen/Red.png"));
         scoreFont = new BitmapFont();
 
         /* TODO HIGH SCORE LOGIC
