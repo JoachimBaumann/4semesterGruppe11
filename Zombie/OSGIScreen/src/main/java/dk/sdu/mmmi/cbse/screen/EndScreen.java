@@ -26,7 +26,7 @@ public class EndScreen implements Screen {
     Texture gameOverBanner;
     BitmapFont scoreFont;
 
-    private static final String screenAssetPath = "\\Zombie\\screen\\src\\main\\resources\\Assets\\";
+    private static final String screenAssetPath = "\\Zombie\\OSGIScreen\\src\\main\\resources\\Assets\\";
     private static final String assetPath = AssetLoader.whichOS(screenAssetPath);
 
 
@@ -35,7 +35,7 @@ public class EndScreen implements Screen {
         //this.score = score;
 
         // RED IMG RN
-        gameOverBanner = new Texture(AssetLoader.getAssetPath(assetPath, "red.png"));
+        gameOverBanner = new Texture(AssetLoader.getAssetPath(assetPath, "Red.png"));
         scoreFont = new BitmapFont();
 
         /* TODO HIGH SCORE LOGIC

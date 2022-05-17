@@ -144,12 +144,14 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         }
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
-        }else{
+        }/*else{
             if (entity.getName() == "enemy") {
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
                 entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             }
         }
+        */
+
 
 
         newX = x + velocity.x;

@@ -40,7 +40,7 @@ public class GameScreen implements Screen {
             LifePart playerLife = player.getPart(LifePart.class);
             if (playerLife.getLife() <= 0) {
                 this.dispose();
-                //game.setScreen(new EndScreen(game));
+                game.setScreen(new EndScreen(game));
                 return;
             }
 

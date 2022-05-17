@@ -9,7 +9,7 @@
   </parent>
 
   <properties>
-    <bundle.symbolicName>dk.sdu.mmmi.cbse.screen</bundle.symbolicName>
+    <bundle.symbolicName>OSGIScreen</bundle.symbolicName>
     <bundle.namespace>dk.sdu.mmmi.cbse.screen</bundle.namespace>
   </properties>
 

@@ -70,8 +70,8 @@ public class Game extends com.badlogic.gdx.Game implements ApplicationListener {
     public void init() {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "ZombieGame";
-        cfg.width = 1280;
-        cfg.height = 720;
+        cfg.width = 1920;
+        cfg.height = 1080;
         cfg.useGL30 = false;
         cfg.resizable = false;
 

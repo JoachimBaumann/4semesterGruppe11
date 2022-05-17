@@ -1,0 +1,2 @@
+Bundle-SymbolicName: OSGIScreen
+Bundle-ActivationPolicy: lazy

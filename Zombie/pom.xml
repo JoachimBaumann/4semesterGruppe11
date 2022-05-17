@@ -59,12 +59,13 @@
     <module>OSGiCommonWeapon</module>
     <module>provision</module>
     <module>OSGiMap</module>
+    <module>OSGIScreen</module>
     <!--    <module>OSGiWeapon</module>-->
     <module>OSGiEnemyTracking</module>
     <module>OSGiLaser</module>
     <module>OSGiEnemySpawningSystem</module>
     <module>OSGiScoreSystem</module>
-    <module>dk.sdu.mmmi.cbse.screen</module>
+
   </modules>
 
   <build>
