@@ -22,7 +22,7 @@ public class AlienVsZombie extends Game {
 
         // TODO CONDITION on changing the screen - maybe place in gameScreen instead
         if (outOfHealth){
-            this.setScreen(new EndScreen(this));
+            //this.setScreen(new EndScreen(this));
         }
 
     }

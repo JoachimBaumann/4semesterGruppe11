@@ -2,6 +2,7 @@ package dk.sdu.mmmi.cbse;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
@@ -23,8 +24,10 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
+import dk.sdu.mmmi.cbse.common.services.IMenuScreenProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
+import dk.sdu.mmmi.cbse.screens.EndScreen;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -32,7 +35,8 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-public class Game implements ApplicationListener {
+public class Game extends com.badlogic.gdx.Game implements ApplicationListener {
+
 
     private static OrthographicCamera cam;
     private ShapeRenderer shapeRenderer;
@@ -41,9 +45,11 @@ public class Game implements ApplicationListener {
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList<>();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
+    private static List<IMenuScreenProcessingService> menuScreenProcessingService = new CopyOnWriteArrayList<>();
 
 
-    private SpriteBatch batch;
+
+    public SpriteBatch batch;
     private float elapsedTime = 0;
     private Texture hpbar;
     private Texture gun;
@@ -54,6 +60,11 @@ public class Game implements ApplicationListener {
 
     public Game() {
         init();
+    }
+
+    @Override
+    public void setScreen(Screen screen) {
+        super.setScreen(screen);
     }
 
     public void init() {
@@ -171,6 +182,13 @@ public class Game implements ApplicationListener {
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
         }
+        //check if player is alive, if not, call module for end game screen.
+        List<Entity> player = world.getEntities(Player.class);
+        if(player.isEmpty()) {
+            System.out.println("Player is empty showing end screen");
+            EndScreen endScreen = new EndScreen(this);
+            setScreen(endScreen);
+        }
     }
 
     //remove when sprite is implemented
@@ -213,6 +231,7 @@ public class Game implements ApplicationListener {
 
     @Override
     public void pause() {
+
     }
 
     @Override
@@ -223,6 +242,7 @@ public class Game implements ApplicationListener {
     public void dispose() {
         batch.dispose();
         world.getWorldMap().dispose();
+
     }
 
     public void addEntityProcessingService(IEntityProcessingService eps) {
