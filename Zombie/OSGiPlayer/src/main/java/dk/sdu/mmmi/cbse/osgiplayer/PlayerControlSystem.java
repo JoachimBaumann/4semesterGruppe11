@@ -40,6 +40,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             shootTime += gameData.getDelta();
 
             if (gameData.getKeys().isReleased(GameKeys.allKeys())){
+                System.out.println("isReleased");
                 if (positionPart.getDirection() == positionPart.getRight()){
                     player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(cpAssetPath, "playeridle.txt")));
                     player.setAnimation(new Animation(1f/6f, player.getTextureAtlas().getRegions()));
@@ -51,6 +52,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
             }
 
             if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null){
+                System.out.println("Space down");
                     if (positionPart.getDirection() == positionPart.getRight()) {
                         player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "/PlayerRight/playershootright.txt")));
                         player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));

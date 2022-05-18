@@ -58,7 +58,7 @@ public class GameKeys {
 
     public boolean isReleased(ArrayList keys){
         for (int i = 0; i < keys.size(); i++) {
-            if (this.isReleased(i)){
+            if (!this.isReleased(i)){
                 return false;
             }
         }

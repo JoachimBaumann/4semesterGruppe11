@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.player.Player;
 
-public class PlayerPlayer extends Player {
+public class PlayerPlayer extends Player { /*
 
     private static final String playerAssetPath = "\\Zombie\\OSGICommonPlayer\\src\\main\\resources\\Assets\\";
 
@@ -25,5 +25,7 @@ public class PlayerPlayer extends Player {
     public String getName() {
         return "player";
     }
+    */
+
 
 }
