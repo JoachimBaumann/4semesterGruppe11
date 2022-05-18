@@ -80,6 +80,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
     }
 
     private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+    String assetPath = AssetLoader.whichOS(coreAssetPath);
 
 
     @Override
@@ -103,8 +104,6 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         else if (velocity.y < -maxSpeed)
             velocity.y = -maxSpeed;
 
-
-        String assetPath = AssetLoader.whichOS(coreAssetPath);
 
         if (left) {
             entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));

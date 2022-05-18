@@ -42,6 +42,7 @@ public class PlayerPlugin implements IGamePluginService {
         playerShip.add(new PlayerMovingPart(maxSpeed));
         playerShip.add(new PositionPart(1000, 500, radians));
         playerShip.add(new LifePart(100));
+        playerShip.add(new DirectionPart());
         playerShip.setHeight(84);
         playerShip.setWidth(115);
         playerShip.setRadius(20);
