@@ -19,6 +19,8 @@ public class Entity extends ApplicationAdapter implements Serializable {
     //sprite stuff
     private Sprite sprite;
     private String type;
+    private float animationYOffset = - 12;
+    private float animationXOffset = - 12;
 
     public TextureAtlas getTextureAtlas() {
         return textureAtlas;
@@ -128,5 +130,19 @@ public class Entity extends ApplicationAdapter implements Serializable {
     }
 
 
+    public float getAnimationYOffset() {
+        return animationYOffset;
+    }
 
+    public void setAnimationYOffset(float animationYOffset) {
+        this.animationYOffset = animationYOffset;
+    }
+
+    public float getAnimationXOffset() {
+        return animationXOffset;
+    }
+
+    public void setAnimationXOffset(float animationXOffset) {
+        this.animationXOffset = animationXOffset;
+    }
 }
