@@ -31,11 +31,13 @@ public class ScoreSystem implements IGamePluginService {
 
     @Override
     public void start(GameData gameData, World world) {
-
+        loadScoresHash();
+        gameData.setCurrentHighScore(getHighScore());
     }
 
     @Override
     public void stop(GameData gameData, World world) {
+
     }
 
 
@@ -73,7 +75,7 @@ public class ScoreSystem implements IGamePluginService {
                 hashInsert(key, value);
             }
             myReader.close();
-            return hashMapScores;
+            return hashMapScores; //necessary?
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred reading from file: " + e.toString());
             return null;
@@ -134,10 +136,16 @@ public class ScoreSystem implements IGamePluginService {
     }
 
     public SortedSet getSortedHashMap() {
+        if (hashMapScores.isEmpty()) {
+            loadScoresHash();
+        }
         return entriesSortedByValues(hashMapScores);
     }
 
     public SortedSet getSortedTreeMap() {
+        if (treeMapScores.isEmpty()) {
+            loadScoresTree();
+        }
         return entriesSortedByValues(treeMapScores);
     }
 

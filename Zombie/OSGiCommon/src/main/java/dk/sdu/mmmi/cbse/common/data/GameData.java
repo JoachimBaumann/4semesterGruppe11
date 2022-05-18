@@ -14,7 +14,37 @@ public class GameData {
     private List<Event> events = new CopyOnWriteArrayList<>();
     WorldMap worldMap;
     private int currentLevel;
+
+    public boolean isEndGame() {
+        return isEndGame;
+    }
+
+    public void setEndGame(boolean endGame) {
+        isEndGame = endGame;
+    }
+
+    private boolean isEndGame = false;
+
+
+    public String getCurrentHighScore() {
+        return currentHighScore;
+    }
+
+    public void setCurrentHighScore(String currentHighScore) {
+        this.currentHighScore = currentHighScore;
+    }
+
     private String currentHighScore;
+
+    public String getPlayerScore() {
+        return playerScore;
+    }
+
+    public void setPlayerScore(String playerScore) {
+        this.playerScore = playerScore;
+    }
+
+    private String playerScore;
 
 
     public String getPlayerID() {
