@@ -12,7 +12,7 @@ import dk.sdu.mmmi.cbse.common.player.Player;
 
 
 
-public class PlayerPlugin implements IGamePluginService {
+public class PlayerPlugin extends Player implements IGamePluginService {
 
     private String playerID;
 
@@ -65,7 +65,7 @@ public class PlayerPlugin implements IGamePluginService {
         System.out.println(AssetLoader.getAssetPath(cpAssetPath, "playeridle.txt"));
 
 
-        if (playerPos.getDirection() == playerPos.getRight()){
+        /*if (playerPos.getDirection() == playerPos.getRight()){
             playerShip.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(cpAssetPath, "playeridle.txt")));
             playerShip.setAnimation(new Animation(1f/6f, playerShip.getTextureAtlas().getRegions()));
         }
@@ -73,6 +73,8 @@ public class PlayerPlugin implements IGamePluginService {
             playerShip.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "playerLeft/flippedPlayerIdle.txt")));
             playerShip.setAnimation(new Animation(1f/6f, playerShip.getTextureAtlas().getRegions()));
         }
+
+         */
 
 
         return playerShip;

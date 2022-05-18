@@ -15,6 +15,10 @@ public class PlayerControlSystem implements IEntityProcessingService {
     float shootTime = 0;
     //String playerShootRight = "/PlayerRight/playershootright.txt";
     private static final String playerAssetPath = "\\Zombie\\OSGIPlayer\\src\\main\\resources\\Assets\\";
+    private static final String commonPlayerAssetPath = "\\Zombie\\OSGICommonPlayer\\src\\main\\resources\\Assets\\";
+
+    private static String cpAssetPath = AssetLoader.whichOS(commonPlayerAssetPath);
+    private static String pAssetPath = AssetLoader.whichOS(playerAssetPath);
 
 
 
@@ -35,14 +39,24 @@ public class PlayerControlSystem implements IEntityProcessingService {
 
             shootTime += gameData.getDelta();
 
+            if (gameData.getKeys().isReleased(GameKeys.allKeys())){
+                if (positionPart.getDirection() == positionPart.getRight()){
+                    player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(cpAssetPath, "playeridle.txt")));
+                    player.setAnimation(new Animation(1f/6f, player.getTextureAtlas().getRegions()));
+                }
+                if (positionPart.getDirection() == positionPart.getLeft()){
+                    player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "playerLeft/flippedPlayerIdle.txt")));
+                    player.setAnimation(new Animation(1f/6f, player.getTextureAtlas().getRegions()));
+                }
+            }
+
             if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null){
-                    String assetPath = AssetLoader.whichOS(playerAssetPath);
                     if (positionPart.getDirection() == positionPart.getRight()) {
-                        player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/PlayerRight/playershootright.txt")));
+                        player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "/PlayerRight/playershootright.txt")));
                         player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
                        // System.out.println("shooting right");
                     } else if (positionPart.getDirection() == positionPart.getLeft()) {
-                        player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/PlayerLeft/flippedPlayerShoot.txt")));
+                        player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "/PlayerLeft/flippedPlayerShoot.txt")));
                         player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
                         //System.out.println("shooting left");
 
