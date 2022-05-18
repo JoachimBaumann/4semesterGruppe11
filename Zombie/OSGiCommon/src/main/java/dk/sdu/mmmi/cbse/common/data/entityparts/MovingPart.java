@@ -14,9 +14,7 @@ import com.badlogic.gdx.utils.Array;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
-/**
- * @author Alexander
- */
+
 public class MovingPart implements EntityPart {
 
     public MovingPart(float maxSpeed) {

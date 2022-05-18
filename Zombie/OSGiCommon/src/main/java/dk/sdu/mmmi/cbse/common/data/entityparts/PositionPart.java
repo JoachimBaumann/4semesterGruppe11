@@ -11,10 +11,7 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 import java.util.ArrayList;
 
 
-/**
- *
- * @author Alexander
- */
+
 public class PositionPart implements EntityPart {
 
     private float x;
