@@ -9,6 +9,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import org.openjdk.jol.info.ClassLayout;
+import org.openjdk.jol.vm.VM;
+
+import static java.lang.System.out;
+
 
 
 
@@ -22,7 +27,10 @@ public class EnemySpawningSystemTest {
         World world = mock(World.class); //creates another mock object
 
         EnemySpawningSystem instance = new EnemySpawningSystem();
+        instance.spawnEnemies(gameData, world);
 
+        out.println(VM.current().details());
+        out.println(ClassLayout.parseClass(EnemySpawningSystem.class).toPrintable());
     }
 
     @Test

@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -20,17 +21,52 @@ public class ScoreSystemTest {
     public void startTest(){
         ScoreSystem system = new ScoreSystem();
 
-        TreeMap<String, Integer> treeMapScores = system.loadScores();
+        //test time of insertion
+        long start = System.currentTimeMillis();
+        TreeMap<String, Integer> treeMapScores = system.loadScoresTree();
 
-        //iterate over map
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+        System.out.println("Elapsed time to insert into treeMap: " + timeElapsed);
+
         Assertions.assertNotNull(treeMapScores);
-        System.out.println("Iterating over Map");
+        System.out.println("Iterating over TreeMap");
+
         for (Map.Entry<String, Integer>
                 entry : treeMapScores.entrySet())
             System.out.println(
                     "[" + entry.getKey()
                             + ", " + entry.getValue() + "]");
 
+
+
+        start = System.currentTimeMillis();
+
+        HashMap<String, Integer> hashMapScores = system.loadScoresHash();
+        finish = System.currentTimeMillis();
+        timeElapsed = finish - start;
+        System.out.println("Elapsed time to insert into hashMap: " + timeElapsed);
+
+        Assertions.assertNotNull(hashMapScores);
+        System.out.println("Iterating over HashMap");
+        for (Map.Entry<String, Integer>
+                entry : hashMapScores.entrySet())
+            System.out.println(
+                    "[" + entry.getKey()
+                            + ", " + entry.getValue() + "]");
+
+
+        System.out.println("Sorted maps ");
+        System.out.println("TreeMap");
+        System.out.println(system.entriesSortedByValues(treeMapScores));
+        System.out.println(" ");
+
+        System.out.println("HashMap");
+        System.out.println(system.entriesSortedByValues(hashMapScores));
+
+        System.out.println(" ");
+        System.out.println("Current Highscore: ");
+        System.out.println(system.getHighScore());
     }
 
     @Test
