@@ -170,7 +170,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 return entity1;
             case 1:
                 Entity entity2 = new EnemyRaven();
-                entity2.setHeight(50);
+                entity2.setHeight(300);
                 entity2.setWidth(50);
                 entity2.add(new EnemyMovingPart(300));
                 entity2.setType("enemy");

@@ -183,7 +183,11 @@ public class Game implements ApplicationListener {
         for (Entity entity : world.getEntities()) {
             try {
                 PositionPart positionPart = entity.getPart(PositionPart.class);
-                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime,true),positionPart.getX()-12f,positionPart.getY()-12f);
+                if (entity.getName().equals("raven")){
+                    batch.draw(entity.getAnimation().getKeyFrame(elapsedTime, true), positionPart.getX() - 12f, positionPart.getY() + 60f);
+                }else {
+                    batch.draw(entity.getAnimation().getKeyFrame(elapsedTime, true), positionPart.getX() - 12f, positionPart.getY() - 12f);
+                }
                 entity.getSprite().draw(batch);
             } catch (NullPointerException e) {
                 entity.create();
