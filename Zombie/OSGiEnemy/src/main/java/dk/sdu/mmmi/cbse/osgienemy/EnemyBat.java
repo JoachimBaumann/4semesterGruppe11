@@ -17,6 +17,7 @@ public class EnemyBat extends Enemy {
 
     private static final String enemyAssetPath = "\\Zombie\\OSGiEnemy\\src\\main\\resources\\Assets\\";
     String assetPath = AssetLoader.whichOS(enemyAssetPath);
+    private float animationYOffset = 60f;
 
     @Override
     public void create() {
@@ -35,4 +36,11 @@ public class EnemyBat extends Enemy {
     public String getName() {
         return "bat";
     }
+
+    @Override
+    public float getAnimationYOffset() {
+        return animationYOffset;
+    }
+
+
 }

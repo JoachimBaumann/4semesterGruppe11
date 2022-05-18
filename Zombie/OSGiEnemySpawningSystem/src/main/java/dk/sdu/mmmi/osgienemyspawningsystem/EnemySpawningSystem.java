@@ -163,7 +163,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         switch(randomInt) {
             case 0:
                 Entity entity1 = new EnemyBat();
-                entity1.setHeight(70);
+                entity1.setHeight(130);
                 entity1.setWidth(50);
                 entity1.add(new EnemyMovingPart(75));
                 entity1.setType("enemy");
