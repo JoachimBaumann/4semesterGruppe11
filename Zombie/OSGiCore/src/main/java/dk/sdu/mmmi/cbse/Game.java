@@ -166,6 +166,8 @@ public class Game implements ApplicationListener {
         if(!player.isEmpty()) {
             LifePart playerLifePart = player.get(0).getPart(LifePart.class);
             healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
+        } else {
+            gameData.setEndGame(true);
         }
     }
 

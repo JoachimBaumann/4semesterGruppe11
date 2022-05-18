@@ -4,6 +4,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.osgienemyspawningsystem.EnemySpawningSystem;
+import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
@@ -31,6 +32,8 @@ public class EnemySpawningSystemTest {
 
         out.println(VM.current().details());
         out.println(ClassLayout.parseClass(EnemySpawningSystem.class).toPrintable());
+
+
     }
 
     @Test
