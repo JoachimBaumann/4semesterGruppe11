@@ -26,10 +26,7 @@ public class EnemyControlSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-        enemies = world.getEntities(EnemyBat.class);
-        enemies.addAll(world.getEntities(EnemyRaven.class));
-        enemies.addAll(world.getEntities(EnemySnail.class));
-        enemies.addAll(world.getEntities(EnemyZombie.class));
+        enemies = world.getEnemies();
 
         //System.out.println(enemies.size());
         for (Entity enemy : enemies) {
