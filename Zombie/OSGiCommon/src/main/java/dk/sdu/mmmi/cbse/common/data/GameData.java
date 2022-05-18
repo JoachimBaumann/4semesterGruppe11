@@ -14,6 +14,8 @@ public class GameData {
     private List<Event> events = new CopyOnWriteArrayList<>();
     WorldMap worldMap;
     private int currentLevel;
+    private String currentHighScore;
+
 
     public String getPlayerID() {
         return playerID;

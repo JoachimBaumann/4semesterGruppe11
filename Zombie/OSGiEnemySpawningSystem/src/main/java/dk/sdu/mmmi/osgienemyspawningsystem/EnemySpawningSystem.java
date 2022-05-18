@@ -67,6 +67,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         }
     }
 
+    //Todo: Send score to GameData
+
     private int getKills() {
         int totalKills = 0;
         for (int i = 1; i < currentLevel; i++) {
