@@ -74,23 +74,28 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
         float x = shooterPos.getX();
         float y = shooterPos.getY();
-        float radians = shooterPos.getRadians();
+        float direction = shooterPos.getDirection();
         float dt = gameData.getDelta();
         float speed = 350;
 
         Entity bullet = new Weapon();
+
+        if (direction == shooterPos.getLeft()){
+            bullet.add(new PositionPart(x + -140, y + 70, direction));
+            bullet.add(new MovingPart(-350,0f));
+
+        } else if (direction == shooterPos.getRight()) {
+            bullet.add(new PositionPart(x + 140, y + 70, direction));
+            bullet.add(new MovingPart(350,0f));
+        }
+
         //bullet.setRadius(2);
         String assetPath = AssetLoader.whichOS(laserAssetPath);
         bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/ShootingAssets/ShootingRight/shotright.txt")));
         bullet.setAnimation(new Animation(1f / 6f, bullet.getTextureAtlas().getRegions()));
-
-        bullet.add(new PositionPart(x + 140, y + 70, radians));
         bullet.add(new LifePart(2));
-        bullet.add(new MovingPart(350,0f));
         bullet.add(new TimerPart(2));
         bullet.setType("bullet");
-
-
 
         return bullet;
     }

@@ -38,11 +38,11 @@ public class EnemyPlugin implements IGamePluginService {
         float rotationSpeed = 5;
         float x = gameData.getDisplayWidth() / 2;
         float y = gameData.getDisplayHeight() / 2;
-        float radians = 3.1415f / 2;
+        float direction = 3.1415f / 2;
 
         Entity enemy = new Enemy();
         enemy.add(new EnemyMovingPart(maxSpeed));
-        enemy.add(new PositionPart(4 , 200 , radians));
+        enemy.add(new PositionPart(4 , 200 , direction));
         enemy.add(new LifePart(5));
         enemy.setHeight(84);
         enemy.setWidth(115);

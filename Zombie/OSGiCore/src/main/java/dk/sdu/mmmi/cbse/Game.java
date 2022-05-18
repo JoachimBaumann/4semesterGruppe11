@@ -58,8 +58,8 @@ public class Game implements ApplicationListener {
     public void init() {
         LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
         cfg.title = "ZombieGame";
-        cfg.width = 1920;
-        cfg.height = 960;
+        cfg.width = 1280;
+        cfg.height = 720;
         cfg.useGL30 = false;
         cfg.resizable = false;
 

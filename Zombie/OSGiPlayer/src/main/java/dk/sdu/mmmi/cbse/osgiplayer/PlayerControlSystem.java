@@ -30,12 +30,23 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.setRight(gameData.getKeys().isDown(GameKeys.RIGHT));
             movingPart.setUp(gameData.getKeys().isDown(GameKeys.UP));
             movingPart.setSpace(gameData.getKeys().isDown(GameKeys.SPACE));
+
+            //System.out.println("direction: " + positionPart.getDirection());
+
             shootTime += gameData.getDelta();
 
             if (gameData.getKeys().isDown(GameKeys.SPACE) && weaponService != null){
                     String assetPath = AssetLoader.whichOS(playerAssetPath);
-                    player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerRight/playershootright.txt")));
-                    player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
+                    if (positionPart.getDirection() == positionPart.getRight()) {
+                        player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/PlayerRight/playershootright.txt")));
+                        player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
+                       // System.out.println("shooting right");
+                    } else if (positionPart.getDirection() == positionPart.getLeft()) {
+                        player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/PlayerLeft/flippedPlayerShoot.txt")));
+                        player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
+                        //System.out.println("shooting left");
+
+                    }
                 if(shootTime > 0.2f){
                     shootTime = 0;
                     Entity bullet = weaponService.createWeapon(player, gameData);

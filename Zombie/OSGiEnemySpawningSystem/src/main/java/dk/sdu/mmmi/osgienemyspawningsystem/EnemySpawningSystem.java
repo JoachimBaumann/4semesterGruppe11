@@ -139,7 +139,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         float rotationSpeed = 5;
         float x = gameData.getDisplayWidth() / 2;
         float y = gameData.getDisplayHeight() / 2;
-        float radians = 3.1415f / 2;
+        float direction = 3.1415f / 2;
 
         //Entity enemy = new Enemy();
         Entity enemy = getRandomEnemy();
@@ -147,7 +147,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         //enemy.add(new EnemyMovingPart(maxSpeed));
         int xCoordinate = getRandomNumber(0, 4000);
         int yCoordinate = getRandomNumber(100, 500);
-        enemy.add(new PositionPart(xCoordinate , yCoordinate , radians));
+        enemy.add(new PositionPart(xCoordinate , yCoordinate , direction));
         enemy.add(new LifePart(1));
         enemy.setWidth(115);
         enemy.setRadius(20);
