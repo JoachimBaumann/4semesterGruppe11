@@ -34,7 +34,6 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     public void process(GameData gameData, World world) {
         enemies = world.getEnemies();
 
-
         if (enemies.size() == 0 && currentLevel < 10) {
             spawnEnemies(gameData, world);
             updateLevel(gameData);
