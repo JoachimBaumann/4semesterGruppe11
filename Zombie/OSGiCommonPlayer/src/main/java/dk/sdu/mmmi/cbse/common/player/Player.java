@@ -33,6 +33,6 @@ public class Player extends Entity {
 
     @Override
     public String getName() {
-        return null;
+        return "player";
     }
 }
