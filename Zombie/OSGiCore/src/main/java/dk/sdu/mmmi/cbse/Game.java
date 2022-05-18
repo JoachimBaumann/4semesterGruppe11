@@ -40,6 +40,7 @@ public class Game implements ApplicationListener {
     private static final List<IEntityProcessingService> entityProcessorList = new CopyOnWriteArrayList<>();
     private static final List<IGamePluginService> gamePluginList = new CopyOnWriteArrayList<>();
     private static List<IPostEntityProcessingService> postEntityProcessorList = new CopyOnWriteArrayList<>();
+    private boolean freeze = false;
 
 
     private SpriteBatch batch;
@@ -82,7 +83,7 @@ public class Game implements ApplicationListener {
 
         ufo = new Texture(AssetLoader.getAssetPath(assetPath,"UI/UFO.png"));
         ufoSprite = new Sprite(ufo,50,50, 800,600);
-        ufoSprite.setPosition(4000,100);
+        ufoSprite.setPosition(11000,100);
         ufoSprite.setSize(Gdx.graphics.getWidth()*0.3f, Gdx.graphics.getHeight()*0.4f);
 
 
@@ -145,11 +146,21 @@ public class Game implements ApplicationListener {
             healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
         }
 
+        if (gameData.getKeys().isDown(GameKeys.ESCAPE)){
+            if (freeze == false){
+                freeze = true;
+            }else if (freeze == true){
+                freeze = false;
+            }
+        }
 
+
+
+        if (!freeze) {
+            update();
+            ui();
+        }
         draw();
-        update();
-        ui();
-
     }
 
     private void update() {
@@ -244,4 +255,7 @@ public class Game implements ApplicationListener {
         return shapeRenderer;
     }
 
+    public void setFreeze(boolean freeze) {
+        this.freeze = freeze;
+    }
 }
