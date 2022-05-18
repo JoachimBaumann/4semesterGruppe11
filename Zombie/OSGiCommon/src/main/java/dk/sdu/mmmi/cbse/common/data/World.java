@@ -7,10 +7,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-/**
- *
- * @author jcs
- */
 public class World {
 
     private WorldMap worldMap;

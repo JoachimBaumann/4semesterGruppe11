@@ -10,14 +10,13 @@ import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
 public class EnemyZombie extends Enemy {
 
-    private String name = "enemy";
 
     private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
 
     @Override
     public void create() {
         String assetPath = AssetLoader.whichOS(coreAssetPath);
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyLeft/enemywalking.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
         this.setAnimation(new Animation(1/15f, getTextureAtlas().getRegions()));
 
     }
@@ -29,7 +28,7 @@ public class EnemyZombie extends Enemy {
 
     @Override
     public String getName() {
-        return this.name;
+        return "zombie";
     }
 
 }
