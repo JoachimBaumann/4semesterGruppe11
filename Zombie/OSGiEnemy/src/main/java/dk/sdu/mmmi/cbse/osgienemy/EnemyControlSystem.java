@@ -29,7 +29,7 @@ public class EnemyControlSystem implements IEntityProcessingService {
         enemies = world.getEntities(EnemyBat.class);
         enemies.addAll(world.getEntities(EnemyRaven.class));
         enemies.addAll(world.getEntities(EnemySnail.class));
-        enemies.addAll(world.getEntities(Enemy.class));
+        enemies.addAll(world.getEntities(EnemyZombie.class));
 
         //System.out.println(enemies.size());
         for (Entity enemy : enemies) {

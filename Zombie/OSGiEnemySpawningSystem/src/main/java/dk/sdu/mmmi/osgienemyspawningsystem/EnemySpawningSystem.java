@@ -14,6 +14,7 @@ import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
+import dk.sdu.mmmi.cbse.osgienemy.EnemyZombie;
 
 
 import java.io.FileWriter;
@@ -182,7 +183,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 entity3.setType("enemy");
                 return entity3;
             case 3:
-                Entity entity4 = new Enemy();
+                Entity entity4 = new EnemyZombie();
                 entity4.setHeight(100);
                 entity4.setWidth(115);
                 entity4.add(new EnemyMovingPart(200));
