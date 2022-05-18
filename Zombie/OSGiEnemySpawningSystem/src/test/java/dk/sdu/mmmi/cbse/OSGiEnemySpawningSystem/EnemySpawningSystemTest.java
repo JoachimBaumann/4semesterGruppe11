@@ -30,9 +30,7 @@ public class EnemySpawningSystemTest {
         EnemySpawningSystem instance = new EnemySpawningSystem();
         instance.spawnEnemies(gameData, world);
 
-        out.println(VM.current().details());
         out.println(ClassLayout.parseClass(EnemySpawningSystem.class).toPrintable());
-
 
     }
 
