@@ -46,14 +46,12 @@ public class World {
         return r;
     }
 
-    public <E extends Entity> List<Entity> getEnemies(Class<E>... entityTypes) {
+
+    public List<Entity> getEnemies() {
         List<Entity> r = new ArrayList<>();
         for (Entity e : getEntities()) {
-            for (Class<E> entityType : entityTypes) {
-                if (entityType.equals(e.getClass())) {
-                    if (e.getType().equals("enemy"))
-                    r.add(e);
-                }
+            if (e.getType().equals("enemy")) {
+                r.add(e);
             }
         }
         return r;
