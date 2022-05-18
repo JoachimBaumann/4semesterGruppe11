@@ -140,27 +140,32 @@ public class Game implements ApplicationListener {
             gameData.setWorldMap(worldMap);
         }
 
+/*        List<Entity> player = world.getEntities(Player.class);
+        if(!player.isEmpty()) {
+            LifePart playerLifePart = player.get(0).getPart(LifePart.class);
+            healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
+        }*/
+
+        if (gameData.getKeys().isDown(GameKeys.ESCAPE)){
+            if (!freeze){
+                freeze = true;
+            }else if (freeze){
+                freeze = false;
+            }
+        }
+
+        draw();
+        if (!freeze) {
+            update();
+
+        }
+        ui();
+
         List<Entity> player = world.getEntities(Player.class);
         if(!player.isEmpty()) {
             LifePart playerLifePart = player.get(0).getPart(LifePart.class);
             healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
         }
-
-        if (gameData.getKeys().isDown(GameKeys.ESCAPE)){
-            if (freeze == false){
-                freeze = true;
-            }else if (freeze == true){
-                freeze = false;
-            }
-        }
-
-
-
-        if (!freeze) {
-            update();
-            ui();
-        }
-        draw();
     }
 
     private void update() {
@@ -200,7 +205,7 @@ public class Game implements ApplicationListener {
         try {
             Entity player = world.getEntities(Player.class).get(0);
             PositionPart playerPositionPart = player.getPart(PositionPart.class);
-            healthbar.setPosition(playerPositionPart.getX()-Gdx.graphics.getWidth()*0.45f,Gdx.graphics.getHeight()*0.9f);
+            healthbar.setPosition(playerPositionPart.getX() - Gdx.graphics.getWidth()*0.45f,Gdx.graphics.getHeight()*0.9f);
         } catch (IndexOutOfBoundsException e) {
             healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
         }
