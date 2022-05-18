@@ -47,27 +47,25 @@ public class EnemySpawningSystem implements IEntityProcessingService {
             updateLevel(gameData);
         }
         if (currentLevel == 11) {
-            endGame(gameData, world);
+            gameFinished(gameData);
             updateLevel(gameData);
-        }
-        if (currentLevel == 12) {
-            currentHighscore();
         }
     }
 
-    private void endGame(GameData gameData, World world) {
+    private void gameFinished(GameData gameData) {
         String kills = String.valueOf(getKills());
-        System.out.println("Game finished, you reached level " + String.valueOf(currentLevel)
+        System.out.println("Game finished, you reached level " + currentLevel
                 + ", killing " +  kills + " enemies.");
         try {
-            String playerID = world.getEntities(Player.class).get(0).getID();
+            String playerID = gameData.getPlayerID();
             writeToFile(playerID, kills);
+            gameData.setPlayerScore(playerID + ", " + kills);
+            gameData.setEndGame(true);
         } catch (NullPointerException e) {
             System.out.println("An error occured ending game: " + e.toString());
         }
     }
 
-    //Todo: Send score to GameData
 
     private int getKills() {
         int totalKills = 0;
@@ -98,9 +96,6 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
     }
 
-    private void currentHighscore() {
-
-    }
 
     private void spawnBoss(GameData gameData, World world) {
         //todo?
@@ -118,13 +113,13 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         Map<Integer,Integer> myMap = new HashMap<>();
         myMap.put(1, 1);
         myMap.put(2, 2);
-        myMap.put(3, 10);
+        myMap.put(3, 3);
         myMap.put(4, 4);
         myMap.put(5, 5);
         myMap.put(6, 6);
         myMap.put(7, 8);
         myMap.put(8, 10);
-        myMap.put(9, 14);
+        myMap.put(9, 12);
         myMap.put(10, 1);
         myMap.put(11, 0);
         return myMap;

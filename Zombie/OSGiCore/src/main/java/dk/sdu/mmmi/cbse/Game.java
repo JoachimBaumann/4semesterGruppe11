@@ -146,6 +146,7 @@ public class Game implements ApplicationListener {
             healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
         }
 
+
         if (gameData.getKeys().isDown(GameKeys.ESCAPE)){
             if (freeze == false){
                 freeze = true;
@@ -171,6 +172,12 @@ public class Game implements ApplicationListener {
         // Post Update
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
             postEntityProcessorService.process(gameData, world);
+        }
+
+        if (gameData.isEndGame()) {
+            String highScore = gameData.getCurrentHighScore();
+            String playerScore = gameData.getPlayerScore();
+            //todo: display scores here
         }
     }
 

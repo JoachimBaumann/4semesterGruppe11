@@ -64,6 +64,8 @@ public class ScoreSystemTest {
         System.out.println("HashMap");
         System.out.println(system.entriesSortedByValues(hashMapScores));
 
+        System.out.println(system.getSortedHashMap());
+
         System.out.println(" ");
         System.out.println("Current Highscore: ");
         System.out.println(system.getHighScore());
