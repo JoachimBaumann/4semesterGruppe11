@@ -32,10 +32,11 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
-        enemies = world.getEntities(EnemyBat.class);
+        enemies = world.getEntities(Enemy.class);
+        enemies.addAll(world.getEntities(EnemyBat.class));
         enemies.addAll(world.getEntities(EnemyRaven.class));
         enemies.addAll(world.getEntities(EnemySnail.class));
-        enemies.addAll(world.getEntities(Enemy.class));
+        enemies.addAll(world.getEntities(EnemyZombie.class));
 
 
         if (enemies.size() == 0 && currentLevel < 10) {
@@ -144,13 +145,31 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         //Entity enemy = new Enemy();
         Entity enemy = getRandomEnemy();
 
-        //enemy.add(new EnemyMovingPart(maxSpeed));
+       /* Enemy enemyRaven = new EnemyRaven();
+        Enemy enemySnail = new EnemySnail();
+        Enemy enemyZombie = new EnemyZombie();*/
+
         int xCoordinate = getRandomNumber(0, 4000);
         int yCoordinate = getRandomNumber(100, 500);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , radians));
-        // enemy.add(new LifePart(1));
-        // enemy.setWidth(115);
-        // enemy.setRadius(20);
+
+       /* if(enemy == enemyRaven){
+            enemy.add(new LifePart(10));
+        }
+        if(enemy == enemySnail){
+            enemy.add(new LifePart(15));
+        }
+        if(enemy == enemyZombie){
+            enemy.add(new LifePart(20));
+        }
+        else{
+            enemy.add(new LifePart(5));
+        }*/
+
+        enemy.add(new EnemyMovingPart(maxSpeed));
+        enemy.setWidth(115);
+        enemy.setRadius(20);
+        enemy.add(new LifePart(1));
 
         //EnemyMovingPart part = enemy.getPart(EnemyMovingPart.class);
 
@@ -187,8 +206,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 return entity3;
             case 3:
                 Entity entity4 = new EnemyZombie();
-                entity4.setHeight(70);
-                entity4.setWidth(50);
+                entity4.setHeight(100);
+                entity4.setWidth(80);
                 entity4.add(new EnemyMovingPart(200));
                 entity4.add(new LifePart(20));
                 entity4.setType("enemy");
