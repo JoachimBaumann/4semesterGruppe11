@@ -45,9 +45,10 @@ public class Game implements ApplicationListener {
     private SpriteBatch batch;
     private float elapsedTime = 0;
     private Texture hpbar;
-    private Texture gun;
-    private Sprite gunSprite;
+    private Texture ufo;
+
     private Sprite healthbar;
+    private Sprite ufoSprite;
     private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
     private static final String assetPath = AssetLoader.whichOS(coreAssetPath);
 
@@ -73,26 +74,16 @@ public class Game implements ApplicationListener {
         //spirit loading
         batch = new SpriteBatch();
 
-
-
-        //Healthbar sprite
-
-
         //Health-bar sprite
         hpbar = new Texture(AssetLoader.getAssetPath(assetPath, "/UI/Health.png"));
         healthbar = new Sprite(hpbar,50,50,1045,64);
         healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
         healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
 
-        //Gun Sprite
-       /*
-        gun = new Texture(AssetLoader.getAssetPath(assetPath,"/Gun/blaster_1.png"));
-        gunSprite = new Sprite(gun, 130, 88);
-        gunSprite.setPosition(100,60);
-        gunSprite.setSize(60f,30f);
-        gunSprite.rotate(135);
-
-        */
+        ufo = new Texture(AssetLoader.getAssetPath(assetPath,"UI/UFO.png"));
+        ufoSprite = new Sprite(ufo,50,50, 800,600);
+        ufoSprite.setPosition(4000,100);
+        ufoSprite.setSize(Gdx.graphics.getWidth()*0.3f, Gdx.graphics.getHeight()*0.4f);
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
@@ -177,17 +168,12 @@ public class Game implements ApplicationListener {
         batch.setProjectionMatrix(cam.combined);
         batch.begin();
         healthbar.draw(batch);
-        //gunSprite.draw(batch);
-        //batch.draw(img,0,0);
+        ufoSprite.draw(batch);
         elapsedTime += Gdx.graphics.getDeltaTime();
         for (Entity entity : world.getEntities()) {
             try {
                 PositionPart positionPart = entity.getPart(PositionPart.class);
-                if (entity.getName().equals("raven")){
-                    batch.draw(entity.getAnimation().getKeyFrame(elapsedTime, true), positionPart.getX() - 12f, positionPart.getY() + 60f);
-                }else {
-                    batch.draw(entity.getAnimation().getKeyFrame(elapsedTime, true), positionPart.getX() - 12f, positionPart.getY() - 12f);
-                }
+                batch.draw(entity.getAnimation().getKeyFrame(elapsedTime, true), positionPart.getX() + entity.getAnimationXOffset(), positionPart.getY() + entity.getAnimationYOffset());
                 entity.getSprite().draw(batch);
             } catch (NullPointerException e) {
                 entity.create();

@@ -11,6 +11,7 @@ import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
 public class EnemyRaven extends Enemy {
     private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets\\";
+    private float animationYOffset = 60f;
 
 
 
@@ -29,5 +30,10 @@ public class EnemyRaven extends Enemy {
     @Override
     public String getName() {
         return "raven";
+    }
+
+    @Override
+    public float getAnimationYOffset() {
+        return animationYOffset;
     }
 }
