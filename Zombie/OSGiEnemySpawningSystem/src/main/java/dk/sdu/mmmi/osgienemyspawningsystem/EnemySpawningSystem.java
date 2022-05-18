@@ -88,7 +88,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
 
-    private void spawnEnemies(GameData gameData, World world) {
+    public void spawnEnemies(GameData gameData, World world) {
         int enemyAmount = waves.get(currentLevel);
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);

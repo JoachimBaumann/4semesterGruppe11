@@ -36,15 +36,13 @@ public class ScoreSystem implements IGamePluginService {
 
     @Override
     public void stop(GameData gameData, World world) {
-        loadScores();
-
     }
 
 
     /**
      * Loads comma separated text file and adds entries to Map structure
      */
-    public TreeMap<String, Integer> loadScores() {
+    public TreeMap<String, Integer> loadScoresTree() {
         try {
             File scores = new File(path);
             Scanner myReader = new Scanner(scores);
@@ -54,7 +52,6 @@ public class ScoreSystem implements IGamePluginService {
                 String key = dict[0];
                 int value = Integer.parseInt(dict[1]);
                 treeInsert(key, value);
-                System.out.println("User: " + key + ", Kills: " + dict[1] + "");
             }
             myReader.close();
             return treeMapScores;
@@ -64,13 +61,58 @@ public class ScoreSystem implements IGamePluginService {
         }
     }
 
+    public HashMap<String, Integer> loadScoresHash() {
+        try {
+            File scores = new File(path);
+            Scanner myReader = new Scanner(scores);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] dict = data.split(",");
+                String key = dict[0];
+                int value = Integer.parseInt(dict[1]);
+                hashInsert(key, value);
+            }
+            myReader.close();
+            return hashMapScores;
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred reading from file: " + e.toString());
+            return null;
+        }
+    }
 
-    private void treeInsert(String key, int value) {
+    static <K,V extends Comparable<? super V>> SortedSet<Map.Entry<K,V>> entriesSortedByValues(Map<K,V> map) {
+        SortedSet<Map.Entry<K,V>> sortedEntries = new TreeSet<Map.Entry<K,V>>(
+                new Comparator<Map.Entry<K,V>>() {
+                    @Override public int compare(Map.Entry<K,V> e1, Map.Entry<K,V> e2) {
+                        int res = e1.getValue().compareTo(e2.getValue());
+                        return res != 0 ? res : 1; // Special fix to preserve items with equal values
+                    }
+                }
+        );
+        sortedEntries.addAll(map.entrySet());
+        return sortedEntries;
+    }
+
+
+
+
+    public void treeInsert(String key, int value) {
+        if (treeMapScores.containsKey(key)) {
+            if (value > treeMapScores.get(key)) {
+                treeMapScores.put(key, value);
+            }
+        }
         treeMapScores.put(key, value);
     }
 
-    private void hashInsert(String key, int value) {
+    public void hashInsert(String key, int value) {
+        if (hashMapScores.containsKey(key)) {
+            if (value > hashMapScores.get(key)) {
+                hashMapScores.put(key, value);
+            }
+        }
         hashMapScores.put(key, value);
+
     }
 
 
@@ -88,8 +130,18 @@ public class ScoreSystem implements IGamePluginService {
     //}
 
     public String getHighScore() {
-        return treeMapScores.lastKey();
+        return getSortedHashMap().last().toString();
     }
+
+    public SortedSet getSortedHashMap() {
+        return entriesSortedByValues(hashMapScores);
+    }
+
+    public SortedSet getSortedTreeMap() {
+        return entriesSortedByValues(treeMapScores);
+    }
+
+
 
 
 }
