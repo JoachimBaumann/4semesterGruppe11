@@ -19,6 +19,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
     private float CD;
     private boolean canShoot = true;
+    private boolean isFirst = true;
     private static final String laserAssetPath = "\\Zombie\\OSGILaser\\src\\main\\resources\\Assets\\";
 
 
@@ -34,14 +35,15 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
             movingPart.setRight(true);
 
-            float animationTime = 0;
 
-            if (lifepart.isHit()){
+            if (lifepart.isHit() && isFirst){
                 movingPart.setVelocity(new Vector2(0,0));
                 movingPart.setMaxSpeed(0f);
-                animationTime = gameData.getDelta();
+                isFirst = false;
+                timerPart.setExpiration(0.25f);
+
             }
-            if (animationTime <= 0.05f && lifepart.isHit() || timerPart.getExpiration() <= 0.25f){
+            if (timerPart.getExpiration() <= 0.25f){
                 String assetPath = AssetLoader.whichOS(laserAssetPath);
                 bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/ShootingAssets/ShootingRight/shootexplosion.txt")));
                 bullet.setAnimation(new Animation(1f / 4f, bullet.getTextureAtlas().getRegions()));
@@ -51,6 +53,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
             if (timerPart.getExpiration() <= 0){
                 world.removeEntity(bullet);
+                isFirst = true;
 
             }
 

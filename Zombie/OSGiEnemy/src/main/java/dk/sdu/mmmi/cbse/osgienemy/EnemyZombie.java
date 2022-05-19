@@ -11,12 +11,13 @@ import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 public class EnemyZombie extends Enemy {
 
 
+
     private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+    String assetPath = AssetLoader.whichOS(coreAssetPath);
 
     @Override
     public void create() {
-        String assetPath = AssetLoader.whichOS(coreAssetPath);
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyLeft/enemywalking.txt")));
         this.setAnimation(new Animation(1/15f, getTextureAtlas().getRegions()));
 
     }

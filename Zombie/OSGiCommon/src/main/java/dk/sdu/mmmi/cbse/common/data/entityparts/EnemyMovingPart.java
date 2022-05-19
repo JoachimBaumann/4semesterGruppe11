@@ -70,6 +70,8 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
 
     private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets\\";
     private static final String assetPath = AssetLoader.whichOS(enemyAssetPath);
+    private static final String CommonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+    private static final String assetPath1 = AssetLoader.whichOS(CommonAssetPath);
 
 
     @Override
@@ -91,7 +93,6 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
             velocity.y = maxSpeed;
         else if (velocity.y < -maxSpeed)
             velocity.y = -maxSpeed;
-        ;
 
 
 
@@ -160,8 +161,6 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         positionPart.setX(newX);
         positionPart.setY(newY);
 
-
-        //System.out.println(this.left + " " + this.right);
     }
 
 
