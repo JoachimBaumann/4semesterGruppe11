@@ -1,0 +1,26 @@
+flippedPlayerIdle.png
+size: 286, 185
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+green__0001_idle
+  rotate: false
+  xy: 101, 1
+  size: 93, 183
+  orig: 93, 183
+  offset: 0, 0
+  index: 2
+green__0002_idle
+  rotate: false
+  xy: 1, 1
+  size: 98, 183
+  orig: 98, 183
+  offset: 0, 0
+  index: 3
+greenf__0000_idle
+  rotate: false
+  xy: 196, 1
+  size: 89, 178
+  orig: 89, 178
+  offset: 0, 0
+  index: 1

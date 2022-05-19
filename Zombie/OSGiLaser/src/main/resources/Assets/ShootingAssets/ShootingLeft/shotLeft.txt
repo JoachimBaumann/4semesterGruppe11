@@ -1,4 +1,4 @@
-shotright.png
+shotLeft.png
 size: 31, 21
 format: RGBA8888
 filter: Linear,Linear
