@@ -31,6 +31,34 @@ public class EnemyControlSystem implements IEntityProcessingService {
         enemies.addAll(world.getEntities(EnemySnail.class));
         enemies.addAll(world.getEntities(EnemyZombie.class));
 
+
+
+
+        if (enemies.size() == 0 && currentLevel < 10) {
+            spawnEnemies(gameData, world);
+            updateLevel(gameData);
+        }
+        if (currentLevel == 10) {
+            spawnBoss(gameData, world);
+            updateLevel(gameData);
+        }
+        if (currentLevel == 11) {
+            endGame(gameData, world);
+            updateLevel(gameData);
+        }
+        if (currentLevel == 12) {
+            currentHighscore();
+        }
+
+
+
+
+
+       /* enemies = world.getEntities(EnemyBat.class);
+        enemies.addAll(world.getEntities(EnemyRaven.class));
+        enemies.addAll(world.getEntities(EnemySnail.class));
+        enemies.addAll(world.getEntities(EnemyZombie.class));
+
         //System.out.println(enemies.size());
         for (Entity enemy : enemies) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
@@ -43,6 +71,8 @@ public class EnemyControlSystem implements IEntityProcessingService {
 
            // System.out.println("x = " + positionPart.getX() + " y = " + positionPart.getY());
 
+        */
+
+
         }
-    }
 }

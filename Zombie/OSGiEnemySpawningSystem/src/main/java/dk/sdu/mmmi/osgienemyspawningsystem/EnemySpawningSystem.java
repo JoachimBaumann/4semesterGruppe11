@@ -15,6 +15,8 @@ import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyZombie;
+import dk.sdu.mmmi.cbse.common.data.FileWrite;
+
 
 
 import java.io.FileWriter;
@@ -24,7 +26,7 @@ import java.util.*;
 
 public class EnemySpawningSystem implements IEntityProcessingService {
     private int currentLevel = 1;
-    Map<Integer, Integer> waves = createWaveMap();
+    // Map<Integer, Integer> waves = createWaveMap();
     List<Entity> enemies = new ArrayList<>();
     private static final String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
     private static final String assetPath = AssetLoader.whichOS(commonAssetPath);
@@ -32,6 +34,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
 
     @Override
     public void process(GameData gameData, World world) {
+        /* ADDED TO ENEMY PROCESS
         enemies = world.getEntities(EnemyBat.class);
         enemies.addAll(world.getEntities(EnemyRaven.class));
         enemies.addAll(world.getEntities(EnemySnail.class));
@@ -53,6 +56,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         if (currentLevel == 12) {
             currentHighscore();
         }
+
+         */
     }
 
     private void endGame(GameData gameData, World world) {
@@ -61,7 +66,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 + ", killing " +  kills + " enemies.");
         try {
             String playerID = world.getEntities(Player.class).get(0).getID();
-            writeToFile(playerID, kills);
+            FileWrite fileWriter = new FileWrite();
+            fileWriter.writeToScoresFile(playerID, kills);
         } catch (NullPointerException e) {
             System.out.println("An error occured ending game: " + e.toString());
         }
@@ -76,7 +82,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
 
-    public void writeToFile(String username, String score) {
+    /*public void writeToFile(String username, String score) {
         try {
             String path = AssetLoader.getAssetPath(assetPath,"\\scores\\scores.txt");
             FileWriter myWriter = new FileWriter(path, true);
@@ -87,14 +93,20 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         }
     }
 
+     */
 
-    private void spawnEnemies(GameData gameData, World world) {
+
+
+
+    /*private void spawnEnemies(GameData gameData, World world) {
         int enemyAmount = waves.get(currentLevel);
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);
         }
 
     }
+
+     */
 
     private void currentHighscore() {
 
@@ -106,12 +118,16 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
 
+    /* ADDED TO ENEMY SPAWN PLUGIN
     private void updateLevel(GameData gameData) {
         currentLevel++;
         gameData.setCurrentLevel(currentLevel);
         System.out.println("Current level: " + String.valueOf(currentLevel));
     }
 
+     */
+
+    /* ADDED TO ENEMY SPAWN PLUGIN
     private static Map<Integer, Integer> createWaveMap() {
         Map<Integer,Integer> myMap = new HashMap<>();
         myMap.put(1, 1);
@@ -126,9 +142,11 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         myMap.put(10, 1);
         myMap.put(11, 0);
         return myMap;
-    }
+    }*/
 
 
+
+    /* ADDED TO ENEMY PLUGIN
     private void createEnemy(GameData gameData, World world){
         //random to spawning position, should be integers between x=(5, 3000) y=(5, 500)
         //random to maxSpeed (50, 150)'
@@ -157,7 +175,10 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         world.addEntity(enemy);
     }
 
+     */
 
+
+    /* ADDED TO ENEMY PLUGIN
     private Entity getRandomEnemy() {
         int randomInt = getRandomNumber(0, 4);
         switch(randomInt) {
@@ -193,11 +214,16 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         return null;
     }
 
-    public int getCurrentLevel() {
-        return currentLevel;
-    }
-
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
+     */
+
+
+
+
 }
