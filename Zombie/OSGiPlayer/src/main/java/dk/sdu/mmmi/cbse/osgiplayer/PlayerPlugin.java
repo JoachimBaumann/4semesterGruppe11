@@ -54,29 +54,6 @@ public class PlayerPlugin extends Player implements IGamePluginService {
         playerShip.setWidth(115);
         playerShip.setRadius(20);
 
-        PositionPart playerPos = playerShip.getPart(PositionPart.class);
-
-        String cpAssetPath = AssetLoader.whichOS(commonPlayerAssetPath);
-        String pAssetPath = AssetLoader.whichOS(playerAssetPath);
-
-        System.out.println(playerPos);
-        System.out.println(playerPos.getRight());
-        System.out.println(playerPos.getDirection());
-        System.out.println(AssetLoader.getAssetPath(cpAssetPath, "playeridle.txt"));
-
-
-        /*if (playerPos.getDirection() == playerPos.getRight()){
-            playerShip.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(cpAssetPath, "playeridle.txt")));
-            playerShip.setAnimation(new Animation(1f/6f, playerShip.getTextureAtlas().getRegions()));
-        }
-        if (playerPos.getDirection() == playerPos.getLeft()){
-            playerShip.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "playerLeft/flippedPlayerIdle.txt")));
-            playerShip.setAnimation(new Animation(1f/6f, playerShip.getTextureAtlas().getRegions()));
-        }
-
-         */
-
-
         return playerShip;
     }
 
