@@ -32,9 +32,12 @@ public class EnemyControlSystem implements IEntityProcessingService {
         for (Entity enemy : enemies) {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             EnemyMovingPart enemyMovingPart = enemy.getPart(EnemyMovingPart.class);
+            LifePart lifePart = enemy.getPart(LifePart.class);
 
             enemyMovingPart.process(gameData, enemy);
             positionPart.process(gameData, enemy);
+            lifePart.process(gameData, enemy);
+
 
             //lifePart.process(gameData, enemy);
 

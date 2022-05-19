@@ -107,8 +107,8 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRaven/RavenLeft/EnemyRavenWalk.txt")));
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
-            if (entity.getName() == "enemy") {
-                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath1,"/EnemyAssets/EnemyLeft/enemywalking.txt")));
+            if (entity.getName() == "zombie") {
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
                 entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             }
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
@@ -117,7 +117,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         }
         if (right) {
             velocity.x += maxSpeed * delta;
-            if (entity.getName() == "enemy") {
+            if (entity.getName() == "zombie") {
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
                 entity.setAnimation(new Animation(1 / 15f, entity.getTextureAtlas().getRegions()));
             }
@@ -146,6 +146,11 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         }
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
+        }else{
+            if (entity.getName() == "zombie") {
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
+                entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
+            }
         }
 
 
