@@ -23,8 +23,6 @@ public class Player extends Entity {
         this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "playeridle.txt")));
         this.setAnimation(new Animation(1f/6f, getTextureAtlas().getRegions()));
 
-
-
     }
 
     @Override
@@ -37,16 +35,4 @@ public class Player extends Entity {
         return "player";
     }
 
-    /*@Override
-    public void create() {}
-
-    @Override
-    public void dispose() {
-        super.dispose();
-    }
-
-    @Override
-    public String getName() {return null;}
-
-     */
 }
