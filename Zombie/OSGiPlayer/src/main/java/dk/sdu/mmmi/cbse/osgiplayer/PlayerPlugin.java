@@ -1,5 +1,7 @@
 package dk.sdu.mmmi.cbse.osgiplayer;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
@@ -10,9 +12,14 @@ import dk.sdu.mmmi.cbse.common.player.Player;
 
 
 
-public class PlayerPlugin implements IGamePluginService {
+public class PlayerPlugin extends Player implements IGamePluginService {
 
     private String playerID;
+
+    private static final String playerAssetPath = "\\Zombie\\OSGIPlayer\\src\\main\\resources\\Assets\\";
+    private static final String commonPlayerAssetPath = "\\Zombie\\OSGICommonPlayer\\src\\main\\resources\\Assets\\";
+
+
 
     public PlayerPlugin() {
     }
@@ -36,16 +43,17 @@ public class PlayerPlugin implements IGamePluginService {
         float maxSpeed = 600f;
         float x = gameData.getDisplayWidth();
         float y = gameData.getDisplayHeight();
-        float radians = 6.1415f / 2;
+        float direction = 6.28f;
 
         Entity playerShip = new Player();
         playerShip.add(new PlayerMovingPart(maxSpeed));
-        playerShip.add(new PositionPart(1000, 500, radians));
+        playerShip.add(new PositionPart(1000, 500, direction));
         playerShip.add(new LifePart(100));
         playerShip.add(new DirectionPart());
         playerShip.setHeight(84);
         playerShip.setWidth(115);
         playerShip.setRadius(20);
+
         return playerShip;
     }
 

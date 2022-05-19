@@ -1,28 +1,19 @@
-package dk.sdu.mmmi.cbse.common.player;
+package dk.sdu.mmmi.cbse.osgiplayer;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
-import dk.sdu.mmmi.cbse.common.data.Entity;
+import dk.sdu.mmmi.cbse.common.player.Player;
 
-public class Player extends Entity {
-    private static Player instance;
-    static public Player getInstance()
-    {
-        if (instance == null)
-            instance = new Player();
-        return instance;
-    }
+public class PlayerPlayer extends Player { /*
 
     private static final String playerAssetPath = "\\Zombie\\OSGICommonPlayer\\src\\main\\resources\\Assets\\";
 
     @Override
     public void create() {
         String assetPath = AssetLoader.whichOS(playerAssetPath);
-
         this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "playeridle.txt")));
         this.setAnimation(new Animation(1f/6f, getTextureAtlas().getRegions()));
-
     }
 
     @Override
@@ -34,5 +25,7 @@ public class Player extends Entity {
     public String getName() {
         return "player";
     }
+    */
+
 
 }

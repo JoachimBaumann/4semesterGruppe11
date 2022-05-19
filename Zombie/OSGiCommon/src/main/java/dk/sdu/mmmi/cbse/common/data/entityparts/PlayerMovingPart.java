@@ -23,7 +23,6 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
     public boolean isLeft() {
         return left;
     }
-
     public boolean isRight() {
         return right;
     }
@@ -90,6 +89,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         float x = positionPart.getX();
         float y = positionPart.getY();
         float delta = gameData.getDelta();
+        float direction = positionPart.getDirection();
         float newX, newY;
         TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
         float jumpHeight = 70;
@@ -106,6 +106,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
 
 
         if (left) {
+            direction = positionPart.getLeft();
             entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
             entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
@@ -114,6 +115,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
             }
         }
         if (right) {
+            direction = positionPart.getRight();
             entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/PlayerAssets/PlayerRight/playerwalk.txt")));
             entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x += maxSpeed * delta;
@@ -147,6 +149,8 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
 
         positionPart.setX(newX);
         positionPart.setY(newY);
+
+        positionPart.setDirection(direction);
 
     }
 }

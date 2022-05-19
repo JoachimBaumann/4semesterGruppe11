@@ -1,10 +1,10 @@
 package dk.sdu.mmmi.cbse.osgienemy;
 
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.EnemyMovingPart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 
@@ -36,17 +36,15 @@ public class EnemyPlugin implements IGamePluginService {
         float maxSpeed = 120;
         float x = gameData.getDisplayWidth() / 2;
         float y = gameData.getDisplayHeight() / 2;
-        float radians = 3.1415f / 2;
+        float direction = 3.1415f / 2;
 
         Entity enemy = new Enemy();
-
         enemy.add(new EnemyMovingPart(maxSpeed));
-        enemy.add(new PositionPart(4 , 200 , radians));
+        enemy.add(new PositionPart(4 , 200 , direction));
+        enemy.add(new LifePart(5));
         enemy.setHeight(84);
         enemy.setWidth(115);
         enemy.setRadius(20);
-
-        return enemy;
-
+        return  enemy;
     }
 }

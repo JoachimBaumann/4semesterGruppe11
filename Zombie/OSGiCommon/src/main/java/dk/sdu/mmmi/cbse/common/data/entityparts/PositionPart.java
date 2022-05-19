@@ -14,17 +14,26 @@ import java.util.ArrayList;
 
 public class PositionPart implements EntityPart {
 
-    private float x;
-    private float y;
-    private float radians;
+    private float x, y, direction;
+    private float left = 3.14f;
+    private float right = 2 * 3.14f;
+
     private ArrayList<Float> prevX = new ArrayList<>();
 
 
-    public PositionPart(float x, float y, float radians) {
+    public PositionPart(float x, float y, float direction) {
         this.x = x;
         this.y = y;
-        this.radians = radians;
+        this.direction = direction;
 
+    }
+
+    public float getLeft() {
+        return left;
+    }
+
+    public float getRight() {
+        return right;
     }
 
     public float getX() {
@@ -35,8 +44,8 @@ public class PositionPart implements EntityPart {
         return y;
     }
 
-    public float getRadians() {
-        return radians;
+    public float getDirection() {
+        return direction;
     }
 
     private void addPrev(float x) {
@@ -72,8 +81,8 @@ public class PositionPart implements EntityPart {
         this.y = newY;
     }
 
-    public void setRadians(float radians) {
-        this.radians = radians;
+    public void setDirection(float direction) {
+        this.direction = direction;
     }
 
     @Override
