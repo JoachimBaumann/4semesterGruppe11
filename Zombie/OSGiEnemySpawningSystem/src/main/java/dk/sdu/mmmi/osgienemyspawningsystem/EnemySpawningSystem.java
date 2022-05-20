@@ -5,12 +5,9 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EnemyMovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.data.*;
-import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
@@ -38,12 +35,16 @@ public class EnemySpawningSystem implements IEntityProcessingService {
             spawnEnemies(gameData, world);
             updateLevel(gameData);
         }
+        //for testing winscreen
+        if (currentLevel == 4){
+            gameFinished(gameData);
+        }
         if (currentLevel == 10) {
             spawnBoss(gameData, world);
             updateLevel(gameData);
         }
         if (currentLevel == 11) {
-            gameFinished(gameData);
+            //gameFinished(gameData);
             updateLevel(gameData);
         }
     }
@@ -56,7 +57,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
             String playerID = gameData.getPlayerID();
             writeToFile(playerID, kills);
             gameData.setPlayerScore(playerID + ", " + kills);
-            gameData.setEndGame(true);
+            gameData.setGameWon(true);
         } catch (NullPointerException e) {
             System.out.println("An error occured ending game: " + e.toString());
         }

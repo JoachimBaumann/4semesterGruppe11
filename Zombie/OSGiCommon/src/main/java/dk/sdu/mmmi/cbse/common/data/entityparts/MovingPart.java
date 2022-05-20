@@ -111,7 +111,6 @@ public class MovingPart implements EntityPart {
 
 
         if (left) {
-
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;

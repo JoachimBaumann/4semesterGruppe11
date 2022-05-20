@@ -35,8 +35,6 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             TimerPart timerPart = bullet.getPart(TimerPart.class);
             LifePart lifepart = bullet.getPart(LifePart.class);
 
-            movingPart.setRight(true);
-
 
             if (lifepart.isHit() && isFirst){
                 movingPart.setVelocity(new Vector2(0,0));
@@ -81,17 +79,24 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
         float y = shooterPos.getY();
         float direction = shooterPos.getDirection();
         float dt = gameData.getDelta();
-        float speed = 800;
+        float speed = 350;
+
 
         Entity bullet = new Weapon();
 
         if (direction == shooterPos.getLeft()){
             bullet.add(new PositionPart(x + -140, y + 70, direction));
-            bullet.add(new MovingPart(-350,0f));
+            bullet.add(new MovingPart(speed,0f));
+            MovingPart movingpart = bullet.getPart(MovingPart.class);
+            movingpart.setLeft(true);
+            movingpart.setRight(false);
 
         } else if (direction == shooterPos.getRight()) {
             bullet.add(new PositionPart(x + 140, y + 70, direction));
-            bullet.add(new MovingPart(350,0f));
+            bullet.add(new MovingPart(speed,0f));
+            MovingPart movingpart = bullet.getPart(MovingPart.class);
+            movingpart.setRight(true);
+            movingpart.setLeft(false);
         }
 
         //bullet.setRadius(2);
@@ -102,8 +107,9 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/ShootingAssets/ShootingLeft/shotLeft.txt")));
             bullet.setAnimation(new Animation(1f / 6f, bullet.getTextureAtlas().getRegions()));
         }
+
+
         bullet.add(new LifePart(2));
-        bullet.add(new MovingPart(800,0f));
         bullet.add(new TimerPart(2));
         bullet.setType("bullet");
 

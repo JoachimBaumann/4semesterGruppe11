@@ -15,15 +15,17 @@ public class GameData {
     WorldMap worldMap;
     private int currentLevel;
 
-    public boolean isEndGame() {
-        return isEndGame;
+    public boolean isGameLost() {
+        return gameLost;
     }
 
-    public void setEndGame(boolean endGame) {
-        isEndGame = endGame;
+    public void setGameLost(boolean gameLost) {
+        this.gameLost = gameLost;
     }
 
-    private boolean isEndGame = false;
+    private boolean gameLost = false;
+    private boolean gameWon = false;
+
 
 
     public String getCurrentHighScore() {
@@ -123,5 +125,13 @@ public class GameData {
         }
 
         return r;
+    }
+
+    public boolean isGameWon() {
+        return gameWon;
+    }
+
+    public void setGameWon(boolean gameWon) {
+        this.gameWon = gameWon;
     }
 }

@@ -30,8 +30,8 @@ public class PlayerPlugin extends Player implements IGamePluginService {
         // Add entities to the world
         Entity player = createPlayerShip(gameData);
         player.setType("player");
-        gameData.setPlayerID(playerID);
         playerID = world.addEntity(player);
+        gameData.setPlayerID(playerID);
 
         System.out.println("added player object");
         LifePart entityLife = player.getPart(LifePart.class);

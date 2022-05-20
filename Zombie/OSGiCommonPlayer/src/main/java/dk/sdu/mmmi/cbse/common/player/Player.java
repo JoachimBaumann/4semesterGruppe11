@@ -7,6 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 
 public class Player extends Entity {
     private static Player instance;
+
     static public Player getInstance()
     {
         if (instance == null)
@@ -19,7 +20,6 @@ public class Player extends Entity {
     @Override
     public void create() {
         String assetPath = AssetLoader.whichOS(playerAssetPath);
-
         this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "playeridle.txt")));
         this.setAnimation(new Animation(1f/6f, getTextureAtlas().getRegions()));
 

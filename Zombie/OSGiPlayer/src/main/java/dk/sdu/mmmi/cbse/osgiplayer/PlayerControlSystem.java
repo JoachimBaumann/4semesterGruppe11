@@ -53,7 +53,7 @@ public class PlayerControlSystem implements IEntityProcessingService {
                         player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "/PlayerRight/playershootright.txt")));
                         player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
                     } else if (positionPart.getDirection() == positionPart.getLeft()) {
-                        player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "/PlayerLeft/flippedPlayerShoot.txt")));
+                        player.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(pAssetPath, "/PlayerLeft/FlippedShootPlayer.txt")));
                         player.setAnimation(new Animation(1f / 30f, player.getTextureAtlas().getRegions()));
                     }
                 if(shootTime > 0.2f){

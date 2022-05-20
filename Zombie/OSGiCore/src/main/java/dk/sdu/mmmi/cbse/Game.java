@@ -7,6 +7,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -25,8 +26,6 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -44,12 +43,19 @@ public class Game implements ApplicationListener {
 
 
     private SpriteBatch batch;
+    private SpriteBatch endgameBatch;
+    BitmapFont font;
     private float elapsedTime = 0;
+    private Texture deadEndgame;
+    private Texture youDiedText;
     private Texture hpbar;
     private Texture ufo;
+    private Texture victoryText;
 
     private Sprite healthbar;
     private Sprite ufoSprite;
+    private Sprite youDiedTextSprite;
+    private Sprite victoyTextSprite;
     private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
     private static final String assetPath = AssetLoader.whichOS(coreAssetPath);
 
@@ -72,8 +78,9 @@ public class Game implements ApplicationListener {
     public void create() {
 
 
-        //spirit loading
+        //sprite loading
         batch = new SpriteBatch();
+        endgameBatch = new SpriteBatch();
 
         //Health-bar sprite
         hpbar = new Texture(AssetLoader.getAssetPath(assetPath, "/UI/Health.png"));
@@ -85,6 +92,19 @@ public class Game implements ApplicationListener {
         ufoSprite = new Sprite(ufo,50,50, 800,600);
         ufoSprite.setPosition(11000,100);
         ufoSprite.setSize(Gdx.graphics.getWidth()*0.3f, Gdx.graphics.getHeight()*0.4f);
+
+
+        youDiedText = new Texture(AssetLoader.getAssetPath(assetPath,"UI/youDiedText.png"));
+        youDiedTextSprite = new Sprite(youDiedText, 0, 0, 957,240);
+        youDiedTextSprite.setPosition(Gdx.graphics.getWidth()/2f,Gdx.graphics.getHeight()/2f);
+
+
+        victoryText = new Texture(AssetLoader.getAssetPath(assetPath, "/UI/VictoryText.png"));
+        victoyTextSprite = new Sprite(victoryText, 0, 0, 746, 214);
+        victoyTextSprite.setPosition(Gdx.graphics.getWidth()*1/4f, Gdx.graphics.getHeight()*1.5f/3f);
+        victoyTextSprite.setSize(Gdx.graphics.getWidth()*0.5f, Gdx.graphics.getHeight()*0.5f);
+
+
 
 
         gameData.setDisplayWidth(Gdx.graphics.getWidth());
@@ -140,13 +160,8 @@ public class Game implements ApplicationListener {
             gameData.setWorldMap(worldMap);
         }
 
-/*        List<Entity> player = world.getEntities(Player.class);
-        if(!player.isEmpty()) {
-            LifePart playerLifePart = player.get(0).getPart(LifePart.class);
-            healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
-        }*/
 
-
+        //Pause function
         if (gameData.getKeys().isDown(GameKeys.ESCAPE)){
             if (!freeze){
                 freeze = true;
@@ -154,12 +169,13 @@ public class Game implements ApplicationListener {
                 freeze = false;
             }
         }
-
         draw();
+
+        //Pauses update to pause the game
         if (!freeze) {
             update();
-
         }
+
         ui();
 
         List<Entity> player = world.getEntities(Player.class);
@@ -167,7 +183,7 @@ public class Game implements ApplicationListener {
             LifePart playerLifePart = player.get(0).getPart(LifePart.class);
             healthbar.setSize(Gdx.graphics.getWidth()*0.4f*playerLifePart.getLife()/ playerLifePart.getStarterLife(), Gdx.graphics.getHeight()*0.05f);
         } else {
-            gameData.setEndGame(true);
+            gameData.setGameLost(true);
         }
     }
 
@@ -181,10 +197,33 @@ public class Game implements ApplicationListener {
             postEntityProcessorService.process(gameData, world);
         }
 
-        if (gameData.isEndGame()) {
+        if (gameData.isGameLost()) {
+
             String highScore = gameData.getCurrentHighScore();
             String playerScore = gameData.getPlayerScore();
             //todo: display scores here
+            endgameBatch.begin();
+            youDiedTextSprite.setPosition(Gdx.graphics.getWidth()*0.15f,Gdx.graphics.getHeight()*0.5f);
+            youDiedTextSprite.draw(endgameBatch);
+            //deadEndgameSprite.draw(endgameBatch);
+            endgameBatch.end();
+            //setFreeze(true);
+        }
+
+        if (gameData.isGameWon()){
+            font = new BitmapFont();
+            font.scale(5f);
+            String highScore = gameData.getCurrentHighScore();
+            String playerScore = gameData.getPlayerScore();
+            CharSequence newHighScore = "High Score:";
+            CharSequence charHighScore = playerScore;
+            endgameBatch.begin();
+            victoyTextSprite.draw(endgameBatch);
+            font.draw(endgameBatch, "high score: " + charHighScore, Gdx.graphics.getWidth()/4.25f, Gdx.graphics.getHeight()/2f);
+
+            endgameBatch.end();
+            //setFreeze(true);
+
         }
     }
 
@@ -205,7 +244,6 @@ public class Game implements ApplicationListener {
             }
         }
         batch.end();
-
     }
 
     private void ui(){
@@ -217,6 +255,7 @@ public class Game implements ApplicationListener {
             healthbar.setPosition(playerPositionPart.getX() - Gdx.graphics.getWidth()*0.45f,Gdx.graphics.getHeight()*0.9f);
         } catch (IndexOutOfBoundsException e) {
             healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
+            healthbar.setSize(0f,0f);
         }
         healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
     }
