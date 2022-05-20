@@ -72,18 +72,6 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     }
 
 
-    public void writeToFile(String username, String score) {
-        try {
-            String path = AssetLoader.getAssetPath(assetPath,"\\scores\\scores.txt");
-            FileWriter myWriter = new FileWriter(path, true);
-            myWriter.write(username + "," + score + "\n");
-            myWriter.close();
-        } catch (IOException e) {
-            System.out.println("An error occured writing to file: " + e.toString());
-        }
-    }
-
-
     public void spawnEnemies(GameData gameData, World world) {
         int enemyAmount = waves.get(currentLevel);
         for (int i = 0; i < enemyAmount; i++) {
