@@ -5,10 +5,10 @@
       <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiPlayer-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGiPlayer" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
           <property key="Bundle-Description" value="Generated using Pax-Construct" />
-          <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
-          <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
+          <property key="Export-Package" value="!dk.sdu.mmmi.cbse.internal.*,dk.sdu.mmmi.cbse.*;version=&quot;1.0-SNAPSHOT&quot;" />
+          <property key="Private-Package" value="dk.sdu.mmmi.cbse.internal.*" />
           <property key="Bundle-Name" value="OSGiPlayer" />
-          <property key="Include-Resource" value="META-INF/entityprocessor.xml=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiPlayer/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiPlayer/src/main/resources/META-INF/gameplugin.xml" />
+          <property key="Include-Resource" value="Assets/PlayerRight/playershootright.png=$MODULE_DIR$/src/main/resources/Assets/PlayerRight/playershootright.png,Assets/PlayerRight/playershootright.txt=$MODULE_DIR$/src/main/resources/Assets/PlayerRight/playershootright.txt,Assets/prut.txt=$MODULE_DIR$/src/main/resources/Assets/prut.txt,META-INF/entityprocessor.xml=$MODULE_DIR$/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=$MODULE_DIR$/src/main/resources/META-INF/gameplugin.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
