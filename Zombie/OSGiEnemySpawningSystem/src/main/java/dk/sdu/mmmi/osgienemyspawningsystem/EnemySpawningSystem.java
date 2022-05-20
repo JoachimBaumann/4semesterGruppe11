@@ -5,30 +5,26 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EnemyMovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
-import dk.sdu.mmmi.cbse.common.player.Player;
+import dk.sdu.mmmi.cbse.common.enemy.Enemy;
+import dk.sdu.mmmi.cbse.common.enemy.EnemySPI;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.data.*;
-import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyZombie;
 import dk.sdu.mmmi.cbse.common.data.FileWrite;
 
-
-
-
 import java.util.*;
 
 
 public class EnemySpawningSystem implements IEntityProcessingService {
     private int currentLevel = 1;
-    Map<Integer, Integer> waves = createWaveMap();
+    Map<Integer, Integer> waves = waveMap();
     List<Entity> enemies = new ArrayList<>();
-    private static final String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
-    private static final String assetPath = AssetLoader.whichOS(commonAssetPath);
+
+    private EnemySPI enemyService;
 
 
     @Override
@@ -49,6 +45,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         }
     }
 
+    /*
     private void gameFinished(GameData gameData) {
         String kills = String.valueOf(getKills());
         System.out.println("Game finished, you reached level " + currentLevel
@@ -64,7 +61,11 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         }
     }
 
+     */
 
+
+
+/*
     private int getKills() {
         int totalKills = 0;
         for (int i = 1; i < currentLevel; i++) {
@@ -73,21 +74,30 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         return totalKills;
     }
 
+ */
+
 
     public void spawnEnemies(GameData gameData, World world) {
+        int enemyAmount = waves.get(currentLevel);
+        for (int i = 0; i < enemyAmount; i++) {
+            Entity enemy = enemyService.createEnemy(gameData);
+            world.addEntity(enemy);
+        }
+
+        /*
         int enemyAmount = waves.get(currentLevel);
         for (int i = 0; i < enemyAmount; i++) {
             createEnemy(gameData, world);
         }
 
-    }
+         */
 
+    }
 
     private void spawnBoss(GameData gameData, World world) {
         //todo?
         System.out.println("boss spawned");
     }
-
 
     private void updateLevel(GameData gameData) {
         currentLevel++;
@@ -95,7 +105,11 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         System.out.println("Current level: " + String.valueOf(currentLevel));
     }
 
-    private static Map<Integer, Integer> createWaveMap() {
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
+
+    private static Map<Integer, Integer> waveMap() {
         Map<Integer,Integer> myMap = new HashMap<>();
         myMap.put(1, 1);
         myMap.put(2, 2);
@@ -110,7 +124,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         myMap.put(11, 0);
         return myMap;
     }
-
+/*
 
     private void createEnemy(GameData gameData, World world){
         //random to spawning position, should be integers between x=(5, 3000) y=(5, 500)
@@ -181,11 +195,11 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         return null;
     }
 
-    public int getCurrentLevel() {
-        return currentLevel;
-    }
+
 
     private int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
+ */
 }
