@@ -15,10 +15,11 @@ import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyZombie;
+import dk.sdu.mmmi.cbse.common.data.FileWrite;
 
 
-import java.io.FileWriter;
-import java.io.IOException;
+
+
 import java.util.*;
 
 
@@ -54,7 +55,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 + ", killing " +  kills + " enemies.");
         try {
             String playerID = gameData.getPlayerID();
-            writeToFile(playerID, kills);
+            FileWrite fileWriter = new FileWrite();
+            fileWriter.writeToScoresFile(playerID, kills);
             gameData.setPlayerScore(playerID + ", " + kills);
             gameData.setEndGame(true);
         } catch (NullPointerException e) {
