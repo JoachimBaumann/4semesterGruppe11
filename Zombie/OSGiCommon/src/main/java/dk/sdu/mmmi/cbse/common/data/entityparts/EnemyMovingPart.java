@@ -97,7 +97,13 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
 
 
         if (left) {
+            String stringPath = entity.getName();
             velocity.x -= maxSpeed * delta;
+
+            //
+/*          entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/Enemy"+stringPath+"/SnailLeft/EnemySnailWalk.txt")));
+            entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
+            */
             if(entity.getName() == "snail"){
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemySnail/SnailLeft/EnemySnailWalk.txt")));
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
@@ -107,7 +113,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
             if (entity.getName() == "zombie") {
-                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath1,"/EnemyAssets/EnemyLeft/enemywalking.txt")));
                 entity.setAnimation(new Animation(1f/6f,entity.getTextureAtlas().getRegions()));
             }
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
@@ -118,7 +124,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
             velocity.x += maxSpeed * delta;
             if (entity.getName() == "zombie") {
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRight/flippedenemywalk.txt")));
-                entity.setAnimation(new Animation(1 / 15f, entity.getTextureAtlas().getRegions()));
+                entity.setAnimation(new Animation(1 / 6f, entity.getTextureAtlas().getRegions()));
             }
             if(entity.getName() == "snail"){
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemySnail/SnailRight/SnailRight.txt")));

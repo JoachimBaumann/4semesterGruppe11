@@ -12,14 +12,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
 import dk.sdu.mmmi.cbse.common.data.*;
-import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
-import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
@@ -211,8 +211,12 @@ public class Game implements ApplicationListener {
         }
 
         if (gameData.isGameWon()){
+
+            List<Entity> player = world.getEntities(Player.class);
+            PlayerMovingPart playerMovingPart = player.get(0).getPart(PlayerMovingPart.class);
+            playerMovingPart.setMaxSpeed(0f);
             font = new BitmapFont();
-            font.scale(5f);
+            font.setScale(2f);
             String highScore = gameData.getCurrentHighScore();
             String playerScore = gameData.getPlayerScore();
             CharSequence newHighScore = "High Score:";
