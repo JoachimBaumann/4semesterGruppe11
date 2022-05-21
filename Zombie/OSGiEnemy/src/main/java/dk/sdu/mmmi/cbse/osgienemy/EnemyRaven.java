@@ -18,7 +18,7 @@ public class EnemyRaven extends Enemy {
     @Override
     public void create() {
         String assetPath = AssetLoader.whichOS(enemyAssetPath);
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRaven/RavenLeft/EnemyRavenWalk.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemyRaven/Left/Walk.txt")));
         this.setAnimation(new Animation(1/6f, getTextureAtlas().getRegions()));
     }
 
@@ -29,7 +29,7 @@ public class EnemyRaven extends Enemy {
 
     @Override
     public String getName() {
-        return "raven";
+        return "Raven";
     }
 
     @Override

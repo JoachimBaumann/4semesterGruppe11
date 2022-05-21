@@ -1,4 +1,4 @@
-ravenRight.png
+Walk.png
 size: 999, 103
 format: RGBA8888
 filter: Linear,Linear

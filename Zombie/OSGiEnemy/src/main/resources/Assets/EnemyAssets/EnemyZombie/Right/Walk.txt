@@ -1,4 +1,4 @@
-flippedenemywalk.png
+Walk.png
 size: 434, 122
 format: RGBA8888
 filter: Linear,Linear

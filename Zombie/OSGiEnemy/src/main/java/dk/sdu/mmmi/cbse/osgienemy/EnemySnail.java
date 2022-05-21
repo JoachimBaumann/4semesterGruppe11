@@ -17,7 +17,7 @@ public class EnemySnail extends Enemy {
     @Override
     public void create() {
         String assetPath = AssetLoader.whichOS(enemyAssetPath);
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemySnail/SnailLeft/EnemySnailWalk.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/EnemySnail/Left/Walk.txt")));
         this.setAnimation(new Animation(1/8f, getTextureAtlas().getRegions()));
     }
 
@@ -28,6 +28,6 @@ public class EnemySnail extends Enemy {
 
     @Override
     public String getName() {
-        return "snail";
+        return "Snail";
     }
 }

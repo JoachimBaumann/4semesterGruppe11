@@ -34,7 +34,7 @@ public class EnemyBat extends Enemy {
 
     @Override
     public String getName() {
-        return "bat";
+        return null;
     }
 
     @Override

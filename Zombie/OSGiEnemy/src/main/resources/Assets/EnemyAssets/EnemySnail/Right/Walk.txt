@@ -1,4 +1,4 @@
-EnemySnailWalk.png
+Walk.png
 size: 389, 231
 format: RGBA8888
 filter: Linear,Linear
@@ -15,42 +15,42 @@ sn01
   xy: 134, 78
   size: 129, 75
   orig: 135, 77
-  offset: 1, 0
+  offset: 5, 0
   index: -1
 sn02
   rotate: false
   xy: 132, 155
   size: 126, 75
   orig: 135, 77
-  offset: 1, 0
+  offset: 8, 0
   index: -1
 sn03
   rotate: false
   xy: 265, 78
   size: 123, 75
   orig: 135, 77
-  offset: 1, 0
+  offset: 11, 0
   index: -1
 sn04
   rotate: false
   xy: 260, 155
   size: 126, 75
   orig: 135, 77
-  offset: 1, 0
+  offset: 8, 0
   index: -1
 sn05
   rotate: false
   xy: 1, 155
   size: 129, 75
   orig: 135, 77
-  offset: 1, 0
+  offset: 5, 0
   index: -1
 sn06
   rotate: false
   xy: 1, 78
   size: 131, 75
   orig: 135, 77
-  offset: 1, 0
+  offset: 3, 0
   index: -1
 sn07
   rotate: false
