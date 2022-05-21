@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 
-public class ScoreSystem implements IGamePluginService {
+public class ScorePlugin implements IGamePluginService {
 
     private static final String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
     private static final String assetPath = AssetLoader.whichOS(commonAssetPath);
