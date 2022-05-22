@@ -41,9 +41,9 @@ public class BossControlSystem implements IEntityProcessingService {
 
                     System.out.println("Path: ");
                     Pathfinder pathfinder = new Pathfinder(navLayer);
-                    List<GridCell> path = pathfinder.findPath(navLayer.getCell(2, 2), navLayer.getCell(10, 2));
+                    List<GridCell> path = pathfinder.findPath(navLayer.getCell(2, 2), navLayer.getCell(10, 3));
                     for (GridCell node: path) {
-                        System.out.println("x: " + node.getX() + " y:  " + node.getY());
+                        System.out.println("x: " + node.getX() + " y:  " + node.getY() + " cost: " + node.getF());
 
                     }
                 }

@@ -7,8 +7,8 @@ import java.util.List;
 
 public class NavigationTiledMapLayer extends MapLayer {
 
-    private final boolean allowDiagonal = false;
-    private boolean dontCrossCorners = false;
+    private final boolean allowDiagonal = true;
+    private boolean dontCrossCorners = true;
 
     private GridCell[][] nodes;
     private List<GridCell> neighbors = new ArrayList<>();
@@ -87,9 +87,6 @@ public class NavigationTiledMapLayer extends MapLayer {
             neighbors.add(nodes[x - 1][y - yDir]);
         }
 
-        for (GridCell cell : neighbors) {
-            cell.setParent(node);
-        }
 
         return neighbors;
     }
@@ -101,7 +98,7 @@ public class NavigationTiledMapLayer extends MapLayer {
 
         GridCell cell1 = (GridCell) node1, cell2 = (GridCell) node2;
         return cell1.x == cell2.x || cell1.y == cell2.y ?
-                1 : 2;
+                10 : 14;
 
 
     }

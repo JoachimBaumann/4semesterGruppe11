@@ -46,6 +46,7 @@ public class Pathfinder {
                     path.add(child); // Add end location too. Can be ommitted
                     GridCell current = currentNode;
                     while (current != null) {
+                        startloc.setParent(null);
                         path.add(current);
                         current = current.getParent();
                     }
@@ -56,7 +57,8 @@ public class Pathfinder {
 
 
                     // Manhanttendistance to calculate Heuristic
-                    child.setH(Math.abs(child.getX() - endLoc.getX()) + Math.abs(child.getY() - endLoc.getY()));
+                    child.setH(navLayer.calculate(child,endLoc));
+                    child.setG(navLayer.getMovementCost(child,currentNode));
                     child.setF(child.getG() + child.getH());
 
 
