@@ -1,6 +1,6 @@
-package dk.sdu.mmmi.cbse.osgiboss;
+package dk.sdu.mmmi.cbse.osgiboss.AStar;
 
-public class GridCell {
+public class GridCell implements Comparable<GridCell>{
     public int x;
     public int y;
 
@@ -9,9 +9,6 @@ public class GridCell {
     private float f, g, h;
     private boolean isWalkable;
     private GridCell parent;
-
-    // Binary Tree
-    private int index;
 
     public void setParent(GridCell parent) {
         this.parent = parent;
@@ -62,10 +59,6 @@ public class GridCell {
         return parent;
     }
 
-    public int getIndex() {
-        return index;
-    }
-
     public void setX(int x) {
         this.x = x;
     }
@@ -90,7 +83,16 @@ public class GridCell {
         isWalkable = walkable;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    @Override
+    public int compareTo(GridCell node) {
+        return (int) Math.round((this.g + this.h) - (node.g + node.h));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GridCell node = (GridCell) o;
+        return this.getX() == node.getX() && this.getY() == node.getY() && node.f < this.f;
     }
 }

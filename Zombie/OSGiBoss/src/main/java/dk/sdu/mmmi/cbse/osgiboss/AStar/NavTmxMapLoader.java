@@ -1,4 +1,4 @@
-package dk.sdu.mmmi.cbse.osgiboss;
+package dk.sdu.mmmi.cbse.osgiboss.AStar;
 
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;

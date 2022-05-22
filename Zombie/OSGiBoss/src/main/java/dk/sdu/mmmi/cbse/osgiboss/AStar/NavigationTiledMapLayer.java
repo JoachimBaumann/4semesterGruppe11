@@ -1,9 +1,8 @@
-package dk.sdu.mmmi.cbse.osgiboss;
+package dk.sdu.mmmi.cbse.osgiboss.AStar;
 
 import com.badlogic.gdx.maps.MapLayer;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class NavigationTiledMapLayer extends MapLayer {
@@ -12,12 +11,12 @@ public class NavigationTiledMapLayer extends MapLayer {
     private boolean dontCrossCorners = false;
 
     private GridCell[][] nodes;
-    private List<GridCell> neighbors = new ArrayList<GridCell>();
+    private List<GridCell> neighbors = new ArrayList<>();
 
     protected int width;
     protected int height;
 
-    public NavigationTiledMapLayer(Comparator<GridCell> nodes) {
+    public NavigationTiledMapLayer(GridCell[][] nodes) {
         this.nodes = nodes;
     }
 
@@ -86,6 +85,10 @@ public class NavigationTiledMapLayer extends MapLayer {
         // down left
         if (d3 && this.isWalkable(x - 1, y - yDir)) {
             neighbors.add(nodes[x - 1][y - yDir]);
+        }
+
+        for (GridCell cell : neighbors) {
+            cell.setParent(node);
         }
 
         return neighbors;
