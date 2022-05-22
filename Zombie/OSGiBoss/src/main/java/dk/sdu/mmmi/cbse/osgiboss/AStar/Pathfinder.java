@@ -32,13 +32,17 @@ public class Pathfinder {
 
             List<GridCell> children = navLayer.getNeighbors(currentNode);
 
-
-
             for (GridCell child : children) {
+
+                if(child.getParent() == null) {
+                    child.setParent(currentNode);
+                }
+
 
                 // If the child is the goal then stop the search
                 if (child.getX() == endLoc.getX() && child.getY() == endLoc.getY()) {
                     List<GridCell> path = new ArrayList<>();
+                    startloc.setParent(null);
                     path.add(child); // Add end location too. Can be ommitted
                     GridCell current = currentNode;
                     while (current != null) {
@@ -54,7 +58,7 @@ public class Pathfinder {
                     // Manhanttendistance to calculate Heuristic
                     child.setH(Math.abs(child.getX() - endLoc.getX()) + Math.abs(child.getY() - endLoc.getY()));
                     child.setF(child.getG() + child.getH());
-                    child.setParent(currentNode);
+
 
 
                     if (open.contains(child)) {
