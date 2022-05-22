@@ -6,6 +6,10 @@ import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
+import dk.sdu.mmmi.cbse.osgiboss.AStar.GridCell;
+import dk.sdu.mmmi.cbse.osgiboss.AStar.NavTmxMapLoader;
+import dk.sdu.mmmi.cbse.osgiboss.AStar.NavigationTiledMapLayer;
+import dk.sdu.mmmi.cbse.osgiboss.AStar.Pathfinder;
 
 import java.util.List;
 
@@ -34,11 +38,13 @@ public class BossControlSystem implements IEntityProcessingService {
                     navLayer.setWidth(2000);
                     navLayer.setHeight(30);
 
-                    GridCell node = navLayer.getCell(4, 3);
-                    List<GridCell> list = navLayer.getNeighbors(node);
 
-                    for (GridCell cell1 : list) {
-                        System.out.println(cell1.getX() + " " + cell1.getY() + " " + cell1.isWalkable());
+                    System.out.println("Path: ");
+                    Pathfinder pathfinder = new Pathfinder(navLayer);
+                    List<GridCell> path = pathfinder.findPath(navLayer.getCell(2, 2), navLayer.getCell(10, 2));
+                    for (GridCell node: path) {
+                        System.out.println("x: " + node.getX() + " y:  " + node.getY());
+
                     }
                 }
 
