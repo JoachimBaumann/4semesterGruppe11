@@ -28,8 +28,6 @@ public class PlayerPluginTest {
         //behavioral testing - verifies that a certain behavior happened once
 
 
-        //F02 - Player move to both sides test
-
 
 
     }
