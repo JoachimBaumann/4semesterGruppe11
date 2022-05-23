@@ -5,4 +5,8 @@
         <provide interface="dk.sdu.mmmi.cbse.common.services.IEntityProcessingService"/>
     </service>
 
+    <reference bind="setEnemyService" cardinality="0..1"
+               interface="dk.sdu.mmmi.cbse.common.enemy.EnemySPI"
+               name="EnemyService" policy="dynamic" unbind="removeEnemyService"/>
+
 </scr:component>

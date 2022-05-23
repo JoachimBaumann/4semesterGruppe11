@@ -13,7 +13,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Entity extends ApplicationAdapter implements Serializable {
-    private final UUID ID = UUID.randomUUID();
+    private UUID id;
 
 
     //sprite stuff
@@ -42,6 +42,7 @@ public class Entity extends ApplicationAdapter implements Serializable {
     
     public Entity() {
         parts = new ConcurrentHashMap<>();
+        id = UUID.randomUUID();
     }
     
     public void add(EntityPart part) {
@@ -106,8 +107,8 @@ public class Entity extends ApplicationAdapter implements Serializable {
     }
     
 
-    public String getID() {
-        return ID.toString();
+    public String getId() {
+        return id.toString();
     }
 
 

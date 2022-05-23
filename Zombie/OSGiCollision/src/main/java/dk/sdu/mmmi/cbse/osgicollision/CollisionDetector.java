@@ -17,17 +17,9 @@ public class CollisionDetector implements IPostEntityProcessingService {
                 // get life parts on all entities
                 LifePart entityLife = entity.getPart(LifePart.class);
                 // if the two entities are identical, skip the iteration
-                if (entity.getID().equals(collisionDetection.getID()) || entity.getType().equals(collisionDetection.getType())) {
+                if (entity.getId().equals(collisionDetection.getId()) || entity.getType().equals(collisionDetection.getType())) {
                     continue;
                 }
-
-                // remove entities with zero in expiration
-                if (entityLife.isDead()) {
-                    System.out.println("Bullet removed maybe?");
-                    world.removeEntity(entity);
-                }
-
-
 
                 // CollisionDetection
                 if (this.Collides(entity, collisionDetection)) {
@@ -39,6 +31,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
                         LifePart coldetect = collisionDetection.getPart(LifePart.class);
                         coldetect.setIsHit(true);
                         // if entity is out of life - remove
+                        world.getEntities();
                         if (entityLife.getLife() == 0 && entity.getName() != "Bullet") {
                             world.removeEntity(entity);
                         }
