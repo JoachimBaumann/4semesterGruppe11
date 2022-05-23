@@ -153,4 +153,60 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         positionPart.setDirection(direction);
 
     }
+
+    //only for testing purposes to avoid nullpointer,
+    // as there is no map initialized to check for collision
+
+    public void testProcess(GameData gameData, Entity entity) {
+        PositionPart positionPart = entity.getPart(PositionPart.class);
+        float x = positionPart.getX();
+        float y = positionPart.getY();
+        float delta = 10f;
+        float direction = positionPart.getDirection();
+        float newX, newY;
+        float jumpHeight = 70;
+
+
+        // apply gravity
+        velocity.y -= gravity * delta;
+
+        // clamp velocity
+        if (velocity.y > maxSpeed)
+            velocity.y = maxSpeed;
+        else if (velocity.y < -maxSpeed)
+            velocity.y = -maxSpeed;
+
+
+        if (left) {
+            direction = positionPart.getLeft();
+
+            velocity.x -= maxSpeed * delta;
+
+        }
+        if (right) {
+            direction = positionPart.getRight();
+
+            velocity.x += maxSpeed * delta;
+
+        }
+
+
+        if (up) {
+            if (super.getCantJump()) {
+                velocity.y += jumpHeight / 1.8f;
+                super.setCanJump(false);
+            }
+        }
+
+
+        newX = x + velocity.x;
+        newY = y + velocity.y;
+
+        velocity.x = 0;
+
+        positionPart.setX(newX);
+        positionPart.setY(newY);
+
+        positionPart.setDirection(direction);
+    }
 }

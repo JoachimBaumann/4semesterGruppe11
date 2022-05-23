@@ -28,11 +28,10 @@ public class PlayerMovingTest {
         GameData gameData = new GameData(); //creates a mock object
         World world = new World(); //creates another mock object
 
+
         PlayerPlugin instance = new PlayerPlugin(); //creates PlayerPlugin object
         instance.start(gameData, world);
 
-
-        //produces nullpointer????
         List<Entity> playerList = world.getEntities(Player.class);
         Entity player = playerList.get(0);
 
@@ -42,44 +41,13 @@ public class PlayerMovingTest {
         Assertions.assertEquals(1000f, positionPart.getX());
 
         gameData.getKeys().setKey(GameKeys.RIGHT, true);
-        positionPart.process(gameData, player);
+        movingPart.setRight(true);
+        movingPart.testProcess(gameData, player);
 
         //produces nullpointer?? todo: get the part
-        //movingPart.process(gameData, player);
-        //Assertions.assertNotEquals(1000f, positionPart.getX());
-
-
-        /*
-
-
-        GameData gameData = new GameData();
-        World world = new World();
-
-       Entity player = new Player();
-       player.add(new PositionPart(1000, 500,  6.28f));
-       PlayerMovingPart movingPart = new PlayerMovingPart(600f);
-       movingPart.setRight(true);
-       player.add(movingPart);
-
-       String playerID = world.addEntity(player);
-       gameData.setPlayerID(playerID);
-
-        PositionPart positionPart = player.getPart(PositionPart.class);
-
-        Assertions.assertEquals(1000f, positionPart.getX());
-
-        gameData.getKeys().setKey(GameKeys.RIGHT, true);
-        movingPart.process(gameData, player);
-
-
-
         positionPart = player.getPart(PositionPart.class);
-
-        System.out.println(positionPart.getX());
-        //F02 - Player move to both sides test - player position spawns at 1000
         Assertions.assertNotEquals(1000f, positionPart.getX());
-
-         */
+        System.out.println("Expected position: > 1000f. Actual position" + positionPart.getX());
 
     }
 
