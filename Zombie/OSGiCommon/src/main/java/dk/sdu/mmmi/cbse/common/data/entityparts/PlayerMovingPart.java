@@ -158,6 +158,8 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
     // as there is no map initialized to check for collision
 
     public void testProcess(GameData gameData, Entity entity) {
+        //disable gravity to test for height
+        gravity = 1f;
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();

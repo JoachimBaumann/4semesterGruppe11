@@ -50,7 +50,7 @@ public class PlayerMovingTest {
 
         positionPart = player.getPart(PositionPart.class);
         Assertions.assertNotEquals(1000f, positionPart.getX());
-        System.out.println("Expected position: > 1000f. Actual position" + positionPart.getX());
+        System.out.println("Expected position: > 1000f. Actual position: " + positionPart.getX());
 
         //reset x to start value
         positionPart.setX(1000f);
@@ -64,7 +64,18 @@ public class PlayerMovingTest {
 
         positionPart = player.getPart(PositionPart.class);
         Assertions.assertNotEquals(1000f, positionPart.getX());
-        System.out.println("Expected position: < 1000f. Actual position" + positionPart.getX());
+        System.out.println("Expected position: < 1000f. Actual position: " + positionPart.getX());
+
+
+        //make player jump
+        movingPart.setUp(true);
+        movingPart.testProcess(gameData, player);
+
+
+        positionPart = player.getPart(PositionPart.class);
+        Assertions.assertNotEquals(0, positionPart.getY());
+        System.out.println("Expected position > 0. Actual position: " + positionPart.getY());
+
     }
 
     @Test
