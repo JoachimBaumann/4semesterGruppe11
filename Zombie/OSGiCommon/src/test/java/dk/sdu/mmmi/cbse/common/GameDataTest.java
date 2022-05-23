@@ -18,20 +18,21 @@ public class GameDataTest {
     public void startTest(){
         System.out.println("start - enemy");
 
-        GameData gameData = mock(GameData.class); //creates mock object
+        GameData gameData = new GameData(); //creates mock object
 
 
         System.out.println("Assert Game is won or lost");
         gameData.setGameWon(true);
+
         Assertions.assertTrue(gameData.isGameWon());
         Assertions.assertFalse(gameData.isGameLost());
 
         System.out.println("Assert displaySize is correctly set");
-        gameData.setDisplayWidth(Gdx.graphics.getWidth());
-        gameData.setDisplayHeight(Gdx.graphics.getHeight());
+        gameData.setDisplayWidth(1920);
+        gameData.setDisplayHeight(1080);
 
-        Assertions.assertEquals(Gdx.graphics.getWidth(), gameData.getDisplayWidth());
-        Assertions.assertEquals(Gdx.graphics.getHeight(), gameData.getDisplayHeight());
+        Assertions.assertNotEquals(0, gameData.getDisplayHeight());
+        Assertions.assertNotEquals(0, gameData.getDisplayWidth());
 
 
         System.out.println("Assert gamekeys can be set and accessed.");

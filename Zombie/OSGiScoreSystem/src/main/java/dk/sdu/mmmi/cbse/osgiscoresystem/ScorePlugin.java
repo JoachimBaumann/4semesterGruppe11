@@ -32,6 +32,7 @@ public class ScorePlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         loadScoresHash();
+        System.out.println(getHighScore());
         gameData.setCurrentHighScore(getHighScore());
     }
 

@@ -11,6 +11,8 @@ import java.util.HashSet;
 public class ScoreControlSystem implements IEntityProcessingService {
 
     HashSet aliveList = new HashSet<>(); // HashSet because we don't want duplicates
+    private Boolean isWritten = false;
+
 
     @Override
     public void process(GameData gameData, World world) {
@@ -19,15 +21,18 @@ public class ScoreControlSystem implements IEntityProcessingService {
         }
         if (gameData.isGameWon() || gameData.isGameLost()){
             String kills = String.valueOf(aliveList.size() - world.getEnemies().size());
-
-        try {
-            String playerID = gameData.getPlayerID();
-            FileWrite fileWriter = new FileWrite();
-            fileWriter.writeToScoresFile(playerID, kills);
-            gameData.setPlayerScore(playerID + ", " + kills);
-            //gameData.setEndGame(true);
-        } catch (NullPointerException e) {
-            System.out.println("An error occured ending game: " + e.toString());
-        }}
+            if (!isWritten) {
+                try {
+                    String playerID = gameData.getPlayerID();
+                    FileWrite fileWriter = new FileWrite();
+                    fileWriter.writeToScoresFile(playerID, kills);
+                    gameData.setPlayerScore(playerID + ", " + kills);
+                    isWritten = true;
+                    //gameData.setEndGame(true);
+                } catch (NullPointerException e) {
+                    System.out.println("An error occured ending game: " + e.toString());
+                }
+            }
+        }
     }
 }

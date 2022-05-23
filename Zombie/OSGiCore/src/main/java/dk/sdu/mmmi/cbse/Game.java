@@ -220,7 +220,7 @@ public class Game implements ApplicationListener {
             String highScore = gameData.getCurrentHighScore();
             String playerScore = gameData.getPlayerScore();
             CharSequence newHighScore = "High Score:";
-            CharSequence charHighScore = playerScore;
+            CharSequence charHighScore = highScore;
             endgameBatch.begin();
             victoyTextSprite.draw(endgameBatch);
             font.draw(endgameBatch, "high score: " + charHighScore, Gdx.graphics.getWidth()/4.25f, Gdx.graphics.getHeight()/2f);

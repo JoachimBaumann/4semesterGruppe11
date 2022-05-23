@@ -30,7 +30,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
             spawnBoss(gameData, world);
             updateLevel(gameData);
         }
-        if (currentLevel == 3) {
+        if (currentLevel == 11) {
             gameData.setGameWon(true);
         }
     }

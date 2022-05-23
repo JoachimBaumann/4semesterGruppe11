@@ -18,8 +18,8 @@ public class EnemyPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         // Add entities to the world
-       // Entity enemy = createEnemy(gameData);
-       // enemyID = world.addEntity(enemy);
+       Entity enemy = createEnemy(gameData);
+       enemyID = world.addEntity(enemy);
 
        // System.out.println("added enemy object ");
 
@@ -28,8 +28,7 @@ public class EnemyPlugin implements IGamePluginService {
     @Override
     public void stop(GameData gameData, World world) {
         //Remove entities
-      //  world.removeEntity(enemyID);
-
+       world.removeEntity(enemyID);
     }
 
     private Entity createEnemy(GameData gameData){
