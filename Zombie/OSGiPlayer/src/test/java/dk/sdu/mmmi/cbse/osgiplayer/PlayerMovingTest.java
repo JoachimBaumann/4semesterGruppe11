@@ -38,17 +38,33 @@ public class PlayerMovingTest {
         PositionPart positionPart = player.getPart(PositionPart.class);
         PlayerMovingPart movingPart = player.getPart(PlayerMovingPart.class);
 
+
+        //test current position.x is 1000f
         Assertions.assertEquals(1000f, positionPart.getX());
 
-        gameData.getKeys().setKey(GameKeys.RIGHT, true);
+
+        //move player to right
         movingPart.setRight(true);
         movingPart.testProcess(gameData, player);
+        movingPart.setRight(false);
 
-        //produces nullpointer?? todo: get the part
         positionPart = player.getPart(PositionPart.class);
         Assertions.assertNotEquals(1000f, positionPart.getX());
         System.out.println("Expected position: > 1000f. Actual position" + positionPart.getX());
 
+        //reset x to start value
+        positionPart.setX(1000f);
+
+
+        //move player to left
+        movingPart.setLeft(true);
+        movingPart.testProcess(gameData, player);
+        movingPart.setLeft(false);
+
+
+        positionPart = player.getPart(PositionPart.class);
+        Assertions.assertNotEquals(1000f, positionPart.getX());
+        System.out.println("Expected position: < 1000f. Actual position" + positionPart.getX());
     }
 
     @Test

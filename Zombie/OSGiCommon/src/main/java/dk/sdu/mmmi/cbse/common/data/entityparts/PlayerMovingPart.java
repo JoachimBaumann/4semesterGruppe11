@@ -161,7 +161,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
-        float delta = 10f;
+        float delta = 2f;
         float direction = positionPart.getDirection();
         float newX, newY;
         float jumpHeight = 70;
