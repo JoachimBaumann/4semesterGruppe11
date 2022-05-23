@@ -24,7 +24,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
     private float maxSpeed;
     private float gravity = 60 * 1.8f, increment;
     private Vector2 velocity = new Vector2();
-    private boolean left, right, space, down;
+    private boolean left, right, space, down, up;
     private int count;
 
 
@@ -34,6 +34,10 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
 
     public float getGravity() {
         return gravity;
+    }
+
+    public boolean getUp(){
+        return up;
     }
 
     public void setGravity(float gravity) {
@@ -71,6 +75,10 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
     public void setDown(boolean down) {
         this.down = down;
     }
+    @Override
+    public void setUp(boolean up) {
+        this.up = up;
+    }
 
     public void setSpace(boolean space) {
         this.space = space;
@@ -92,6 +100,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         float jumpHeight = 50;
 
         // apply gravity
+
         velocity.y -= gravity * delta;
 
         // clamp velocity
@@ -138,6 +147,17 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
             }
         }
 
+        if (up){
+            velocity.y += maxSpeed * delta;
+        }
+
+        if (down){
+            velocity.y -= maxSpeed * delta;
+            /*if(collidesBottom(x, y + velocity.y, collisonLayer, entity)){
+                velocity.y = 0;
+            }*/
+        }
+
 
         if (space) {
             if (super.getCantJump()) {
@@ -173,6 +193,4 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
 
         //System.out.println(this.left + " " + this.right);
     }
-
-
 }

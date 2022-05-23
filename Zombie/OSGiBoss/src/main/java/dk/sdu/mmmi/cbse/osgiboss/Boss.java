@@ -22,5 +22,9 @@ public class Boss extends Enemy {
         super.dispose();
     }
 
+    @Override
+    public String getName(){
+        return "boss";
+    }
 
 }

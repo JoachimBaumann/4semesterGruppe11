@@ -47,39 +47,64 @@ public class BossControlSystem implements IEntityProcessingService {
             pathfinder = new Pathfinder(navLayer);
         }
 
+        Entity player = world.getEntities(Player.class).get(0);
+        PositionPart playerPos = player.getPart(PositionPart.class);
+
         for (Entity ent : world.getEntities(Boss.class)) {
             PositionPart positionPart = ent.getPart(PositionPart.class);
             LifePart lifePart = ent.getPart(LifePart.class);
             EnemyMovingPart movingPart = ent.getPart(EnemyMovingPart.class);
-            movingPart.process(gameData, ent);
-            positionPart.process(gameData, ent);
+
 
             if(path == null) {
-                path = pathfinder.findPath(navLayer.getCell((int) positionPart.getX() / pixelToTile, (int) positionPart.getY() / pixelToTile), navLayer.getCell(50, 15));
+                path = pathfinder.findPath(navLayer.getCell((int) positionPart.getX() / pixelToTile, (int) positionPart.getY() / pixelToTile), navLayer.getCell((int) playerPos.getX()/pixelToTile, (int)playerPos.getY()/pixelToTile));
             }
             GridCell node = path.get(0);
-            double distance = Math.sqrt(Math.pow(positionPart.getX() - node.getY() * pixelToTile, 2) + Math.pow(positionPart.getY() - node.getY() * pixelToTile, 2));
+            double distance = Math.sqrt(Math.pow(positionPart.getX() - node.getX() * pixelToTile, 2) + Math.pow(positionPart.getY() - node.getY() * pixelToTile, 2));
 
-            if (distance < LEAST_DISTANCE) {
+            if (distance <= LEAST_DISTANCE) {
+                path.get(0);
                 path.remove(0);
+                if (path.isEmpty()){
+                    path = null;
+                }
+                System.out.println("Path removed: ");
             }
+            System.out.println("Enemy Position X: " + positionPart.getX()/pixelToTile);
+            System.out.println("Node Position X: " + node.getX());
+            System.out.println("Node Position Y: " + node.getY());
+            System.out.println("Enemy Position Y: " + node.getY());
 
-            if (positionPart.getX() > node.getX()) {
+            if (positionPart.getX()/pixelToTile < node.getX()) {
                 movingPart.setRight(true);
                 movingPart.setLeft(false);
+                System.out.println("Right");
             }
-            if (positionPart.getX() < node.getX()) {
+            if (positionPart.getX()/pixelToTile > node.getX()) {
                 movingPart.setLeft(true);
                 movingPart.setRight(false);
+                System.out.println("Left");
+            }
+            if (positionPart.getY()/pixelToTile < node.getY()) {
+                movingPart.setUp(true);
+                movingPart.setDown(false);
+                System.out.println("UP");
+            }
+            if (positionPart.getY()/pixelToTile > node.getY()) {
+                movingPart.setDown(true);
+                movingPart.setUp(false);
+                System.out.println("Down");
             }
 
-            if (path.isEmpty()) {
+/*            if (path.isEmpty()) {
                 movingPart.setLeft(false);
                 movingPart.setRight(false);
                 movingPart.setUp(false);
                 movingPart.setDown(false);
-            }
+                System.out.println("Empty");
+            }*/
 
+            positionPart.process(gameData, ent);
             movingPart.process(gameData, ent);
             lifePart.process(gameData, ent);
 
