@@ -13,7 +13,7 @@ public class Boss extends Enemy {
     @Override
     public void create() {
         this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "boss.txt")));
-        this.setAnimation(new Animation(1f/6f, getTextureAtlas().getRegions()));
+        this.setAnimation(new Animation(1f/8f, getTextureAtlas().getRegions()));
 
     }
 

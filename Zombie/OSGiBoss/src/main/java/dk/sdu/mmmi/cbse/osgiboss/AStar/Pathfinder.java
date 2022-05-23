@@ -21,8 +21,6 @@ public class Pathfinder {
         open.clear();
 
 
-        // Calculate distance from current location to target location
-        double distance = Math.sqrt(Math.pow(startloc.getY() - endLoc.getY(), 2) + Math.pow(startloc.getX() - endLoc.getX(), 2));
 
         startloc.setF(0f); // start Location is 0 cost as we're already there
         open.add(startloc);

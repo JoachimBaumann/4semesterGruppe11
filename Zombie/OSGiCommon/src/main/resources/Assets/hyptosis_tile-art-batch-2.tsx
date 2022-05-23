@@ -6,9 +6,19 @@
    <property name="walkable" value=""/>
   </properties>
  </tile>
+ <tile id="1">
+  <properties>
+   <property name="blocked" value=""/>
+  </properties>
+ </tile>
  <tile id="60">
   <properties>
    <property name="Blocked" value=""/>
+  </properties>
+ </tile>
+ <tile id="360">
+  <properties>
+   <property name="blocked" value=""/>
   </properties>
  </tile>
  <tile id="815">

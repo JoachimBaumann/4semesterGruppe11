@@ -22,7 +22,7 @@ public class MapImpl extends WorldMap {
         //AssetLoader.getAssetPath("map1.tmx");
 
         String assetPath = AssetLoader.whichOS(coreAssetPath);
-        map = loader.load(AssetLoader.getAssetPath(assetPath,"widemap.tmx"));
+        map = loader.load(AssetLoader.getAssetPath(assetPath,"finalmap.tmx"));
 
 
         this.setMap(map);

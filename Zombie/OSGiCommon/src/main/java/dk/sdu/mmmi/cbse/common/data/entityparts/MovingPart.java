@@ -97,7 +97,7 @@ public class MovingPart implements EntityPart {
         float y = positionPart.getY();
         float delta = gameData.getDelta();
         float newX, newY;
-        TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
+        TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get("Collision");
 
         float jumpHeight = 50;
         Array<Sprite> entitySprites = entity.getTextureAtlas().createSprites();
