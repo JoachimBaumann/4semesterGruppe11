@@ -1,9 +1,10 @@
-package dk.sdu.mmmi.cbse.osgienemy;
+package dk.sdu.mmmi.cbse.OSGiEnemy;
 
 import com.badlogic.gdx.Game;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.osgienemy.EnemyPlugin;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -43,9 +44,6 @@ public class EnemyPluginTest {
 
         verify(world).removeEntity(enemyID); //verifies if the enemyID (enemy) has been removed
 
-
     }
-
-
 
 }

@@ -9,8 +9,9 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import dk.sdu.mmmi.cbse.common.player.Player;
 
-public class PlayerPluginTest {
+public class PlayerMovingTest {
     //Mocks are used to isolate components during tests
 
     @Test

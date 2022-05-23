@@ -33,6 +33,7 @@ public class EnemyTest {
         System.out.println("Current object size of List of enemies: ");
 
         System.out.println(ObjectSizeCalculator.getObjectSize(enemyList));
+
     }
 
     @Test
