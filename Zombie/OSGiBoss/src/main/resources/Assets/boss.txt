@@ -1,0 +1,61 @@
+boss.png
+size: 915, 910
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+r00
+  rotate: false
+  xy: 306, 307
+  size: 301, 302
+  orig: 333, 330
+  offset: 16, 14
+  index: -1
+r01
+  rotate: false
+  xy: 1, 1
+  size: 303, 304
+  orig: 333, 330
+  offset: 15, 13
+  index: -1
+r02
+  rotate: false
+  xy: 1, 307
+  size: 303, 304
+  orig: 333, 330
+  offset: 15, 13
+  index: -1
+r03
+  rotate: false
+  xy: 306, 611
+  size: 299, 298
+  orig: 333, 330
+  offset: 17, 16
+  index: -1
+r04
+  rotate: false
+  xy: 609, 307
+  size: 301, 302
+  orig: 333, 330
+  offset: 16, 14
+  index: -1
+r05
+  rotate: false
+  xy: 306, 1
+  size: 303, 304
+  orig: 333, 330
+  offset: 15, 13
+  index: -1
+r06
+  rotate: false
+  xy: 611, 1
+  size: 303, 304
+  orig: 333, 330
+  offset: 15, 13
+  index: -1
+r07
+  rotate: false
+  xy: 607, 611
+  size: 299, 298
+  orig: 333, 330
+  offset: 17, 16
+  index: -1
