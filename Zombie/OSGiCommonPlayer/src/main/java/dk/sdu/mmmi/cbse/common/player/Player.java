@@ -7,6 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 
 public class Player extends Entity {
     private static Player instance;
+    private float animationXOffset;
 
     static public Player getInstance()
     {
@@ -35,4 +36,13 @@ public class Player extends Entity {
         return "player";
     }
 
+    @Override
+    public float getAnimationXOffset() {
+        return animationXOffset;
+    }
+
+    @Override
+    public void setAnimationXOffset(float animationXOffset) {
+        this.animationXOffset = animationXOffset;
+    }
 }

@@ -5,15 +5,15 @@ filter: Linear,Linear
 repeat: none
 green_0040_fire
   rotate: false
-  xy: 151, 1
+  xy: 131, 1
   size: 128, 180
   orig: 128, 180
   offset: 0, 0
-  index: 7
+  index: 6
 green_0041_fire
   rotate: false
   xy: 1, 1
   size: 148, 180
   orig: 148, 180
   offset: 0, 0
-  index: 6
+  index: 7

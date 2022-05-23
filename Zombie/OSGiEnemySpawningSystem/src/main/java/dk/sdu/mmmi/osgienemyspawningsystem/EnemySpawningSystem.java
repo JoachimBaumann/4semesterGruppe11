@@ -35,16 +35,12 @@ public class EnemySpawningSystem implements IEntityProcessingService {
             spawnEnemies(gameData, world);
             updateLevel(gameData);
         }
-        //for testing winscreen
-        if (currentLevel == 4){
-            gameFinished(gameData);
-        }
         if (currentLevel == 10) {
             spawnBoss(gameData, world);
             updateLevel(gameData);
         }
         if (currentLevel == 11) {
-            //gameFinished(gameData);
+            gameFinished(gameData);
             updateLevel(gameData);
         }
     }

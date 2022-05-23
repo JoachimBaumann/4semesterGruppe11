@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGILaser" />
-          <property key="Include-Resource" value="META-INF/MANIFEST.MF=/Users/annecathrinekirkegaard/Desktop/Semesterprojekt/7/Zombie/OSGiLaser/src/main/resources/META-INF/MANIFEST.MF" />
+          <property key="Include-Resource" value="Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.png,Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.txt,Assets/ShootingAssets/ShootingLeft/shotLeft.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingLeft/shotLeft.png,Assets/ShootingAssets/ShootingLeft/shotLeft.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingLeft/shotLeft.txt,Assets/ShootingAssets/ShootingRight/shootexplosion.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shootexplosion.png,Assets/ShootingAssets/ShootingRight/shootexplosion.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shootexplosion.txt,Assets/ShootingAssets/ShootingRight/shotright.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shotright.png,Assets/ShootingAssets/ShootingRight/shotright.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shotright.txt,META-INF/MANIFEST.MF=$MODULE_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
