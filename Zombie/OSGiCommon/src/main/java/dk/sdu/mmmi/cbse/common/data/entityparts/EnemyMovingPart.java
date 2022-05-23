@@ -157,6 +157,10 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
             }
         }
 
+        if (isDown() && !collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
+            velocity.y -= maxSpeed * delta;
+        }
+
 
         newX = x + velocity.x;
         newY = y + velocity.y;
