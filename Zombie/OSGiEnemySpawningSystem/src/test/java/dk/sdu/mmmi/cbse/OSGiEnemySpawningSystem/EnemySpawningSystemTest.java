@@ -6,6 +6,8 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.osgienemyspawningsystem.EnemySpawningSystem;
 import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 import org.junit.jupiter.api.Test;
+
+import static java.lang.System.in;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -27,10 +29,17 @@ public class EnemySpawningSystemTest {
         GameData gameData = mock(GameData.class); //creates a mock object
         World world = mock(World.class); //creates another mock object
 
-        EnemySpawningSystem instance = new EnemySpawningSystem();
-        instance.spawnEnemies(gameData, world);
 
-        out.println(ClassLayout.parseClass(EnemySpawningSystem.class).toPrintable());
+       // System.out.println("World memory size before adding enemies: ");
+       // System.out.println(ObjectSizeCalculator.getObjectSize(world));
+
+
+        EnemySpawningSystem instance = new EnemySpawningSystem();
+
+        System.out.println("Memory size of Spawning system: ");
+        System.out.println(ObjectSizeCalculator.getObjectSize(instance));
+
+
 
     }
 

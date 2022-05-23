@@ -18,12 +18,17 @@ import dk.sdu.mmmi.cbse.common.player.Player;
 import java.util.List;
 
 public class PlayerMovingTest {
-    //Mocks are used to isolate components during tests
 
     @Test
     public void startTest(){
-        System.out.println("start player moving test");
+        System.out.println("started player moving test");
 
+        /*
+        Uncomment to try mock objects, hint, not working.
+        GameData gameData = mock(GameData.class); //creates a mock object
+        World world = mock(World.class); //creates another mock object
+        PlayerPlugin instance = mock(PlayerPlugin.class);
+         */
 
         GameData gameData = new GameData(); //creates a mock object
         World world = new World(); //creates another mock object
@@ -70,7 +75,7 @@ public class PlayerMovingTest {
         //make player jump
         movingPart.setUp(true);
         movingPart.testProcess(gameData, player);
-
+        movingPart.setUp(false);
 
         positionPart = player.getPart(PositionPart.class);
         Assertions.assertNotEquals(0, positionPart.getY());

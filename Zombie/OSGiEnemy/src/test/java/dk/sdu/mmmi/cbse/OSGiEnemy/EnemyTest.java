@@ -36,7 +36,6 @@ public class EnemyTest {
         System.out.println("MEMORY TEST - ENEMY");
         System.out.println("Current enemy list object size");
         System.out.println(ObjectSizeCalculator.getObjectSize(enemyList));
-
     }
 
     @Test
