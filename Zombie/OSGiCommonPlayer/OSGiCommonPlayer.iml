@@ -8,6 +8,7 @@
           <property key="Export-Package" value="!OSGiCommonPlayer.internal.*,OSGiCommonPlayer.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="OSGiCommonPlayer.internal.*" />
           <property key="Bundle-Name" value="OSGiCommonPlayer" />
+          <property key="Include-Resource" value="Assets/playeridle-0.png=$MODULE_DIR$/src/main/resources/Assets/playeridle-0.png,Assets/playeridle.txt=$MODULE_DIR$/src/main/resources/Assets/playeridle.txt" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

@@ -12,10 +12,11 @@ import dk.sdu.mmmi.cbse.osgienemy.EnemyBat;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyRaven;
 import dk.sdu.mmmi.cbse.osgienemy.EnemySnail;
 import dk.sdu.mmmi.cbse.osgienemy.EnemyZombie;
+import dk.sdu.mmmi.cbse.common.data.FileWrite;
 
 
-import java.io.FileWriter;
-import java.io.IOException;
+
+
 import java.util.*;
 
 
@@ -55,7 +56,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 + ", killing " +  kills + " enemies.");
         try {
             String playerID = gameData.getPlayerID();
-            writeToFile(playerID, kills);
+            FileWrite fileWriter = new FileWrite();
+            fileWriter.writeToScoresFile(playerID, kills);
             gameData.setPlayerScore(playerID + ", " + kills);
             gameData.setGameWon(true);
         } catch (NullPointerException e) {
@@ -70,18 +72,6 @@ public class EnemySpawningSystem implements IEntityProcessingService {
             totalKills += waves.get(i);
         }
         return totalKills;
-    }
-
-
-    public void writeToFile(String username, String score) {
-        try {
-            String path = AssetLoader.getAssetPath(assetPath,"\\scores\\scores.txt");
-            FileWriter myWriter = new FileWriter(path, true);
-            myWriter.write(username + "," + score + "\n");
-            myWriter.close();
-        } catch (IOException e) {
-            System.out.println("An error occured writing to file: " + e.toString());
-        }
     }
 
 

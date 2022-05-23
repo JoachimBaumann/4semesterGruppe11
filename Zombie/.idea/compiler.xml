@@ -24,6 +24,7 @@
         <module name="OSGiCommonPlayer" />
         <module name="dk.sdu.mmmi.cbse.osgimap" />
         <module name="OSGiCommonAsteroids" />
+        <module name="OSGiScoreSystem" />
         <module name="OSGiEnemySpawningSystem" />
       </profile>
     </annotationProcessing>
@@ -48,6 +49,7 @@
       <module name="OSGiEnemyTracking" target="1.8" />
       <module name="OSGiLaser" target="1.8" />
       <module name="OSGiPlayer" target="1.8" />
+      <module name="OSGiScoreSystem" target="1.8" />
       <module name="OSGiWeapon" target="1.8" />
       <module name="provision" target="1.8" />
       <module name="shared-plugin-settings" target="1.8" />
