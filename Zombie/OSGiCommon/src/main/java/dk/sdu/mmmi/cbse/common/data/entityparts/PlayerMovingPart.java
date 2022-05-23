@@ -136,8 +136,11 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         }
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
-        } else {
+        } else if (direction == positionPart.getRight()){
             entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerRight/playerjump.txt")));
+            entity.setAnimation(new Animation(1f / 3f, entity.getTextureAtlas().getRegions()));
+        }else if (direction == positionPart.getLeft()){
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerLeft/flippedPlayerJump.txt")));
             entity.setAnimation(new Animation(1f / 3f, entity.getTextureAtlas().getRegions()));
         }
 
