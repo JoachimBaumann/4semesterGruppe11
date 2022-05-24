@@ -28,6 +28,7 @@ public class Pathfinder {
 
 
         open.clear();
+        closed.clear();
 
 
         startloc.setF(0f); // start Location is 0 cost as we're already there

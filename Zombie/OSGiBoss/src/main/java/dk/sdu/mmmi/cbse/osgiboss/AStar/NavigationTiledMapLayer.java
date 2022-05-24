@@ -34,24 +34,40 @@ public class NavigationTiledMapLayer extends MapLayer {
                 s2 = false, d2 = false, s3 = false, d3 = false;
 
         // up
-        if (isWalkable(x, y + yDir)) {
-            neighbors.add(nodes[x][y + yDir]);
-            s0 = true;
+        try{
+            if (isWalkable(x, y + yDir)){
+                System.out.println("fuck");
+                neighbors.add(nodes[x][y + yDir]);
+                s0 = true;
+            }
+        }catch (ArrayIndexOutOfBoundsException e){
+            s0 = false;
         }
         // right
+        try{
         if (isWalkable(x + 1, y)) {
             neighbors.add(nodes[x + 1][y]);
             s1 = true;
         }
+        }catch (ArrayIndexOutOfBoundsException e){
+                s1 = false;
+            }
         // down
-        if (isWalkable(x, y - yDir)) {
-            neighbors.add(nodes[x][y - yDir]);
-            s2 = true;
+        try {
+            if (isWalkable(x, y - yDir)) {
+                neighbors.add(nodes[x][y - yDir]);
+                s2 = true;
+            }
+        }catch(ArrayIndexOutOfBoundsException e){
+            s2 = false;
         }
         // left
+        try{
         if (isWalkable(x - 1, y)) {
             neighbors.add(nodes[x - 1][y]);
             s3 = true;
+        }        }catch (ArrayIndexOutOfBoundsException e){
+            s3 = false;
         }
 
         if (!allowDiagonal) {
