@@ -57,7 +57,6 @@ public class Game implements ApplicationListener {
     private Sprite youDiedTextSprite;
     private Sprite victoyTextSprite;
     private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
-    private static final String assetPath = AssetLoader.whichOS(coreAssetPath);
 
     public Game() {
         init();
@@ -83,23 +82,23 @@ public class Game implements ApplicationListener {
         endgameBatch = new SpriteBatch();
 
         //Health-bar sprite
-        hpbar = new Texture(AssetLoader.getAssetPath(assetPath, "/UI/Health.png"));
+        hpbar = new Texture(AssetLoader.getAssetPath(coreAssetPath, "/UI/Health.png"));
         healthbar = new Sprite(hpbar,50,50,1045,64);
         healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
         healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
 
-        ufo = new Texture(AssetLoader.getAssetPath(assetPath,"UI/UFO.png"));
+        ufo = new Texture(AssetLoader.getAssetPath(coreAssetPath,"UI/UFO.png"));
         ufoSprite = new Sprite(ufo,50,50, 800,600);
         ufoSprite.setPosition(11000,100);
         ufoSprite.setSize(Gdx.graphics.getWidth()*0.3f, Gdx.graphics.getHeight()*0.4f);
 
 
-        youDiedText = new Texture(AssetLoader.getAssetPath(assetPath,"UI/youDiedText.png"));
+        youDiedText = new Texture(AssetLoader.getAssetPath(coreAssetPath,"UI/youDiedText.png"));
         youDiedTextSprite = new Sprite(youDiedText, 0, 0, 957,240);
         youDiedTextSprite.setPosition(Gdx.graphics.getWidth()/2f,Gdx.graphics.getHeight()/2f);
 
 
-        victoryText = new Texture(AssetLoader.getAssetPath(assetPath, "/UI/VictoryText.png"));
+        victoryText = new Texture(AssetLoader.getAssetPath(coreAssetPath, "/UI/VictoryText.png"));
         victoyTextSprite = new Sprite(victoryText, 0, 0, 746, 214);
         victoyTextSprite.setPosition(Gdx.graphics.getWidth()*1/4f, Gdx.graphics.getHeight()*1.5f/3f);
         victoyTextSprite.setSize(Gdx.graphics.getWidth()*0.5f, Gdx.graphics.getHeight()*0.5f);
@@ -251,7 +250,7 @@ public class Game implements ApplicationListener {
     }
 
     private void ui(){
-        hpbar = new Texture(AssetLoader.getAssetPath(assetPath,"/UI/Health.png"));
+        hpbar = new Texture(AssetLoader.getAssetPath(coreAssetPath,"/UI/Health.png"));
         healthbar = new Sprite(hpbar,50,50,1045,64);
         try {
             Entity player = world.getEntities(Player.class).get(0);

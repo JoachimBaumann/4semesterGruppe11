@@ -21,7 +21,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
     private boolean canShoot = true;
     private boolean isFirst = true;
     private static final String laserAssetPath = "\\Zombie\\OSGILaser\\src\\main\\resources\\Assets\\";
-    String assetPath = AssetLoader.whichOS(laserAssetPath);
+    //String assetPath = AssetLoader.whichOS(laserAssetPath);
 
 
 
@@ -45,10 +45,10 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
             }
             if (timerPart.getExpiration() <= 0.25f){
                 if (positionPart.getDirection() == positionPart.getRight()) {
-                    bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/ShootingAssets/ShootingRight/shootexplosion.txt")));
+                    bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(laserAssetPath,"/ShootingAssets/ShootingRight/shootexplosion.txt")));
                     bullet.setAnimation(new Animation(1f / 4f, bullet.getTextureAtlas().getRegions()));
                 } else if (positionPart.getDirection() == positionPart.getLeft()) {
-                    bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/ShootingAssets/ShootingLeft/shootexplosionLeft.txt")));
+                    bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(laserAssetPath,"/ShootingAssets/ShootingLeft/shootexplosionLeft.txt")));
                     bullet.setAnimation(new Animation(1f / 4f, bullet.getTextureAtlas().getRegions()));
                 }
 
@@ -101,10 +101,10 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
 
         //bullet.setRadius(2);
         if (shooterPos.getDirection() == shooterPos.getRight()) {
-            bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/ShootingAssets/ShootingRight/shotright.txt")));
+            bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(laserAssetPath, "/ShootingAssets/ShootingRight/shotright.txt")));
             bullet.setAnimation(new Animation(1f / 6f, bullet.getTextureAtlas().getRegions()));
         } else if (shooterPos.getDirection() == shooterPos.getLeft()) {
-            bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/ShootingAssets/ShootingLeft/shotLeft.txt")));
+            bullet.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(laserAssetPath, "/ShootingAssets/ShootingLeft/shotLeft.txt")));
             bullet.setAnimation(new Animation(1f / 6f, bullet.getTextureAtlas().getRegions()));
         }
 

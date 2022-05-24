@@ -17,10 +17,10 @@ public class Player extends Entity {
 
     private static final String playerAssetPath = "\\Zombie\\OSGICommonPlayer\\src\\main\\resources\\Assets\\";
 
+
     @Override
     public void create() {
-        String assetPath = AssetLoader.whichOS(playerAssetPath);
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "playeridle.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(playerAssetPath, "playeridle.txt")));
         this.setAnimation(new Animation(1f/6f, getTextureAtlas().getRegions()));
 
     }

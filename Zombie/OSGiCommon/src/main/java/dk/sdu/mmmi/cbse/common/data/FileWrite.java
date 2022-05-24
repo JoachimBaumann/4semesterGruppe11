@@ -7,9 +7,8 @@ public class FileWrite {
 
     public void writeToScoresFile(String username, String score) {
         String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
-        String assetPath = AssetLoader.whichOS(commonAssetPath);
         try {
-            String path = AssetLoader.getAssetPath(assetPath,"\\scores\\scores.txt");
+            String path = AssetLoader.getAssetPath(commonAssetPath,"\\scores\\scores.txt");
             FileWriter myWriter = new FileWriter(path, true);
             myWriter.write(username + "," + score + "\n");
             myWriter.close();

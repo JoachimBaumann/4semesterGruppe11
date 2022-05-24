@@ -69,7 +69,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
     }
 
     private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets\\";
-    private static final String assetPath = AssetLoader.whichOS(enemyAssetPath);
+    //private static final String assetPath = AssetLoader.whichOS(enemyAssetPath);
 
 
 
@@ -98,7 +98,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         if (left) {
             velocity.x -= maxSpeed * delta;
             if (stringPath != null){
-                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/Enemy"+stringPath+"/Left/Walk.txt")));
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(enemyAssetPath,"/EnemyAssets/Enemy"+stringPath+"/Left/Walk.txt")));
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
@@ -107,7 +107,7 @@ public class EnemyMovingPart extends MovingPart implements EntityPart {
         }
         if (right) {
             if (stringPath != null){
-                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/EnemyAssets/Enemy"+stringPath+"/Right/Walk.txt")));
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(enemyAssetPath,"/EnemyAssets/Enemy"+stringPath+"/Right/Walk.txt")));
                 entity.setAnimation(new Animation(1f/6f, entity.getTextureAtlas().getRegions()));
             }
             velocity.x += maxSpeed * delta;

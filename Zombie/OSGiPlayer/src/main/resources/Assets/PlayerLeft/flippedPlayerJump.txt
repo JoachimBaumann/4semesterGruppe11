@@ -1,0 +1,33 @@
+flippedPlayerJump.png
+size: 465, 195
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+jump1
+  rotate: false
+  xy: 213, 1
+  size: 111, 178
+  orig: 111, 178
+  offset: 0, 0
+  index: -1
+jump2
+  rotate: false
+  xy: 113, 1
+  size: 98, 192
+  orig: 98, 192
+  offset: 0, 0
+  index: -1
+jump3
+  rotate: false
+  xy: 1, 1
+  size: 110, 193
+  orig: 110, 193
+  offset: 0, 0
+  index: -1
+jump4
+  rotate: false
+  xy: 326, 1
+  size: 138, 155
+  orig: 138, 155
+  offset: 0, 0
+  index: -1

@@ -78,8 +78,9 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         this.space = space;
     }
 
-    private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
-    String assetPath = AssetLoader.whichOS(coreAssetPath);
+    // private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+    // String assetPath = AssetLoader.whichOS(coreAssetPath);
+    private static final String playerAssetPath = "\\Zombie\\OSGIPlayer\\src\\main\\resources\\Assets\\";
 
 
     @Override
@@ -107,7 +108,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
 
         if (left) {
             direction = positionPart.getLeft();
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerLeft/flippedPlayerWalk.txt")));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(playerAssetPath,"/PlayerLeft/flippedPlayerWalk.txt")));
             entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x -= maxSpeed * delta;
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
@@ -116,7 +117,7 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         }
         if (right) {
             direction = positionPart.getRight();
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/PlayerAssets/PlayerRight/playerwalk.txt")));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(playerAssetPath, "/PlayerRight/playerwalk.txt")));
             entity.setAnimation(new Animation(1f / 6f, entity.getTextureAtlas().getRegions()));
             velocity.x += maxSpeed * delta;
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
@@ -137,10 +138,10 @@ public class PlayerMovingPart extends MovingPart implements EntityPart {
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
         } else if (direction == positionPart.getRight()){
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerRight/playerjump.txt")));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(playerAssetPath,"/PlayerRight/playerjump.txt")));
             entity.setAnimation(new Animation(1f / 3f, entity.getTextureAtlas().getRegions()));
         }else if (direction == positionPart.getLeft()){
-            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath,"/PlayerAssets/PlayerLeft/flippedPlayerJump.txt")));
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(playerAssetPath,"/PlayerLeft/flippedPlayerJump.txt")));
             entity.setAnimation(new Animation(1f / 3f, entity.getTextureAtlas().getRegions()));
         }
 

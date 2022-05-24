@@ -16,13 +16,12 @@ public class EnemyBat extends Enemy {
 
 
     private static final String enemyAssetPath = "\\Zombie\\OSGiEnemy\\src\\main\\resources\\Assets\\";
-    String assetPath = AssetLoader.whichOS(enemyAssetPath);
     private float animationYOffset = 60f;
 
     @Override
     public void create() {
 
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(assetPath, "/EnemyAssets/EnemyBat/EnemyBatWalk.txt")));
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(enemyAssetPath, "/EnemyAssets/EnemyBat/EnemyBatWalk.txt")));
         this.setAnimation(new Animation(1 / 8f, getTextureAtlas().getRegions()));
 
     }
