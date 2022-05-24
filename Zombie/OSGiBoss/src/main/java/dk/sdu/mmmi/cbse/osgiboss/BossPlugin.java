@@ -31,9 +31,8 @@ public class BossPlugin implements IGamePluginService {
         float speed;
         float x;
         Entity boss = new Boss();
-        boss.add(new PositionPart(2400, 150f, 0));
+        boss.add(new PositionPart(2880, 150f, 0));
         boss.add(new LifePart(100));
-        boss.add(new EnemyMovingPart(50, 0));
         boss.setHeight(315f);
         boss.setWidth(315f);
 
