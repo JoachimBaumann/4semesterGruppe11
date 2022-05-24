@@ -15,6 +15,8 @@ import java.util.ArrayList;
 public class PositionPart implements EntityPart {
 
     private float x, y, direction;
+
+
     private float left = 3.14f;
     private float right = 2 * 3.14f;
 
@@ -83,6 +85,13 @@ public class PositionPart implements EntityPart {
 
     public void setDirection(float direction) {
         this.direction = direction;
+    }
+
+    public void setDirectionRight() {
+        this.direction = this.right;
+    }
+    public void setDirectionLeft() {
+        this.direction = this.left;
     }
 
     @Override

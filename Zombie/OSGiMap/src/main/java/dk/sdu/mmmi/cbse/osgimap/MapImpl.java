@@ -9,7 +9,7 @@ import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.WorldMap;
 
 public class MapImpl extends WorldMap {
-    private static final String coreAssetPath = "\\Zombie\\OSGiCommon\\src\\main\\resources\\Assets\\";
+    private static final String coreAssetPath = "\\Zombie\\OSGiCommon\\src\\main\\resources\\Assets";
 
 
     public MapImpl() {
@@ -21,7 +21,7 @@ public class MapImpl extends WorldMap {
         TmxMapLoader loader = new TmxMapLoader();
         //AssetLoader.getAssetPath("map1.tmx");
 
-        map = loader.load(AssetLoader.getAssetPath(coreAssetPath,"widemap.tmx"));
+        map = loader.load(AssetLoader.getAssetPath(coreAssetPath,"/widemap.tmx"));
 
 
         this.setMap(map);

@@ -20,7 +20,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
     private float CD;
     private boolean canShoot = true;
     private boolean isFirst = true;
-    private static final String laserAssetPath = "\\Zombie\\OSGILaser\\src\\main\\resources\\Assets\\";
+    private static final String laserAssetPath = "\\Zombie\\OSGILaser\\src\\main\\resources\\Assets";
     //String assetPath = AssetLoader.whichOS(laserAssetPath);
 
 

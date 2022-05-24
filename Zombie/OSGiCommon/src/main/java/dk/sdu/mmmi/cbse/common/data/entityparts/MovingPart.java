@@ -6,11 +6,12 @@
  */
 package dk.sdu.mmmi.cbse.common.data.entityparts;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Array;
+import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 
@@ -90,6 +91,7 @@ public class MovingPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
+        System.out.println("entity " + entity);
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
@@ -97,8 +99,12 @@ public class MovingPart implements EntityPart {
         float newX, newY;
         TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
 
-        float jumpHeight = 50;
-        Array<Sprite> entitySprites = entity.getTextureAtlas().createSprites();
+        float jumpHeight = 75;
+
+        //NEW
+        float direction = positionPart.getDirection();
+
+
 
         // apply gravity
         velocity.y -= gravity * delta;
@@ -109,28 +115,40 @@ public class MovingPart implements EntityPart {
         else if (velocity.y < -maxSpeed)
             velocity.y = -maxSpeed;
 
+        String stringPath = entity.getName();
 
         if (left) {
+            direction = positionPart.getLeft();
             velocity.x -= maxSpeed * delta;
+            if (stringPath != null && entity.directionTypeEntity){
+                System.out.println("left");
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(entity.getEntityAssetPath(), entity.getLeftAssetPath())));
+                entity.setAnimation(new Animation(entity.getFrameDuration(), entity.getTextureAtlas().getRegions()));
+            }
             if (collidesLeft(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
         }
         if (right) {
-
+            direction = positionPart.getRight();
             velocity.x += maxSpeed * delta;
+            System.out.println("entityTYPE: " + entity.getType());
+            System.out.println("DIRETIONTYPE: "+ entity.directionTypeEntity);
+            if (stringPath != null && entity.directionTypeEntity){
+                System.out.println("right");
+                System.out.println(entity.getEntityAssetPath());
+                System.out.println(entity.getRightAssetPath());
+                entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(entity.getEntityAssetPath(), entity.getRightAssetPath())));
+                entity.setAnimation(new Animation(entity.getFrameDuration(), entity.getTextureAtlas().getRegions()));
+            }
             if (collidesRight(x + velocity.x, y, collisonLayer, entity)) {
                 velocity.x = 0;
             }
         }
-
-
         if (up) {
-
-            if (canJump) {
-
+            if (getCantJump()) {
                 velocity.y += jumpHeight / 1.8f;
-                canJump = false;
+                setCanJump(false);
             }
         }
         if (collidesTop(x, y + velocity.y, collisonLayer, entity)) {
@@ -138,6 +156,12 @@ public class MovingPart implements EntityPart {
         }
         if (collidesBottom(x, y + velocity.y, collisonLayer, entity)) {
             velocity.y = 0;
+        } else if (direction == positionPart.getRight() && entity.jumpingTypeEntity){
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(entity.getEntityAssetPath(), entity.getRightJumpAssetPath())));
+            entity.setAnimation(new Animation(entity.getJumpFrameDuration(), entity.getTextureAtlas().getRegions()));
+        } else if (direction == positionPart.getLeft() && entity.jumpingTypeEntity){
+            entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(entity.getEntityAssetPath(),entity.getLeftJumpAssetPath())));
+            entity.setAnimation(new Animation(entity.getJumpFrameDuration(), entity.getTextureAtlas().getRegions()));
         }
 
 
@@ -149,8 +173,12 @@ public class MovingPart implements EntityPart {
         positionPart.setX(newX);
         positionPart.setY(newY);
 
-    }
+        if (entity.directionTypeEntity){
+            positionPart.setDirection(direction);
 
+        }
+
+    }
 
     private boolean isCellBlocked(float x, float y, TiledMapTileLayer collisionLayer) {
         Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));

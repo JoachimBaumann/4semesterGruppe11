@@ -10,7 +10,7 @@ import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
 public class EnemyZombie extends Enemy {
 
-    private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets\\";
+    private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets";
 
 
     @Override

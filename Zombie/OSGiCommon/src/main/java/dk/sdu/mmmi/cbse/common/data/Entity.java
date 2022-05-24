@@ -4,7 +4,6 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import dk.sdu.mmmi.cbse.common.data.entityparts.EntityPart;
 
 import java.io.Serializable;
@@ -13,10 +12,41 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Entity extends ApplicationAdapter implements Serializable {
-    private UUID id;
+
+    public String entityAssetPath;
+    public String leftAssetPath;
+    public float frameDuration;
+    public String rightAssetPath;
+    public float jumpFrameDuration;
+    public String rightJumpAssetPath;
+    public String leftJumpAssetPath;
+
+    public String getEntityAssetPath() {return entityAssetPath;}
+    public void setEntityAssetPath(String entityAssetPath) {this.entityAssetPath = entityAssetPath;}
+    public String getLeftAssetPath() {return leftAssetPath;}
+    public void setLeftAssetPath(String leftAssetPath) {this.leftAssetPath = leftAssetPath;}
+    public float getFrameDuration() {return frameDuration;}
+    public void setFrameDuration(float frameDuration) {this.frameDuration = frameDuration;}
+    public String getRightAssetPath() {return rightAssetPath;}
+    public void setRightAssetPath(String rightAssetPath) {this.rightAssetPath = rightAssetPath;}
+    public String getRightJumpAssetPath() {return rightJumpAssetPath;}
+    public String getLeftJumpAssetPath() {return leftJumpAssetPath;}
+    public float getJumpFrameDuration() {return jumpFrameDuration;}
+    public void setJumpFrameDuration(float jumpFrameDuration) {this.jumpFrameDuration = jumpFrameDuration;}
+    public void setRightJumpAssetPath(String rightJumpAssetPath) {
+        this.rightJumpAssetPath = rightJumpAssetPath;
+    }
+    public void setLeftJumpAssetPath(String leftJumpAssetPath) {
+        this.leftJumpAssetPath = leftJumpAssetPath;
+    }
+
+
+    private UUID id = UUID.randomUUID();;
 
 
     //sprite stuff
+    public boolean directionTypeEntity = false;
+    public boolean jumpingTypeEntity = false;
     private Sprite sprite;
     private String type;
     private float animationYOffset = - 12;
@@ -42,7 +72,7 @@ public class Entity extends ApplicationAdapter implements Serializable {
     
     public Entity() {
         parts = new ConcurrentHashMap<>();
-        id = UUID.randomUUID();
+        //id = UUID.randomUUID();
     }
     
     public void add(EntityPart part) {
@@ -57,18 +87,6 @@ public class Entity extends ApplicationAdapter implements Serializable {
     public <E extends EntityPart> E getPart(Class partClass) {
         return (E) parts.get(partClass);
     }
-
-    public void flip(TextureAtlas textureatlas, String regionNames){
-        this.textureAtlas = textureatlas;
-        //this.textureAtlas = new TextureAtlas(AssetLoader.getCommonPlayerAssetPath("playeridle.txt"));
-        TextureRegion[] flippedAnimation = new TextureRegion[3];
-        for(int i = 0; i<3; i++){
-            flippedAnimation[i] = new TextureRegion(textureAtlas.findRegion(regionNames +i));
-            flippedAnimation[i].flip(true,false);
-        }
-        this.setAnimation(new Animation(1f/6f,flippedAnimation));
-    }
-
 
     public float getRadius() {
         return this.radius;

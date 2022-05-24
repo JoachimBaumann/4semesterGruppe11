@@ -15,7 +15,7 @@ public class EnemyBat extends Enemy {
 
 
 
-    private static final String enemyAssetPath = "\\Zombie\\OSGiEnemy\\src\\main\\resources\\Assets\\";
+    private static final String enemyAssetPath = "\\Zombie\\OSGiEnemy\\src\\main\\resources\\Assets";
     private float animationYOffset = 60f;
 
     @Override

@@ -12,7 +12,7 @@ import java.util.*;
 
 public class ScorePlugin implements IGamePluginService {
 
-    private static final String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+    private static final String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets";
     //private static final String assetPath = AssetLoader.whichOS(commonAssetPath);
 
     private String path = AssetLoader.getAssetPath(commonAssetPath,"\\scores\\scores.txt");

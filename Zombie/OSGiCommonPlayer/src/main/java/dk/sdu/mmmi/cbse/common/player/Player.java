@@ -6,6 +6,9 @@ import dk.sdu.mmmi.cbse.common.data.AssetLoader;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 
 public class Player extends Entity {
+
+
+
     private static Player instance;
 
     static public Player getInstance()
@@ -15,14 +18,16 @@ public class Player extends Entity {
         return instance;
     }
 
-    private static final String playerAssetPath = "\\Zombie\\OSGICommonPlayer\\src\\main\\resources\\Assets\\";
+    private static final String playerAssetPath = "\\Zombie\\OSGICommonPlayer\\src\\main\\resources\\Assets";
 
 
     @Override
     public void create() {
-        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(playerAssetPath, "playeridle.txt")));
+        directionTypeEntity = true;
+        jumpingTypeEntity = true;
+        setType("player");
+        this.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(playerAssetPath, "/playeridle.txt")));
         this.setAnimation(new Animation(1f/6f, getTextureAtlas().getRegions()));
-
     }
 
     @Override

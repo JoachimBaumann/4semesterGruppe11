@@ -4,6 +4,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.FileWrite;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
+import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import java.util.HashSet;
 
@@ -21,11 +22,12 @@ public class ScoreControlSystem implements IEntityProcessingService {
             String kills = String.valueOf(aliveList.size() - world.getEnemies().size());
 
         try {
-            String playerID = gameData.getPlayerID();
-            FileWrite fileWriter = new FileWrite();
-            fileWriter.writeToScoresFile(playerID, kills);
-            gameData.setPlayerScore(playerID + ", " + kills);
-            //gameData.setEndGame(true);
+            for (Entity entity : world.getEntities(Player.class)){
+                String playerID = entity.getId();
+                FileWrite fileWriter = new FileWrite();
+                fileWriter.writeToScoresFile(playerID, kills);
+                gameData.setPlayerScore(playerID + ", " + kills);
+            }
         } catch (NullPointerException e) {
             System.out.println("An error occured ending game: " + e.toString());
         }}

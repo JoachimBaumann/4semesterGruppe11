@@ -10,7 +10,7 @@ public class Activator implements BundleActivator {
 
     @Override
     public void start(BundleContext context) throws Exception {
-        EnemyControlSystem es = new EnemyControlSystem();
+        EnemySystem es = new EnemySystem();
         context.registerService(IEntityProcessingService.class, es, null);
         context.registerService(EnemySPI.class, es, null);
     }

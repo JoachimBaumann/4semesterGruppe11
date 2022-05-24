@@ -10,7 +10,7 @@ import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
 public class EnemyRaven extends Enemy {
-    private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets\\";
+    private static final String enemyAssetPath = "\\Zombie\\OSGIEnemy\\src\\main\\resources\\Assets";
     private float animationYOffset = 60f;
 
 

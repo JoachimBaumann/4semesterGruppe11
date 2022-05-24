@@ -12,7 +12,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
@@ -56,7 +55,7 @@ public class Game implements ApplicationListener {
     private Sprite ufoSprite;
     private Sprite youDiedTextSprite;
     private Sprite victoyTextSprite;
-    private static final String coreAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets\\";
+    private static final String commonAssetPath = "\\Zombie\\OSGICommon\\src\\main\\resources\\Assets";
 
     public Game() {
         init();
@@ -82,23 +81,23 @@ public class Game implements ApplicationListener {
         endgameBatch = new SpriteBatch();
 
         //Health-bar sprite
-        hpbar = new Texture(AssetLoader.getAssetPath(coreAssetPath, "/UI/Health.png"));
+        hpbar = new Texture(AssetLoader.getAssetPath(commonAssetPath, "/UI/Health.png"));
         healthbar = new Sprite(hpbar,50,50,1045,64);
         healthbar.setPosition(Gdx.graphics.getWidth()*0.05f,Gdx.graphics.getHeight()*0.9f);
         healthbar.setSize(Gdx.graphics.getWidth()*0.4f, Gdx.graphics.getHeight()*0.05f);
 
-        ufo = new Texture(AssetLoader.getAssetPath(coreAssetPath,"UI/UFO.png"));
+        ufo = new Texture(AssetLoader.getAssetPath(commonAssetPath,"/UI/UFO.png"));
         ufoSprite = new Sprite(ufo,50,50, 800,600);
         ufoSprite.setPosition(11000,100);
         ufoSprite.setSize(Gdx.graphics.getWidth()*0.3f, Gdx.graphics.getHeight()*0.4f);
 
 
-        youDiedText = new Texture(AssetLoader.getAssetPath(coreAssetPath,"UI/youDiedText.png"));
+        youDiedText = new Texture(AssetLoader.getAssetPath(commonAssetPath,"/UI/youDiedText.png"));
         youDiedTextSprite = new Sprite(youDiedText, 0, 0, 957,240);
         youDiedTextSprite.setPosition(Gdx.graphics.getWidth()/2f,Gdx.graphics.getHeight()/2f);
 
 
-        victoryText = new Texture(AssetLoader.getAssetPath(coreAssetPath, "/UI/VictoryText.png"));
+        victoryText = new Texture(AssetLoader.getAssetPath(commonAssetPath, "/UI/VictoryText.png"));
         victoyTextSprite = new Sprite(victoryText, 0, 0, 746, 214);
         victoyTextSprite.setPosition(Gdx.graphics.getWidth()*1/4f, Gdx.graphics.getHeight()*1.5f/3f);
         victoyTextSprite.setSize(Gdx.graphics.getWidth()*0.5f, Gdx.graphics.getHeight()*0.5f);
@@ -212,7 +211,7 @@ public class Game implements ApplicationListener {
         if (gameData.isGameWon()){
 
             List<Entity> player = world.getEntities(Player.class);
-            PlayerMovingPart playerMovingPart = player.get(0).getPart(PlayerMovingPart.class);
+            MovingPart playerMovingPart = player.get(0).getPart(MovingPart.class);
             playerMovingPart.setMaxSpeed(0f);
             font = new BitmapFont();
             font.setScale(2f);
@@ -250,7 +249,7 @@ public class Game implements ApplicationListener {
     }
 
     private void ui(){
-        hpbar = new Texture(AssetLoader.getAssetPath(coreAssetPath,"/UI/Health.png"));
+        hpbar = new Texture(AssetLoader.getAssetPath(commonAssetPath,"/UI/Health.png"));
         healthbar = new Sprite(hpbar,50,50,1045,64);
         try {
             Entity player = world.getEntities(Player.class).get(0);

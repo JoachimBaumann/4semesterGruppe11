@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
-import dk.sdu.mmmi.cbse.common.data.entityparts.EnemyMovingPart;
+import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.player.Player;
@@ -33,23 +33,29 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
 
                 //Get enemy data positions
                 PositionPart enemyPositionPart = entity.getPart(PositionPart.class);
-                EnemyMovingPart enemyMovingPart = entity.getPart(EnemyMovingPart.class);
+                MovingPart enemyMovingPart = entity.getPart(MovingPart.class);
 
 
-                if (playerPositionPart.getX() > enemyPositionPart.getX()) {
+                if (enemyPositionPart.getX() < playerPositionPart.getX()) {
+                    enemyPositionPart.setDirectionRight();
                     enemyMovingPart.setRight(true);
                     enemyMovingPart.setSpace(false);
                     enemyMovingPart.setLeft(false);
+                    System.out.println("EnemyToTheLeft " + enemyPositionPart.getDirection());
                 } else {
-
+                    enemyPositionPart.setDirectionLeft();
                     enemyMovingPart.setLeft(true);
                     enemyMovingPart.setSpace(false);
                     enemyMovingPart.setRight(false);
+                    System.out.println("EnemyToTheRight " +enemyPositionPart.getDirection());
+
                 }
 
                 //Check if player is above and if enemy is stuck in ground position
-                if (playerPositionPart.getY() > enemyPositionPart.getY() && enemyPositionPart.isStuck())
+                /*if (playerPositionPart.getY() > enemyPositionPart.getY() && enemyPositionPart.isStuck())
                     enemyMovingPart.setSpace(true);
+
+                 */
             }
         }
     }
