@@ -36,11 +36,16 @@ public class EnemyTrackingSystem implements IPostEntityProcessingService {
         List<Entity> player = world.getEntities(Player.class);
         if(!player.isEmpty()) {
             PositionPart playerPositionPart = player.get(0).getPart(PositionPart.class);
+
+            enemies = world.getEnemies();
+            /*
             enemies = world.getEntities(Enemy.class);
             enemies.addAll(world.getEntities(EnemyBat.class));
             enemies.addAll(world.getEntities(EnemyRaven.class));
             enemies.addAll(world.getEntities(EnemySnail.class));
             enemies.addAll(world.getEntities(EnemyZombie.class));
+
+             */
 
             //get all enemy positions
             for (Entity entity : enemies) {

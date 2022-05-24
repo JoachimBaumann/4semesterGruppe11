@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
           <property key="Bundle-Name" value="OSGILaser" />
-          <property key="Include-Resource" value="Assets/ShootingAssets/ShootingRight/shootexplosion.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shootexplosion.png,Assets/ShootingAssets/ShootingRight/shootexplosion.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shootexplosion.txt,Assets/ShootingAssets/ShootingRight/shotright.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shotright.png,Assets/ShootingAssets/ShootingRight/shotright.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shotright.txt,Assets/ShootingAssets/shotright.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/shotright.txt,Assets/shotright.txt=$MODULE_DIR$/src/main/resources/Assets/shotright.txt,META-INF/MANIFEST.MF=$MODULE_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+          <property key="Include-Resource" value="Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.png,Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.txt,Assets/ShootingAssets/ShootingLeft/shotLeft.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingLeft/shotLeft.png,Assets/ShootingAssets/ShootingLeft/shotLeft.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingLeft/shotLeft.txt,Assets/ShootingAssets/ShootingRight/shootexplosion.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shootexplosion.png,Assets/ShootingAssets/ShootingRight/shootexplosion.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shootexplosion.txt,Assets/ShootingAssets/ShootingRight/shotright.png=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shotright.png,Assets/ShootingAssets/ShootingRight/shotright.txt=$MODULE_DIR$/src/main/resources/Assets/ShootingAssets/ShootingRight/shotright.txt,META-INF/MANIFEST.MF=$MODULE_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
@@ -26,6 +26,10 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.osgi:org.osgi.core:4.3.0" level="project" />
     <orderEntry type="module" module-name="OSGiCommon" />
+    <orderEntry type="library" name="Maven: org.mockito:mockito-core:3.9.0" level="project" />
+    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.10.20" level="project" />
+    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy-agent:1.10.20" level="project" />
+    <orderEntry type="library" name="Maven: org.objenesis:objenesis:3.2" level="project" />
     <orderEntry type="module" module-name="OSGiCommonPlayer" />
     <orderEntry type="module" module-name="OSGiCommonWeapon" />
     <orderEntry type="library" name="Maven: com.badlogicgames.gdx:gdx:1.5.0" level="project" />

@@ -33,10 +33,26 @@ public class MapPluginTest {
         //assert world is set
         Assertions.assertNotNull(world.getWorldMap());
 
+
+        /*
+        Given an object, returns the total allocated size, in bytes, of the object
+         * and all other objects reachable from it.  Attempts to to detect the current JVM memory layout,
+        * but may fail with {@link UnsupportedOperationException};
+         */
+
+        MapImpl map = mock(MapImpl.class);
+        map.create();
         System.out.println(" ");
         System.out.println("MEMORY TEST - MAP");
-        System.out.println("Current Map object size");
+        System.out.println("Current MapPlugin object size");
         System.out.println(ObjectSizeCalculator.getObjectSize(mapPlugin));
+        System.out.println("Current MapImpl object size");
+        System.out.println(ObjectSizeCalculator.getObjectSize(map));
+
+    }
+
+    @Test
+    public void testDynamics() {
 
     }
 
