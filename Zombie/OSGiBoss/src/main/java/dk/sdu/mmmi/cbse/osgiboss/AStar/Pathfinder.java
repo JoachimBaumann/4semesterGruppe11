@@ -18,8 +18,11 @@ public class Pathfinder {
 
 
     public List<GridCell> findPath(GridCell startloc, GridCell endLoc) {
+        if (!navLayer.isWalkable(startloc) || !navLayer.isWalkable(endLoc)) {
+            System.out.println("Null pointer in cell");
+            return null;
+        }
         open.clear();
-
 
 
         startloc.setF(0f); // start Location is 0 cost as we're already there
@@ -32,11 +35,6 @@ public class Pathfinder {
 
             for (GridCell child : children) {
 
-                if(child.getParent() == null) {
-                    child.setParent(currentNode);
-                }
-
-
                 // If the child is the goal then stop the search
                 if (child.getX() == endLoc.getX() && child.getY() == endLoc.getY()) {
                     List<GridCell> path = new ArrayList<>();
@@ -44,48 +42,38 @@ public class Pathfinder {
                     path.add(child); // Add end location too. Can be ommitted
                     GridCell current = currentNode;
                     while (current != null) {
-                        startloc.setParent(null);
+                        //                    startloc.setParent(null);
                         path.add(current);
                         current = current.getParent();
                     }
                     Collections.reverse(path); // We have to reverse the path
 
                     return path;
-                } else {
+                }
+
+                if (!closed.contains(child)) {
+                    child.setG(child.getG() + navLayer.calculate(child, currentNode));
+                    child.setH(navLayer.calculate(child, endLoc));
 
 
-                    // Manhanttendistance to calculate Heuristic
-                    child.setH(navLayer.calculate(child,endLoc));
-                    child.setG(navLayer.getMovementCost(child,currentNode));
-                    child.setF(child.getG() + child.getH());
+                    float tempGscore = currentNode.getG() + child.getG();
 
-
-
-                    if (open.contains(child)) {
-                        continue;
-                    }
-                    if (closed.contains(child)) {
-                        continue;
-                    } else {
+                    if (!open.contains(child)) {
+                        child.setG(tempGscore);
+                        child.setF(child.getH() + child.getG());
+                        child.setParent(currentNode);
                         open.offer(child);
+                    } else {
+                        if (tempGscore < child.getG()) {
+                            child.setG(tempGscore);
+                            child.setF(navLayer.calculate(child, endLoc) + child.getG());
+                            child.setParent(currentNode);
+                        }
                     }
                 }
+
             }
-            closed.offer(currentNode);
         }
         return null;
-    }
-
-    // If a node with position already exists in the open list, and it has a lower f score, then there is no reason to expand that node
-    private boolean skipChild(GridCell node, PriorityQueue<GridCell> open) {
-        double nodeF = node.getF();
-        for (GridCell openNode : open) {
-            if (node.getX() == openNode.getX() && node.getY() == openNode.getY()) {
-                if (openNode.getF() < node.getF()) {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }
