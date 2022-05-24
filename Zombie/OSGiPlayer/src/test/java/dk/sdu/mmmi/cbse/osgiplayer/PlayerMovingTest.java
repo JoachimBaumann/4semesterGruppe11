@@ -48,6 +48,8 @@ public class PlayerMovingTest {
         Assertions.assertEquals(1000f, positionPart.getX());
 
 
+
+
         //move player to right
         movingPart.setRight(true);
         movingPart.testProcess(gameData, player);

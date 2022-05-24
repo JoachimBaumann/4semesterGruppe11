@@ -16,7 +16,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     private int currentLevel = 1;
     private Map<Integer, Integer> waves = waveMap();
     private List<Entity> enemies = new ArrayList<>();
-    private EnemySPI enemyService;
+    public EnemySPI enemyService;
 
 
     @Override
