@@ -28,6 +28,7 @@ public class BossControlSystem implements IEntityProcessingService {
     private NavigationTiledMapLayer navLayer;
     private Pathfinder pathfinder;
     private float maxSpeed = 100;
+    boolean second = false;
 
 
     private final int LEAST_DISTANCE = 10;
@@ -46,52 +47,59 @@ public class BossControlSystem implements IEntityProcessingService {
             navLayer.setWidth(360);
             pathfinder = new Pathfinder(navLayer);
         }
-
         Entity player = world.getEntities(Player.class).get(0);
         PositionPart playerPos = player.getPart(PositionPart.class);
 
-        Entity boss = world.getEntities(Boss.class).get(0);
-        PositionPart positionPart = boss.getPart(PositionPart.class);
-        LifePart lifePart = boss.getPart(LifePart.class);
+        List<Entity> bossList = world.getEntities(Boss.class);
 
 
-        if (path == null) {
-            path = pathfinder.findPath(navLayer.getCell((int) positionPart.getX() / pixelToTile, (int) positionPart.getY() / pixelToTile), navLayer.getCell((int) playerPos.getX() / pixelToTile, (int) playerPos.getY() / pixelToTile));
-        }
+        if (!bossList.isEmpty()) {
 
+            Entity boss = bossList.get(0);
+            PositionPart positionPart = boss.getPart(PositionPart.class);
+            LifePart lifePart = boss.getPart(LifePart.class);
 
-        GridCell node = path.get(0);
+            if (path == null) {
+                System.out.println(" new path");
+                path = pathfinder.findPath(navLayer.getCell((int) positionPart.getX() / pixelToTile, (int) positionPart.getY() / pixelToTile), navLayer.getCell((int) Math.round(playerPos.getX() / pixelToTile), (int) Math.round(playerPos.getY() / pixelToTile)));
+                for (GridCell node : path) {
+                    System.out.println(node.getX() + " " + node.getY() + " Gscore: " + node.getG() + " Hscore: " + node.getH());
 
-
-        double distance = Math.sqrt(Math.pow(positionPart.getX() - node.getX() * pixelToTile, 2) + Math.pow(positionPart.getY() - node.getY() * pixelToTile, 2));
-        System.out.println(distance);
-        if (distance <= LEAST_DISTANCE) {
-            path.remove(0);
-            if (path.isEmpty()) {
-                path = null;
+                }
             }
-            System.out.println("Path removed: ");
-        }
 
-        if (positionPart.getX() < node.getX() * pixelToTile) {
-            positionPart.setX(positionPart.getX() + maxSpeed * gameData.getDelta());
-        }
-        if (positionPart.getX() > node.getX() * pixelToTile) {
-            positionPart.setX(positionPart.getX() - maxSpeed * gameData.getDelta());
-        }
-        if (positionPart.getY() < node.getY() * pixelToTile) {
-            positionPart.setY(positionPart.getY() + maxSpeed * gameData.getDelta());
-        }
-        if (positionPart.getY() > node.getY() * pixelToTile) {
-            positionPart.setY(positionPart.getY() - maxSpeed * gameData.getDelta());
-        }
 
-        positionPart.process(gameData, boss);
-        lifePart.process(gameData, boss);
+            GridCell node = path.get(0);
+
+
+            double distance = Math.sqrt(Math.pow(positionPart.getX() - node.getX() * pixelToTile, 2) + Math.pow(positionPart.getY() - node.getY() * pixelToTile, 2));
+            if (distance <= LEAST_DISTANCE) {
+                path.remove(0);
+                if (path.isEmpty()) {
+                    path = null;
+                }
+                System.out.println("Path removed: ");
+            }
+
+            if (positionPart.getX() < node.getX() * pixelToTile) {
+                positionPart.setX(positionPart.getX() + maxSpeed * gameData.getDelta());
+            }
+            if (positionPart.getX() > node.getX() * pixelToTile) {
+                positionPart.setX(positionPart.getX() - maxSpeed * gameData.getDelta());
+            }
+            if (positionPart.getY() < node.getY() * pixelToTile) {
+                positionPart.setY(positionPart.getY() + maxSpeed * gameData.getDelta());
+            }
+            if (positionPart.getY() > node.getY() * pixelToTile) {
+                positionPart.setY(positionPart.getY() - maxSpeed * gameData.getDelta());
+            }
+
+            positionPart.process(gameData, boss);
+            lifePart.process(gameData, boss);
+
+        }
 
     }
-
-
 }
 
 

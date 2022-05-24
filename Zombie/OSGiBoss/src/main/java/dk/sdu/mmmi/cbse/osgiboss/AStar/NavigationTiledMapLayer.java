@@ -7,8 +7,8 @@ import java.util.List;
 
 public class NavigationTiledMapLayer extends MapLayer {
 
-    private final boolean allowDiagonal = true;
-    private boolean dontCrossCorners = true;
+    private final boolean allowDiagonal = false;
+    private boolean dontCrossCorners = false;
 
     private GridCell[][] nodes;
     private List<GridCell> neighbors = new ArrayList<>();
@@ -106,8 +106,7 @@ public class NavigationTiledMapLayer extends MapLayer {
 
     public float calculate(GridCell from, GridCell to) {
         GridCell c1 = (GridCell) from, c2 = (GridCell) to;
-
-        return (Math.abs(c2.x - c1.x) + Math.abs(c2.y - c1.y));
+        return (float) Math.sqrt(Math.pow(from.getX() - to.getX(),2) + Math.pow(from.getY() - to.getY(),2));
     }
 
 

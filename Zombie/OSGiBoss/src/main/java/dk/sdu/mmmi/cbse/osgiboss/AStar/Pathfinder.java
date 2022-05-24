@@ -18,62 +18,74 @@ public class Pathfinder {
 
 
     public List<GridCell> findPath(GridCell startloc, GridCell endLoc) {
-        if (!navLayer.isWalkable(startloc) || !navLayer.isWalkable(endLoc)) {
-            System.out.println("Null pointer in cell");
-            return null;
+        if (!navLayer.isWalkable(startloc)) {
+            System.out.println("smelly start");
         }
+        if (!navLayer.isWalkable(endLoc)) {
+            System.out.println("Null pointer in cell");
+        }
+
+
+
         open.clear();
 
 
         startloc.setF(0f); // start Location is 0 cost as we're already there
         open.add(startloc);
 
-        while (!open.isEmpty()) {
-            GridCell currentNode = open.poll();
+        while(!open.isEmpty())
 
-            List<GridCell> children = navLayer.getNeighbors(currentNode);
+    {
+        GridCell currentNode = open.poll();
+        closed.offer(currentNode);
 
-            for (GridCell child : children) {
-
-                // If the child is the goal then stop the search
-                if (child.getX() == endLoc.getX() && child.getY() == endLoc.getY()) {
-                    List<GridCell> path = new ArrayList<>();
-                    startloc.setParent(null);
-                    path.add(child); // Add end location too. Can be ommitted
-                    GridCell current = currentNode;
-                    while (current != null) {
-                        //                    startloc.setParent(null);
-                        path.add(current);
-                        current = current.getParent();
-                    }
-                    Collections.reverse(path); // We have to reverse the path
-
-                    return path;
-                }
-
-                if (!closed.contains(child)) {
-                    child.setG(child.getG() + navLayer.calculate(child, currentNode));
-                    child.setH(navLayer.calculate(child, endLoc));
-
-
-                    float tempGscore = currentNode.getG() + child.getG();
-
-                    if (!open.contains(child)) {
-                        child.setG(tempGscore);
-                        child.setF(child.getH() + child.getG());
-                        child.setParent(currentNode);
-                        open.offer(child);
-                    } else {
-                        if (tempGscore < child.getG()) {
-                            child.setG(tempGscore);
-                            child.setF(navLayer.calculate(child, endLoc) + child.getG());
-                            child.setParent(currentNode);
-                        }
-                    }
-                }
-
-            }
+        if (currentNode == endLoc) {
+            return null;
         }
-        return null;
+
+        List<GridCell> children = navLayer.getNeighbors(currentNode);
+
+        for (GridCell child : children) {
+
+            // If the child is the goal then stop the search
+            if (child.getX() == endLoc.getX() && child.getY() == endLoc.getY()) {
+                List<GridCell> path = new ArrayList<>();
+                startloc.setParent(null);
+                path.add(child); // Add end location too. Can be ommitted
+                GridCell current = currentNode;
+                while (current != null) {
+                    //                    startloc.setParent(null);
+                    path.add(current);
+                    current = current.getParent();
+                }
+                Collections.reverse(path); // We have to reverse the path
+
+                return path;
+            }
+
+            if (!closed.contains(child)) {
+                child.setG(child.getG() + navLayer.calculate(child, currentNode));
+                child.setH(navLayer.calculate(child, endLoc));
+
+
+                float tempGscore = currentNode.getG() + child.getG();
+
+                if (!open.contains(child)) {
+                    child.setG(tempGscore);
+                    child.setF(child.getH() + child.getG());
+                    child.setParent(currentNode);
+                    open.offer(child);
+                } else {
+                    if (tempGscore < child.getG()) {
+                        child.setG(tempGscore);
+                        child.setF(navLayer.calculate(child, endLoc) + child.getG());
+                        child.setParent(currentNode);
+                    }
+                }
+            }
+
+        }
     }
+        return null;
+}
 }
