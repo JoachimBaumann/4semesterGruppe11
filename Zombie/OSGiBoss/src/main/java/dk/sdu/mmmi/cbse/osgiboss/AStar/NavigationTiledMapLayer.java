@@ -7,7 +7,7 @@ import java.util.List;
 
 public class NavigationTiledMapLayer extends MapLayer {
 
-    private final boolean allowDiagonal = false;
+    private final boolean allowDiagonal = true;
     private boolean dontCrossCorners = false;
 
     private GridCell[][] nodes;
@@ -34,39 +34,40 @@ public class NavigationTiledMapLayer extends MapLayer {
                 s2 = false, d2 = false, s3 = false, d3 = false;
 
         // up
-        try{
-            if (isWalkable(x, y + yDir)){
+        try {
+            if (isWalkable(x, y + yDir)) {
                 System.out.println("fuck");
                 neighbors.add(nodes[x][y + yDir]);
                 s0 = true;
             }
-        }catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             s0 = false;
         }
         // right
-        try{
-        if (isWalkable(x + 1, y)) {
-            neighbors.add(nodes[x + 1][y]);
-            s1 = true;
-        }
-        }catch (ArrayIndexOutOfBoundsException e){
-                s1 = false;
+        try {
+            if (isWalkable(x + 1, y)) {
+                neighbors.add(nodes[x + 1][y]);
+                s1 = true;
             }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            s1 = false;
+        }
         // down
         try {
             if (isWalkable(x, y - yDir)) {
                 neighbors.add(nodes[x][y - yDir]);
                 s2 = true;
             }
-        }catch(ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             s2 = false;
         }
         // left
-        try{
-        if (isWalkable(x - 1, y)) {
-            neighbors.add(nodes[x - 1][y]);
-            s3 = true;
-        }        }catch (ArrayIndexOutOfBoundsException e){
+        try {
+            if (isWalkable(x - 1, y)) {
+                neighbors.add(nodes[x - 1][y]);
+                s3 = true;
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
             s3 = false;
         }
 
@@ -87,20 +88,39 @@ public class NavigationTiledMapLayer extends MapLayer {
         }
 
         // up left
-        if (d0 && this.isWalkable(x - 1, y + yDir)) {
-            neighbors.add(nodes[x - 1][y + yDir]);
+        try {
+            if (d0 && this.isWalkable(x - 1, y + yDir)) {
+                neighbors.add(nodes[x - 1][y + yDir]);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            d0 = false;
         }
         // up right
-        if (d1 && this.isWalkable(x + 1, y + yDir)) {
-            neighbors.add(nodes[x + 1][y + yDir]);
+        try {
+
+            if (d1 && this.isWalkable(x + 1, y + yDir)) {
+                neighbors.add(nodes[x + 1][y + yDir]);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            d1 = false;
         }
         // down right
-        if (d2 && this.isWalkable(x + 1, y - yDir)) {
-            neighbors.add(nodes[x + 1][y - yDir]);
+        try {
+
+            if (d2 && this.isWalkable(x + 1, y - yDir)) {
+                neighbors.add(nodes[x + 1][y - yDir]);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            d2 = false;
         }
         // down left
-        if (d3 && this.isWalkable(x - 1, y - yDir)) {
-            neighbors.add(nodes[x - 1][y - yDir]);
+        try {
+
+            if (d3 && this.isWalkable(x - 1, y - yDir)) {
+                neighbors.add(nodes[x - 1][y - yDir]);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            d3 = false;
         }
 
 
@@ -122,7 +142,7 @@ public class NavigationTiledMapLayer extends MapLayer {
 
     public float calculate(GridCell from, GridCell to) {
         GridCell c1 = (GridCell) from, c2 = (GridCell) to;
-        return (float) Math.sqrt(Math.pow(from.getX() - to.getX(),2) + Math.pow(from.getY() - to.getY(),2));
+        return (float) Math.sqrt(Math.pow(from.getX() - to.getX(), 2) + Math.pow(from.getY() - to.getY(), 2));
     }
 
 
