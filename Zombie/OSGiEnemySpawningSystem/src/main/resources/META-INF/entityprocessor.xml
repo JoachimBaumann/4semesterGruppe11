@@ -9,4 +9,8 @@
                interface="dk.sdu.mmmi.cbse.common.enemy.EnemySPI"
                name="EnemyService" policy="dynamic" unbind="removeEnemyService"/>
 
+    <reference bind="setBossService" cardinality="0..1"
+                   interface="dk.sdu.mmmi.cbse.common.enemy.BossSPI"
+                   name="BossService" policy="dynamic" unbind="removeBossService"/>
+
 </scr:component>
