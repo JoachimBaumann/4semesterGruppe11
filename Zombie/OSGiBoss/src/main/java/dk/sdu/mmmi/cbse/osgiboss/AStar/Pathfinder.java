@@ -19,10 +19,10 @@ public class Pathfinder {
 
     public List<GridCell> findPath(GridCell startloc, GridCell endLoc) {
         if (!navLayer.isWalkable(startloc)) {
-            System.out.println("smelly start");
+            System.out.println("Error in startlocation, not walkable");
         }
         if (!navLayer.isWalkable(endLoc)) {
-            System.out.println("Null pointer in cell");
+            System.out.println("Error in endlocation, not walkable");
         }
 
 

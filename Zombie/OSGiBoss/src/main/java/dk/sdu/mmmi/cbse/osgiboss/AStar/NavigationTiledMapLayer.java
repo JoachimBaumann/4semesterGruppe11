@@ -8,7 +8,7 @@ import java.util.List;
 public class NavigationTiledMapLayer extends MapLayer {
 
     private final boolean allowDiagonal = true;
-    private boolean dontCrossCorners = false;
+    private boolean dontCrossCorners = true;
 
     private GridCell[][] nodes;
     private List<GridCell> neighbors = new ArrayList<>();
@@ -36,7 +36,6 @@ public class NavigationTiledMapLayer extends MapLayer {
         // up
         try {
             if (isWalkable(x, y + yDir)) {
-                System.out.println("fuck");
                 neighbors.add(nodes[x][y + yDir]);
                 s0 = true;
             }
