@@ -12,10 +12,11 @@ import java.util.Map;
 
 
 public class EnemySpawningSystem implements IEntityProcessingService {
+
     private int currentLevel = 1;
     private Map<Integer, Integer> waves = waveMap();
     private List<Entity> enemies = new ArrayList<>();
-    private EnemySPI enemyService;
+    public EnemySPI enemyService;
 
 
     @Override
@@ -69,11 +70,15 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         myMap.put(5, 5);
         myMap.put(6, 6);
         myMap.put(7, 8);
-        myMap.put(8, 10);
-        myMap.put(9, 12);
+        myMap.put(8, 9);
+        myMap.put(9, 10);
         myMap.put(10, 1);
         myMap.put(11, 0);
         return myMap;
+    }
+
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
     }
 
     public void setEnemyService(EnemySPI enemySPI) {

@@ -24,6 +24,7 @@ import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
 import dk.sdu.mmmi.cbse.core.managers.GameInputProcessor;
+import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -218,7 +219,7 @@ public class Game implements ApplicationListener {
             String highScore = gameData.getCurrentHighScore();
             String playerScore = gameData.getPlayerScore();
             CharSequence newHighScore = "High Score:";
-            CharSequence charHighScore = playerScore;
+            CharSequence charHighScore = highScore;
             endgameBatch.begin();
             victoyTextSprite.draw(endgameBatch);
             font.draw(endgameBatch, "high score: " + charHighScore, Gdx.graphics.getWidth()/4.25f, Gdx.graphics.getHeight()/2f);

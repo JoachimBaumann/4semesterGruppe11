@@ -22,7 +22,7 @@ public class ScorePlugin implements IGamePluginService {
     //A red-black tree is a self-balancing binary search tree where each node has an extra bit, and that bit is often interpreted as the colour (red or black).
     // These colours are used to ensure that the tree remains balanced during insertions and deletions. Although the balance of the tree is not perfect,
     // it is good enough to reduce the searching time and maintain it around O(log n) time, where n is the total number of elements in the tree.
-    //HashMap and LinkedHashMap offers O(n)
+    //HashMap and LinkedHashMap offers O(n) or O(1)
     //Choose a structure to hold scores
 
     private TreeMap<String, Integer> treeMapScores = new TreeMap<>();
@@ -32,6 +32,7 @@ public class ScorePlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         loadScoresHash();
+        System.out.println(getHighScore());
         gameData.setCurrentHighScore(getHighScore());
     }
 
@@ -132,7 +133,11 @@ public class ScorePlugin implements IGamePluginService {
     //}
 
     public String getHighScore() {
-        return getSortedHashMap().last().toString();
+        try {
+            return getSortedHashMap().last().toString();
+        } catch (NoSuchElementException e) {
+            return "No HighScore set yet";
+        }
     }
 
     public SortedSet getSortedHashMap() {
