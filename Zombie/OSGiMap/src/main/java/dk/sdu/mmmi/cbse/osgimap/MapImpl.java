@@ -21,7 +21,7 @@ public class MapImpl extends WorldMap {
         TmxMapLoader loader = new TmxMapLoader();
         //AssetLoader.getAssetPath("map1.tmx");
 
-        map = loader.load(AssetLoader.getAssetPath(coreAssetPath,"/widemap.tmx"));
+        map = loader.load(AssetLoader.getAssetPath(coreAssetPath,"/finalmap.tmx"));
 
 
         this.setMap(map);

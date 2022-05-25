@@ -42,6 +42,16 @@ public class World {
         return r;
     }
 
+    public List<Entity> getBoss() {
+        List<Entity> r = new ArrayList<>();
+        for (Entity e : getEntities()) {
+            if (e.getType().equals("boss")) {
+                r.add(e);
+            }
+        }
+        return r;
+    }
+
 
     public List<Entity> getEnemies() {
         List<Entity> r = new ArrayList<>();
