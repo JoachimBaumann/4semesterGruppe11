@@ -33,7 +33,7 @@ public class EnemyBat extends Enemy {
 
     @Override
     public String getName() {
-        return null;
+        return "Bat";
     }
 
     @Override
