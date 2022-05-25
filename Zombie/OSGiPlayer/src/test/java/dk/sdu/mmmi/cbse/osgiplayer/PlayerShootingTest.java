@@ -7,6 +7,7 @@ import dk.sdu.mmmi.cbse.common.data.GameKeys;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.weapon.Weapon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
@@ -32,11 +33,12 @@ public class PlayerShootingTest {
         PlayerControlSystem playerControlSystem = new PlayerControlSystem();
         gameData.getKeys().setKey(GameKeys.SPACE, true);
         playerControlSystem.processTest(gameData, world);
+
         Assertions.assertEquals(2, world.getEntities().size());
 
-        for (Entity entity: world.getEntities()) {
+        for (Entity entity: world.getEntities(Weapon.class)) {
             System.out.println(entity.getName());
-
+            Assertions.assertEquals("Bullet", entity.getName());
             }
     }
 
