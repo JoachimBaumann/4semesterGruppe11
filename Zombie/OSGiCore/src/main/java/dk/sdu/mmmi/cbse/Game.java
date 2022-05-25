@@ -168,12 +168,14 @@ public class Game implements ApplicationListener {
                 freeze = false;
             }
         }
+
+
         draw();
 
         //Pauses update to pause the game
-        if (!freeze) {
-            update();
-        }
+
+        update();
+
 
         ui();
 
@@ -189,20 +191,24 @@ public class Game implements ApplicationListener {
     private void update() {
         // Update
         for (IEntityProcessingService entityProcessorService : entityProcessorList) {
-            entityProcessorService.process(gameData, world);
+                entityProcessorService.process(gameData, world);
         }
         // Post Update
         for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessorList) {
-            postEntityProcessorService.process(gameData, world);
+                postEntityProcessorService.process(gameData, world);
         }
 
         if (gameData.isGameLost()) {
 
             String highScore = gameData.getCurrentHighScore();
             String playerScore = gameData.getPlayerScore();
+            CharSequence charHighScore = highScore;
+            font = new BitmapFont();
+            font.setScale(2f);
             //todo: display scores here
             endgameBatch.begin();
             youDiedTextSprite.setPosition(Gdx.graphics.getWidth()*0.15f,Gdx.graphics.getHeight()*0.5f);
+            font.draw(endgameBatch, "high score: " + charHighScore, Gdx.graphics.getWidth()/4.25f, Gdx.graphics.getHeight()/2f);
             youDiedTextSprite.draw(endgameBatch);
             //deadEndgameSprite.draw(endgameBatch);
             endgameBatch.end();
