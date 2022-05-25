@@ -40,8 +40,6 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         for (int i = 0; i < enemyAmount; i++) {
             if (enemyService != null) {
                 Entity enemy = enemyService.createEnemy(gameData);
-                System.out.println(enemy);
-                System.out.println(gameData);
                 world.addEntity(enemy);
             }
         }
