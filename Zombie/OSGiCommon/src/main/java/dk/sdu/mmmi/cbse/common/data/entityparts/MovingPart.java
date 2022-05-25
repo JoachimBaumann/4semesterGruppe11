@@ -228,5 +228,60 @@ public class MovingPart implements EntityPart {
         return collides;
 
     }
+    /*
+    Method used in testing, as there is no map dependency
+     */
+    public void testProcess(GameData gameData, Entity entity) {
+        PositionPart positionPart = entity.getPart(PositionPart.class);
+        float x = positionPart.getX();
+        float y = positionPart.getY();
+        float delta = 2f;
+        float newX, newY;
+        //TiledMapTileLayer collisonLayer = (TiledMapTileLayer) gameData.getWorldMap().getMap().getLayers().get(0);
+
+        float jumpHeight = 75;
+
+        //NEW
+        //float direction = positionPart.getDirection();
+        gravity = 0f;
+
+
+        // apply gravity
+        velocity.y -= gravity * delta;
+
+        // clamp velocity
+        if (velocity.y > maxSpeed)
+            velocity.y = maxSpeed;
+        else if (velocity.y < -maxSpeed)
+            velocity.y = -maxSpeed;
+
+        //String stringPath = entity.getName();
+
+        if (left) {
+            //direction = positionPart.getLeft();
+            velocity.x -= maxSpeed * delta;
+
+        }
+        if (right) {
+
+            velocity.x += maxSpeed * delta;
+
+        }
+        if (up) {
+            if (getCantJump()) {
+                velocity.y += jumpHeight / 1.8f;
+                setCanJump(false);
+            }
+        }
+
+        newX = x + velocity.x;
+        newY = y + velocity.y;
+
+        velocity.x = 0;
+
+        positionPart.setX(newX);
+        positionPart.setY(newY);
+
+    }
 
 }
