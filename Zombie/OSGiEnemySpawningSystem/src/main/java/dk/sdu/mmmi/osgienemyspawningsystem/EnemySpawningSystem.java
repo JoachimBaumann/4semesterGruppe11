@@ -81,7 +81,7 @@ public class EnemySpawningSystem implements IEntityProcessingService {
         myMap.put(6, 6);
         myMap.put(7, 8);
         myMap.put(8, 9);
-        myMap.put(9, 10);
+        myMap.put(9, 0);
         myMap.put(10, 1);
         myMap.put(11, 0);
         return myMap;

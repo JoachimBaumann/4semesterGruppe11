@@ -45,7 +45,7 @@ public class PlayerPlugin extends Player implements IGamePluginService {
         playerShip.setHeight(84);
         playerShip.setWidth(115);
         playerShip.setRadius(20);
-
+        playerShip.setType("player");
 
         playerShip.setEntityAssetPath(playerAssetPath);
 

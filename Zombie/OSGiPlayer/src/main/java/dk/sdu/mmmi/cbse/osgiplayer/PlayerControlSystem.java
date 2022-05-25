@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.data.*;
 import dk.sdu.mmmi.cbse.common.data.entityparts.*;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.player.Player;
+import dk.sdu.mmmi.cbse.common.weapon.Weapon;
 import dk.sdu.mmmi.cbse.common.weapon.WeaponSPI;
 
 
@@ -61,6 +62,19 @@ public class PlayerControlSystem implements IEntityProcessingService {
             movingPart.process(gameData, player);
             positionPart.process(gameData, player);
 
+        }
+    }
+
+
+    /*
+    Mock of process
+     */
+    public void processTest(GameData gameData, World world) {
+        Entity player = world.getEntities(Player.class).get(0);
+
+        if (gameData.getKeys().isDown(GameKeys.SPACE)) {
+            Entity bullet = new Weapon();
+            world.addEntity(bullet);
         }
     }
 
