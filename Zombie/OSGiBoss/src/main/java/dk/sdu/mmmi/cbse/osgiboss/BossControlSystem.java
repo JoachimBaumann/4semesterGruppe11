@@ -29,7 +29,7 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
     private TmxMapLoader loader = new NavTmxMapLoader();
     private NavigationTiledMapLayer navLayer;
     private Pathfinder pathfinder;
-    private float maxSpeed = 100;
+    private float maxSpeed = 400;
     boolean second = false;
 
     Entity player;
@@ -44,7 +44,7 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
     public Entity createBoss(GameData gameData) {
         Entity boss = new Boss();
         boss.add(new PositionPart(2880, 150f, 0));
-        boss.add(new LifePart(100));
+        boss.add(new LifePart(10));
         boss.setType("boss");
         boss.setHeight(315f);
         boss.setWidth(315f);
@@ -70,9 +70,6 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
            playerPos = player.getPart(PositionPart.class);
         }
 
-
-        Entity player = world.getEntities(Player.class).get(0);
-        PositionPart playerPos = player.getPart(PositionPart.class);
 
         List<Entity> bossList = world.getEntities(Boss.class);
 
