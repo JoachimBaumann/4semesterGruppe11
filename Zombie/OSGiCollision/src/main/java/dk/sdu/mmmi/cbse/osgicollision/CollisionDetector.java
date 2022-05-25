@@ -41,7 +41,7 @@ public class CollisionDetector implements IPostEntityProcessingService {
         }
     }
 
-    public Boolean Collides(Entity entity, Entity entity2) {
+    public static Boolean Collides(Entity entity, Entity entity2) {
         PositionPart entMov = entity.getPart(PositionPart.class);
         PositionPart entMov2 = entity2.getPart(PositionPart.class);
 

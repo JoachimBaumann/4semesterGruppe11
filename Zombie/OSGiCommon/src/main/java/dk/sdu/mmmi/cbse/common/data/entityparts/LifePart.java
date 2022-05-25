@@ -57,6 +57,16 @@ public class LifePart implements EntityPart {
 
     }
 
+    public void processTest() {
+        if (isHit) {
+            life =- 1;
+            isHit = false;
+        }
+        if (life <= 0) {
+            dead = true;
+        }
+    }
+
     public int getStarterLife() {
         return starterLife;
     }

@@ -50,13 +50,14 @@
     <module>poms</module>
     <module>OSGiLibGDX</module>
     <module>OSGiCollision</module>
-    <module>OSGiCommon</module>
+    <module>OSGiCommonPlayer</module>
     <module>OSGiCommonEnemy</module>
     <module>OSGiPlayer</module>
     <module>OSGiEnemy</module>
     <module>OSGiCore</module>
-    <module>OSGiCommonPlayer</module>
     <module>OSGiCommonWeapon</module>
+    <module>OSGiCommon</module>
+
     <module>provision</module>
     <module>OSGiMap</module>
     <!--    <module>OSGiWeapon</module>-->
