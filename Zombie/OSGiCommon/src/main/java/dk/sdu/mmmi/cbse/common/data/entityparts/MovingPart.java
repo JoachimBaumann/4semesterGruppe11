@@ -91,7 +91,7 @@ public class MovingPart implements EntityPart {
 
     @Override
     public void process(GameData gameData, Entity entity) {
-        System.out.println("entity " + entity);
+
         PositionPart positionPart = entity.getPart(PositionPart.class);
         float x = positionPart.getX();
         float y = positionPart.getY();
@@ -121,7 +121,6 @@ public class MovingPart implements EntityPart {
             direction = positionPart.getLeft();
             velocity.x -= maxSpeed * delta;
             if (stringPath != null && entity.directionTypeEntity){
-                System.out.println("left");
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(entity.getEntityAssetPath(), entity.getLeftAssetPath())));
                 entity.setAnimation(new Animation(entity.getFrameDuration(), entity.getTextureAtlas().getRegions()));
             }
@@ -132,12 +131,7 @@ public class MovingPart implements EntityPart {
         if (right) {
             direction = positionPart.getRight();
             velocity.x += maxSpeed * delta;
-            System.out.println("entityTYPE: " + entity.getType());
-            System.out.println("DIRETIONTYPE: "+ entity.directionTypeEntity);
             if (stringPath != null && entity.directionTypeEntity){
-                System.out.println("right");
-                System.out.println(entity.getEntityAssetPath());
-                System.out.println(entity.getRightAssetPath());
                 entity.setTextureAtlas(new TextureAtlas(AssetLoader.getAssetPath(entity.getEntityAssetPath(), entity.getRightAssetPath())));
                 entity.setAnimation(new Animation(entity.getFrameDuration(), entity.getTextureAtlas().getRegions()));
             }
