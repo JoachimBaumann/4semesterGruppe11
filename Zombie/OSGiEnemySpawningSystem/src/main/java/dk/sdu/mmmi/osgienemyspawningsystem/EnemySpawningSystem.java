@@ -21,20 +21,27 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     private List<Entity> bosses = new ArrayList<>();
     public EnemySPI enemyService;
     public BossSPI bossService;
+    public boolean firstBossSpawned = false;
 
 
     @Override
     public void process(GameData gameData, World world) {
         enemies = world.getEnemies();
-        bosses = world.getBoss();
+
 
         if (enemies.size() == 0 && currentLevel < 10) {
             spawnEnemies(gameData, world);
-            updateLevel(gameData);
+            if (enemies.size() == 0){
+                updateLevel(gameData);
+            }
         }
-        if (currentLevel == 10 && enemies.size() == 0) {
+        if (currentLevel == 10 && !firstBossSpawned) {
             spawnBoss(gameData, world);
-            updateLevel(gameData);
+            bosses = world.getBoss();
+            firstBossSpawned = true;
+            if (bosses.size() == 0){
+                updateLevel(gameData);
+            }
         }
         if (currentLevel == 11) {
             gameData.setGameWon(true);

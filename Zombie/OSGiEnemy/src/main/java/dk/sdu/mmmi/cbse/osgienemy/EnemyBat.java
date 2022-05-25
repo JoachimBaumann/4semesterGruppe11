@@ -31,14 +31,16 @@ public class EnemyBat extends Enemy {
         super.dispose();
     }
 
-    @Override
-    public String getName() {
-        return "Bat";
-    }
+
 
     @Override
     public float getAnimationYOffset() {
         return animationYOffset;
+    }
+
+    @Override
+    public String getName(){
+        return null;
     }
 
 
