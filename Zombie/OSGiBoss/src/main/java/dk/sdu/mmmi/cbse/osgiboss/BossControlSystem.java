@@ -32,6 +32,9 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
     private float maxSpeed = 100;
     boolean second = false;
 
+    Entity player;
+    PositionPart playerPos;
+
 
     private final int LEAST_DISTANCE = 10;
     private final int pixelToTile = 32;
@@ -61,6 +64,13 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
             navLayer.setWidth(360);
             pathfinder = new Pathfinder(navLayer);
         }
+        List<Entity> playerList = world.getEntities(Player.class);
+        if(!playerList.isEmpty()) {
+           player = playerList.get(0);
+           playerPos = player.getPart(PositionPart.class);
+        }
+
+
         Entity player = world.getEntities(Player.class).get(0);
         PositionPart playerPos = player.getPart(PositionPart.class);
 
