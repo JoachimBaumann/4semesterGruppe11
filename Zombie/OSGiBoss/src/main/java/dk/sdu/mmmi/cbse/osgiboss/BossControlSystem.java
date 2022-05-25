@@ -8,6 +8,8 @@ import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
+import dk.sdu.mmmi.cbse.common.enemy.BossSPI;
+import dk.sdu.mmmi.cbse.common.enemy.EnemySPI;
 import dk.sdu.mmmi.cbse.common.player.Player;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.osgiboss.AStar.GridCell;
@@ -17,7 +19,7 @@ import dk.sdu.mmmi.cbse.osgiboss.AStar.Pathfinder;
 
 import java.util.List;
 
-public class BossControlSystem implements IEntityProcessingService {
+public class BossControlSystem implements IEntityProcessingService, BossSPI {
 
     private static final String commonAssetPath = "\\Zombie\\OSGiCommon\\src\\main\\resources\\Assets\\";
     private String assetPath = AssetLoader.whichOS(commonAssetPath);
@@ -34,6 +36,18 @@ public class BossControlSystem implements IEntityProcessingService {
     private final int LEAST_DISTANCE = 10;
     private final int pixelToTile = 32;
     List<GridCell> path;
+
+    @Override
+    public Entity createBoss(GameData gameData) {
+        Entity boss = new Boss();
+        boss.add(new PositionPart(2880, 150f, 0));
+        boss.add(new LifePart(100));
+        boss.setType("boss");
+        boss.setHeight(315f);
+        boss.setWidth(315f);
+
+        return boss;
+    }
 
     @Override
     public void process(GameData gameData, World world) {
@@ -60,12 +74,7 @@ public class BossControlSystem implements IEntityProcessingService {
             LifePart lifePart = boss.getPart(LifePart.class);
 
             if (path == null) {
-                System.out.println(" new path");
                 path = pathfinder.findPath(navLayer.getCell((int) positionPart.getX() / pixelToTile, (int) positionPart.getY() / pixelToTile), navLayer.getCell((int) Math.round(playerPos.getX() / pixelToTile), (int) Math.round(playerPos.getY() / pixelToTile)));
-                for (GridCell node : path) {
-                    System.out.println(node.getX() + " " + node.getY() + " Gscore: " + node.getG() + " Hscore: " + node.getH());
-
-                }
             }
 
 
@@ -78,7 +87,6 @@ public class BossControlSystem implements IEntityProcessingService {
                 if (path.isEmpty()) {
                     path = null;
                 }
-                System.out.println("Path removed: ");
             }
 
             if (positionPart.getX() < node.getX() * pixelToTile) {

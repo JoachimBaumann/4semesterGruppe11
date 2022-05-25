@@ -3,6 +3,7 @@ package dk.sdu.mmmi.cbse.osgiboss;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import dk.sdu.mmmi.cbse.common.data.AssetLoader;
+import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.enemy.Enemy;
 
 public class Boss extends Enemy {
