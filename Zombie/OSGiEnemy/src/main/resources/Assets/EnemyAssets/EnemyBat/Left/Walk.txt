@@ -1,4 +1,4 @@
-EnemyBatWalk.png
+Walk.png
 size: 824, 59
 format: RGBA8888
 filter: Linear,Linear

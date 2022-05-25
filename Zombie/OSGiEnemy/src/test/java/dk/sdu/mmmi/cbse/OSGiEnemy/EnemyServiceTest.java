@@ -51,9 +51,6 @@ public class EnemyServiceTest {
         for (Entity e: entityList) {
             System.out.println("Name:" + e.getName());
             Assertions.assertTrue(nameList.contains(e.getName()));
-
         }
-
     }
-
 }
