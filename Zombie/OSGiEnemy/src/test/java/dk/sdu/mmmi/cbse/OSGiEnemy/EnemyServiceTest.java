@@ -28,14 +28,12 @@ public class EnemyServiceTest {
         nameList.add("Snail");
         nameList.add("Bat");
 
-
         System.out.println("start - enemy");
 
         GameData gameData = mock(GameData.class); //creates mock object
         World world = mock(World.class); //creates another mock object
 
         when(world.addEntity(any(Entity.class))).thenReturn("1"); //when addEntity() is called then return "1"
-
 
         EnemySPI spi = new EnemySystem();
         Entity entity = spi.createEnemy(gameData);
@@ -53,10 +51,9 @@ public class EnemyServiceTest {
         for (Entity e: entityList) {
             System.out.println("Name:" + e.getName());
             Assertions.assertTrue(nameList.contains(e.getName()));
+
         }
 
     }
-
-
 
 }
