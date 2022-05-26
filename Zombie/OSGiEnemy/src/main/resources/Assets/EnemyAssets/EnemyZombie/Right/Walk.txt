@@ -1,40 +1,40 @@
 Walk.png
-size: 434, 122
+size: 638, 181
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-z0
-  rotate: false
-  xy: 181, 1
-  size: 84, 120
-  orig: 88, 122
-  offset: 2, 0
-  index: -1
-z1
-  rotate: false
-  xy: 267, 1
-  size: 84, 120
-  orig: 88, 122
-  offset: 2, 0
-  index: -1
-z2
-  rotate: false
-  xy: 353, 1
-  size: 80, 120
-  orig: 88, 122
-  offset: 4, 0
-  index: -1
-z3
+output-onlinepngtools-2
   rotate: false
   xy: 1, 1
-  size: 88, 120
-  orig: 88, 122
-  offset: 0, 0
+  size: 130, 179
+  orig: 132, 183
+  offset: 1, 0
   index: -1
-z4
+output-onlinepngtools-3
   rotate: false
-  xy: 91, 1
-  size: 88, 120
-  orig: 88, 122
-  offset: 0, 0
+  xy: 517, 1
+  size: 120, 179
+  orig: 132, 183
+  offset: 6, 0
+  index: -1
+output-onlinepngtools-4
+  rotate: false
+  xy: 265, 1
+  size: 124, 179
+  orig: 132, 183
+  offset: 4, 0
+  index: -1
+output-onlinepngtools-5
+  rotate: false
+  xy: 391, 1
+  size: 124, 179
+  orig: 132, 183
+  offset: 4, 0
+  index: -1
+output-onlinepngtools
+  rotate: false
+  xy: 133, 1
+  size: 130, 179
+  orig: 132, 183
+  offset: 1, 0
   index: -1

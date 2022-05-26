@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class EnemySpawningSystem implements IEntityProcessingService {
 
-    private int currentLevel = 9;
+    private int currentLevel = 1;
     private Map<Integer, Integer> waves = waveMap();
     private List<Entity> enemies = new ArrayList<>();
     private List<Entity> bosses = new ArrayList<>();
@@ -27,7 +27,8 @@ public class EnemySpawningSystem implements IEntityProcessingService {
     @Override
     public void process(GameData gameData, World world) {
         enemies = world.getEnemies();
-
+        bosses = world.getBoss();
+        System.out.println("bossListSize: "+ bosses.size());
 
         if (enemies.size() == 0 && currentLevel < 10) {
             spawnEnemies(gameData, world);
