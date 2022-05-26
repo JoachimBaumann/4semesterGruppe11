@@ -8,7 +8,7 @@
           <property key="Export-Package" value="!dk.sdu.mmmi.cbse.internal.*,dk.sdu.mmmi.cbse.*;version=&quot;1.0-SNAPSHOT&quot;" />
           <property key="Private-Package" value="dk.sdu.mmmi.cbse.internal.*" />
           <property key="Bundle-Name" value="OSGiScoreSystem" />
-          <property key="Include-Resource" value="META-INF/gameplugin.xml=$MODULE_DIR$/src/main/resources/META-INF/gameplugin.xml" />
+          <property key="Include-Resource" value="META-INF/gameplugin.xml=C:/Users/nadia/Documents/GitHub/4semesterGruppe11/Zombie/OSGiScoreSystem/src/main/resources/META-INF/gameplugin.xml" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
