@@ -6,6 +6,7 @@ import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.data.entityparts.LifePart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.weapon.Weapon;
 
 public class CollisionDetector implements IPostEntityProcessingService {
 
@@ -26,20 +27,27 @@ public class CollisionDetector implements IPostEntityProcessingService {
                     // if entity has been hit, and should have its life reduced
 
                     if (entityLife.getLife() > 0) {
-                        entityLife.setLife(entityLife.getLife() - 1);
+                        if (entity.getType() == "Weapon"){
+                            entityLife.setLife(entityLife.getLife() - 3);
+                            entityLife.setIsHit(true);
+                        }else{
+                        entityLife.setLife(entityLife.getLife() - 2);
                         entityLife.setIsHit(true);
+                    }
+                    }
+
                         LifePart coldetect = collisionDetection.getPart(LifePart.class);
                         coldetect.setIsHit(true);
                         // if entity is out of life - remove
                         world.getEntities();
-                        if (entityLife.getLife() == 0 && entity.getName() != "Bullet") {
+                        if (entityLife.getLife() <= 0 && entity.getName() != "Bullet") {
                             world.removeEntity(entity);
                         }
                     }
                 }
             }
         }
-    }
+
 
     public Boolean Collides(Entity entity, Entity entity2) {
         PositionPart entMov = entity.getPart(PositionPart.class);

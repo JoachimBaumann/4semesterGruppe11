@@ -52,10 +52,9 @@ public class EnemySystem implements IEntityProcessingService, EnemySPI{
         int xCoordinate = getRandomNumber(0, 4000);
         int yCoordinate = getRandomNumber(100, 500);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , direction));
-        enemy.add(new LifePart(1));
         enemy.setWidth(115);
         enemy.setRadius(20);
-        enemy.add(new LifePart(1));
+        enemy.add(new LifePart(50));
 
         enemy.directionTypeEntity = true;
         enemy.setType("enemy");

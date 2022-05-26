@@ -79,7 +79,7 @@ public class LaserSystem implements IEntityProcessingService, WeaponSPI {
         float y = shooterPos.getY();
         float direction = shooterPos.getDirection();
         float dt = gameData.getDelta();
-        float speed = 350;
+        float speed = 700;
 
 
         Entity bullet = new Weapon();

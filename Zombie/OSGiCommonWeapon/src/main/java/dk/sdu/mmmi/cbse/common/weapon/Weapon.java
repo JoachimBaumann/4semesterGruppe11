@@ -8,4 +8,9 @@ public class Weapon extends Entity {
     public String getName() {
         return "Bullet";
     }
+
+    @Override
+    public  String getType(){
+        return "Weapon";
+    }
 }

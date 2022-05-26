@@ -29,7 +29,7 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
     private TmxMapLoader loader = new NavTmxMapLoader();
     private NavigationTiledMapLayer navLayer;
     private Pathfinder pathfinder;
-    private float maxSpeed = 400;
+    private float maxSpeed = 500;
     boolean second = false;
 
     Entity player;
@@ -44,7 +44,7 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
     public Entity createBoss(GameData gameData) {
         Entity boss = new Boss();
         boss.add(new PositionPart(2880, 150f, 0));
-        boss.add(new LifePart(10));
+        boss.add(new LifePart(1000));
         boss.setType("boss");
         boss.setHeight(315f);
         boss.setWidth(315f);
@@ -54,7 +54,6 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
 
     @Override
     public void process(GameData gameData, World world) {
-
 
         if (firstRun) {
             firstRun = false;
@@ -79,6 +78,8 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
             Entity boss = bossList.get(0);
             PositionPart positionPart = boss.getPart(PositionPart.class);
             LifePart lifePart = boss.getPart(LifePart.class);
+
+            System.out.println("boss hp: " + lifePart.getLife());
 
             if (path == null) {
                 path = pathfinder.findPath(navLayer.getCell((int) positionPart.getX() / pixelToTile, (int) positionPart.getY() / pixelToTile), navLayer.getCell((int) Math.round(playerPos.getX() / pixelToTile), (int) Math.round(playerPos.getY() / pixelToTile)));
