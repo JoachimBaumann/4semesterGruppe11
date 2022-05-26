@@ -48,7 +48,6 @@ public class LifePart implements EntityPart {
     @Override
     public void process(GameData gameData, Entity entity) {
         if (isHit) {
-            life =- 1;
             isHit = false;
         }
         if (life <= 0) {
