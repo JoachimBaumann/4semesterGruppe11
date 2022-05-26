@@ -30,8 +30,8 @@ public class PathFinderTest {
     List<GridCell> path;
 
 
-    @Before
-    public void setUp() {
+    @Test
+    public void startTest() {
         map = loader.load(AssetLoader.getAssetPath(assetPath, "finalmap.tmx"));
         navLayer = (NavigationTiledMapLayer) map.getLayers().get("navigation");
         navLayer.setHeight(30);
@@ -39,10 +39,7 @@ public class PathFinderTest {
         pathfinder = new Pathfinder(navLayer);
 
         System.out.println("Testing Path finding for coordinates (1500, 500)");
-    }
 
-    @Test
-    public void startTest() {
         path = pathfinder.findPath(navLayer.getCell(250, 100) , navLayer.getCell(1500, 500));
         System.out.println("Starting pathfinding test");
         System.out.println(path);

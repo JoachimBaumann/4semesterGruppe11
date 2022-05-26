@@ -29,7 +29,7 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
     private TmxMapLoader loader = new NavTmxMapLoader();
     private NavigationTiledMapLayer navLayer;
     private Pathfinder pathfinder;
-    private float maxSpeed = 500;
+    private float maxSpeed = 300;
     boolean second = false;
 
     Entity player;

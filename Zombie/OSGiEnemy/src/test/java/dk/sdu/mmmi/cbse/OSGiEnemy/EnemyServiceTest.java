@@ -44,7 +44,7 @@ public class EnemyServiceTest {
 
         System.out.println("Test random enemies");
         List<Entity> entityList = new ArrayList<>();
-        for (int i=0; i < 10; i++) {
+        for (int i=0; i < 50; i++) {
             Entity enemy = spi.createEnemy(gameData);
             entityList.add(enemy);
         }

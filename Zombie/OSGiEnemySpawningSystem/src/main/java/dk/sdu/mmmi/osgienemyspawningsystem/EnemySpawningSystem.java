@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class EnemySpawningSystem implements IEntityProcessingService {
 
-    private int currentLevel = 1;
+    private int currentLevel = 9;
     private Map<Integer, Integer> waves = waveMap();
     private List<Entity> enemies = new ArrayList<>();
     private List<Entity> bosses = new ArrayList<>();
