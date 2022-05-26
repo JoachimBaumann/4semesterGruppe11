@@ -20,6 +20,7 @@ public class ScoreControlSystem implements IEntityProcessingService {
     public void process(GameData gameData, World world) {
         for (Entity entity : world.getEnemies()) {
             aliveList.add(entity);
+            gameData.setPlayerScore(String.valueOf(aliveList.size()));
         }
         if (gameData.isGameWon() || gameData.isGameLost()) {
             String kills = String.valueOf(aliveList.size() - world.getEnemies().size());

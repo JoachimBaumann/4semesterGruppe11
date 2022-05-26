@@ -79,7 +79,6 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
             PositionPart positionPart = boss.getPart(PositionPart.class);
             LifePart lifePart = boss.getPart(LifePart.class);
 
-            System.out.println("boss hp: " + lifePart.getLife());
 
             if (path == null) {
                 path = pathfinder.findPath(navLayer.getCell((int) positionPart.getX() / pixelToTile, (int) positionPart.getY() / pixelToTile), navLayer.getCell((int) Math.round(playerPos.getX() / pixelToTile), (int) Math.round(playerPos.getY() / pixelToTile)));

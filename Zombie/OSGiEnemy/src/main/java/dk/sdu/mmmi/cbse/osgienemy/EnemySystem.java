@@ -52,9 +52,6 @@ public class EnemySystem implements IEntityProcessingService, EnemySPI{
         int xCoordinate = getRandomNumber(0, 4000);
         int yCoordinate = getRandomNumber(100, 500);
         enemy.add(new PositionPart(xCoordinate , yCoordinate , direction));
-        enemy.setWidth(115);
-        enemy.setRadius(20);
-        enemy.add(new LifePart(50));
 
         enemy.directionTypeEntity = true;
         enemy.setType("enemy");
@@ -79,29 +76,29 @@ public class EnemySystem implements IEntityProcessingService, EnemySPI{
                 Entity entity1 = new EnemyBat();
                 entity1.setHeight(130);
                 entity1.setWidth(50);
-                entity1.add(new MovingPart(75));
-                entity1.add(new LifePart(5));
+                entity1.add(new MovingPart(150));
+                entity1.add(new LifePart(25));
                 return entity1;
             case 1:
                 Entity entity2 = new EnemyRaven();
                 entity2.setHeight(300);
                 entity2.setWidth(50);
-                entity2.add(new MovingPart(300));
-                entity2.add(new LifePart(10));
+                entity2.add(new MovingPart(500));
+                entity2.add(new LifePart(50));
                 return entity2;
             case 2:
                 Entity entity3 = new EnemySnail();
                 entity3.setHeight(186);
                 entity3.setWidth(336);
                 entity3.add(new MovingPart(50));
-                entity3.add(new LifePart(15));
+                entity3.add(new LifePart(75));
                 return entity3;
             case 3:
                 Entity entity4 = new EnemyZombie();
                 entity4.setHeight(100);
                 entity4.setWidth(115);
                 entity4.add(new MovingPart(200));
-                entity4.add(new LifePart(20));
+                entity4.add(new LifePart(100));
                 return entity4;
         }
         return null;

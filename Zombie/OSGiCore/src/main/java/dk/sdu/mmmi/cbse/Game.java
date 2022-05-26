@@ -232,6 +232,7 @@ public class Game implements ApplicationListener {
             endgameBatch.begin();
             victoyTextSprite.draw(endgameBatch);
             font.draw(endgameBatch, "high score: " + charHighScore, Gdx.graphics.getWidth()/4.25f, Gdx.graphics.getHeight()/2f);
+            font.draw(endgameBatch, "Player score : " + playerScore, Gdx.graphics.getWidth()/4.25f, Gdx.graphics.getHeight()*0.45f);
 
             endgameBatch.end();
             //setFreeze(true);
