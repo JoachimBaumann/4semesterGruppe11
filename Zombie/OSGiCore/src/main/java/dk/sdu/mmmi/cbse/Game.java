@@ -203,12 +203,15 @@ public class Game implements ApplicationListener {
             String highScore = gameData.getCurrentHighScore();
             String playerScore = gameData.getPlayerScore();
             CharSequence charHighScore = highScore;
+            CharSequence playerHighScore = playerScore;
             font = new BitmapFont();
             font.setScale(2f);
             //todo: display scores here
             endgameBatch.begin();
             youDiedTextSprite.setPosition(Gdx.graphics.getWidth()*0.15f,Gdx.graphics.getHeight()*0.5f);
             font.draw(endgameBatch, "high score: " + charHighScore, Gdx.graphics.getWidth()/4.25f, Gdx.graphics.getHeight()/2f);
+            font.draw(endgameBatch, "Player score : " + playerScore, Gdx.graphics.getWidth()/4.25f, Gdx.graphics.getHeight()*0.45f);
+
             youDiedTextSprite.draw(endgameBatch);
             //deadEndgameSprite.draw(endgameBatch);
             endgameBatch.end();
