@@ -57,7 +57,7 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
 
         if (firstRun) {
             firstRun = false;
-            TiledMap map = loader.load(AssetLoader.getAssetPath(assetPath, "finalmap.tmx"));
+            TiledMap map = loader.load(AssetLoader.getAssetPath(assetPath,"Map/widemap.tmx"));
             navLayer = (NavigationTiledMapLayer) map.getLayers().get("navigation");
             navLayer.setHeight(30);
             navLayer.setWidth(360);
