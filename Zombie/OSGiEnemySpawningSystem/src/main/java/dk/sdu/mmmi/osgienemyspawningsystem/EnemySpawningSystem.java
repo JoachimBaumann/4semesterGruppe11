@@ -36,10 +36,12 @@ public class EnemySpawningSystem implements IEntityProcessingService {
                 updateLevel(gameData);
             }
         }
-        if (currentLevel == 10 && !firstBossSpawned) {
-            spawnBoss(gameData, world);
-            bosses = world.getBoss();
-            firstBossSpawned = true;
+        if (currentLevel == 10) {
+            if (!firstBossSpawned) {
+                spawnBoss(gameData, world);
+                bosses = world.getBoss();
+                firstBossSpawned = true;
+            }
             if (bosses.size() == 0){
                 updateLevel(gameData);
             }
