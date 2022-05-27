@@ -81,8 +81,8 @@ public class EnemySystem implements IEntityProcessingService, EnemySPI{
                 return entity1;
             case 1:
                 Entity entity2 = new EnemyRaven();
-                entity2.setHeight(300);
-                entity2.setWidth(50);
+                entity2.setHeight(200);
+                entity2.setWidth(25);
                 entity2.add(new MovingPart(500));
                 entity2.add(new LifePart(50));
                 return entity2;
