@@ -28,4 +28,6 @@ public class Boss extends Enemy {
         return "boss";
     }
 
+
+
 }

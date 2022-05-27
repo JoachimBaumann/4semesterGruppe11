@@ -44,7 +44,7 @@ public class BossControlSystem implements IEntityProcessingService, BossSPI {
     public Entity createBoss(GameData gameData) {
         Entity boss = new Boss();
         boss.add(new PositionPart(2880, 150f, 0));
-        boss.add(new LifePart(1000));
+        boss.add(new LifePart(5000));
         boss.setType("boss");
         boss.setHeight(315f);
         boss.setWidth(315f);

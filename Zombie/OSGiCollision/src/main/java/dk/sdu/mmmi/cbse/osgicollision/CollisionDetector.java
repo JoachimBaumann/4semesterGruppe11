@@ -30,10 +30,13 @@ public class CollisionDetector implements IPostEntityProcessingService {
                         if (entity.getType() == "Weapon"){
                             entityLife.setLife(entityLife.getLife() - 3);
                             entityLife.setIsHit(true);
-                        }else{
-                        entityLife.setLife(entityLife.getLife() - 2);
+                        }else if (entity.getType() == "boss"){
+                        entityLife.setLife(entityLife.getLife() - 5);
                         entityLife.setIsHit(true);
-                    }
+                    }else{
+                            entityLife.setLife(entityLife.getLife() - 2);
+                            entityLife.setIsHit(true);
+                        }
                     }
 
                         LifePart coldetect = collisionDetection.getPart(LifePart.class);
