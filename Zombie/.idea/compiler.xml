@@ -6,52 +6,54 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dk.sdu.mmmi.cbse.osgienemy" />
-        <module name="OSGiEnemyTracking" />
-        <module name="dk.sdu.mmmi.cbse.OSGILaser" />
+        <module name="Player" />
+        <module name="CommonEnemy" />
         <module name="OSGiEnemy" />
-        <module name="OSGiCollision" />
         <module name="OSGiLaser" />
-        <module name="OSGiCommonEnemy" />
+        <module name="Collision" />
         <module name="OSGiAsteroidSplitter" />
-        <module name="OSGiCommon" />
+        <module name="EnemyTracking" />
+        <module name="Common" />
+        <module name="CommonPlayer" />
         <module name="OSGiAsteroids" />
+        <module name="EnemySpawningSystem" />
+        <module name="Boss" />
         <module name="LibGDX" />
-        <module name="OSGiCore" />
-        <module name="OSGiCommonWeapon" />
-        <module name="OSGiPlayer" />
+        <module name="ScoreSystem" />
+        <module name="CommonWeapon" />
+        <module name="Enemy" />
+        <module name="Laser" />
         <module name="OSGiCommonBullet" />
-        <module name="OSGiCommonPlayer" />
-        <module name="dk.sdu.mmmi.cbse.osgimap" />
         <module name="OSGiCommonAsteroids" />
-        <module name="OSGiScoreSystem" />
-        <module name="OSGiEnemySpawningSystem" />
+        <module name="Map" />
+        <module name="Core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Boss" target="1.8" />
+      <module name="Collision" target="1.8" />
+      <module name="Common" target="1.8" />
+      <module name="CommonEnemy" target="1.8" />
+      <module name="CommonPlayer" target="1.8" />
+      <module name="CommonWeapon" target="1.8" />
       <module name="compiled-bundle-settings" target="1.8" />
-      <module name="dk.sdu.mmmi.cbse.osgienemy" target="1.8" />
-      <module name="dk.sdu.mmmi.cbse.OSGILaser" target="1.8" />
-      <module name="dk.sdu.mmmi.cbse.osgimap" target="1.8" />
+      <module name="Core" target="1.8" />
+      <module name="Enemy" target="1.8" />
+      <module name="EnemySpawningSystem" target="1.8" />
+      <module name="EnemyTracking" target="1.8" />
+      <module name="Laser" target="1.8" />
       <module name="LibGDX" target="1.8" />
+      <module name="Map" target="1.8" />
       <module name="OSGiAsteroids" target="1.8" />
       <module name="OSGiAsteroidSplitter" target="1.8" />
-      <module name="OSGiCollision" target="1.8" />
-      <module name="OSGiCommon" target="1.8" />
       <module name="OSGiCommonAsteroids" target="1.8" />
       <module name="OSGiCommonBullet" target="1.8" />
-      <module name="OSGiCommonEnemy" target="1.8" />
-      <module name="OSGiCommonPlayer" target="1.8" />
-      <module name="OSGiCommonWeapon" target="1.8" />
-      <module name="OSGiCore" target="1.8" />
       <module name="OSGiEnemy" target="1.8" />
-      <module name="OSGiEnemySpawningSystem" target="1.8" />
-      <module name="OSGiEnemyTracking" target="1.8" />
       <module name="OSGiLaser" target="1.8" />
-      <module name="OSGiPlayer" target="1.8" />
-      <module name="OSGiScoreSystem" target="1.8" />
       <module name="OSGiWeapon" target="1.8" />
+      <module name="Player" target="1.8" />
       <module name="provision" target="1.8" />
+      <module name="ScoreSystem" target="1.8" />
       <module name="shared-plugin-settings" target="1.8" />
       <module name="wrapper-bundle-settings" target="1.8" />
       <module name="Zombie" target="1.8" />

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiPlayer-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGiPlayer" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Bundle-Description" value="Generated using Pax-Construct" />
+          <property key="Export-Package" value="!dk.sdu.mmmi.cbse.internal.*,dk.sdu.mmmi.cbse.*;version=&quot;1.0-SNAPSHOT&quot;" />
+          <property key="Private-Package" value="dk.sdu.mmmi.cbse.internal.*" />
+          <property key="Bundle-Name" value="OSGiPlayer" />
+          <property key="Include-Resource" value="Assets/PlayerLeft/flippedPlayerIdle.png=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/Assets/PlayerLeft/flippedPlayerIdle.png,Assets/PlayerLeft/flippedPlayerIdle.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/Assets/PlayerLeft/flippedPlayerIdle.txt,Assets/PlayerLeft/FlippedShootPlayer.png=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/Assets/PlayerLeft/FlippedShootPlayer.png,Assets/PlayerLeft/FlippedShootPlayer.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/Assets/PlayerLeft/FlippedShootPlayer.txt,Assets/PlayerRight/playershootright.png=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/Assets/PlayerRight/playershootright.png,Assets/PlayerRight/playershootright.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/Assets/PlayerRight/playershootright.txt,Assets/prut.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/Assets/prut.txt,META-INF/entityprocessor.xml=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiPlayer/src/main/resources/META-INF/gameplugin.xml" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
+</module>

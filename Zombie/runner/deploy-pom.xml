@@ -17,7 +17,7 @@
   <dependencies>
     <dependency>
       <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiLibGDX</artifactId>
+      <artifactId>LibGDX</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
@@ -42,41 +42,7 @@
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiCommon</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>OSGiCommonPlayer</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiCommon</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>OSGiCommonEnemy</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>OSGiCommonWeapon</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>dk.sdu.mmmi.cbse</artifactId>
+      <artifactId>Common</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
@@ -107,52 +73,87 @@
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>OSGiCommonPlayer</artifactId>
+      <artifactId>CommonPlayer</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.build</groupId>
+      <artifactId>Common</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>OSGiCommonEnemy</artifactId>
+      <artifactId>CommonEnemy</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>CommonWeapon</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>dk.sdu.mmmi.cbse</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>CommonPlayer</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>OSGiCommonWeapon</artifactId>
+      <artifactId>CommonEnemy</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiPlayer</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiEnemy</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiCommonEnemy</artifactId>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>CommonWeapon</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiCore</artifactId>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>dk.sdu.mmmi.cbse.osgimap</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiLibGDX</artifactId>
+      <artifactId>Player</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.build</groupId>
+      <artifactId>Enemy</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.build</groupId>
+      <artifactId>Core</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.build</groupId>
+      <artifactId>LibGDX</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
@@ -164,22 +165,9 @@
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.Zombie</groupId>
-      <artifactId>dk.sdu.mmmi.cbse.osgimap</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.Zombie</groupId>
       <artifactId>dk.sdu.mmmi.cbse.osgienemytracking</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiEnemy</artifactId>
-      <version>1.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -191,14 +179,27 @@
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>OSGiEnemySpawningSystem</artifactId>
+      <artifactId>EnemySpawningSystem</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>dk.sdu.mmmi.build</groupId>
-      <artifactId>dk.sdu.mmmi.cbse</artifactId>
+      <artifactId>Enemy</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.build</groupId>
+      <artifactId>ScoreSystem</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>bundle</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>dk.sdu.mmmi.Zombie</groupId>
+      <artifactId>dk.sdu.mmmi.cbse.osgiboss</artifactId>
       <version>1.0-SNAPSHOT</version>
       <type>bundle</type>
       <scope>provided</scope>

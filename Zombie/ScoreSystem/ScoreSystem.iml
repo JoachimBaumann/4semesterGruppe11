@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiScoreSystem-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGiScoreSystem" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Bundle-Description" value="Generated using Pax-Construct" />
+          <property key="Export-Package" value="!dk.sdu.mmmi.cbse.internal.*,dk.sdu.mmmi.cbse.*;version=&quot;1.0-SNAPSHOT&quot;" />
+          <property key="Private-Package" value="dk.sdu.mmmi.cbse.internal.*" />
+          <property key="Bundle-Name" value="OSGiScoreSystem" />
+          <property key="Include-Resource" value="META-INF/entityprocessor.xml=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiScoreSystem/src/main/resources/META-INF/entityprocessor.xml,META-INF/gameplugin.xml=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiScoreSystem/src/main/resources/META-INF/gameplugin.xml" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
+</module>

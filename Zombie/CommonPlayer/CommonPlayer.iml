@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="OSGiCommonPlayer-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGiCommonPlayer" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Bundle-Description" value="Generated using Pax-Construct" />
+          <property key="Export-Package" value="!OSGiCommonPlayer.internal.*,OSGiCommonPlayer.*;version=&quot;1.0-SNAPSHOT&quot;" />
+          <property key="Private-Package" value="OSGiCommonPlayer.internal.*" />
+          <property key="Bundle-Name" value="OSGiCommonPlayer" />
+          <property key="Include-Resource" value="Assets/playeridle-0.png=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiCommonPlayer/src/main/resources/Assets/playeridle-0.png,Assets/playeridle.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiCommonPlayer/src/main/resources/Assets/playeridle.txt" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
+</module>

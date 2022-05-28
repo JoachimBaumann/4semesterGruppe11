@@ -1,3 +1,0 @@
-Bundle-SymbolicName: OSGiEnemyTracking
-Bundle-ActivationPolicy: lazy
-Service-Component: META-INF/postentityprocess.xml

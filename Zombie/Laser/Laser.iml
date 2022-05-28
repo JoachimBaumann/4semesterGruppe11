@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="Osmorc" name="OSGi">
+      <configuration manifestGenerationMode="Manually" manifestLocation="-osgi.bnd" jarfileLocation="dk.sdu.mmmi.cbse.OSGILaser-1.0-SNAPSHOT.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="OSGILaser" bundleVersion="1.0-SNAPSHOT" ignoreFilePattern="" useProjectDefaultManifestFileLocation="false" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
+        <additionalProperties>
+          <property key="Bundle-Description" value="Generated using Pax-Construct" />
+          <property key="Export-Package" value="!dk.sdu.mmmi.internal.*,dk.sdu.mmmi.*;version=&quot;1.0-SNAPSHOT&quot;" />
+          <property key="Private-Package" value="dk.sdu.mmmi.internal.*" />
+          <property key="Bundle-Name" value="OSGILaser" />
+          <property key="Include-Resource" value="Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.png=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.png,Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/Assets/ShootingAssets/ShootingLeft/shootexplosionLeft.txt,Assets/ShootingAssets/ShootingLeft/shotLeft.png=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/Assets/ShootingAssets/ShootingLeft/shotLeft.png,Assets/ShootingAssets/ShootingLeft/shotLeft.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/Assets/ShootingAssets/ShootingLeft/shotLeft.txt,Assets/ShootingAssets/ShootingRight/shootexplosion.png=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/Assets/ShootingAssets/ShootingRight/shootexplosion.png,Assets/ShootingAssets/ShootingRight/shootexplosion.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/Assets/ShootingAssets/ShootingRight/shootexplosion.txt,Assets/ShootingAssets/ShootingRight/shotright.png=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/Assets/ShootingAssets/ShootingRight/shotright.png,Assets/ShootingAssets/ShootingRight/shotright.txt=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/Assets/ShootingAssets/ShootingRight/shotright.txt,META-INF/MANIFEST.MF=/Users/annecathrinekirkegaard/Downloads/4semesterGruppe11/Zombie/OSGiLaser/src/main/resources/META-INF/MANIFEST.MF" />
+        </additionalProperties>
+        <additionalJARContents />
+      </configuration>
+    </facet>
+  </component>
+</module>
